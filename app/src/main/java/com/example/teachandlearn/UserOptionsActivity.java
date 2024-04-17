@@ -35,6 +35,7 @@ public class UserOptionsActivity extends AppCompatActivity {
                 // Start SignUpActivity
                 startActivity(new Intent(UserOptionsActivity.this, SignUpActivity.class));
             }
+
         });
 
         // Set background color to blue
@@ -51,5 +52,7 @@ public class UserOptionsActivity extends AppCompatActivity {
         );
         signUpParams.gravity = Gravity.TOP | Gravity.END; // Align to top-right corner
         signUpButton.setLayoutParams(signUpParams);
+        
     }
+
 }
