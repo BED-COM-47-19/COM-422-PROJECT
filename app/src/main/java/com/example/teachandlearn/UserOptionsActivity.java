@@ -52,7 +52,7 @@ public class UserOptionsActivity extends AppCompatActivity {
         );
         signUpParams.gravity = Gravity.TOP | Gravity.END; // Align to top-right corner
         signUpButton.setLayoutParams(signUpParams);
-        
+
     }
 
 }
