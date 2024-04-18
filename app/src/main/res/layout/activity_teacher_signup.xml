@@ -71,5 +71,6 @@
         android:layout_below="@id/editTextConfirmPassword"
         android:layout_marginTop="24dp"
         android:layout_marginHorizontal="16dp"/>
+    
 
 </RelativeLayout>
