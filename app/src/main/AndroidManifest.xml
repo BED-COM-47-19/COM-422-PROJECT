@@ -31,7 +31,7 @@
         <!-- SignUpActivity -->
         <activity android:name=".SignUpActivity" />
 
-        <!-- UserOptionsActivity -->
+        <!-- UserLogInOptionsActivity -->
         <activity
             android:name=".UserOptionsActivity"
             android:theme="@style/Theme.AppCompat" />

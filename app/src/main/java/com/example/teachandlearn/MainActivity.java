@@ -62,12 +62,13 @@ public class MainActivity extends AppCompatActivity {
         getStartedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start UserOptionsActivity
-                startActivity(new Intent(MainActivity.this, UserOptionsActivity.class));
+                // Start UserLogInOptionsActivity
+                startActivity(new Intent(MainActivity.this, SignupOptionsActivity.class));
             }
         });
 
         setContentView(rootLayout);
+
     }
 
 }
