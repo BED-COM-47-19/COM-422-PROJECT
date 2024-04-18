@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:text="CONTINUE"
         android:textColor="#FFFFFF"
-        android:background="#5C5CFF"
+        android:background="#131359"
         android:layout_below="@id/editTextConfirmPassword"
         android:layout_marginTop="32dp" />
 
