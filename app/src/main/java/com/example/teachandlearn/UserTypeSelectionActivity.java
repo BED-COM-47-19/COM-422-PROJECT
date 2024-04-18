@@ -49,6 +49,30 @@ public class UserTypeSelectionActivity extends AppCompatActivity {
             }
         });
 
+        // Create Button for Teacher
+        Button teacherButton = new Button(this);
+        teacherButton.setText("TEACHER");
+        teacherButton.setTextColor(0xFF000000); // Black text color
+        teacherButton.setBackgroundColor(0xFF6200EE); // Purple background color
+        LinearLayout.LayoutParams teacherParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        teacherParams.gravity = Gravity.CENTER_HORIZONTAL;
+        teacherParams.topMargin = 50; // Adjust top margin
+        teacherButton.setLayoutParams(teacherParams);
+        rootLayout.addView(teacherButton);
+
+        // Set OnClickListener for Teacher button
+        teacherButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle teacher selection
+                // For example, you can navigate to the teacher login activity
+                startActivity(new Intent(UserTypeSelectionActivity.this, TeacherLoginActivity.class));
+            }
+        });
+
         // Set Content View to the root layout
         setContentView(rootLayout);
     }
