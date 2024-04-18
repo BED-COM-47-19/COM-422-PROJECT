@@ -1,80 +1,67 @@
-
 package com.example.teachandlearn;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.GridView;
-import android.widget.Spinner;
-import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-import java.util.ArrayList;
-import java.util.List;
-import com.example.teachandlearn.R;
-import com.example.teachandlearn.TeacherSelectionActivity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class TeacherSelectionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_selection);
 
-        // Dummy data for class names
-        List<String> classNames = new ArrayList<>();
-        classNames.add("Form 1");
-        classNames.add("Form 2");
-        classNames.add("Form 3");
-        classNames.add("Form 4");
+        LinearLayout rootLayout = new LinearLayout(this);
+        rootLayout.setOrientation(LinearLayout.VERTICAL);
+        rootLayout.setBackgroundColor(0xFF6200EE);
+        rootLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
+        ));
 
-        // Find the Spinner for class selection
-        Spinner spinnerClasses = findViewById(R.id.spinnerClasses);
+        Button selectClassButton = new Button(this);
+        selectClassButton.setText("SELECT A CLASS");
+        selectClassButton.setTextColor(0xFF000000);
+        selectClassButton.setBackgroundColor(0xFF6200EE);
+        LinearLayout.LayoutParams selectClassParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        selectClassParams.gravity = Gravity.CENTER_HORIZONTAL;
+        selectClassParams.topMargin = 100;
+        selectClassButton.setLayoutParams(selectClassParams);
+        rootLayout.addView(selectClassButton);
 
-        // Create an ArrayAdapter for the spinner
-        ArrayAdapter<String> classAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, classNames);
-        classAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Button selectFieldsButton = new Button(this);
+        selectFieldsButton.setText("SELECT THE FIELDS YOU TEACH");
+        selectFieldsButton.setTextColor(0xFF000000);
+        selectFieldsButton.setBackgroundColor(0xFF6200EE);
+        LinearLayout.LayoutParams selectFieldsParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        selectFieldsParams.gravity = Gravity.CENTER_HORIZONTAL;
+        selectFieldsParams.topMargin = 20;
+        selectFieldsButton.setLayoutParams(selectFieldsParams);
+        rootLayout.addView(selectFieldsButton);
 
-        // Set the adapter to the spinner
-        spinnerClasses.setAdapter(classAdapter);
+        setContentView(rootLayout);
 
-        // Dummy data for field names
-        String[] fieldNames = {"Mathematics", "Science", "History", "English"};
-
-        // Find the GridView for field selection
-        GridView gridViewFields = findViewById(R.id.gridViewFields);
-
-        // Create an ArrayAdapter for the GridView
-        ArrayAdapter<String> fieldAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fieldNames);
-
-        // Set the adapter to the GridView
-        gridViewFields.setAdapter(fieldAdapter);
-
-        // Set item click listener for GridView items
-        gridViewFields.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        selectClassButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Get the selected field name
-                String selectedFieldName = fieldNames[position];
-
-                // Display a toast message with the selected field name
-                Toast.makeText(TeacherSelectionActivity.this, "Selected Field: " + selectedFieldName, Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                startActivity(new Intent(TeacherSelectionActivity.this, SelectClassActivity.class));
             }
         });
 
-        // Find the Submit button
-        Button buttonSubmit = findViewById(R.id.buttonSubmit);
-
-        // Set OnClickListener for the Submit button
-        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+        selectFieldsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get the selected class name from the Spinner
-                String selectedClass = spinnerClasses.getSelectedItem().toString();
-
-                // Display a toast message with the selected class name
-                Toast.makeText(TeacherSelectionActivity.this, "Selected Class: " + selectedClass, Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(TeacherSelectionActivity.this, SelectFieldsActivity.class));
             }
         });
     }

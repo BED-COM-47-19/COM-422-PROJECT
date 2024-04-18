@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#292961"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewForm4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FOR FORM 4"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" />
+
+    <Button
+        android:id="@+id/buttonSciencesForm4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SCIENCES"
+        android:textColor="#FFFFFF"
+        android:background="#5C5CFF"
+        android:layout_below="@id/textViewForm4"
+        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="16dp" />
+
+    <Button
+        android:id="@+id/buttonHumanitiesForm4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HUMANITIES"
+        android:textColor="#FFFFFF"
+        android:background="#5C5CFF"
+        android:layout_below="@id/buttonSciencesForm4"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp" />
+
+    <Button
+        android:id="@+id/buttonLanguagesForm4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LANGUAGES"
+        android:textColor="#FFFFFF"
+        android:background="#5C5CFF"
+        android:layout_below="@id/buttonHumanitiesForm4"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp" />
+
+    <Button
+        android:id="@+id/buttonBackForm4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BACK"
+        android:textColor="#FFFFFF"
+        android:background="#5C5CFF"
+        android:layout_below="@id/buttonLanguagesForm4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" />
+
+</RelativeLayout>

@@ -1,5 +1,5 @@
-
 package com.example.teachandlearn;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -7,10 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.teachandlearn.UserTypeSelectionActivity;
-import com.example.teachandlearn.ClassSelectionActivity;
-import com.example.teachandlearn.TeacherSelectionActivity;
 
 public class UserTypeSelectionActivity extends AppCompatActivity {
 
@@ -41,37 +39,13 @@ public class UserTypeSelectionActivity extends AppCompatActivity {
         studentButton.setLayoutParams(studentParams);
         rootLayout.addView(studentButton);
 
-        // Create Button for Teacher
-        Button teacherButton = new Button(this);
-        teacherButton.setText("TEACHER");
-        teacherButton.setTextColor(0xFF000000); // Black text color
-        teacherButton.setBackgroundColor(0xFF6200EE); // Purple background color
-        LinearLayout.LayoutParams teacherParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        teacherParams.gravity = Gravity.CENTER_HORIZONTAL;
-        teacherParams.topMargin = 20; // Adjust top margin
-        teacherButton.setLayoutParams(teacherParams);
-        rootLayout.addView(teacherButton);
-
         // Set OnClickListener for Student button
         studentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Handle student selection
-                // For example, you can navigate to the student dashboard activity
-                startActivity(new Intent(UserTypeSelectionActivity.this, ClassSelectionActivity.class));
-            }
-        });
-
-        // Set OnClickListener for Teacher button
-        teacherButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle teacher selection
-                // For example, you can navigate to the teacher dashboard activity
-                startActivity(new Intent(UserTypeSelectionActivity.this, TeacherSelectionActivity.class));
+                // For example, you can navigate to the student login activity
+                startActivity(new Intent(UserTypeSelectionActivity.this, StudentLoginActivity.class));
             }
         });
 

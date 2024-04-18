@@ -1,40 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.teachandlearn.TeacherSelectionActivity">
-
-    <Spinner
-        android:id="@+id/spinnerClasses"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp" />
-
-    <GridView
-        android:id="@+id/gridViewFields"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/spinnerClasses"
-        android:numColumns="2"
-        android:horizontalSpacing="16dp"
-        android:verticalSpacing="16dp"
-        android:padding="16dp" />
+    android:background="#6200EE"
+    android:orientation="vertical"
+    android:gravity="center">
 
     <Button
-        android:id="@+id/buttonSubmit"
+        android:id="@+id/selectClassButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/gridViewFields"
-        android:layout_marginTop="24dp"
-        android:text="Submit" />
+        android:text="SELECT A CLASS"
+        android:textColor="#000000"
+        android:background="#6200EE"
+        android:layout_marginTop="100dp"/>
+
+    <Button
+        android:id="@+id/selectFieldsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT THE FIELDS YOU TEACH"
+        android:textColor="#000000"
+        android:background="#6200EE"
+        android:layout_marginTop="20dp"/>
+
 
     <GridView
         android:id="@+id/gridView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:numColumns="auto_fit"
+        android:columnWidth="100dp"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"/>
 
 
-</RelativeLayout>
+</LinearLayout>

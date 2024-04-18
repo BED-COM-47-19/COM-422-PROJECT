@@ -17,7 +17,7 @@ public class TeacherPasswordResetActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        
+
         super.onCreate(savedInstanceState);
 
         // Create a LinearLayout as the root layout
