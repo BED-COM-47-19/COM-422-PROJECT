@@ -15,6 +15,7 @@ public class UserTypeSelectionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_type_selection);
 
         // Create a LinearLayout as the root layout
         LinearLayout rootLayout = new LinearLayout(this);
@@ -43,8 +44,7 @@ public class UserTypeSelectionActivity extends AppCompatActivity {
         studentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle student selection
-                // For example, you can navigate to the student login activity
+                // Start StudentLoginActivity
                 startActivity(new Intent(UserTypeSelectionActivity.this, StudentLoginActivity.class));
             }
         });
@@ -67,8 +67,7 @@ public class UserTypeSelectionActivity extends AppCompatActivity {
         teacherButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle teacher selection
-                // For example, you can navigate to the teacher login activity
+                // Start TeacherLoginActivity
                 startActivity(new Intent(UserTypeSelectionActivity.this, TeacherLoginActivity.class));
             }
         });

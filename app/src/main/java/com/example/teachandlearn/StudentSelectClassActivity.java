@@ -1,17 +1,18 @@
 package com.example.teachandlearn;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SelectClassActivity extends AppCompatActivity {
+public class StudentSelectClassActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_class);
+        setContentView(R.layout.activity_select_class_activity);
 
         // Find buttons for each form
         Button buttonForm1 = findViewById(R.id.buttonForm1);
@@ -23,7 +24,9 @@ public class SelectClassActivity extends AppCompatActivity {
         buttonForm1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("Form 1 Selected");
+                // Start SelectCategoryActivity when Form 1 is selected
+                Intent intent = new Intent(StudentSelectClassActivity.this, Form1Activity.class);
+                startActivity(intent);
             }
         });
 
@@ -51,6 +54,6 @@ public class SelectClassActivity extends AppCompatActivity {
 
     // Helper method to show toast message
     private void showToast(String message) {
-        Toast.makeText(SelectClassActivity.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(StudentSelectClassActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 }

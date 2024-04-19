@@ -1,5 +1,5 @@
-
 package com.example.teachandlearn;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -11,8 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.teachandlearn.TeacherLoginActivity;
-import com.example.teachandlearn.TeacherPasswordResetActivity;
 
 public class TeacherLoginActivity extends AppCompatActivity {
 
@@ -84,19 +82,6 @@ public class TeacherLoginActivity extends AppCompatActivity {
         loginButton.setLayoutParams(loginParams);
         rootLayout.addView(loginButton);
 
-        // Create "Forgot Password?" TextView
-        TextView forgotPasswordTextView = new TextView(this);
-        forgotPasswordTextView.setText("Forgot Password?");
-        forgotPasswordTextView.setTextColor(0xFFFFFFFF); // White text color
-        forgotPasswordTextView.setGravity(Gravity.CENTER_HORIZONTAL);
-        LinearLayout.LayoutParams forgotPasswordParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        forgotPasswordParams.topMargin = 20; // Adjust top margin
-        forgotPasswordTextView.setLayoutParams(forgotPasswordParams);
-        rootLayout.addView(forgotPasswordTextView);
-
         // Set OnClickListener for "Log In" Button
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,19 +91,14 @@ public class TeacherLoginActivity extends AppCompatActivity {
 
                 // For example, you can display a toast message
                 Toast.makeText(TeacherLoginActivity.this, "Logged in as Teacher", Toast.LENGTH_SHORT).show();
+
+                // Navigate to SelectClassActivity
+                Intent intent = new Intent(TeacherLoginActivity.this, TeacherSelectionActivity.class);
+                startActivity(intent);
+
+
             }
         });
-
-        forgotPasswordTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start the PasswordResetActivity to initiate the password reset process
-                startActivity(new Intent(TeacherLoginActivity.this, TeacherPasswordResetActivity.class));
-            }
-        });
-
-        // Set Content View to the root layout
-        setContentView(rootLayout);
 
         // Set Content View to the root layout
         setContentView(rootLayout);

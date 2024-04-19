@@ -37,7 +37,7 @@ public class TeacherSelectionActivity extends AppCompatActivity {
         rootLayout.addView(selectClassButton);
 
         Button selectFieldsButton = new Button(this);
-        selectFieldsButton.setText("SELECT THE FIELDS YOU TEACH");
+        selectFieldsButton.setText("SELECT THE FIELD");
         selectFieldsButton.setTextColor(0xFF000000);
         selectFieldsButton.setBackgroundColor(0xFF6200EE);
         LinearLayout.LayoutParams selectFieldsParams = new LinearLayout.LayoutParams(

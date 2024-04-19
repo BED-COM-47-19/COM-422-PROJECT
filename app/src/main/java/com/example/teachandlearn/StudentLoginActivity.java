@@ -18,6 +18,7 @@ public class StudentLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_select_class);
 
         // Create a LinearLayout as the root layout
         LinearLayout rootLayout = new LinearLayout(this);
@@ -81,6 +82,19 @@ public class StudentLoginActivity extends AppCompatActivity {
         loginButton.setLayoutParams(loginParams);
         rootLayout.addView(loginButton);
 
+        // Create "Forgot Password?" TextView
+        TextView forgotPasswordTextView = new TextView(this);
+        forgotPasswordTextView.setText("Forgot Password?");
+        forgotPasswordTextView.setTextColor(0xFFFFFFFF); // White text color
+        forgotPasswordTextView.setGravity(Gravity.CENTER_HORIZONTAL);
+        LinearLayout.LayoutParams forgotPasswordParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        forgotPasswordParams.topMargin = 20; // Adjust top margin
+        forgotPasswordTextView.setLayoutParams(forgotPasswordParams);
+        rootLayout.addView(forgotPasswordTextView);
+
         // Set OnClickListener for "Log In" Button
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +104,17 @@ public class StudentLoginActivity extends AppCompatActivity {
 
                 // For example, you can display a toast message
                 Toast.makeText(StudentLoginActivity.this, "Logged in as Student", Toast.LENGTH_SHORT).show();
+
+                // Navigate to ClassSelectionActivity
+                startActivity(new Intent(StudentLoginActivity.this, StudentSelectClassActivity.class));
+            }
+        });
+
+        forgotPasswordTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the PasswordResetActivity to initiate the password reset process
+                startActivity(new Intent(StudentLoginActivity.this, StudentPasswordResetActivity.class));
             }
         });
 

@@ -62,10 +62,11 @@ public class MainActivity extends AppCompatActivity {
         getStartedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start UserLogInOptionsActivity
-                startActivity(new Intent(MainActivity.this, SignupOptionsActivity.class));
+                // Start UserTypeSelectionActivity
+                startActivity(new Intent(MainActivity.this, UserTypeSelectionActivity.class));
             }
         });
+
 
         setContentView(rootLayout);
 

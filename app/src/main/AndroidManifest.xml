@@ -25,17 +25,47 @@
             </intent-filter>
         </activity>
 
-        <!-- LoginActivity -->
-        <activity android:name=".LoginActivity" />
 
-        <!-- SignUpActivity -->
-        <activity android:name=".SignUpActivity" />
 
-        <!-- UserLogInOptionsActivity -->
         <activity
-            android:name=".UserOptionsActivity"
-            android:theme="@style/Theme.AppCompat" />
+            android:name=".UserTypeSelectionActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
 
-    </application>
+
+        <activity android:name=".StudentLoginActivity"
+                  android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".TeacherLoginActivity"
+                  android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".SelectClassActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".SelectFieldsActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".TeacherSelectionActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".StudentSelectClassActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form1Activity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+
+
+</application>
 
 </manifest>

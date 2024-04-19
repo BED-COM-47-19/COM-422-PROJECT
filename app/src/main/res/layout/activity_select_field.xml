@@ -4,12 +4,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/listViewFields"
+    <Button
+        android:id="@+id/buttonScience"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="10dp"
-        android:padding="16dp"/>
+        android:layout_height="wrap_content"
+        android:text="SCIENCE"
+        android:textColor="#FFFFFF"
+        android:background="#6200EE"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/buttonHumanities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HUMANITIES"
+        android:textColor="#FFFFFF"
+        android:background="#6200EE"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/buttonLanguages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LANGUAGES"
+        android:textColor="#FFFFFF"
+        android:background="#6200EE"
+        android:layout_margin="10dp"/>
 
 </LinearLayout>
