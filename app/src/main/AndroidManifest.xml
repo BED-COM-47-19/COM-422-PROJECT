@@ -61,6 +61,17 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
+        <activity android:name=".Form2Activity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form3Activity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form4Activity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
 
 
 

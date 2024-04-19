@@ -33,21 +33,24 @@ public class StudentSelectClassActivity extends AppCompatActivity {
         buttonForm2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("Form 2 Selected");
+                Intent intent = new Intent(StudentSelectClassActivity.this, Form2Activity.class);
+                startActivity(intent);
             }
         });
 
         buttonForm3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("Form 3 Selected");
+                Intent intent = new Intent(StudentSelectClassActivity.this, Form3Activity.class);
+                startActivity(intent);
             }
         });
 
         buttonForm4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("Form 4 Selected");
+                Intent intent = new Intent(StudentSelectClassActivity.this, Form4Activity.class);
+                startActivity(intent);
             }
         });
     }
