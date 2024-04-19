@@ -72,6 +72,8 @@ public class UserTypeSelectionActivity extends AppCompatActivity {
             }
         });
 
+
+
         // Set Content View to the root layout
         setContentView(rootLayout);
     }
