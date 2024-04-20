@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Form1ViewContentActivity extends AppCompatActivity {
@@ -12,7 +11,7 @@ public class Form1ViewContentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_view_content);
+        setContentView(R.layout.activity_form2_view_content);
 
         // Find buttons for PDF, Audio, Videos, and Questions
         Button buttonPDF = findViewById(R.id.buttonPDF);
@@ -24,36 +23,36 @@ public class Form1ViewContentActivity extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToForm1ScienceActivity();
+                navigateToTeacherUploads("pdf");
             }
         });
 
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToForm1ScienceActivity();
+                navigateToTeacherUploads("audio");
             }
         });
 
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToForm1ScienceActivity();
+                navigateToTeacherUploads("video");
             }
         });
 
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToForm1ScienceActivity();
+                navigateToTeacherUploads("question");
             }
         });
     }
 
-    // Helper method to navigate to Form1ScienceActivity
-    private void navigateToForm1ScienceActivity() {
-        Intent intent = new Intent(Form1ViewContentActivity.this, Form1ScienceActivity.class);
+    // Helper method to navigate to TeacherUploadsActivity
+    private void navigateToTeacherUploads(String contentType) {
+        Intent intent = new Intent(Form1ViewContentActivity.this, TeacherUploadsActivity.class);
+        intent.putExtra("content_type", contentType);
         startActivity(intent);
-
     }
 }

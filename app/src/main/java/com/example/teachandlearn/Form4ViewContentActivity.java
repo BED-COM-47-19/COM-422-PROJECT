@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Form4ViewContentActivity extends AppCompatActivity {
@@ -24,35 +23,36 @@ public class Form4ViewContentActivity extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToForm4ScienceActivity();
+                navigateToTeacherUploads("pdf");
             }
         });
 
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToForm4ScienceActivity();
+                navigateToTeacherUploads("audio");
             }
         });
 
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToForm4ScienceActivity();
+                navigateToTeacherUploads("video");
             }
         });
 
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToForm4ScienceActivity();
+                navigateToTeacherUploads("question");
             }
         });
     }
 
-    // Helper method to navigate to Form1ScienceActivity
-    private void navigateToForm4ScienceActivity() {
-        Intent intent = new Intent(Form4ViewContentActivity.this, Form4ScienceActivity.class);
+    // Helper method to navigate to TeacherUploadsActivity
+    private void navigateToTeacherUploads(String contentType) {
+        Intent intent = new Intent(Form4ViewContentActivity.this, TeacherUploadsActivity.class);
+        intent.putExtra("content_type", contentType);
         startActivity(intent);
     }
 }
