@@ -1,5 +1,6 @@
 package com.example.teachandlearn;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,34 +24,35 @@ public class Form3ViewContentActivity extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("PDF Selected");
+                navigateToForm3ScienceActivity();
             }
         });
 
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("Audio Selected");
+                navigateToForm3ScienceActivity();
             }
         });
 
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("Videos Selected");
+                navigateToForm3ScienceActivity();
             }
         });
 
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("Questions Selected");
+                navigateToFor3ScienceActivity();
             }
         });
     }
 
-    // Helper method to show toast message
-    private void showToast(String message) {
-        Toast.makeText(Form3ViewContentActivity.this, message, Toast.LENGTH_SHORT).show();
+    // Helper method to navigate to Form1ScienceActivity
+    private void navigateToForm3ScienceActivity() {
+        Intent intent = new Intent(Form3ViewContentActivity.this, Form3ScienceActivity.class);
+        startActivity(intent);
     }
 }
