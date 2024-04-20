@@ -49,8 +49,15 @@ android {
     }
 }
 
-dependencies {
+plugins {
+    // Add your plugins here
+}
 
+android {
+    // Your android configurations
+}
+
+dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -67,9 +74,13 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.firebaseStorage)
+}
 
-
-
-
-
+// Define your dependencies in the libs object
+ext {
+    libs = [
+        // Add your other dependencies here
+        firebaseStorage: "com.google.firebase:firebase-storage:20.0.0"
+    ]
 }

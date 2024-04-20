@@ -2,7 +2,6 @@ package com.example.teachandlearn;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
@@ -163,4 +162,69 @@ public class TeacherUploadsActivity extends AppCompatActivity {
 
             // Upload file to Firebase Storage
             fileRef.putFile(fileUri)
-                    .addOn
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            // File uploaded successfully
+                            showToast("File uploaded successfully");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // Handle unsuccessful uploads
+                            showToast("Failed to upload file");
+                        }
+                    });
+        }
+    }
+
+    private void deleteFile(Uri fileUri) {
+        if (fileUri != null) {
+            String fileName = getFileNameFromUri(fileUri);
+            if (fileName != null) {
+                StorageReference fileRef = storageReference.child("uploads/" + fileName);
+
+                fileRef.delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                // File deleted successfully
+                                showToast("File deleted successfully");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // Handle unsuccessful deletion
+                                showToast("Failed to delete file");
+                            }
+                        });
+            }
+        } else {
+            showToast("No file selected to delete");
+        }
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Nullable
+    private String getFileNameFromUri(Uri uri) {
+        String fileName = null;
+        if (uri.getScheme().equals("content")) {
+            try (Cursor cursor = getContentResolver().query(uri, null, null, null, null)) {
+                if (cursor != null && cursor.moveToFirst()) {
+                    fileName = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (fileName == null) {
+            fileName = uri.getLastPathSegment();
+        }
+        return fileName;
+    }
+}
