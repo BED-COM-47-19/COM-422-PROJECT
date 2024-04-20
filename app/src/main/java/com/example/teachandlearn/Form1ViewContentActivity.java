@@ -54,5 +54,6 @@ public class Form1ViewContentActivity extends AppCompatActivity {
     private void navigateToForm1ScienceActivity() {
         Intent intent = new Intent(Form1ViewContentActivity.this, Form1ScienceActivity.class);
         startActivity(intent);
+
     }
 }
