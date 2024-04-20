@@ -153,6 +153,11 @@
         </activity>
 
 
+        <!-- Teacher File Uploader -->
+
+        <activity android:name=".TeacherUploadsActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
 
 </application>
 
