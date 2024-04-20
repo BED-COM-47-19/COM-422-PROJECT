@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#151212">
+
+    <TextView
+        android:id="@+id/textViewContentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VIEW CONTENT"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
+
+    <Button
+        android:id="@+id/buttonPDF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PDF"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_background"
+        android:layout_below="@id/textViewContentTitle"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:id="@+id/buttonAudio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AUDIO"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_background"
+        android:layout_below="@id/buttonPDF"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:id="@+id/buttonVideos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VIDEOS"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_background"
+        android:layout_below="@id/buttonAudio"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:id="@+id/buttonQuestions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QUESTIONS"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_background"
+        android:layout_below="@id/buttonVideos"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+</RelativeLayout>

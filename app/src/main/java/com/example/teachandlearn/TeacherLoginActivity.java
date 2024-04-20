@@ -21,7 +21,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
         // Create a LinearLayout as the root layout
         LinearLayout rootLayout = new LinearLayout(this);
         rootLayout.setOrientation(LinearLayout.VERTICAL);
-        rootLayout.setBackgroundColor(0xFF6200EE); // Purple background color
+        rootLayout.setBackgroundColor(0xFF116AFD); // Purple background color
         rootLayout.setLayoutParams(new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
@@ -72,7 +72,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
         Button loginButton = new Button(this);
         loginButton.setText("Log In");
         loginButton.setTextColor(0xFFFFFFFF); // White text color
-        loginButton.setBackgroundColor(0xFF6200EE); // Purple background color
+        loginButton.setBackgroundColor(0xFF116AFD); // Purple background color
         LinearLayout.LayoutParams loginParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT

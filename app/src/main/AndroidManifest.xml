@@ -57,6 +57,8 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
+
+
         <activity android:name=".Form1Activity"
             android:theme="@style/Theme.AppCompat">
         </activity>
@@ -73,7 +75,69 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
+        <activity android:name=".Form1ScienceActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
 
+        <activity android:name=".Form2ScienceActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form3ScienceActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form4ScienceActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form1HumanitiesActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form2HumanitiesActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form3HumanitiesActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form4HumanitiesActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form1LanguagesActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form2LanguagesActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form3LanguagesActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form4LanguagesActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form1ViewContentActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form2ViewContentActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form3ViewContentActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Form4ViewContentActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
 
 
 

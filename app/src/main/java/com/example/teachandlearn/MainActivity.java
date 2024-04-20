@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         // Create a LinearLayout as the root layout
         LinearLayout rootLayout = new LinearLayout(this);
         rootLayout.setOrientation(LinearLayout.VERTICAL);
-        rootLayout.setBackgroundColor(0xFF6200EE); // Purple background color
+        rootLayout.setBackgroundColor(0xFF116AFD); // Purple background color
         rootLayout.setLayoutParams(new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
@@ -67,13 +67,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        getStartedButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Start SignUpOptionsActivity
-//                startActivity(new Intent(MainActivity.this, SignupOptionsActivity.class));
-//            }
-//        });
 
         setContentView(rootLayout);
 

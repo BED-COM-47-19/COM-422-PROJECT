@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#151212">
+
+    <TextView
+        android:id="@+id/textViewScienceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SCIENCES"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
+
+    <Button
+        android:id="@+id/buttonMathematics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MATHEMATICS"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_background"
+        android:layout_below="@id/textViewScienceTitle"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:id="@+id/buttonBiology"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BIOLOGY"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_background"
+        android:layout_below="@id/buttonMathematics"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:id="@+id/buttonPhysics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PHYSICS"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_background"
+        android:layout_below="@id/buttonBiology"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:id="@+id/buttonChemistry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHEMISTRY"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_background"
+        android:layout_below="@id/buttonPhysics"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:id="@+id/buttonAgriculture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AGRICULTURE"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_background"
+        android:layout_below="@id/buttonChemistry"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+</RelativeLayout>

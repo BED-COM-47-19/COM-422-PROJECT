@@ -1,5 +1,6 @@
 package com.example.teachandlearn;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,9 +23,9 @@ public class Form4Activity extends AppCompatActivity {
         buttonScience.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle the click event for SCIENCE button
-                showToast("Clicked SCIENCE");
-                // Add your logic for handling SCIENCE selection here
+                // Start SelectScienceActivity when SCIENCE button is clicked
+                Intent intent = new Intent(Form4Activity.this, Form4ScienceActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -32,9 +33,9 @@ public class Form4Activity extends AppCompatActivity {
         buttonHumanities.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle the click event for HUMANITIES button
-                showToast("Clicked HUMANITIES");
-                // Add your logic for handling HUMANITIES selection here
+                // Start SelectScienceActivity when SCIENCE button is clicked
+                Intent intent = new Intent(Form4Activity.this, Form4HumanitiesActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -42,9 +43,9 @@ public class Form4Activity extends AppCompatActivity {
         buttonLanguages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle the click event for LANGUAGES button
-                showToast("Clicked LANGUAGES");
-                // Add your logic for handling LANGUAGES selection here
+                // Start SelectScienceActivity when SCIENCE button is clicked
+                Intent intent = new Intent(Form4Activity.this, Form4LanguagesActivity.class);
+                startActivity(intent);
             }
         });
     }

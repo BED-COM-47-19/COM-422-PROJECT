@@ -20,7 +20,7 @@ public class UserTypeSelectionActivity extends AppCompatActivity {
         // Create a LinearLayout as the root layout
         LinearLayout rootLayout = new LinearLayout(this);
         rootLayout.setOrientation(LinearLayout.VERTICAL);
-        rootLayout.setBackgroundColor(0xFF6200EE); // Purple background color
+        rootLayout.setBackgroundColor(0xFF116AFD); // Purple background color
         rootLayout.setLayoutParams(new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
@@ -30,7 +30,7 @@ public class UserTypeSelectionActivity extends AppCompatActivity {
         Button studentButton = new Button(this);
         studentButton.setText("STUDENT");
         studentButton.setTextColor(0xFF000000); // Black text color
-        studentButton.setBackgroundColor(0xFF6200EE); // Purple background color
+        studentButton.setBackgroundColor(0xFF116AFD); // Purple background color
         LinearLayout.LayoutParams studentParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
@@ -53,7 +53,7 @@ public class UserTypeSelectionActivity extends AppCompatActivity {
         Button teacherButton = new Button(this);
         teacherButton.setText("TEACHER");
         teacherButton.setTextColor(0xFF000000); // Black text color
-        teacherButton.setBackgroundColor(0xFF6200EE); // Purple background color
+        teacherButton.setBackgroundColor(0xFF116AFD); // Purple background color
         LinearLayout.LayoutParams teacherParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
@@ -71,8 +71,6 @@ public class UserTypeSelectionActivity extends AppCompatActivity {
                 startActivity(new Intent(UserTypeSelectionActivity.this, TeacherLoginActivity.class));
             }
         });
-
-
 
         // Set Content View to the root layout
         setContentView(rootLayout);
