@@ -58,6 +58,7 @@
         </activity>
 
 
+        <!-- FORM 1,2,3 & 4 -->
 
         <activity android:name=".Form1Activity"
             android:theme="@style/Theme.AppCompat">
@@ -75,6 +76,9 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
+
+        <!-- Sciences Subjects -->
+
         <activity android:name=".Form1ScienceActivity"
             android:theme="@style/Theme.AppCompat">
         </activity>
@@ -90,6 +94,9 @@
         <activity android:name=".Form4ScienceActivity"
             android:theme="@style/Theme.AppCompat">
         </activity>
+
+
+        <!-- Humanities Subjects -->
 
         <activity android:name=".Form1HumanitiesActivity"
             android:theme="@style/Theme.AppCompat">
@@ -107,6 +114,9 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
+
+        <!-- Languages Subjects -->
+
         <activity android:name=".Form1LanguagesActivity"
             android:theme="@style/Theme.AppCompat">
         </activity>
@@ -122,6 +132,9 @@
         <activity android:name=".Form4LanguagesActivity"
             android:theme="@style/Theme.AppCompat">
         </activity>
+
+
+        <!-- View Content Classes -->
 
         <activity android:name=".Form1ViewContentActivity"
             android:theme="@style/Theme.AppCompat">
