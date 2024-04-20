@@ -1,5 +1,5 @@
-package com.example.teachandlearn;
 
+package com.example.teachandlearn;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -7,8 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import java.util.UUID;
 
 public class TeacherUploadsActivity extends AppCompatActivity {
 
@@ -22,10 +28,17 @@ public class TeacherUploadsActivity extends AppCompatActivity {
     private Uri selectedVideoUri;
     private Uri selectedQuestionUri;
 
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_uploads);
+
+        // Initialize Firebase Storage
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
 
         Button pdfButton = findViewById(R.id.pdfButton);
         Button audioButton = findViewById(R.id.audioButton);
@@ -136,9 +149,27 @@ public class TeacherUploadsActivity extends AppCompatActivity {
     }
 
     private void deleteFile(Uri fileUri) {
-        // Implement file deletion logic here
         if (fileUri != null) {
-            showToast("File deleted: " + fileUri.toString());
+            String fileName = getFileNameFromUri(fileUri);
+            if (fileName != null) {
+                StorageReference fileRef = storageReference.child("uploads/" + fileName);
+
+                fileRef.delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                // File deleted successfully
+                                showToast("File deleted successfully");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // Handle unsuccessful deletion
+                                showToast("Failed to delete file");
+                            }
+                        });
+            }
         } else {
             showToast("No file selected to delete");
         }
@@ -146,5 +177,23 @@ public class TeacherUploadsActivity extends AppCompatActivity {
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Nullable
+    private String getFileNameFromUri(Uri uri) {
+        String fileName = null;
+        if (uri.getScheme().equals("content")) {
+            try (Cursor cursor = getContentResolver().query(uri, null, null, null, null)) {
+                if (cursor != null && cursor.moveToFirst()) {
+                    fileName = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (fileName == null) {
+            fileName = uri.getLastPathSegment();
+        }
+        return fileName;
     }
 }
