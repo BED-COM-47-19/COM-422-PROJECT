@@ -1,9 +1,11 @@
-
 package com.example.teachandlearn;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -14,6 +16,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import java.util.UUID;
 
 public class TeacherUploadsActivity extends AppCompatActivity {
@@ -128,18 +131,22 @@ public class TeacherUploadsActivity extends AppCompatActivity {
                     switch (requestCode) {
                         case REQUEST_PICK_PDF:
                             selectedPdfUri = selectedFileUri;
+                            uploadFile(selectedPdfUri);
                             showToast("PDF Selected: " + selectedFileUri.toString());
                             break;
                         case REQUEST_PICK_AUDIO:
                             selectedAudioUri = selectedFileUri;
+                            uploadFile(selectedAudioUri);
                             showToast("Audio Selected: " + selectedFileUri.toString());
                             break;
                         case REQUEST_PICK_VIDEO:
                             selectedVideoUri = selectedFileUri;
+                            uploadFile(selectedVideoUri);
                             showToast("Video Selected: " + selectedFileUri.toString());
                             break;
                         case REQUEST_PICK_QUESTION:
                             selectedQuestionUri = selectedFileUri;
+                            uploadFile(selectedQuestionUri);
                             showToast("Question Selected: " + selectedFileUri.toString());
                             break;
                     }
@@ -148,52 +155,12 @@ public class TeacherUploadsActivity extends AppCompatActivity {
         }
     }
 
-    private void deleteFile(Uri fileUri) {
+    private void uploadFile(Uri fileUri) {
         if (fileUri != null) {
-            String fileName = getFileNameFromUri(fileUri);
-            if (fileName != null) {
-                StorageReference fileRef = storageReference.child("uploads/" + fileName);
+            // Generate a random UUID for the file name
+            String fileName = UUID.randomUUID().toString();
+            StorageReference fileRef = storageReference.child("uploads/" + fileName);
 
-                fileRef.delete()
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                // File deleted successfully
-                                showToast("File deleted successfully");
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                // Handle unsuccessful deletion
-                                showToast("Failed to delete file");
-                            }
-                        });
-            }
-        } else {
-            showToast("No file selected to delete");
-        }
-    }
-
-    private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
-    @Nullable
-    private String getFileNameFromUri(Uri uri) {
-        String fileName = null;
-        if (uri.getScheme().equals("content")) {
-            try (Cursor cursor = getContentResolver().query(uri, null, null, null, null)) {
-                if (cursor != null && cursor.moveToFirst()) {
-                    fileName = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        if (fileName == null) {
-            fileName = uri.getLastPathSegment();
-        }
-        return fileName;
-    }
-}
+            // Upload file to Firebase Storage
+            fileRef.putFile(fileUri)
+                    .addOn
