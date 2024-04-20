@@ -1,51 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_teacher_uploads.xml -->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#116AFD"
-    android:gravity="center">
+    android:padding="16dp"
+    tools:context=".TeacherUploadsActivity">
 
     <Button
         android:id="@+id/pdfButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PDF"
-        android:textColor="#000000"
-        android:background="#FFFFFF"
-        android:layout_margin="16dp"
-        android:padding="16dp"/>
+        android:text="Select PDF"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"/>
 
     <Button
         android:id="@+id/audioButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AUDIO"
-        android:textColor="#000000"
-        android:background="#FFFFFF"
+        android:text="Select Audio"
         android:layout_below="@id/pdfButton"
-        android:layout_margin="16dp"
-        android:padding="16dp"/>
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"/>
 
     <Button
         android:id="@+id/videosButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="VIDEOS"
-        android:textColor="#000000"
-        android:background="#FFFFFF"
+        android:text="Select Video"
         android:layout_below="@id/audioButton"
-        android:layout_margin="16dp"
-        android:padding="16dp"/>
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"/>
 
     <Button
         android:id="@+id/questionsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="QUESTIONS"
-        android:textColor="#000000"
-        android:background="#FFFFFF"
+        android:text="Select Questions"
         android:layout_below="@id/videosButton"
-        android:layout_margin="16dp"
-        android:padding="16dp"/>
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/deletePdfButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete PDF"
+        android:layout_toEndOf="@id/pdfButton"
+        android:layout_alignTop="@id/pdfButton"
+        android:layout_marginStart="16dp"/>
+
+    <Button
+        android:id="@+id/deleteAudioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Audio"
+        android:layout_toEndOf="@id/audioButton"
+        android:layout_alignTop="@id/audioButton"
+        android:layout_marginStart="16dp"/>
+
+    <Button
+        android:id="@+id/deleteVideosButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Video"
+        android:layout_toEndOf="@id/videosButton"
+        android:layout_alignTop="@id/videosButton"
+        android:layout_marginStart="16dp"/>
+
+    <Button
+        android:id="@+id/deleteQuestionsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Questions"
+        android:layout_toEndOf="@id/questionsButton"
+        android:layout_alignTop="@id/questionsButton"
+        android:layout_marginStart="16dp"/>
 
 </RelativeLayout>
