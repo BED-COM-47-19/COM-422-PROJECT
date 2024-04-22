@@ -117,7 +117,7 @@ public class TeacherLogin extends AppCompatActivity {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
         );
-        
+
         continueWithgoogleParams.topMargin = 30; // Adjust top margin
         continueWithgoogleTextView.setLayoutParams(forgotPasswordParams);
         rootLayout.addView(continueWithgoogleTextView);
@@ -149,6 +149,7 @@ public class TeacherLogin extends AppCompatActivity {
         });
 
 
+        
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
