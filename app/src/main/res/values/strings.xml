@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">teachandlearn</string>
+
+    <string-array name="class_options_array">
+        <item>Class A</item>
+        <item>Class B</item>
+        <item>Class C</item>
+        <!-- Add more class options here -->
+    </string-array>
 </resources>
