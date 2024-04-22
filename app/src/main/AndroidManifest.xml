@@ -178,7 +178,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".TeacherForm3Activity"
+        <activity android:name=".TeacherForm3"
             android:theme="@style/Theme.AppCompat">
         </activity>
 

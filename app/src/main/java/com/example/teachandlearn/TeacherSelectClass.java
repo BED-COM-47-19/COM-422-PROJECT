@@ -41,7 +41,7 @@ public class TeacherSelectClass extends AppCompatActivity {
         buttonForm3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TeacherSelectClass.this, TeacherForm3Activity.class);
+                Intent intent = new Intent(TeacherSelectClass.this, TeacherForm3.class);
                 startActivity(intent);
             }
         });

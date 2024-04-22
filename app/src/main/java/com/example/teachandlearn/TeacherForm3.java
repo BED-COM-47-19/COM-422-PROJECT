@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class TeacherForm3Activity extends AppCompatActivity {
+public class TeacherForm3 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class TeacherForm3Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start SelectScienceActivity when SCIENCE button is clicked
-                Intent intent = new Intent(TeacherForm3Activity.this, TeacherForm3Science.class);
+                Intent intent = new Intent(TeacherForm3.this, TeacherForm3Science.class);
                 startActivity(intent);
             }
         });
@@ -33,7 +33,7 @@ public class TeacherForm3Activity extends AppCompatActivity {
         buttonHumanities.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TeacherForm3Activity.this, TeacherForm3Humanities.class);
+                Intent intent = new Intent(TeacherForm3.this, TeacherForm3Humanities.class);
                 startActivity(intent);
             }
         });
@@ -42,7 +42,7 @@ public class TeacherForm3Activity extends AppCompatActivity {
         buttonLanguages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TeacherForm3Activity.this, TeacherForm3Languages.class);
+                Intent intent = new Intent(TeacherForm3.this, TeacherForm3Languages.class);
                 startActivity(intent);
             }
         });
@@ -50,6 +50,6 @@ public class TeacherForm3Activity extends AppCompatActivity {
 
     // Helper method to show toast message
     private void showToast(String message) {
-        Toast.makeText(TeacherForm3Activity.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(TeacherForm3.this, message, Toast.LENGTH_SHORT).show();
     }
 }
