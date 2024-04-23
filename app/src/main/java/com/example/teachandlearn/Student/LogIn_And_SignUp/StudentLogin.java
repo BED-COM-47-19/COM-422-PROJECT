@@ -1,6 +1,6 @@
 
 package com.example.teachandlearn.Student.LogIn_And_SignUp;
-import android.view.ViewGroup
+import android.view.ViewGroup;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
