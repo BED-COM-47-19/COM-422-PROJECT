@@ -30,7 +30,7 @@ public class StudentLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_select_class); // Consider updating this layout name if it's incorrect for this context
+        setContentView(R.layout.activity_student_login); // Consider updating this layout name if it's incorrect for this context
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
