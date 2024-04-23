@@ -1,5 +1,3 @@
-
-
 package com.example.teachandlearn.Teacher.Uploads;
 
 import android.content.Intent;
@@ -13,10 +11,11 @@ public class TeacherForm4Uploads extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_form1_uploads); // Make sure to create this layout file
+        setContentView(R.layout.activity_teacher_form1_uploads); // Layout with a button
 
-        Button uploadButton = findViewById(R.id.uploadButton); // Button ID in the layout file
+        Button uploadButton = findViewById(R.id.uploadButton); // Ensure you have this ID in your XML
         uploadButton.setOnClickListener(v -> {
+            // Navigate to TeacherUploads Activity
             Intent intent = new Intent(this, TeacherUploads.class);
             startActivity(intent);
         });
