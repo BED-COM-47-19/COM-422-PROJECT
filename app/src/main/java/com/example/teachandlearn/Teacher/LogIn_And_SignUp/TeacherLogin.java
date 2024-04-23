@@ -1,5 +1,5 @@
-package com.example.teachandlearn.Teacher.LogIn_And_SignUp;
 
+package com.example.teachandlearn.Teacher.LogIn_And_SignUp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.google.android.gms.tasks.Task;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -76,6 +78,7 @@ public class TeacherLogin extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_SIGN_IN) {
+
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
