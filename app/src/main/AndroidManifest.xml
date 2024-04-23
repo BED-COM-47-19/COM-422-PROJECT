@@ -170,6 +170,23 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
+        <activity android:name=".Teacher.Uploads.TeacherForm1Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Uploads.TeacherForm2Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Uploads.TeacherForm3Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Uploads.TeacherForm4Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
 
         <!-- Teacher Classes Selection -->
 
@@ -245,6 +262,8 @@
         <activity android:name=".Teacher.Form4.TeacherForm4Languages"
             android:theme="@style/Theme.AppCompat">
         </activity>
+
+
 
 </application>
 
