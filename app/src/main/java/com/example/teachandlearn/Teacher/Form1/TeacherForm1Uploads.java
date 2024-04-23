@@ -13,7 +13,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_form1_uploads); // Layout with a button
 
-        Button uploadButton = findViewById(R.id.uploadButton); // Ensure you have this ID in your XML
+        Button uploadButton = findViewById(R.id.uploadButton);
         uploadButton.setOnClickListener(v -> {
             // Navigate to TeacherUploads Activity
             Intent intent = new Intent(this, TeacherUploads.class);

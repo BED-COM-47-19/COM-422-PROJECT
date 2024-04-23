@@ -4,174 +4,154 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.R;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class StudentLogin extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private GoogleSignInClient mGoogleSignInClient;
+    private static final int RC_SIGN_IN = 9001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_select_class);
+        setContentView(R.layout.activity_teacher_select_class); // Consider updating this layout name if it's incorrect for this context
 
-        // Create a LinearLayout as the root layout
-        LinearLayout rootLayout = new LinearLayout(this);
-        rootLayout.setOrientation(LinearLayout.VERTICAL);
-        rootLayout.setBackgroundColor(0xFF6200EE); // Purple background color
-        rootLayout.setLayoutParams(new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
-        ));
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
-        // Create TextView for "STUDENT"
-        TextView studentTextView = new TextView(this);
-        studentTextView.setText("STUDENT");
-        studentTextView.setTextColor(0xFFFFFFFF); // White text color
-        studentTextView.setGravity(Gravity.CENTER_HORIZONTAL);
-        LinearLayout.LayoutParams studentParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        studentParams.topMargin = 100; // Adjust top margin
-        studentTextView.setLayoutParams(studentParams);
-        rootLayout.addView(studentTextView);
+        // Configure Google Sign-In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
 
-        // Create EditText for Email
-        EditText editTextEmail = new EditText(this);
-        editTextEmail.setHint("Email");
-        editTextEmail.setTextColor(0xFF000000); // Black text color
-        editTextEmail.setBackgroundColor(0xFFFFFFFF); // White background color
-        LinearLayout.LayoutParams emailParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        emailParams.topMargin = 20; // Adjust top margin
-        editTextEmail.setLayoutParams(emailParams);
-        rootLayout.addView(editTextEmail);
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        // Create EditText for Password
-        EditText editTextPassword = new EditText(this);
-        editTextPassword.setHint("Password");
-        editTextPassword.setTextColor(0xFF000000); // Black text color
-        editTextPassword.setBackgroundColor(0xFFFFFFFF); // White background color
-        LinearLayout.LayoutParams passwordParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        passwordParams.topMargin = 20; // Adjust top margin
-        editTextPassword.setLayoutParams(passwordParams);
-        rootLayout.addView(editTextPassword);
+        // Build the UI dynamically
+        LinearLayout rootLayout = buildDynamicUI();
 
-        // Create "Log In" Button
-        Button loginButton = new Button(this);
-        loginButton.setText("LOG IN");
-        loginButton.setTextColor(0xFFFFFFFF); // White text color
-        loginButton.setBackgroundColor(0xFF6200EE); // Purple background color
-        LinearLayout.LayoutParams loginParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        loginParams.gravity = Gravity.CENTER_HORIZONTAL;
-        loginParams.topMargin = 20; // Adjust top margin
-        loginButton.setLayoutParams(loginParams);
-        rootLayout.addView(loginButton);
-
-
-        Button signUpButton = new Button(this);
-        signUpButton.setText("SIGN UP");
-        signUpButton.setTextColor(0xFFFFFFFF); // White text color
-        signUpButton.setBackgroundColor(0xFF6200EE); // Purple background color
-        LinearLayout.LayoutParams signUpParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        signUpParams.gravity = Gravity.CENTER_HORIZONTAL;
-        signUpParams.topMargin = 30; // Adjust top margin
-        signUpButton.setLayoutParams(loginParams);
-        rootLayout.addView(signUpButton);
-
-        // Create "Forgot Password?" TextView
-        TextView forgotPasswordTextView = new TextView(this);
-        forgotPasswordTextView.setText("Forgot Password?");
-        forgotPasswordTextView.setTextColor(0xFFFFFFFF); // White text color
-        forgotPasswordTextView.setGravity(Gravity.CENTER_HORIZONTAL);
-        LinearLayout.LayoutParams forgotPasswordParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        forgotPasswordParams.topMargin = 20; // Adjust top margin
-        forgotPasswordTextView.setLayoutParams(forgotPasswordParams);
-        rootLayout.addView(forgotPasswordTextView);
-
-
-        TextView continueWithgoogleTextView = new TextView(this);
-        continueWithgoogleTextView.setText("Continue with Google");
-        continueWithgoogleTextView.setTextColor(0xFFFFFFFF); // White text color
-        continueWithgoogleTextView.setGravity(Gravity.CENTER_HORIZONTAL);
-        LinearLayout.LayoutParams continueWithgoogleParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        continueWithgoogleParams.topMargin = 30; // Adjust top margin
-        continueWithgoogleTextView.setLayoutParams(forgotPasswordParams);
-        rootLayout.addView(continueWithgoogleTextView);
-
-        // Set OnClickListener for "Log In" Button
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Perform login operation
-                // Here, you can add your logic for authenticating the user
-
-                // For example, you can display a toast message
-                Toast.makeText(StudentLogin.this, "Logged in as Student", Toast.LENGTH_SHORT).show();
-
-                // Navigate to ClassSelectionActivity
-                startActivity(new Intent(StudentLogin.this, StudentSelectClass.class));
-            }
-        });
-
-        forgotPasswordTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start the PasswordResetActivity to initiate the password reset process
-                startActivity(new Intent(StudentLogin.this, StudentPasswordReset.class));
-            }
-        });
-
-
-        signUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Perform login operation
-                // Here, you can add your logic for authenticating the user
-
-                // For example, you can display a toast message
-                Toast.makeText(StudentLogin.this, "Sign Up as Student", Toast.LENGTH_SHORT).show();
-
-                // Navigate to ClassSelectionActivity
-                startActivity(new Intent(StudentLogin.this, StudentSignup.class));
-            }
-        });
-
-        continueWithgoogleTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start the PasswordResetActivity to initiate the password reset process
-                startActivity(new Intent(StudentLogin.this, StudentPasswordReset.class));
-            }
-        });
-
+        // Add listeners for login, sign up, password reset, and Google sign-in
+        setupListeners(rootLayout);
 
         // Set Content View to the root layout
         setContentView(rootLayout);
+    }
+
+    private LinearLayout buildDynamicUI() {
+        LinearLayout rootLayout = new LinearLayout(this);
+        rootLayout.setOrientation(LinearLayout.VERTICAL);
+        rootLayout.setBackgroundColor(0xFF6200EE);
+        rootLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT));
+
+        // Add UI components
+        rootLayout.addView(createTextView("STUDENT", 100));
+        rootLayout.addView(createEditText("Email", 20));
+        rootLayout.addView(createEditText("Password", 20));
+        rootLayout.addView(createButton("LOG IN", 20));
+        rootLayout.addView(createButton("SIGN UP", 30));
+        rootLayout.addView(createTextView("Forgot Password?", 20));
+        rootLayout.addView(createTextView("Continue with Google", 30));
+
+        return rootLayout;
+    }
+
+    private TextView createTextView(String text, int topMargin) {
+        TextView textView = new TextView(this);
+        textView.setText(text);
+        textView.setTextColor(0xFFFFFFFF);
+        textView.setGravity(Gravity.CENTER_HORIZONTAL);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.topMargin = topMargin;
+        textView.setLayoutParams(params);
+        return textView;
+    }
+
+    private EditText createEditText(String hint, int topMargin) {
+        EditText editText = new EditText(this);
+        editText.setHint(hint);
+        editText.setTextColor(0xFF000000);
+        editText.setBackgroundColor(0xFFFFFFFF);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.topMargin = topMargin;
+        editText.setLayoutParams(params);
+        return editText;
+    }
+
+    private Button createButton(String text, int topMargin) {
+        Button button = new Button(this);
+        button.setText(text);
+        button.setTextColor(0xFFFFFFFF);
+        button.setBackgroundColor(0xFF6200EE);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.gravity = Gravity.CENTER_HORIZONTAL;
+        params.topMargin = topMargin;
+        button.setLayoutParams(params);
+        return button;
+    }
+
+    private void setupListeners(LinearLayout rootLayout) {
+        EditText editTextEmail = (EditText) rootLayout.getChildAt(1);
+        EditText editTextPassword = (EditText) rootLayout.getChildAt(2);
+        Button loginButton = (Button) rootLayout.getChildAt(3);
+        Button signUpButton = (Button) rootLayout.getChildAt(4);
+        TextView forgotPasswordTextView = (TextView) rootLayout.getChildAt(5);
+        TextView googleSignInTextView = (TextView) rootLayout.getChildAt(6);
+
+        loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
+        signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogin.this, StudentSignup.class)));
+        forgotPasswordTextView.setOnClickListener(v -> startActivity(new Intent(StudentLogin.this, StudentPasswordReset.class)));
+        googleSignInTextView.setOnClickListener(v -> {
+            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+            startActivityForResult(signInIntent, RC_SIGN_IN);
+        });
+    }
+
+    private void loginUser(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        startActivity(new Intent(StudentLogin.this, StudentSelectClass.class));
+                    } else {
+                        Toast.makeText(StudentLogin.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RC_SIGN_IN) {
+            GoogleSignIn.getSignedInAccountFromIntent(data)
+                    .addOnSuccessListener(googleSignInAccount -> {
+                        // Firebase Google Auth
+                        // Use googleSignInAccount to authenticate with Firebase
+                    })
+                    .addOnFailureListener(e -> Toast.makeText(this, "Google sign-in failed.", Toast.LENGTH_SHORT).show());
+        }
     }
 }
