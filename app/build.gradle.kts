@@ -69,11 +69,6 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-   // implementation(libs.androidx.com.google.firebase:firebase)
-//    implementationcom.google.firebase:firebase-storage:20.0.0)
-
-
-
 
 
 
