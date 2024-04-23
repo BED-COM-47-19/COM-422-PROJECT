@@ -11,7 +11,7 @@ public class TeacherForm4Uploads extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_form1_uploads); // Layout with a button
+        setContentView(R.layout.activity_teacher_form4_uploads); // Layout with a button
 
         Button uploadButton = findViewById(R.id.uploadButton); // Ensure you have this ID in your XML
         uploadButton.setOnClickListener(v -> {
