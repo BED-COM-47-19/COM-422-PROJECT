@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">teachandlearn</string>
 
+    <string name="default_web_client_id">AIzaSyD6HgUhhnPmP0NVS6IJZWPxU1f6yVQ802U</string>
+
     <string-array name="class_options_array">
         <item>Class A</item>
         <item>Class B</item>
         <item>Class C</item>
-        <!-- Add more class options here -->
+
     </string-array>
 </resources>
