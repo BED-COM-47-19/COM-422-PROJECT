@@ -1,80 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootLayout"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#6200EE"
-    android:padding="16dp"
-    tools:context=".Student.LogIn_And_SignUp.StudentLogin">
+    android:background="#F3EDED"> <!-- Background color of the screen -->
+
+    <ImageView
+        android:id="@+id/imageUserProfile"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/ic_user_profile" /> <!-- Reference to the user profile icon drawable -->
 
     <TextView
-        android:id="@+id/tvStudentLabel"
-        android:layout_width="match_parent"
+        android:id="@+id/textStudent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/imageUserProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
         android:text="STUDENT"
         android:textSize="24sp"
-        android:textColor="#FFFFFF"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="100dp"/>
+        android:textColor="#FFFFFF" /> <!-- White text color -->
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/textStudent"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:textColor="#000000"
-        android:background="#FFFFFF"
-        android:layout_marginTop="20dp"/>
+        android:background="@drawable/edit_text_background" /> <!-- Reference to the edit text background drawable -->
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEmail"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:hint="Password"
         android:inputType="textPassword"
-        android:textColor="#000000"
-        android:background="#FFFFFF"
-        android:layout_marginTop="20dp"/>
+        android:background="@drawable/edit_text_background" /> <!-- Reference to the edit text background drawable -->
 
     <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
+        android:id="@+id/buttonLogIn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPassword"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:text="LOG IN"
-        android:textColor="#FFFFFF"
-        android:background="#6200EE"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"/>
+        android:background="@drawable/button_background" /> <!-- Reference to the button background drawable -->
 
     <Button
-        android:id="@+id/btnSignUp"
+        android:id="@+id/buttonSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonLogIn"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="SIGN IN"
+        android:background="@drawable/button_background" />
+
+    <TextView
+        android:id="@+id/textViewForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SIGN UP"
-        android:textColor="#FFFFFF"
-        android:background="#6200EE"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"/>
+        android:layout_below="@id/buttonSignIn"
+        android:layout_marginTop="16dp"
+        android:text="Forget Password ?"
+        android:textColor="#130606"
+        android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/tvForgotPassword"
-        android:layout_width="match_parent"
+        android:id="@+id/textViewContinueWithGoogle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:textColor="#FFFFFF"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:id="@+id/tvGoogleSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSignIn"
+        android:layout_marginTop="88dp"
         android:text="Continue with Google"
-        android:textColor="#FFFFFF"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="30dp"/>
+        android:textColor="#130606"
+        android:textSize="16sp" />
 
-</LinearLayout>
+    <ImageButton
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back_button_background"
+        android:src="@drawable/edit_text_background" />
+
+</RelativeLayout>
