@@ -1,62 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8E8787">
+    android:padding="16dp"
+    android:columnCount="2"
+    android:rowCount="2"
+    android:alignmentMode="alignMargins"
+    android:columnOrderPreserved="false">
+
 
     <TextView
-        android:id="@+id/textViewContentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:layout_gravity="center_horizontal"
         android:text="VIEW CONTENT"
-        android:textColor="#0C0C0C"
-        android:textSize="24sp"
+        android:layout_marginTop="30dp"
         android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"/>
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp" />
 
+    <!-- PDF Button -->
     <Button
-        android:id="@+id/buttonPDF"
-        android:layout_width="130dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/textViewContentTitle"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/button_background"
+        android:id="@+id/button_pdf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="PDF"
-        android:textColor="#FFFFFF" />
+        android:layout_margin="8dp"
+        android:backgroundTint="#6e6e6e"/>
 
+    <!-- Audio Button -->
     <Button
-        android:id="@+id/buttonAudio"
-        android:layout_width="126dp"
-        android:layout_height="91dp"
-        android:layout_below="@id/buttonPDF"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
+        android:id="@+id/button_audio"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:text="AUDIO"
-        android:textColor="#FFFFFF" />
+        android:layout_margin="8dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:backgroundTint="#5a5acb"/>
 
+    <!-- Videos Button -->
     <Button
-        android:id="@+id/buttonVideos"
-        android:layout_width="134dp"
-        android:layout_height="101dp"
-        android:layout_below="@id/buttonAudio"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
+        android:id="@+id/button_videos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginTop="40dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="VIDEOS"
-        android:textColor="#FFFFFF" />
+        android:layout_margin="8dp"
+        android:backgroundTint="#c855d3"/>
 
+    <!-- Tests and Quizzes Button -->
     <Button
-        android:id="@+id/buttonQuestions"
-        android:layout_width="130dp"
-        android:layout_height="113dp"
-        android:layout_below="@id/buttonVideos"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
-        android:text="QUESTIONS"
-        android:textColor="#FFFFFF" />
-
-</RelativeLayout>
+        android:id="@+id/button_tests_quizzes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="TESTS AND QUIZZES"
+        android:layout_margin="8dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginTop="40dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:backgroundTint="#4a6d2f"/>
+</GridLayout>
