@@ -35,6 +35,7 @@
         android:textStyle="bold"
         android:text="ENGLISH"
         android:background="@drawable/rounded_button_background"
+        android:backgroundTint="@color/english_button_color"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_english" />
 
@@ -53,6 +54,7 @@
         android:textStyle="bold"
         android:text="CHICHEWA"
         android:background="@drawable/rounded_button_background"
+        android:backgroundTint="@color/chichewa_button_color"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_chichewa" />
 
