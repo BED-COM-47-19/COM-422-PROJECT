@@ -46,7 +46,7 @@ public class TeacherForm1 extends AppCompatActivity {
         buttonLanguages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TeacherForm1.this, TeacherForm2Languages.class);
+                Intent intent = new Intent(TeacherForm1.this, TeacherForm1Languages.class);
                 startActivity(intent);
             }
         });
