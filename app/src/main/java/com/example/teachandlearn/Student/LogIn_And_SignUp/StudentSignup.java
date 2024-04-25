@@ -50,12 +50,7 @@ public class StudentSignup extends AppCompatActivity {
             return;
         }
 
-        // Perform additional validation as needed (e.g., validate email format, password strength)
 
-        // Proceed with signup process
-        // For example, send data to server, save to database, etc.
-
-        // Show a toast message indicating successful signup
         Toast.makeText(getApplicationContext(), "Student signed up successfully", Toast.LENGTH_SHORT).show();
 
         // Navigate to SelectClassActivity
