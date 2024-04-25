@@ -10,7 +10,7 @@
         android:layout_height="80dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
-        android:src="@drawable/ic_user_profile" /> <!-- Reference to the user profile icon drawable -->
+        android:src="@drawable/ic_user_profile" />
 
     <TextView
         android:id="@+id/textStudent"
