@@ -1,18 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#116AFD"
-    android:gravity="center">
+    android:layout_height="wrap_content"
+    android:columnCount="1"
+    android:rowCount="4"
+    android:padding="16dp"
+    android:alignmentMode="alignMargins"
+    android:useDefaultMargins="true">
 
+    <!-- Logo/Image Placeholder -->
+<!--    <ImageView-->
+<!--        android:id="@+id/imageViewLogo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_row="0"-->
+<!--        android:src="@drawable/logo_placeholder" -->
+<!--        android:contentDescription="@string/logo_description"/>-->
+
+    <!-- Student Button -->
     <Button
-        android:id="@+id/student_button"
+        android:id="@+id/buttonStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="1"
+        android:text="STUDENT"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Teacher Button -->
+    <Button
+        android:id="@+id/buttonTeacher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_row="2"
+        android:text="TEACHER"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Back Arrow or Icon Placeholder -->
+    <ImageView
+        android:id="@+id/imageViewBackArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="STUDENT"
-        android:textColor="@color/black"
-        android:background="@color/purple_500"
-        android:layout_marginTop="100dp"/>
+        android:layout_gravity="center"
+        android:layout_row="3"
+        android:src="@drawable/ic_back"
+    android:contentDescription="@string/back"
+    android:layout_marginTop="16dp"/>
 
-</LinearLayout>
+</GridLayout>
