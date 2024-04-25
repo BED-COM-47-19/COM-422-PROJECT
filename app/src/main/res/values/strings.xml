@@ -9,4 +9,15 @@
         <item>Class C</item>
 
     </string-array>
-</resources>
+
+
+        <string name="back_button_description">Go back</string>
+        <string name="upload_pdf">Upload PDF</string>
+        <string name="upload_audio">Upload Audio</string>
+        <string name="upload_video">Upload Video</string>
+        <string name="upload_questions">Upload Questions</string>
+
+
+
+
+    </resources>

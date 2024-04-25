@@ -1,22 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp"
-    tools:context=".Teacher.Uploads.TeacherForm2Uploads">
+    android:background="#EFEFEF"
+    android:padding="16dp">
 
-    <Button
-        android:id="@+id/uploadButton"
+    <TextView
+        android:id="@+id/uploadsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Upload Files"
-        android:layout_gravity="center"
-        android:padding="16dp"
-        android:background="@color/design_default_color_primary"
-        android:textColor="#FFFFFF" />
+        android:text="UPLOADS"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"/>
 
-</LinearLayout>
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/uploadsTextView"
+        android:numColumns="2"
+        android:verticalSpacing="16dp"
+        android:horizontalSpacing="16dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center">
+
+        <!-- PDF Button -->
+        <Button
+            android:id="@+id/pdfButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/upload_pdf"
+            android:layout_marginBottom="16dp"
+            android:drawableLeft="@drawable/ic_pdf_upload"
+            android:drawablePadding="10dp" />
+
+        <!-- Audio Upload Button -->
+        <Button
+            android:id="@+id/audioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/upload_audio"
+            android:layout_marginBottom="16dp"
+            android:drawableLeft="@drawable/ic_audio_upload"
+            android:drawablePadding="10dp" />
+
+        <!-- Video Upload Button -->
+        <Button
+            android:id="@+id/videoButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/upload_video"
+            android:layout_marginBottom="16dp"
+            android:drawableLeft="@drawable/ic_video_upload"
+            android:drawablePadding="10dp" />
+
+        <!-- Questions Upload Button -->
+        <Button
+            android:id="@+id/questionsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/upload_questions"
+            android:drawableLeft="@drawable/ic_question_upload"
+            android:drawablePadding="10dp" />
+    </GridView>
+
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/gridview"
+        android:background="@drawable/back_button_background"
+        android:src="@drawable/ic_back"
+        android:contentDescription="@string/back_button_description" />
+
+</RelativeLayout>
