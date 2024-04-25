@@ -17,57 +17,57 @@
 
     <Button
         android:id="@+id/buttonSocialStudies"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SOCIAL STUDIES"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="122dp"
+        android:layout_height="86dp"
         android:layout_below="@id/textViewHumanitiesTitle"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="SOCIAL STUDIES"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonLifeSkills"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LIFE SKILLS"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="122dp"
+        android:layout_height="83dp"
         android:layout_below="@id/buttonSocialStudies"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="LIFE SKILLS"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonHistory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HISTORY"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="124dp"
+        android:layout_height="104dp"
         android:layout_below="@id/buttonLifeSkills"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="HISTORY"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonBibleKnowledge"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BIBLE KNOWLEDGE"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_height="92dp"
         android:layout_below="@id/buttonHistory"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="BIBLE KNOWLEDGE"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonGeography"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GEOGRAPHY"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="119dp"
+        android:layout_height="104dp"
         android:layout_below="@id/buttonBibleKnowledge"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="GEOGRAPHY"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

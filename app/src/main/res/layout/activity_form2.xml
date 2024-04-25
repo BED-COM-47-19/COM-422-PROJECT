@@ -12,8 +12,8 @@
 
     <Button
         android:id="@+id/buttonScience"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="212dp"
+        android:layout_height="71dp"
         android:layout_marginTop="50dp"
         android:background="#6200EE"
         android:text="SCIENCE"
@@ -22,8 +22,8 @@
     <!-- LANGUAGES button -->
     <Button
         android:id="@+id/buttonHumanities"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="207dp"
+        android:layout_height="80dp"
         android:layout_below="@id/buttonScience"
         android:layout_marginTop="46dp"
         android:background="#6200EE"
@@ -34,8 +34,8 @@
 
     <Button
         android:id="@+id/buttonLanguages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="207dp"
+        android:layout_height="76dp"
         android:layout_below="@id/buttonHumanities"
         android:layout_marginTop="49dp"
         android:background="#6200EE"

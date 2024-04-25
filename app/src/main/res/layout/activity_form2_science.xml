@@ -17,57 +17,57 @@
 
     <Button
         android:id="@+id/buttonMathematics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MATHEMATICS"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="117dp"
+        android:layout_height="86dp"
         android:layout_below="@id/textViewScienceTitle"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="MATHEMATICS"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonBiology"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BIOLOGY"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="113dp"
+        android:layout_height="85dp"
         android:layout_below="@id/buttonMathematics"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="BIOLOGY"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonPhysics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PHYSICS"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="113dp"
+        android:layout_height="89dp"
         android:layout_below="@id/buttonBiology"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="PHYSICS"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonChemistry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CHEMISTRY"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="113dp"
+        android:layout_height="84dp"
         android:layout_below="@id/buttonPhysics"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="CHEMISTRY"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonAgriculture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AGRICULTURE"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="115dp"
+        android:layout_height="96dp"
         android:layout_below="@id/buttonChemistry"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="AGRICULTURE"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

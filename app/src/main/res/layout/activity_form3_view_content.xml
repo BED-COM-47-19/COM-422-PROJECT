@@ -17,46 +17,46 @@
 
     <Button
         android:id="@+id/buttonPDF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PDF"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="130dp"
+        android:layout_height="100dp"
         android:layout_below="@id/textViewContentTitle"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="PDF"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonAudio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AUDIO"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="126dp"
+        android:layout_height="91dp"
         android:layout_below="@id/buttonPDF"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="AUDIO"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonVideos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VIDEOS"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="134dp"
+        android:layout_height="101dp"
         android:layout_below="@id/buttonAudio"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="VIDEOS"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonQuestions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="QUESTIONS"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="130dp"
+        android:layout_height="113dp"
         android:layout_below="@id/buttonVideos"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:background="@drawable/button_background"
+        android:text="QUESTIONS"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>
