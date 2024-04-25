@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#151212">
+    android:background="#8E8787">
 
     <TextView
         android:id="@+id/textViewContentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="VIEW CONTENT"
-        android:textColor="#FFFFFF"
+        android:textColor="#0C0C0C"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"

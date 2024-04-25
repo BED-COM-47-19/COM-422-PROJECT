@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#151212">
+    android:background="#ACA8A8">
 
     <TextView
         android:id="@+id/textViewHumanitiesTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HUMANITIES"
-        android:textColor="#FFFFFF"
+        android:text="HUMANITY SUBJECTS"
+        android:textColor="#121111"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
@@ -21,7 +21,7 @@
         android:layout_height="100dp"
         android:layout_below="@id/textViewHumanitiesTitle"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_background"
         android:text="SOCIAL STUDIES"
         android:textColor="#FFFFFF" />

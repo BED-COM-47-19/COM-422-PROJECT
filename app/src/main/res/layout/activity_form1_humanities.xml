@@ -8,7 +8,7 @@
         android:id="@+id/textViewHumanitiesTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:text="HUMANITIES"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
@@ -20,7 +20,7 @@
         android:layout_height="107dp"
         android:layout_below="@id/textViewHumanitiesTitle"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_background"
         android:text="SOCIAL STUDIES"
         android:textColor="#FFFFFF" />
@@ -31,7 +31,7 @@
         android:layout_height="114dp"
         android:layout_below="@id/buttonSocialStudies"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_background"
         android:text="LIFE SKILLS"
         android:textColor="#FFFFFF" />
@@ -42,7 +42,7 @@
         android:layout_height="126dp"
         android:layout_below="@id/buttonLifeSkills"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_background"
         android:text="HISTORY"
         android:textColor="#FFFFFF" />
@@ -53,7 +53,7 @@
         android:layout_height="110dp"
         android:layout_below="@id/buttonHistory"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_background"
         android:text="BIBLE KNOWLEDGE"
         android:textColor="#FFFFFF" />
@@ -64,7 +64,7 @@
         android:layout_height="125dp"
         android:layout_below="@id/buttonBibleKnowledge"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="-62dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_background"
         android:text="GEOGRAPHY"
         android:textColor="#FFFFFF" />
