@@ -25,6 +25,15 @@
     <color name="chichewa_button_color">#9C27B0</color>
 
 
+
+        <color name="background_color">#333333</color> <!-- Dark background color -->
+        <color name="sciences_button_color">#4E342E</color> <!-- Color for Sciences button -->
+        <color name="humanities_button_color">#AD1457</color>
+        <color name="languages_button_color">#F9A825</color>
+
+
+
+
 </resources>
 
 
