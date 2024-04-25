@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Teacher.Form4.TeacherForm4Humanities;
+import com.example.teachandlearn.Teacher.Form4.TeacherForm4Languages;
+import com.example.teachandlearn.Teacher.Form4.TeacherForm4Science;
 
 public class TeacherForm4Uploads extends AppCompatActivity {
 

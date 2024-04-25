@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.teachandlearn.R;
 
 public class TeacherForm4 extends AppCompatActivity {
@@ -15,7 +14,7 @@ public class TeacherForm4 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1);
+        setContentView(R.layout.activity_form4);
 
         // Find the buttons for SCIENCE, HUMANITIES, and LANGUAGES
         Button buttonScience = findViewById(R.id.buttonScience);

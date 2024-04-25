@@ -7,7 +7,8 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form3.Form3StudentViewContent;
+import com.example.teachandlearn.Teacher.Uploads.TeacherForm3Uploads;
+
 
 public class TeacherForm3Humanities extends AppCompatActivity {
 
@@ -72,7 +73,7 @@ public class TeacherForm3Humanities extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(TeacherForm3Humanities.this, Form1StudentViewContent.class);
+        Intent intent = new Intent(TeacherForm3Humanities.this, TeacherForm3Uploads.class);
         startActivity(intent);
     }
 }

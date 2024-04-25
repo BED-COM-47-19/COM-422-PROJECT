@@ -7,13 +7,17 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Teacher.Form3.TeacherForm3Humanities;
+import com.example.teachandlearn.Teacher.Form3.TeacherForm3Languages;
+import com.example.teachandlearn.Teacher.Form3.TeacherForm3Science;
+
 
 public class TeacherForm3 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1);
+        setContentView(R.layout.activity_form3);
 
         // Find the buttons for SCIENCE, HUMANITIES, and LANGUAGES
         Button buttonScience = findViewById(R.id.buttonScience);

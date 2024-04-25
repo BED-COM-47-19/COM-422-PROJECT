@@ -6,15 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Teacher.Uploads.TeacherForm3Uploads;
 
 public class TeacherForm3Science extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_science);
+        setContentView(R.layout.activity_form3_science);
 
         // Find buttons for each science field
         Button buttonMathematics = findViewById(R.id.buttonMathematics);
@@ -82,7 +82,7 @@ public class TeacherForm3Science extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(TeacherForm3Science.this, TeacherForm3Science.class);
+        Intent intent = new Intent(TeacherForm3Science.this, TeacherForm3Uploads.class);
         startActivity(intent);
     }
 }
