@@ -36,9 +36,9 @@
         android:id="@+id/buttonForm4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FORM 4"
-        android:textColor="#FFFFFF"
+        android:layout_margin="10dp"
         android:background="#6200EE"
-        android:layout_margin="10dp"/>
+        android:text="FORM 4"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>
