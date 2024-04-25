@@ -1,55 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:columnCount="2"
+    android:rowCount="4"
     android:padding="16dp"
-    tools:context=".Teacher.Form2.TeacherForm2Humanities">
+    android:alignmentMode="alignMargins"
+    android:columnOrderPreserved="false">
+
+    <!-- Humanity Subjects Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:layout_gravity="center_horizontal"
+        android:text="HUMANITY SUBJECTS"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp" />
+
 
     <Button
         android:id="@+id/buttonSocialStudies"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Social Studies"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorPrimary"
-        android:textColor="@android:color/white" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="SOCIAL STUDIES"
+        android:background="@color/social_studies_button_color"
+        android:textColor="@android:color/white"
+        android:drawableEnd="@drawable/ic_social_studies" />
 
+    <!-- Life Skills Button -->
     <Button
         android:id="@+id/buttonLifeSkills"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Life Skills"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorPrimary"
-        android:textColor="@android:color/white" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="LIFE SKILLS"
+        android:background="@color/life_skills_button_color"
+        android:textColor="@android:color/white"
+        android:drawableEnd="@drawable/ic_life_skills" />
 
+    <!-- History Button -->
     <Button
         android:id="@+id/buttonHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="History"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorPrimary"
-        android:textColor="@android:color/white" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="HISTORY"
+        android:background="@color/history_button_color"
+        android:textColor="@android:color/white"
+        android:drawableEnd="@drawable/ic_history" />
 
+    <!-- Bible Knowledge Button -->
     <Button
         android:id="@+id/buttonBibleKnowledge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bible Knowledge"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorPrimary"
-        android:textColor="@android:color/white" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="BIBLE KNOWLEDGE"
+        android:background="@color/bible_knowledge_button_color"
+        android:textColor="@android:color/white"
+        android:drawableEnd="@drawable/ic_bible_knowledge" />
 
+    <!-- Geography Button -->
     <Button
         android:id="@+id/buttonGeography"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Geography"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorPrimary"
-        android:textColor="@android:color/white" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:text="GEOGRAPHY"
+        android:background="@color/geography_button_color"
+        android:textColor="@android:color/white"
+        android:drawableEnd="@drawable/ic_geography" />
 
-</LinearLayout>
+    <!-- Placeholder for even grid -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+
+    </FrameLayout>
+
+</GridLayout>

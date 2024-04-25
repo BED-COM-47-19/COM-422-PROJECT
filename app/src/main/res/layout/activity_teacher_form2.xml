@@ -1,39 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".Teacher.Form2.TeacherForm2">
+    android:layout_height="wrap_content"
+    android:columnCount="1"
+    android:rowCount="4"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:alignmentMode="alignMargins"
+    android:useDefaultMargins="true">
 
-    <Button
-        android:id="@+id/buttonScience"
+    <!-- Title TextView -->
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SCIENCE"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="20dp"
-        android:background="@color/colorPrimary" />
+        android:text="FORM 2 TEACHER"
+        android:layout_gravity="center_horizontal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp" />
 
+    <!-- Item 1 -->
     <Button
-        android:id="@+id/buttonHumanities"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HUMANITIES"
-        android:layout_below="@id/buttonScience"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@color/colorPrimary" />
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/sciences_background"
+        android:text="SCIENCES" />
 
+    <!-- Item 2 -->
     <Button
-        android:id="@+id/buttonLanguages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LANGUAGES"
-        android:layout_below="@id/buttonHumanities"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@color/colorPrimary" />
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/humanities_background"
+        android:text="HUMANITIES" />
 
-</RelativeLayout>
+    <!-- Item 3 -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:background="@drawable/languages_background"
+        android:text="LANGUAGES" />
+
+</GridLayout>

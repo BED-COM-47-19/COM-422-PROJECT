@@ -1,31 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:gravity="center_horizontal"
-    tools:context=".Teacher.Form1.TeacherForm1Languages">
+    android:background="#F4EEEE">
+
+    <TextView
+        android:id="@+id/textViewLanguagesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LANGUAGE SUBJECTS"
+        android:textColor="#120B0B"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
 
     <Button
         android:id="@+id/buttonEnglish"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="English"
-        android:layout_marginTop="20dp"
-        android:background="@color/colorPrimary"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:layout_width="147dp"
+        android:layout_height="132dp"
+        android:layout_below="@id/textViewLanguagesTitle"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/button_background"
+        android:onClick="onEnglishButtonClick"
+        android:text="ENGLISH"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonChichewa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Chichewa"
-        android:layout_marginTop="20dp"
-        android:background="@color/colorPrimary"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:layout_width="149dp"
+        android:layout_height="137dp"
+        android:layout_below="@id/buttonEnglish"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="147dp"
+        android:background="@drawable/button_background"
+        android:onClick="onChichewaButtonClick"
+        android:text="CHICHEWA"
+        android:textColor="#FFFFFF" />
 
-</LinearLayout>
+</RelativeLayout>
