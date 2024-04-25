@@ -20,10 +20,10 @@ public class StudentSelectClass extends AppCompatActivity {
         setContentView(R.layout.activity_select_class_activity);
 
         // Find buttons for each form
-        Button buttonForm1 = findViewById(R.id.buttonForm1);
-        Button buttonForm2 = findViewById(R.id.buttonForm2);
-        Button buttonForm3 = findViewById(R.id.buttonForm3);
-        Button buttonForm4 = findViewById(R.id.buttonForm4);
+        Button buttonForm1 = findViewById(R.id.button_form1);
+        Button buttonForm2 = findViewById(R.id.button_form2);
+        Button buttonForm3 = findViewById(R.id.button_form3);
+        Button buttonForm4 = findViewById(R.id.button_form4);
 
         // Set click listeners for each button
         buttonForm1.setOnClickListener(new View.OnClickListener() {
