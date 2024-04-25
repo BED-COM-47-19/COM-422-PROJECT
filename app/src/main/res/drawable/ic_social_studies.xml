@@ -5,6 +5,6 @@
     android:viewportHeight="24">
     <!-- Replace this with your actual vector path for social studies -->
     <path
-        android:fillColor="#FFFFFF"
+
         android:pathData="..."/>
 </vector>
