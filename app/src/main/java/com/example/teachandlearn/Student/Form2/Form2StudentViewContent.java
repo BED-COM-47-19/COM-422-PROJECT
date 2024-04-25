@@ -17,10 +17,10 @@ public class Form2StudentViewContent extends AppCompatActivity {
         setContentView(R.layout.activity_form2_view_content);
 
         // Find buttons for PDF, Audio, Videos, and Questions
-        Button buttonPDF = findViewById(R.id.buttonPDF);
-        Button buttonAudio = findViewById(R.id.buttonAudio);
-        Button buttonVideos = findViewById(R.id.buttonVideos);
-        Button buttonQuestions = findViewById(R.id.buttonQuestions);
+        Button buttonPDF = findViewById(R.id.button_pdf);
+        Button buttonAudio = findViewById(R.id.button_audio);
+        Button buttonVideos = findViewById(R.id.button_videos);
+        Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
 
         // Set click listeners for each button
         buttonPDF.setOnClickListener(new View.OnClickListener() {
