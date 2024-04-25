@@ -21,6 +21,8 @@
     <color name="history_button_color">#607D8B</color> <!-- Blue Grey -->
     <color name="bible_knowledge_button_color">#4CAF50</color> <!-- Green -->
     <color name="geography_button_color">#795548</color>
+    <color name="english_button_color">#FFEB3B</color>
+    <color name="chichewa_button_color">#9C27B0</color>
 
 
 </resources>
