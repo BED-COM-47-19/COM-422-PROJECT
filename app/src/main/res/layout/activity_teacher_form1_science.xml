@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    tools:context=".Teacher.Form1.TeacherForm1Science">
+
+    <Button
+        android:id="@+id/buttonMathematics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mathematics"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/buttonBiology"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Biology"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/buttonPhysics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Physics"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/buttonChemistry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chemistry"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/buttonAgriculture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Agriculture"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"/>
+
+</LinearLayout>
