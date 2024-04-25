@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".Teacher.Form1.TeacherForm1">
+    tools:context=".Teacher.Form3.TeacherForm3">
 
     <Button
         android:id="@+id/buttonScience"
@@ -37,4 +37,3 @@
         android:background="@color/colorPrimary" />
 
 </RelativeLayout>
-    >
