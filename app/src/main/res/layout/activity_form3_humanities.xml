@@ -14,7 +14,8 @@
         android:layout_columnSpan="2"
         android:layout_gravity="center_horizontal"
         android:text="HUMANITY SUBJECTS"
-        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textSize="30dp"
         android:textColor="@color/black"
         android:layout_marginBottom="16dp" />
 
@@ -25,6 +26,11 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="SOCIAL STUDIES"
         android:background="@color/social_studies_button_color"
         android:textColor="@android:color/white"
@@ -37,6 +43,11 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="LIFE SKILLS"
         android:background="@color/life_skills_button_color"
         android:textColor="@android:color/white"
@@ -49,6 +60,11 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="HISTORY"
         android:background="@color/history_button_color"
         android:textColor="@android:color/white"
@@ -61,6 +77,11 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="BIBLE KNOWLEDGE"
         android:background="@color/bible_knowledge_button_color"
         android:textColor="@android:color/white"
@@ -73,18 +94,16 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="GEOGRAPHY"
         android:background="@color/geography_button_color"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_geography" />
 
     <!-- Placeholder for even grid -->
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1">
-
-    </FrameLayout>
 
 </GridLayout>
