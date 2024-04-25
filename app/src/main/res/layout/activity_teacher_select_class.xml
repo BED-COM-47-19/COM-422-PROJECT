@@ -1,44 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#116AFD"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:columnCount="1"
+    android:rowCount="5"
+    android:alignmentMode="alignMargins"
+    android:padding="16dp">
 
+    <!-- Form 1 Button -->
     <Button
-        android:id="@+id/buttonForm1"
+        android:id="@+id/button_form1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="FORM 1"
-        android:textColor="#FFFFFF"
-        android:background="#6200EE"
-        android:layout_margin="10dp"/>
+        android:backgroundTint="#9ccc65"
+        android:layout_marginTop="16dp"/>
 
+    <!-- Form 2 Button -->
     <Button
-        android:id="@+id/buttonForm2"
+        android:id="@+id/button_form2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="FORM 2"
-        android:textColor="#FFFFFF"
-        android:background="#6200EE"
-        android:layout_margin="10dp"/>
+        android:backgroundTint="#aed581"
+        android:layout_marginTop="16dp"/>
 
+    <!-- Form 3 Button -->
     <Button
-        android:id="@+id/buttonForm3"
+        android:id="@+id/button_form3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="FORM 3"
-        android:textColor="#FFFFFF"
-        android:background="#6200EE"
-        android:layout_margin="10dp"/>
+        android:backgroundTint="#ba68c8"
+        android:layout_marginTop="16dp"/>
 
+    <!-- Form 4 Button -->
     <Button
-        android:id="@+id/buttonForm4"
+        android:id="@+id/button_form4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="FORM 4"
-        android:textColor="#FFFFFF"
-        android:background="#6200EE"
-        android:layout_margin="10dp"/>
+        android:backgroundTint="#ef5350"
+        android:layout_marginTop="16dp"/>
 
-</LinearLayout>
+    <!-- Log Out Button -->
+    <Button
+        android:id="@+id/button_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOG OUT"
+        android:backgroundTint="#8d6e63"
+        android:layout_marginTop="16dp"/>
+
+</GridLayout>
