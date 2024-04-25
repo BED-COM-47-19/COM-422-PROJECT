@@ -14,7 +14,7 @@ public class TeacherForm1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1);
+        setContentView(R.layout.activity_teacher_form1);
 
         // Find the buttons for SCIENCE, HUMANITIES, and LANGUAGES
         Button buttonScience = findViewById(R.id.buttonScience);
