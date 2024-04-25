@@ -16,6 +16,11 @@
     <color name="physics_button_color">#FF9800</color>
     <color name="agriculture_button_color">#2196F3</color>
     <color name="chemistry_button_color">#F44336</color>
+    <color name="social_studies_button_color">#673AB7</color> <!-- Purple -->
+    <color name="life_skills_button_color">#9C27B0</color> <!-- Deep Purple -->
+    <color name="history_button_color">#607D8B</color> <!-- Blue Grey -->
+    <color name="bible_knowledge_button_color">#4CAF50</color> <!-- Green -->
+    <color name="geography_button_color">#795548</color>
 
 
 </resources>
