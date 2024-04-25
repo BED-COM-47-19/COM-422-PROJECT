@@ -40,10 +40,10 @@ public class TeacherForm3Uploads extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
-        Button pdfButton = findViewById(R.id.pdfButton);
-        Button audioButton = findViewById(R.id.audioButton);
-        Button videoButton = findViewById(R.id.videoButton);
-        Button questionsButton = findViewById(R.id.questionsButton);
+        Button pdfButton = findViewById(R.id.button_pdf);
+        Button audioButton = findViewById(R.id.button_audio);
+        Button videoButton = findViewById(R.id.button_videos);
+        Button questionsButton = findViewById(R.id.button_tests_quizzes);
 
         pdfButton.setOnClickListener(v -> openFilePicker("application/pdf", REQUEST_PICK_PDF));
         audioButton.setOnClickListener(v -> openFilePicker("audio/*", REQUEST_PICK_AUDIO));
