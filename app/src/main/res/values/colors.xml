@@ -11,6 +11,13 @@
     <color name="colorPrimary">#3F51B5</color> <!-- This is a sample blue color -->
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="mathematics_button_color">#FFEB3B</color>
+    <color name="biology_button_color">#4CAF50</color>
+    <color name="physics_button_color">#FF9800</color>
+    <color name="agriculture_button_color">#2196F3</color>
+    <color name="chemistry_button_color">#F44336</color>
+
+
 </resources>
 
 

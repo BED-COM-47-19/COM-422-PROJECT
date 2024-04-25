@@ -1,73 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#151212">
+    android:columnCount="2"
+    android:rowCount="3"
+    android:padding="16dp"
+    android:alignmentMode="alignMargins"
+    android:columnOrderPreserved="false">
 
-    <TextView
-        android:id="@+id/textViewScienceTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SCIENCES"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"/>
-
+    <!-- Mathematics Button -->
     <Button
         android:id="@+id/buttonMathematics"
-        android:layout_width="136dp"
-        android:layout_height="107dp"
-        android:layout_below="@id/textViewScienceTitle"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/button_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
         android:text="MATHEMATICS"
-        android:textColor="#FFFFFF" />
+        android:background="@color/mathematics_button_color"
+        android:textColor="@android:color/white"
+        android:drawableEnd="@drawable/ic_mathematics" />
 
+    <!-- Biology Button -->
     <Button
         android:id="@+id/buttonBiology"
-        android:layout_width="130dp"
-        android:layout_height="104dp"
-        android:layout_below="@id/buttonMathematics"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
         android:text="BIOLOGY"
-        android:textColor="#FFFFFF" />
+        android:background="@color/biology_button_color"
+        android:textColor="@android:color/white"
+        android:drawableEnd="@drawable/ic_biology" />
 
+    <!-- Physics Button -->
     <Button
         android:id="@+id/buttonPhysics"
-        android:layout_width="132dp"
-        android:layout_height="96dp"
-        android:layout_below="@id/buttonBiology"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
         android:text="PHYSICS"
-        android:textColor="#FFFFFF" />
+        android:background="@color/physics_button_color"
+        android:textColor="@android:color/white"
+        android:drawableEnd="@drawable/ic_physics" />
 
+    <!-- Chemistry Button -->
     <Button
         android:id="@+id/buttonChemistry"
-        android:layout_width="128dp"
-        android:layout_height="104dp"
-        android:layout_below="@id/buttonPhysics"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
         android:text="CHEMISTRY"
-        android:textColor="#FFFFFF" />
+        android:background="@color/chemistry_button_color"
+        android:textColor="@android:color/white"
+        android:drawableEnd="@drawable/ic_chemistry" />
 
+    <!-- Agriculture Button -->
     <Button
         android:id="@+id/buttonAgriculture"
-        android:layout_width="126dp"
-        android:layout_height="104dp"
-        android:layout_below="@id/buttonChemistry"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="19dp"
-        android:background="@drawable/button_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
         android:text="AGRICULTURE"
-        android:textColor="#FFFFFF" />
+        android:background="@color/agriculture_button_color"
+        android:textColor="@android:color/white"
+        android:drawableEnd="@drawable/ic_agriculture" />
 
-</RelativeLayout>
+    <!-- Placeholder for even grid -->
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+    </FrameLayout>
+
+</GridLayout>
