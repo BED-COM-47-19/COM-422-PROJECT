@@ -41,10 +41,10 @@ public class TeacherLogin extends AppCompatActivity {
 
         EditText emailField = findViewById(R.id.editTextEmail);
         EditText passwordField = findViewById(R.id.editTextPassword);
-        Button loginButton = findViewById(R.id.login_button);
-        Button signUpButton = findViewById(R.id.sign_up_button);
-        TextView forgotPasswordTextView = findViewById(R.id.forgotPassword);
-        TextView googleSignInTextView = findViewById(R.id.google_sign_in);
+        Button loginButton = findViewById(R.id.buttonLogIn);
+        Button signUpButton = findViewById(R.id.buttonSignIn);
+        TextView forgotPasswordTextView = findViewById(R.id.textViewForgotPassword);
+        TextView googleSignInTextView = findViewById(R.id.textViewContinueWithGoogle);
 
         loginButton.setOnClickListener(v -> performLogin(emailField.getText().toString(), passwordField.getText().toString()));
         signUpButton.setOnClickListener(v -> startActivity(new Intent(this, TeacherSignUp.class)));
