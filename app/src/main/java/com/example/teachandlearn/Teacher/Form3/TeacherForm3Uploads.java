@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Teacher.Form3.TeacherForm3Science;
-import com.example.teachandlearn.Teacher.Form3.TeacherForm3Languages;
-import com.example.teachandlearn.Teacher.Form3.TeacherForm3Humanities;
+
 public class TeacherForm3Uploads extends AppCompatActivity {
 
     @Override
