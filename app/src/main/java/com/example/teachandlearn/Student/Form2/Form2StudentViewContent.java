@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Form1StudentViewContent;
+import com.example.teachandlearn.Teacher.Form2.TeacherForm2Uploads;
 
 
 public class Form2StudentViewContent extends AppCompatActivity {
