@@ -14,7 +14,7 @@ public class TeacherForm4Languages extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form4_languages);
+        setContentView(R.layout.activity_teacher_form4_languages);
 
         // Find buttons for each humanities subject
         Button buttonEnglish = findViewById(R.id.buttonEnglish);
