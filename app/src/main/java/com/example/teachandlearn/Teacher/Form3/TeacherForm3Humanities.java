@@ -6,16 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Form1StudentViewContent;
+import com.example.teachandlearn.Student.Form3.Form3StudentViewContent;
 
 public class TeacherForm3Humanities extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_humanities);
+        setContentView(R.layout.activity_form3_humanities);
 
         // Find buttons for each humanities subject
         Button buttonSocialStudies = findViewById(R.id.buttonSocialStudies);
