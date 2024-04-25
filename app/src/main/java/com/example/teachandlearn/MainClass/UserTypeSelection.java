@@ -1,5 +1,5 @@
-package com.example.teachandlearn.MainClass;
 
+package com.example.teachandlearn.MainClass;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.LogIn_And_SignUp.StudentLogin;
 import com.example.teachandlearn.Teacher.LogIn_And_SignUp.TeacherLogin;
