@@ -7,9 +7,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Teacher.Form1.TeacherForm1Languages;
-import com.example.teachandlearn.Teacher.Form1.TeacherForm1Science;
-import com.example.teachandlearn.Teacher.Form1.TeacherForm1Humanities;
+
 
 public class TeacherForm1 extends AppCompatActivity {
 
