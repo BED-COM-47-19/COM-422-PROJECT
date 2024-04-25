@@ -1,81 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFEFEF"
-    android:padding="16dp">
+    android:columnCount="2"
+    android:rowCount="3"
+    android:padding="16dp"
+    android:alignmentMode="alignMargins"
+    android:columnOrderPreserved="false">
 
+    <!-- Language Subjects Title -->
     <TextView
-        android:id="@+id/uploadsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UPLOADS"
-        android:textSize="24sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="10dp"/>
-
-    <GridView
-        android:id="@+id/gridview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/uploadsTextView"
-        android:numColumns="2"
-        android:verticalSpacing="16dp"
-        android:horizontalSpacing="16dp"
-        android:stretchMode="columnWidth"
-        android:gravity="center">
-
-        <!-- PDF Button -->
-        <Button
-            android:id="@+id/pdfButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/upload_pdf"
-            android:layout_marginBottom="16dp"
-            android:drawableLeft="@drawable/ic_pdf_upload"
-            android:drawablePadding="10dp" />
-
-        <!-- Audio Upload Button -->
-        <Button
-            android:id="@+id/audioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/upload_audio"
-            android:layout_marginBottom="16dp"
-            android:drawableLeft="@drawable/ic_audio_upload"
-            android:drawablePadding="10dp" />
-
-        <!-- Video Upload Button -->
-        <Button
-            android:id="@+id/videoButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/upload_video"
-            android:layout_marginBottom="16dp"
-            android:drawableLeft="@drawable/ic_video_upload"
-            android:drawablePadding="10dp" />
-
-        <!-- Questions Upload Button -->
-        <Button
-            android:id="@+id/questionsButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/upload_questions"
-            android:drawableLeft="@drawable/ic_question_upload"
-            android:drawablePadding="10dp" />
-    </GridView>
-
-    <!-- Back Button -->
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_columnSpan="2"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/gridview"
-        android:background="@drawable/back_button_background"
-        android:src="@drawable/ic_back"
-        android:contentDescription="@string/back_button_description" />
+        android:text="LANGUAGE SUBJECTS"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp" />
 
-</RelativeLayout>
+    <!-- English Button -->
+    <Button
+        android:id="@+id/buttonEnglish"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="350dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="ENGLISH"
+        android:background="@color/english_button_color"
+        android:textColor="@android:color/white"
+        android:drawableEnd="@drawable/ic_english" />
+
+    <!-- Chichewa Button -->
+    <Button
+        android:id="@+id/buttonChichewa"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="350dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="CHICHEWA"
+        android:background="@color/chichewa_button_color"
+        android:textColor="@android:color/white"
+        android:drawableEnd="@drawable/ic_chichewa" />
+
+
+
+</GridLayout>

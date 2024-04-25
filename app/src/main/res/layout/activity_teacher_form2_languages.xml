@@ -13,9 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_columnSpan="2"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:text="LANGUAGE SUBJECTS"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textColor="@color/black"
         android:layout_marginBottom="16dp" />
 
     <!-- English Button -->
@@ -25,9 +27,15 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="350dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="ENGLISH"
         android:background="@color/english_button_color"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_english" />
 
     <!-- Chichewa Button -->
@@ -37,28 +45,17 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="350dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="CHICHEWA"
         android:background="@color/chichewa_button_color"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_chichewa" />
 
-    <!-- Placeholder for back button or home -->
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:gravity="center">
-        <!-- You can add a back or home button here -->
-    </FrameLayout>
 
-    <!-- Empty placeholder for grid alignment -->
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1">
-        <!-- Empty placeholder -->
-    </FrameLayout>
 
 </GridLayout>
