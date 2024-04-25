@@ -34,7 +34,7 @@
         android:textSize="20dp"
         android:textStyle="bold"
         android:text="SOCIAL STUDIES"
-        android:background="@color/social_studies_button_color"
+        android:background="@drawable/rounded_button_background"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_social_studies" />
 
@@ -52,7 +52,7 @@
         android:textSize="20dp"
         android:textStyle="bold"
         android:text="LIFE SKILLS"
-        android:background="@color/life_skills_button_color"
+        android:background="@drawable/rounded_button_background"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_life_skills" />
 
@@ -70,7 +70,7 @@
         android:textSize="20dp"
         android:textStyle="bold"
         android:text="HISTORY"
-        android:background="@color/history_button_color"
+        android:background="@drawable/rounded_button_background"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_history" />
 
@@ -88,7 +88,7 @@
         android:textSize="20dp"
         android:textStyle="bold"
         android:text="BIBLE KNOWLEDGE"
-        android:background="@color/bible_knowledge_button_color"
+        android:background="@drawable/rounded_button_background"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_bible_knowledge" />
 
@@ -106,7 +106,7 @@
         android:textSize="20dp"
         android:textStyle="bold"
         android:text="GEOGRAPHY"
-        android:background="@color/geography_button_color"
+        android:background="@drawable/rounded_button_background"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_geography" />
 
