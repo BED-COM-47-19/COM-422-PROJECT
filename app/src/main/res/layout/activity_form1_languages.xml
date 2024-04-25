@@ -30,6 +30,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="350dp"
+        android:layout_marginTop="20dp"
         android:textSize="20dp"
         android:textStyle="bold"
         android:text="ENGLISH"
