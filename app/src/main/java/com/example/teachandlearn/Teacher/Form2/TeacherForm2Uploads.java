@@ -1,23 +1,119 @@
+package com.example.teachandlearn.Teacher.Form2;
 
-package com.example.teachandlearn.Teacher.Uploads;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import java.util.UUID;
 
 public class TeacherForm2Uploads extends AppCompatActivity {
+
+    private static final int REQUEST_PICK_PDF = 1;
+    private static final int REQUEST_PICK_AUDIO = 2;
+    private static final int REQUEST_PICK_VIDEO = 3;
+    private static final int REQUEST_PICK_QUESTION = 4;
+
+    private Uri selectedPdfUri;
+    private Uri selectedAudioUri;
+    private Uri selectedVideoUri;
+    private Uri selectedQuestionUri;
+
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_form2_uploads); // Layout with a button
+        setContentView(R.layout.activity_teacher_form2_uploads);
 
-        Button uploadButton = findViewById(R.id.uploadButton);
-        uploadButton.setOnClickListener(v -> {
-            // Navigate to TeacherUploads Activity
-            Intent intent = new Intent(this, TeacherUploads.class);
-            startActivity(intent);
-        });
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+
+        Button pdfButton = findViewById(R.id.pdfButton);
+        Button audioButton = findViewById(R.id.audioButton);
+        Button videoButton = findViewById(R.id.videoButton);
+        Button questionsButton = findViewById(R.id.questionsButton);
+
+        pdfButton.setOnClickListener(v -> openFilePicker("application/pdf", REQUEST_PICK_PDF));
+        audioButton.setOnClickListener(v -> openFilePicker("audio/*", REQUEST_PICK_AUDIO));
+        videoButton.setOnClickListener(v -> openFilePicker("video/*", REQUEST_PICK_VIDEO));
+        questionsButton.setOnClickListener(v -> openFilePicker("*/*", REQUEST_PICK_QUESTION));
+    }
+
+    private void openFilePicker(String mimeType, int requestCode) {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType(mimeType);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        startActivityForResult(Intent.createChooser(intent, "Select File"), requestCode);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri selectedFileUri = data.getData();
+            switch (requestCode) {
+                case REQUEST_PICK_PDF:
+                    selectedPdfUri = selectedFileUri;
+                    uploadFile(selectedPdfUri);
+                    showToast("PDF Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_AUDIO:
+                    selectedAudioUri = selectedFileUri;
+                    uploadFile(selectedAudioUri);
+                    showToast("Audio Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_VIDEO:
+                    selectedVideoUri = selectedFileUri;
+                    uploadFile(selectedVideoUri);
+                    showToast("Video Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_QUESTION:
+                    selectedQuestionUri = selectedFileUri;
+                    uploadFile(selectedQuestionUri);
+                    showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+            }
+        }
+    }
+
+    private void uploadFile(Uri fileUri) {
+        if (fileUri != null) {
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+
+            String fileName = UUID.randomUUID().toString();
+            StorageReference fileRef = storageReference.child("uploads/" + fileName);
+
+            fileRef.putFile(fileUri)
+                    .addOnSuccessListener(taskSnapshot -> {
+                        progressDialog.dismiss();
+                        showToast("File uploaded successfully");
+                    })
+                    .addOnFailureListener(e -> {
+                        progressDialog.dismiss();
+                        showToast("Failed to upload file: " + e.getMessage());
+                    })
+                    .addOnProgressListener(taskSnapshot -> {
+                        double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                        progressDialog.setMessage("Uploaded " + (int) progress + "%");
+                    });
+        }
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

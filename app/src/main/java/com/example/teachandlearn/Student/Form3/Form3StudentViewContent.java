@@ -6,7 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Teacher.Uploads.TeacherUploads;
+import com.example.teachandlearn.Student.Form1.Form1StudentViewContent;
+
 
 public class Form3StudentViewContent extends AppCompatActivity {
 
@@ -53,8 +54,10 @@ public class Form3StudentViewContent extends AppCompatActivity {
 
     // Helper method to navigate to TeacherUploadsActivity
     private void navigateToTeacherUploads(String contentType) {
-        Intent intent = new Intent(Form3StudentViewContent.this, TeacherUploads.class);
+        Intent intent = new Intent(Form3StudentViewContent.this, TeacherForm3Uploads.class);
         intent.putExtra("content_type", contentType);
+        intent.putExtra("action", "view");  // This specifies that the student wants to view content
         startActivity(intent);
     }
+
 }
