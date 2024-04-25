@@ -7,38 +7,39 @@
     android:gravity="center">
 
     <!-- SCIENCE button -->
+
+    <!-- HUMANITIES button -->
+
     <Button
         android:id="@+id/buttonScience"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SCIENCE"
-        android:textColor="#FFFFFF"
-        android:background="#6200EE"
         android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"/>
+        android:background="#6200EE"
+        android:text="SCIENCE"
+        android:textColor="#FFFFFF" />
 
-    <!-- HUMANITIES button -->
+    <!-- LANGUAGES button -->
     <Button
         android:id="@+id/buttonHumanities"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HUMANITIES"
         android:layout_below="@id/buttonScience"
-        android:layout_marginTop="20dp" android:textColor="#FFFFFF"
+        android:layout_marginTop="46dp"
         android:background="#6200EE"
+        android:text="HUMANITIES"
+        android:textColor="#FFFFFF"
 
-        android:layout_centerHorizontal="true"/>
+        />
 
-    <!-- LANGUAGES button -->
     <Button
         android:id="@+id/buttonLanguages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LANGUAGES"
-        android:textColor="#FFFFFF"
-        android:background="#6200EE"
         android:layout_below="@id/buttonHumanities"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginTop="49dp"
+        android:background="#6200EE"
+        android:text="LANGUAGES"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

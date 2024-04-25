@@ -17,26 +17,26 @@
 
     <Button
         android:id="@+id/buttonEnglish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ENGLISH"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="147dp"
+        android:layout_height="132dp"
         android:layout_below="@id/textViewLanguagesTitle"
-        android:layout_marginTop="50dp"
         android:layout_marginStart="20dp"
-        android:onClick="onEnglishButtonClick"/>
+        android:layout_marginTop="70dp"
+        android:background="@drawable/button_background"
+        android:onClick="onEnglishButtonClick"
+        android:text="ENGLISH"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonChichewa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CHICHEWA"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/button_background"
+        android:layout_width="149dp"
+        android:layout_height="137dp"
         android:layout_below="@id/buttonEnglish"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
-        android:onClick="onChichewaButtonClick"/>
+        android:layout_marginTop="147dp"
+        android:background="@drawable/button_background"
+        android:onClick="onChichewaButtonClick"
+        android:text="CHICHEWA"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>
