@@ -1,5 +1,5 @@
-package com.example.teachandlearn.Student.LogIn_And_SignUp;
 
+package com.example.teachandlearn.Teacher.SelectClass;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +10,7 @@ import com.example.teachandlearn.Teacher.Form1.TeacherForm1;
 import com.example.teachandlearn.Teacher.Form2.TeacherForm2;
 import com.example.teachandlearn.Teacher.Form3.TeacherForm3;
 import com.example.teachandlearn.Teacher.Form4.TeacherForm4;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,12 +26,12 @@ public class TeacherSelectClass extends AppCompatActivity {
         Button buttonForm2 = findViewById(R.id.button_form2);
         Button buttonForm3 = findViewById(R.id.button_form3);
         Button buttonForm4 = findViewById(R.id.button_form4);
+        ImageButton logOutButton = findViewById(R.id.log_out_button);  // Initialize the log out button
 
         // Set click listeners for each button
         buttonForm1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to Form 1 activity
                 startActivity(new Intent(TeacherSelectClass.this, TeacherForm1.class));
             }
         });
@@ -38,7 +39,6 @@ public class TeacherSelectClass extends AppCompatActivity {
         buttonForm2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to Form 2 activity
                 startActivity(new Intent(TeacherSelectClass.this, TeacherForm2.class));
             }
         });
@@ -46,7 +46,6 @@ public class TeacherSelectClass extends AppCompatActivity {
         buttonForm3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to Form 3 activity
                 startActivity(new Intent(TeacherSelectClass.this, TeacherForm3.class));
             }
         });
@@ -54,9 +53,24 @@ public class TeacherSelectClass extends AppCompatActivity {
         buttonForm4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to Form 4 activity
                 startActivity(new Intent(TeacherSelectClass.this, TeacherForm4.class));
             }
         });
+
+        logOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logoutUser();
+            }
+        });
+    }
+
+    private void logoutUser() {
+        // Here you might handle clearing any cached user data or logged-in session
+        // Redirect user to UserTypeSelection activity
+        Intent intent = new Intent(this, UserTypeSelection.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Clears the activity stack
+        startActivity(intent);
+        finish(); // Close the current activity
     }
 }
