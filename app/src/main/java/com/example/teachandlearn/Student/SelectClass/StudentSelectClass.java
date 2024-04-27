@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+
+import com.example.teachandlearn.MainClass.UserTypeSelection;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.Form1.Form1Student;
 import com.example.teachandlearn.Student.Form2.Form2Student;
@@ -67,7 +69,7 @@ public class StudentSelectClass extends AppCompatActivity {
     private void logoutUser() {
         // Here you might handle clearing any cached user data or logged-in session
         // Redirect user to UserTypeSelection activity
-        Intent intent = new Intent(this, UserTypeSelection.class);
+        Intent intent = new Intent(StudentSelectClass.this, UserTypeSelection.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Clears the activity stack
         startActivity(intent);
         finish(); // Close the current activity
