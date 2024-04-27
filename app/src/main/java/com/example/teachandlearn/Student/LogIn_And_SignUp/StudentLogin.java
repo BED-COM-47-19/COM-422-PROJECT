@@ -122,12 +122,28 @@ public class StudentLogin extends AppCompatActivity {
 
         loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
         signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogin.this, StudentSignup.class)));
-        forgotPasswordTextView.setOnClickListener(v -> startActivity(new Intent(StudentLogin.this, StudentPasswordReset.class)));
+        forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
         googleSignInTextView.setOnClickListener(v -> {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
             startActivityForResult(signInIntent, RC_SIGN_IN);
         });
     }
+
+    private void sendPasswordResetEmail(String email) {
+        if (!email.isEmpty()) {
+            mAuth.sendPasswordResetEmail(email)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(StudentLogin.this, "Reset link sent to your email", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(StudentLogin.this, "Failed to send reset email", Toast.LENGTH_LONG).show();
+                        }
+                    });
+        } else {
+            Toast.makeText(StudentLogin.this, "Please enter your email", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
 
     private void loginUser(String email, String password) {

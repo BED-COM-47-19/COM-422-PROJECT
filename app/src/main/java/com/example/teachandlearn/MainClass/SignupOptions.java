@@ -16,7 +16,7 @@ public class SignupOptions extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup_options);
+        setContentView(R.layout.activity_teacher_password_reset);
 
         Button studentButton = findViewById(R.id.buttonStudent);
         Button teacherButton = findViewById(R.id.buttonTeacher);
