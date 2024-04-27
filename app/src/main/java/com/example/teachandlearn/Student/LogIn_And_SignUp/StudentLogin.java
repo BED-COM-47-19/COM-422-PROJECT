@@ -13,7 +13,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Teacher.LogIn_And_SignUp.TeacherLogin;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -152,17 +151,22 @@ public class StudentLogin extends AppCompatActivity {
             return; // Stop the login process if fields are empty
         }
 
-
-    private void loginUser(String email, String password) {
+        // Proceed with Firebase authentication
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
+                        // If login is successful, navigate to the next screen
                         startActivity(new Intent(StudentLogin.this, StudentSelectClass.class));
                     } else {
+                        // If login fails, display a failure message
                         Toast.makeText(StudentLogin.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
+
+
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
