@@ -58,9 +58,6 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.LogIn_And_SignUp.TeacherSelectFields"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
 
         <activity android:name=".Teacher.LogIn_And_SignUp.TeacherSelection"
             android:theme="@style/Theme.AppCompat">
@@ -76,7 +73,7 @@
 
         <!-- Student Class Selection -->
 
-        <activity android:name=".Student.Form1.Student"
+        <activity android:name=".Student.Form1.Form1Student"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
