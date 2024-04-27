@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Teacher.LogIn_And_SignUp.TeacherLogin;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -144,6 +145,12 @@ public class StudentLogin extends AppCompatActivity {
         }
     }
 
+    private void loginUser(String email, String password) {
+        // Check if email or password is empty
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(StudentLogin.this, "Email and password cannot be empty.", Toast.LENGTH_SHORT).show();
+            return; // Stop the login process if fields are empty
+        }
 
 
     private void loginUser(String email, String password) {

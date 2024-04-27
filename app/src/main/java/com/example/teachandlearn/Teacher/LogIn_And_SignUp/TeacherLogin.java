@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Teacher.SelectClass.TeacherSelectClass;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -121,7 +122,7 @@ public class TeacherLogin extends AppCompatActivity {
         TextView googleSignInTextView = (TextView) rootLayout.getChildAt(6);
 
         loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
-        signUpButton.setOnClickListener(v -> startActivity(new Intent(TeacherLogin.this, TeacherSignUp)));
+        signUpButton.setOnClickListener(v -> startActivity(new Intent(TeacherLogin.this, TeacherSignUp.class)));
         forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
         googleSignInTextView.setOnClickListener(v -> {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -144,18 +145,29 @@ public class TeacherLogin extends AppCompatActivity {
         }
     }
 
-
-
     private void loginUser(String email, String password) {
+        // Check if email or password is empty
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(TeacherLogin.this, "Email and password cannot be empty.", Toast.LENGTH_SHORT).show();
+            return; // Stop the login process if fields are empty
+        }
+
+        // Proceed with Firebase authentication
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        startActivity(new Intent(TeacherLoginLogin.this, TeacherSelectClass.class));
+                        // If login is successful, navigate to the next screen
+                        startActivity(new Intent(TeacherLogin.this, TeacherSelectClass.class));
                     } else {
-                        Toast.makeText(StudentLogin.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        // If login fails, display a failure message
+                        Toast.makeText(TeacherLogin.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
+
+
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
