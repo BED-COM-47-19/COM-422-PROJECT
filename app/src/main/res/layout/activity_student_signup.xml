@@ -90,10 +90,10 @@
 
     <!-- Continue Button -->
     <Button
-        android:id="@+id/buttonSignIn"
+        android:id="@+id/buttonContinue"
         android:layout_width="110dp"
         android:layout_height="38dp"
-        android:layout_below="@id/buttonLogIn"
+        android:layout_below="@id/buttonContinue"
         android:layout_marginStart="220dp"
         android:layout_marginLeft="-220dp"
         android:layout_marginTop="10dp"
