@@ -8,7 +8,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.Form2.Form2HumanitiesStudent;
-import com.example.teachandlearn.Student.Form2.Form2LanguagesSudent;
 import com.example.teachandlearn.Student.Form2.Form2SciencesStudent;
 
 public class Form2Student extends AppCompatActivity {
