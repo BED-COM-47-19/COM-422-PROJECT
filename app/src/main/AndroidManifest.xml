@@ -171,25 +171,22 @@
 
         <!-- Teacher File Uploader -->
 
-        <activity android:name=".Teacher.Uploads.TeacherUploads"
+        <activity android:name=".Teacher.Form1.TeacherForm1Uploads"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Uploads.TeacherForm1Uploads"
+        <activity android:name=".Teacher.Form2.TeacherForm2Uploads"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Uploads.TeacherForm2Uploads"
+        <activity android:name=".Teacher.Form3.TeacherForm3Uploads"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Uploads.TeacherForm3Uploads"
+        <activity android:name=".Teacher.Form4.TeacherForm4Uploads"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Uploads.TeacherForm4Uploads"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
 
 
 

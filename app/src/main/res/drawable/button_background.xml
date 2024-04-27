@@ -1,5 +1,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <corners android:radius="4dp"/>
-    <solid android:color="#E91E63"/> <!-- Replace with the color used in your button -->
+    <corners android:radius="8dp"/>
+    <solid android:color="#5D5A80"/> <!-- Replace with the color used in your button -->
 </shape>

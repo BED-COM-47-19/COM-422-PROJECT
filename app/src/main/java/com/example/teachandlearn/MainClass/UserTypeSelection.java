@@ -1,80 +1,65 @@
 
 package com.example.teachandlearn.MainClass;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
+import android.widget.ImageButton;
 import com.example.teachandlearn.Student.LogIn_And_SignUp.StudentLogin;
 import com.example.teachandlearn.Teacher.LogIn_And_SignUp.TeacherLogin;
 
 public class UserTypeSelection extends AppCompatActivity {
 
+    private Button buttonStudent;
+    private Button buttonTeacher;
+    private ImageButton buttonBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Set the content view to the XML layout for this activity
         setContentView(R.layout.activity_user_type_selection);
 
-        // Create a LinearLayout as the root layout
-        LinearLayout rootLayout = new LinearLayout(this);
-        rootLayout.setOrientation(LinearLayout.VERTICAL);
-        rootLayout.setBackgroundColor(0xFF116AFD); // Purple background color
-        rootLayout.setLayoutParams(new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
-        ));
+        // Initialize buttons from layout
+        buttonStudent = findViewById(R.id.button_student);
+        buttonTeacher = findViewById(R.id.button_teacher);
+        buttonBack = findViewById(R.id.button_back);
 
-        // Create Button for Student
-        Button studentButton = new Button(this);
-        studentButton.setText("STUDENT");
-        studentButton.setTextColor(0xFF000000); // Black text color
-        studentButton.setBackgroundColor(0xFF116AFD); // Purple background color
-        LinearLayout.LayoutParams studentParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        studentParams.gravity = Gravity.CENTER_HORIZONTAL;
-        studentParams.topMargin = 100; // Adjust top margin
-        studentButton.setLayoutParams(studentParams);
-        rootLayout.addView(studentButton);
-
-        // Set OnClickListener for Student button
-        studentButton.setOnClickListener(new View.OnClickListener() {
+        // Set onClick listeners for buttons
+        buttonStudent.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // Start StudentLoginActivity
-                startActivity(new Intent(UserTypeSelection.this, StudentLogin.class));
+            public void onClick(View view) {
+                // Logic for when the 'STUDENT' button is pressed
+                Intent intent = new Intent(UserTypeSelection.this, StudentLogin.class);
+                startActivity(intent);
             }
         });
 
-        // Create Button for Teacher
-        Button teacherButton = new Button(this);
-        teacherButton.setText("TEACHER");
-        teacherButton.setTextColor(0xFF000000); // Black text color
-        teacherButton.setBackgroundColor(0xFF116AFD); // Purple background color
-        LinearLayout.LayoutParams teacherParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        teacherParams.gravity = Gravity.CENTER_HORIZONTAL;
-        teacherParams.topMargin = 50; // Adjust top margin
-        teacherButton.setLayoutParams(teacherParams);
-        rootLayout.addView(teacherButton);
-
-        // Set OnClickListener for Teacher button
-        teacherButton.setOnClickListener(new View.OnClickListener() {
+        buttonTeacher.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // Start TeacherLoginActivity
-                startActivity(new Intent(UserTypeSelection.this, TeacherLogin.class));
+            public void onClick(View view) {
+                // Logic for when the 'TEACHER' button is pressed
+                Intent intent = new Intent(UserTypeSelection.this, TeacherLogin.class);
+                startActivity(intent);
             }
         });
 
-        // Set Content View to the root layout
-        setContentView(rootLayout);
+        // Set onClick listener for the back button
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
     }
 }

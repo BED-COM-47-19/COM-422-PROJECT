@@ -1,49 +1,54 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:columnCount="1"
-    android:rowCount="4"
-    android:padding="16dp"
-    android:alignmentMode="alignMargins"
-    android:useDefaultMargins="true">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
 
-    <!-- Logo/Image Placeholder -->
-<!--    <ImageView-->
-<!--        android:id="@+id/imageViewLogo"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_row="0"-->
-<!--        android:src="@drawable/logo_placeholder" -->
-<!--        android:contentDescription="@string/logo_description"/>-->
-
-    <!-- Student Button -->
-    <Button
-        android:id="@+id/buttonStudent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_row="1"
-        android:text="STUDENT"
-        android:layout_marginTop="16dp"/>
-
-    <!-- Teacher Button -->
-    <Button
-        android:id="@+id/buttonTeacher"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_row="2"
-        android:text="TEACHER"
-        android:layout_marginTop="8dp"/>
-
-    <!-- Back Arrow or Icon Placeholder -->
     <ImageView
-        android:id="@+id/imageViewBackArrow"
+        android:id="@+id/image_logo"
+        android:layout_width="377dp"
+        android:layout_height="207dp"
+        android:layout_marginTop="64dp"
+        android:background="@color/white"
+        android:src="@drawable/logo_image2" />
+
+    <Button
+        android:id="@+id/button_student"
+        android:layout_width="147dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_logo"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/button_background"
+        android:padding="8dp"
+        android:text="STUDENT"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button_teacher"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_student"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/button_background"
+        android:padding="8dp"
+        android:text="TEACHER"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/button_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_row="3"
-        android:src="@drawable/ic_back"
-    android:contentDescription="@string/back"
-    android:layout_marginTop="16dp"/>
-
-</GridLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_back" />
+</RelativeLayout>
