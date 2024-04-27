@@ -74,7 +74,7 @@
 
 
 
-        <!-- FORM 1,2,3 & 4 -->
+        <!-- Student Class Selection -->
 
         <activity android:name=".Student.Form1.Form1Student"
             android:theme="@style/Theme.AppCompat">
