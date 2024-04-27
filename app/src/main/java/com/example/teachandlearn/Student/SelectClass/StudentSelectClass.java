@@ -25,12 +25,12 @@ public class StudentSelectClass extends AppCompatActivity {
         Button buttonForm2 = findViewById(R.id.button_form2);
         Button buttonForm3 = findViewById(R.id.button_form3);
         Button buttonForm4 = findViewById(R.id.button_form4);
+        ImageButton logOutButton = findViewById(R.id.log_out_button);  // Initialize the log out button
 
         // Set click listeners for each button
         buttonForm1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to Form 1 activity
                 startActivity(new Intent(StudentSelectClass.this, Form1Student.class));
             }
         });
@@ -38,7 +38,6 @@ public class StudentSelectClass extends AppCompatActivity {
         buttonForm2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to Form 2 activity
                 startActivity(new Intent(StudentSelectClass.this, Form2Student.class));
             }
         });
@@ -46,7 +45,6 @@ public class StudentSelectClass extends AppCompatActivity {
         buttonForm3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to Form 3 activity
                 startActivity(new Intent(StudentSelectClass.this, Form3Student.class));
             }
         });
@@ -54,9 +52,24 @@ public class StudentSelectClass extends AppCompatActivity {
         buttonForm4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to Form 4 activity
                 startActivity(new Intent(StudentSelectClass.this, Form4Student.class));
             }
         });
+
+        logOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logoutUser();
+            }
+        });
+    }
+
+    private void logoutUser() {
+        // Here you might handle clearing any cached user data or logged-in session
+        // Redirect user to UserTypeSelection activity
+        Intent intent = new Intent(this, UserTypeSelection.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Clears the activity stack
+        startActivity(intent);
+        finish(); // Close the current activity
     }
 }

@@ -265,6 +265,11 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
+        <activity android:name=".MainClass.SignupOptions"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
 
 
 </application>
