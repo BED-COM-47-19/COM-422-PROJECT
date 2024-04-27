@@ -10,6 +10,7 @@
 
     <!-- First Name Input Field -->
     <EditText
+        android:id="@+id/editTextFirstName"
         android:layout_width="305dp"
         android:layout_height="55dp"
         android:layout_below="@id/editTextFirstName"
