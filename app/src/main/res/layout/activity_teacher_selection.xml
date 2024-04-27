@@ -15,15 +15,6 @@
         android:background="#6200EE"
         android:layout_marginTop="100dp"/>
 
-    <Button
-        android:id="@+id/selectFieldsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SELECT THE FIELDS YOU TEACH"
-        android:textColor="#000000"
-        android:background="#6200EE"
-        android:layout_marginTop="20dp"/>
-
 
     <GridView
         android:id="@+id/gridView"
@@ -34,7 +25,17 @@
         android:verticalSpacing="10dp"
         android:horizontalSpacing="10dp"
         android:stretchMode="columnWidth"
-        android:gravity="center"/>
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/selectFieldsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#6200EE"
+            android:text="SELECT THE FIELDS YOU TEACH"
+            android:textColor="#000000" />
+    </GridView>
 
 
 </LinearLayout>

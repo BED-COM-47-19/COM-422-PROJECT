@@ -129,6 +129,7 @@ public class StudentLogin extends AppCompatActivity {
         });
     }
 
+
     private void loginUser(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
@@ -154,5 +155,5 @@ public class StudentLogin extends AppCompatActivity {
         }
     }
 
-    startActivity(new Intent(StudentLogin.this, StudentSignup.class));
+
 }

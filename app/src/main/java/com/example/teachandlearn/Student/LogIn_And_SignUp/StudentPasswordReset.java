@@ -1,6 +1,5 @@
 
 package com.example.teachandlearn.Student.LogIn_And_SignUp;
-
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
