@@ -1,5 +1,5 @@
-package com.example.teachandlearn.Student.LogIn_And_SignUp;
 
+package com.example.teachandlearn.Student.SelectClass;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

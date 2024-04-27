@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form2.Form2HumanitiesStudent;
+import com.example.teachandlearn.Student.Form2.Form2LanguagesSudent;
+import com.example.teachandlearn.Student.Form2.Form2SciencesStudent;
 
 public class Form2Student extends AppCompatActivity {
 
@@ -16,9 +19,9 @@ public class Form2Student extends AppCompatActivity {
         setContentView(R.layout.activity_form2);
 
         // Find the buttons for SCIENCE, HUMANITIES, and LANGUAGES
-        Button buttonScience = findViewById(R.id.buttonScience);
-        Button buttonHumanities = findViewById(R.id.buttonHumanities);
-        Button buttonLanguages = findViewById(R.id.buttonLanguages);
+        Button buttonScience = findViewById(R.id.activity_form2_science);
+        Button buttonHumanities = findViewById(R.id.activity_form2_humanities);
+        Button buttonLanguages = findViewById(R.id.activity_form2_languages);
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {

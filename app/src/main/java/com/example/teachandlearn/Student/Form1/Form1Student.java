@@ -1,5 +1,5 @@
 
-package com.example.teachandlearn.Student.Form1;
+package com.example.teachandlearn.Student.Form2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,18 +7,21 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form1.Form1HumanitiesStudent;
+import com.example.teachandlearn.Student.Form1.Form1LanguagesSudent;
+import com.example.teachandlearn.Student.Form1.Form1SciencesStudent;
 
 public class Form1Student extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_form1);
+        setContentView(R.layout.activity_form1);
 
         // Find the buttons for SCIENCE, HUMANITIES, and LANGUAGES
-        Button buttonScience = findViewById(R.id.buttonScience);
-        Button buttonHumanities = findViewById(R.id.buttonHumanities);
-        Button buttonLanguages = findViewById(R.id.buttonLanguages);
+        Button buttonScience = findViewById(R.id.activity_form1_science);
+        Button buttonHumanities = findViewById(R.id.activity_form1_humanities);
+        Button buttonLanguages = findViewById(R.id.activity_form1_languages);
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {

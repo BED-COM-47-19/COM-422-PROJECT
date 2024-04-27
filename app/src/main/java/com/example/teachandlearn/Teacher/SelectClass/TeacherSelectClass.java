@@ -10,8 +10,6 @@ import com.example.teachandlearn.Teacher.Form1.TeacherForm1;
 import com.example.teachandlearn.Teacher.Form2.TeacherForm2;
 import com.example.teachandlearn.Teacher.Form3.TeacherForm3;
 import com.example.teachandlearn.Teacher.Form4.TeacherForm4;
-
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class TeacherSelectClass extends AppCompatActivity {
