@@ -153,4 +153,6 @@ public class StudentLogin extends AppCompatActivity {
                     .addOnFailureListener(e -> Toast.makeText(this, "Google sign-in failed.", Toast.LENGTH_SHORT).show());
         }
     }
+
+    startActivity(new Intent(StudentLogin.this, StudentSignup.class));
 }
