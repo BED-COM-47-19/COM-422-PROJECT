@@ -4,11 +4,10 @@
     android:columnCount="1"
     android:rowCount="5"
     android:alignmentMode="alignMargins"
-    android:background="@color/white"
     android:layout_marginTop="150dp"
     android:padding="16dp">
 
-    <!-- Form 1 Button -->
+
     <Button
         android:id="@+id/button_form1"
         android:layout_width="216dp"
