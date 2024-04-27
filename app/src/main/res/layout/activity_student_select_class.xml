@@ -17,7 +17,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="70dp"
         android:background="@drawable/edit_text_background"
-        android:backgroundTint="#4C62D1"
+        android:backgroundTint="#668C3A"
         android:text="FORM 1"
         android:textSize="40dp"
         android:textStyle="bold" />
@@ -31,7 +31,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="70dp"
         android:background="@drawable/edit_text_background"
-        android:backgroundTint="#D81C7C"
+        android:backgroundTint="#23C53E"
         android:text="FORM 2"
         android:textSize="40dp"
         android:textStyle="bold" />
@@ -45,7 +45,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="70dp"
         android:background="@drawable/edit_text_background"
-        android:backgroundTint="#00BCD4"
+        android:backgroundTint="#71297E"
         android:text="FORM 3"
         android:textSize="40dp"
         android:textStyle="bold" />
@@ -59,7 +59,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="70dp"
         android:background="@drawable/edit_text_background"
-        android:backgroundTint="#FF9800"
+        android:backgroundTint="#ef5350"
         android:text="FORM 4"
         android:textSize="40dp"
         android:textStyle="bold" />

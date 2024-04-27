@@ -17,7 +17,7 @@ public class StudentSelectClass extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_class_activity);
+        setContentView(R.layout.activity_student_select_class);
 
         // Find buttons for each form
         Button buttonForm1 = findViewById(R.id.button_form1);
