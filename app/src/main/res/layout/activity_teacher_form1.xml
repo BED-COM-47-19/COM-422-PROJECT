@@ -1,77 +1,105 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:columnCount="1"
-    android:rowCount="4"
-    android:orientation="vertical"
-    android:padding="30dp"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:columnCount="2"
+    android:rowCount="2"
     android:alignmentMode="alignMargins"
-    android:useDefaultMargins="true">
+    android:columnOrderPreserved="false">
 
-    <!-- Title TextView -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="40dp"
-        android:text="FORM 1 TEACHER"
-        android:textColor="@color/black"
+        android:text="UPLOADS"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
         android:textSize="30sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp" />
+
+    <!-- PDF Button -->
+    <Button
+        android:id="@+id/button_pdf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="20dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:text="PDF"
+        android:layout_margin="8dp"
+        android:background="@drawable/rounded_button_background"
+        android:backgroundTint="#6e6e6e"/>
+
+    <!-- Audio Button -->
+    <Button
+        android:id="@+id/button_audio"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/rounded_button_background"
+        android:backgroundTint="#5a5acb"
+        android:text="AUDIO"
+        android:textSize="25dp"
         android:textStyle="bold" />
 
-    <!-- Item 1 -->
+    <!-- Videos Button -->
     <Button
-        android:id="@+id/activity_teacher_form1_science"
-        android:layout_width="270dp"
-        android:layout_height="80dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="10dp"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:background="@drawable/sciences_background"
-        android:text="SCIENCES" />
+        android:id="@+id/button_videos"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="95dp"
+        android:background="@drawable/rounded_button_background"
+        android:backgroundTint="#c855d3"
+        android:text="VIDEOS"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
-    <!-- Item 2 -->
+    <!-- Tests and Quizzes Button -->
     <Button
-        android:id="@+id/activity_teacher_form1_humanities"
-        android:layout_width="270dp"
-        android:layout_height="80dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="10dp"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:background="@drawable/humanities_background"
-        android:text="HUMANITIES" />
+        android:id="@+id/button_tests_quizzes"
+        android:layout_width="0dp"
+        android:layout_height="19dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="95dp"
+        android:background="@drawable/rounded_button_background"
+        android:backgroundTint="#4a6d2f"
+        android:text="TESTS AND QUIZZES"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
-    <!-- Item 3 -->
-    <Button
-        android:id="@+id/activity_teacher_form1_languages"
-        android:layout_width="270dp"
-        android:layout_height="80dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="30dp"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:background="@drawable/languages_background"
-        android:text="LANGUAGES" />
-
-<!--    <ImageButton-->
-<!--        android:id="@+id/log_out_button"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="39dp"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginTop="-45dp"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:contentDescription="@string/back"-->
-<!--        android:src="@drawable/ic_back" />-->
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/log_out_button"-->
+    <!--        android:layout_width="10dp"-->
+    <!--        android:layout_height="10dp"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginBottom="10dp"-->
+    <!--        android:contentDescription="@string/back"-->
+    <!--        android:src="@drawable/ic_back" />-->
 
 </GridLayout>
+
