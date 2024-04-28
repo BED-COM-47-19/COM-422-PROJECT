@@ -7,6 +7,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class StudentLogin extends AppCompatActivity {
 
+    private ImageButton buttonBack;
+
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 9001;
@@ -32,6 +35,8 @@ public class StudentLogin extends AppCompatActivity {
         setContentView(R.layout.activity_student_login); // Consider updating this layout name if it's incorrect for this context
 
         // Initialize Firebase Auth
+
+        buttonBack = findViewById(R.id.button_back);
         mAuth = FirebaseAuth.getInstance();
 
         // Configure Google Sign-In
@@ -50,6 +55,14 @@ public class StudentLogin extends AppCompatActivity {
 
         // Set Content View to the root layout
         setContentView(rootLayout);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
     }
 
     private LinearLayout buildDynamicUI() {
@@ -180,6 +193,13 @@ public class StudentLogin extends AppCompatActivity {
                     })
                     .addOnFailureListener(e -> Toast.makeText(this, "Google sign-in failed.", Toast.LENGTH_SHORT).show());
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
     }
 
 
