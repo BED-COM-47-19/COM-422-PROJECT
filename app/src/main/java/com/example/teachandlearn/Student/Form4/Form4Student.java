@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
@@ -13,6 +14,7 @@ import com.example.teachandlearn.Student.Form4.Form4ScienceStudent;
 
 public class Form4Student extends AppCompatActivity {
 
+    private ImageButton buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +24,7 @@ public class Form4Student extends AppCompatActivity {
         Button buttonScience = findViewById(R.id.activity_form4_science);
         Button buttonHumanities = findViewById(R.id.activity_form4_humanities);
         Button buttonLanguages = findViewById(R.id.activity_form4_languages);
+        buttonBack = findViewById(R.id.button_back);
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {
@@ -52,10 +55,27 @@ public class Form4Student extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
+
     }
 
     // Helper method to show toast message
     private void showToast(String message) {
         Toast.makeText(Form4Student.this, message, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
+
 }
