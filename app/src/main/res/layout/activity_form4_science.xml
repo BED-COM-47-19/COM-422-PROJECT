@@ -41,7 +41,7 @@
         android:textStyle="bold"
         android:text="MATHEMATICS"
         android:background="@drawable/rounded_button_background"
-        android:backgroundTint="@color/mathematics_button_color"
+        android:backgroundTint="#235C55"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_mathematics" />
 
@@ -60,7 +60,7 @@
         android:textStyle="bold"
         android:text="BIOLOGY"
         android:background="@drawable/rounded_button_background"
-        android:backgroundTint="@color/biology_button_color"
+        android:backgroundTint="#724B83"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_biology" />
 
@@ -98,7 +98,7 @@
         android:textStyle="bold"
         android:text="CHEMISTRY"
         android:background="@drawable/rounded_button_background"
-        android:backgroundTint="@color/chemistry_button_color"
+        android:backgroundTint="#4CAF50"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_chemistry" />
 
@@ -117,7 +117,7 @@
         android:textStyle="bold"
         android:text="AGRICULTURE"
         android:background="@drawable/rounded_button_background"
-        android:backgroundTint="@color/agriculture_button_color"
+        android:backgroundTint="#A87C4F"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_agriculture" />
 

@@ -41,7 +41,7 @@
         android:textStyle="bold"
         android:text="MATHEMATICS"
         android:background="@drawable/rounded_button_background"
-        android:backgroundTint="@color/mathematics_button_color"
+        android:backgroundTint="@color/design_default_color_primary"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_mathematics" />
 
@@ -98,7 +98,7 @@
         android:textStyle="bold"
         android:text="CHEMISTRY"
         android:background="@drawable/rounded_button_background"
-        android:backgroundTint="@color/chemistry_button_color"
+        android:backgroundTint="@color/teal_700"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_chemistry" />
 
