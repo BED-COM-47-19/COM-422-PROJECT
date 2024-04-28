@@ -12,6 +12,7 @@ import com.example.teachandlearn.R;
 
 public class TeacherForm4Science extends AppCompatActivity {
 
+    private imageButton buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class TeacherForm4Science extends AppCompatActivity {
         Button buttonPhysics = findViewById(R.id.buttonPhysics);
         Button buttonChemistry = findViewById(R.id.buttonChemistry);
         Button buttonAgriculture = findViewById(R.id.buttonAgriculture);
+        buttonBack = findViewById(R.id.button_back);
 
         // Set click listeners for each button
         buttonMathematics.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +76,14 @@ public class TeacherForm4Science extends AppCompatActivity {
                 startActivityForContent();
             }
         });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
     }
 
     // Helper method to show toast message
@@ -85,5 +95,12 @@ public class TeacherForm4Science extends AppCompatActivity {
     private void startActivityForContent() {
         Intent intent = new Intent(TeacherForm4Science.this, TeacherForm4Uploads.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
     }
 }
