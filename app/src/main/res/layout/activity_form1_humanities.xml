@@ -115,14 +115,14 @@
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_geography" />
 
-    <!-- Placeholder for even grid -->
 <!--    <ImageButton-->
 <!--        android:id="@+id/button_back"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="61dp"-->
+<!--        android:layout_height="59dp"-->
 <!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginBottom="16dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginLeft="-330dp"-->
 <!--        android:contentDescription="@string/back"-->
-<!--        android:src="@drawable/ic_back" />-->
+<!--        android:src="@drawable/back_arrow" />-->
 
 </GridLayout>
