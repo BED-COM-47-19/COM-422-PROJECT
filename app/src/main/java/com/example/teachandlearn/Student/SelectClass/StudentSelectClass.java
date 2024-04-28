@@ -17,12 +17,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class StudentSelectClass extends AppCompatActivity {
 
+    private ImageButton buttonBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_select_class);
 
         // Initialize buttons
+
         Button buttonForm1 = findViewById(R.id.button_form1);
         Button buttonForm2 = findViewById(R.id.button_form2);
         Button buttonForm3 = findViewById(R.id.button_form3);
@@ -64,6 +67,16 @@ public class StudentSelectClass extends AppCompatActivity {
                 logoutUser();
             }
         });
+
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
+
     }
 
     private void logoutUser() {
@@ -73,5 +86,12 @@ public class StudentSelectClass extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Clears the activity stack
         startActivity(intent);
         finish(); // Close the current activity
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
     }
 }

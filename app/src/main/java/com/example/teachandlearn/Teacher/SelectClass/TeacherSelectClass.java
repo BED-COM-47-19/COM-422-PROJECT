@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class TeacherSelectClass extends AppCompatActivity {
 
+    private ImageButton buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +63,16 @@ public class TeacherSelectClass extends AppCompatActivity {
                 logoutUser();
             }
         });
+
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
+
     }
 
     private void logoutUser() {
@@ -71,5 +82,12 @@ public class TeacherSelectClass extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Clears the activity stack
         startActivity(intent);
         finish(); // Close the current activity
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
     }
 }
