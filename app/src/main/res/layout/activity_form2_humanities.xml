@@ -122,5 +122,5 @@
         android:src="@drawable/back_arrow"
         android:contentDescription="@string/back"
         android:layout_gravity="start"/>
-    
+
 </GridLayout>
