@@ -53,10 +53,26 @@ public class Form3Student extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
     }
 
     // Helper method to show toast message
     private void showToast(String message) {
         Toast.makeText(Form3Student.this, message, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
+
 }
