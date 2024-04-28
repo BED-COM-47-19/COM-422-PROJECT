@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 
 public class TeacherForm4Languages extends AppCompatActivity {
 
+    private ImageButton buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +20,7 @@ public class TeacherForm4Languages extends AppCompatActivity {
         // Find buttons for each humanities subject
         Button buttonEnglish = findViewById(R.id.buttonEnglish);
         Button buttonChichewa = findViewById(R.id.buttonChichewa);
+        buttonBack = findViewById(R.id.button_back);
 
 
         // Set click listeners for each button
@@ -37,6 +40,13 @@ public class TeacherForm4Languages extends AppCompatActivity {
             }
         });
 
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
 
     }
 
@@ -49,5 +59,12 @@ public class TeacherForm4Languages extends AppCompatActivity {
     private void startActivityForContent() {
         Intent intent = new Intent(TeacherForm4Languages.this, TeacherForm4Uploads.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
     }
 }
