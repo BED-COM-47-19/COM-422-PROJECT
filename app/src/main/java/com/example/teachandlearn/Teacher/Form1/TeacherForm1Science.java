@@ -77,7 +77,7 @@ public class TeacherForm1Science extends AppCompatActivity {
                 startActivityForContent();
             }
         });
-        
+
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
