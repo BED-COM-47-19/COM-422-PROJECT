@@ -26,7 +26,9 @@ public class TeacherSelectClass extends AppCompatActivity {
         Button buttonForm2 = findViewById(R.id.button_form2);
         Button buttonForm3 = findViewById(R.id.button_form3);
         Button buttonForm4 = findViewById(R.id.button_form4);
-        ImageButton logOutButton = findViewById(R.id.log_out_button);  // Initialize the log out button
+        ImageButton logOutButton = findViewById(R.id.log_out_button);
+        buttonBack = findViewById(R.id.button_back);
+        // Initialize the log out button
 
         // Set click listeners for each button
         buttonForm1.setOnClickListener(new View.OnClickListener() {

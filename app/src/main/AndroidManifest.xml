@@ -54,7 +54,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.LogIn_And_SignUp.TeacherSelectClass"
+        <activity android:name=".Teacher.SelectClass.TeacherSelectClass"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -63,7 +63,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.LogIn_And_SignUp.StudentSelectClass"
+        <activity android:name=".Student.SelectClass.StudentSelectClass"
             android:theme="@style/Theme.AppCompat">
         </activity>
 

@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
 
 public class StudentSignup extends AppCompatActivity {
 
+    private ImageButton buttonBack;
     private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
     private Button buttonContinue;
 
@@ -26,6 +29,7 @@ public class StudentSignup extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
         buttonContinue = findViewById(R.id.buttonContinue);
+        buttonBack = findViewById(R.id.button_back);
 
         // Set click listener for continue button
         buttonContinue.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +38,16 @@ public class StudentSignup extends AppCompatActivity {
                 signupStudent();
             }
         });
+
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
+
     }
 
     private void signupStudent() {
@@ -56,4 +70,12 @@ public class StudentSignup extends AppCompatActivity {
         // Navigate to SelectClassActivity
         startActivity(new Intent(StudentSignup.this, StudentSelectClass.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
+
 }

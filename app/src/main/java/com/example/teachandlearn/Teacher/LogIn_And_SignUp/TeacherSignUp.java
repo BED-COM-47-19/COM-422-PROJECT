@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Teacher.SelectClass.TeacherSelectClass;
 
 public class TeacherSignUp extends AppCompatActivity {
 
