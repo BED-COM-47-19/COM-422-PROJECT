@@ -1,6 +1,6 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="700dp"
     android:padding="16dp"
     android:columnCount="2"
     android:rowCount="2"
@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_columnSpan="2"
         android:layout_gravity="center_horizontal"
-        android:text="UPLOADS"
-        android:layout_marginTop="30dp"
+        android:text="TEACHER UPLOADS"
+        android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:textSize="30sp"
         android:textColor="@color/black"
@@ -27,10 +27,10 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginBottom="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="-600dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="380dp"
         android:textSize="25dp"
         android:textStyle="bold"
         android:text="PDF"
@@ -47,9 +47,9 @@
         android:layout_columnWeight="1"
         android:layout_margin="4dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="-600dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="380dp"
         android:background="@drawable/rounded_button_background"
         android:backgroundTint="#5a5acb"
         android:text="AUDIO"
@@ -65,9 +65,9 @@
         android:layout_columnWeight="1"
         android:layout_margin="4dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="-360dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="220dp"
         android:background="@drawable/rounded_button_background"
         android:backgroundTint="#c855d3"
         android:text="VIDEOS"
@@ -83,23 +83,26 @@
         android:layout_columnWeight="1"
         android:layout_margin="4dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="-360dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="220dp"
         android:background="@drawable/rounded_button_background"
         android:backgroundTint="#4a6d2f"
         android:text="TESTS AND QUIZZES"
         android:textSize="25dp"
         android:textStyle="bold" />
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/log_out_button"-->
-<!--        android:layout_width="10dp"-->
-<!--        android:layout_height="10dp"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:contentDescription="@string/back"-->
-<!--        android:src="@drawable/ic_back" />-->
+    <!-- Back Arrow -->
+    <ImageView
+        android:id="@+id/imageViewBackArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:layout_marginTop="620dp"
+        android:src="@drawable/back_arrow"
+        android:contentDescription="@string/back"
+        android:layout_gravity="start"/>
 
 </GridLayout>
 
