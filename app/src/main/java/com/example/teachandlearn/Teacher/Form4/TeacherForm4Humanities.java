@@ -12,6 +12,7 @@ import com.example.teachandlearn.R;
 
 public class TeacherForm4Humanities extends AppCompatActivity {
 
+    private imageButton buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class TeacherForm4Humanities extends AppCompatActivity {
         Button buttonHistory = findViewById(R.id.buttonHistory);
         Button buttonBibleKnowledge = findViewById(R.id.buttonBibleKnowledge);
         Button buttonGeography = findViewById(R.id.buttonGeography);
+        buttonBack = findViewById(R.id.button_back);
 
         // Set click listeners for each button
         buttonSocialStudies.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +66,14 @@ public class TeacherForm4Humanities extends AppCompatActivity {
                 startActivityForContent();
             }
         });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
     }
 
     // Helper method to show toast message
@@ -75,5 +85,12 @@ public class TeacherForm4Humanities extends AppCompatActivity {
     private void startActivityForContent() {
         Intent intent = new Intent(TeacherForm4Humanities.this, TeacherForm4Uploads.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
     }
 }
