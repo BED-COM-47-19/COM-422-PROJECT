@@ -84,7 +84,7 @@ public class Form1SciencesStudent extends AppCompatActivity {
             }
         });
     }
-    
+
 
     // Helper method to show toast message
     private void showToast(String message) {
