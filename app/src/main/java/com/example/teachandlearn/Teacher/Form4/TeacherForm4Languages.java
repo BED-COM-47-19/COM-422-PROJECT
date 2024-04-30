@@ -11,7 +11,7 @@ import com.example.teachandlearn.R;
 
 public class TeacherForm4Languages extends AppCompatActivity {
 
-    private ImageButton buttonBack;
+//    private ImageButton buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +20,7 @@ public class TeacherForm4Languages extends AppCompatActivity {
         // Find buttons for each humanities subject
         Button buttonEnglish = findViewById(R.id.buttonEnglish);
         Button buttonChichewa = findViewById(R.id.buttonChichewa);
-        buttonBack = findViewById(R.id.button_back);
+//        buttonBack = findViewById(R.id.back_button);
 
 
         // Set click listeners for each button
@@ -40,13 +40,13 @@ public class TeacherForm4Languages extends AppCompatActivity {
             }
         });
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Logic for when the back button is pressed
-                onBackPressed();
-            }
-        });
+//        buttonBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Logic for when the back button is pressed
+//                onBackPressed();
+//            }
+//        });
 
     }
 

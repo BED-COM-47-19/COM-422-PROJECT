@@ -11,14 +11,13 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -34,10 +33,26 @@ public class StudentLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_login); // Consider updating this layout name if it's incorrect for this context
+        ImageButton buttonBack = findViewById(R.id.back_button);
+        EditText editTextEmail = findViewById(R.id.editTextEmail);
+        EditText editTextPassword = findViewById(R.id.editTextPassword);
+        Button loginButton = findViewById(R.id.buttonLogIn);
+        Button signUpButton = findViewById(R.id.buttonSignIn);
+        TextView forgotPasswordTextView = findViewById(R.id.textViewForgotPassword);
+        TextView googleSignInTextView = findViewById(R.id.textViewContinueWithGoogle);
 
+        // Set listeners
+        buttonBack.setOnClickListener(view -> onBackPressed());
+        loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
+        signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogin.this, StudentSignup.class)));
+        forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
+        googleSignInTextView.setOnClickListener(v -> {
+            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+            startActivityForResult(signInIntent, RC_SIGN_IN);
+        });
         // Initialize Firebase Auth
 
-        buttonBack = findViewById(R.id.button_back);
+        buttonBack = findViewById(R.id.back_button);
         mAuth = FirebaseAuth.getInstance();
 
         // Configure Google Sign-In
@@ -48,14 +63,6 @@ public class StudentLogin extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        // Build the UI dynamically
-        LinearLayout rootLayout = buildDynamicUI();
-
-        // Add listeners for login, sign up, password reset, and Google sign-in
-        setupListeners(rootLayout);
-
-        // Set Content View to the root layout
-        setContentView(rootLayout);
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,25 +73,7 @@ public class StudentLogin extends AppCompatActivity {
         });
     }
 
-    private LinearLayout buildDynamicUI() {
-        LinearLayout rootLayout = new LinearLayout(this);
-        rootLayout.setOrientation(LinearLayout.VERTICAL);
-        rootLayout.setBackgroundColor(0xFF6200EE);
-        rootLayout.setLayoutParams(new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT));
 
-        // Add UI components
-        rootLayout.addView(createTextView("STUDENT", 100));
-        rootLayout.addView(createEditText("Email", 20));
-        rootLayout.addView(createEditText("Password", 20));
-        rootLayout.addView(createButton("LOG IN", 20));
-        rootLayout.addView(createButton("SIGN UP", 30));
-        rootLayout.addView(createTextView("Forgot Password?", 20));
-        rootLayout.addView(createTextView("Continue with Google", 30));
-
-        return rootLayout;
-    }
 
     private TextView createTextView(String text, int topMargin) {
         TextView textView = new TextView(this);

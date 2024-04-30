@@ -13,7 +13,7 @@ import com.example.teachandlearn.R;
 
 public class TeacherForm1Humanities extends AppCompatActivity {
 
-    private ImageButton buttonBack;
+//    private ImageButton buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +25,7 @@ public class TeacherForm1Humanities extends AppCompatActivity {
         Button buttonHistory = findViewById(R.id.buttonHistory);
         Button buttonBibleKnowledge = findViewById(R.id.buttonBibleKnowledge);
         Button buttonGeography = findViewById(R.id.buttonGeography);
-        buttonBack = findViewById(R.id.button_back);
+//        buttonBack = findViewById(R.id.back_button);
 
         // Set click listeners for each button
         buttonSocialStudies.setOnClickListener(new View.OnClickListener() {
@@ -68,13 +68,13 @@ public class TeacherForm1Humanities extends AppCompatActivity {
             }
         });
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Logic for when the back button is pressed
-                onBackPressed();
-            }
-        });
+//        buttonBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Logic for when the back button is pressed
+//                onBackPressed();
+//            }
+//        });
     }
 
     // Helper method to show toast message
@@ -87,10 +87,12 @@ public class TeacherForm1Humanities extends AppCompatActivity {
         Intent intent = new Intent(TeacherForm1Humanities.this, TeacherForm1Uploads.class);
         startActivity(intent);
     }
-    @Override
-    public void onBackPressed() {
-        // Handle the back button action
-        super.onBackPressed();
-        // You can also add custom logic here if needed
-    }
+//
+//    @Override
+//    public void onBackPressed() {
+//        // Handle the back button action
+//        super.onBackPressed();
+//        // You can also add custom logic here if needed
+//    }
+//
 }

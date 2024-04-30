@@ -13,8 +13,9 @@ import com.example.teachandlearn.Teacher.Form2.TeacherForm2Uploads;
 
 public class Form2StudentViewContent extends AppCompatActivity {
 
-    private ImageButton buttonBack;
-    @Override
+//    private ImageButton buttonBack
+
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form2_view_content);
@@ -24,7 +25,7 @@ public class Form2StudentViewContent extends AppCompatActivity {
         Button buttonAudio = findViewById(R.id.button_audio);
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
-        buttonBack = findViewById(R.id.button_back);
+        ImageButton buttonBack = findViewById(R.id.back_button);
 
         // Set click listeners for each button
         buttonPDF.setOnClickListener(new View.OnClickListener() {
@@ -55,13 +56,13 @@ public class Form2StudentViewContent extends AppCompatActivity {
             }
         });
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Logic for when the back button is pressed
-                onBackPressed();
-            }
-        });
+//        buttonBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Logic for when the back button is pressed
+//                onBackPressed();
+//            }
+//        });
 
     }
 
@@ -73,11 +74,11 @@ public class Form2StudentViewContent extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    public void onBackPressed() {
-        // Handle the back button action
-        super.onBackPressed();
-        // You can also add custom logic here if needed
-    }
+//    @Override
+//    public void onBackPressed() {
+//        // Handle the back button action
+//        super.onBackPressed();
+//        // You can also add custom logic here if needed
+//    }
 
 }

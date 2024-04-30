@@ -1,4 +1,3 @@
-
 package com.example.teachandlearn.Student.Form1;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,13 +7,11 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Form1HumanitiesStudent;
-import com.example.teachandlearn.Student.Form1.Form1LanguagesSudent;
-import com.example.teachandlearn.Student.Form1.Form1SciencesStudent;
 
 public class Form1Student extends AppCompatActivity {
 
-    private ImageButton buttonBack;
+//    private ImageButton buttonBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,13 +21,13 @@ public class Form1Student extends AppCompatActivity {
         Button buttonScience = findViewById(R.id.activity_form1_science);
         Button buttonHumanities = findViewById(R.id.activity_form1_humanities);
         Button buttonLanguages = findViewById(R.id.activity_form1_languages);
-        buttonBack = findViewById(R.id.button_back);
+//        buttonBack = findViewById(R.id.back_button);
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start SelectScienceActivity when SCIENCE button is clicked
+                // Start Form1SciencesStudent when SCIENCE button is clicked
                 Intent intent = new Intent(Form1Student.this, Form1SciencesStudent.class);
                 startActivity(intent);
             }
@@ -54,13 +51,13 @@ public class Form1Student extends AppCompatActivity {
             }
         });
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Logic for when the back button is pressed
-                onBackPressed();
-            }
-        });
+//        buttonBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Logic for when the back button is pressed
+//                onBackPressed();
+//            }
+//        });
 
     }
 
@@ -69,12 +66,10 @@ public class Form1Student extends AppCompatActivity {
         Toast.makeText(Form1Student.this, message, Toast.LENGTH_SHORT).show();
     }
 
-
-    @Override
-    public void onBackPressed() {
-        // Handle the back button action
-        super.onBackPressed();
-        // You can also add custom logic here if needed
-    }
-
+//    @Override
+//    public void onBackPressed() {
+//        // Handle the back button action
+//        super.onBackPressed();
+//        // You can also add custom logic here if needed
+//    }
 }

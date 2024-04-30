@@ -30,7 +30,7 @@ public class TeacherSignUp extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
         buttonContinue = findViewById(R.id.buttonContinue);
-        buttonBack = findViewById(R.id.button_back);
+        buttonBack = findViewById(R.id.back_button);
 
         // Set click listener for continue button
         buttonContinue.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +70,6 @@ public class TeacherSignUp extends AppCompatActivity {
         // For example, send data to server, save to database, etc.
 
         // Show a toast message indicating successful signup
-        Toast.makeText(getApplicationContext(), "Teacher signed up successfully", Toast.LENGTH_SHORT).show();
 
         // Navigate to SelectClassActivity
         startActivity(new Intent(TeacherSignUp.this, TeacherSelectClass.class));

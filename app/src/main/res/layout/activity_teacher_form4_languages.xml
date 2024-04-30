@@ -4,6 +4,7 @@
     android:columnCount="2"
     android:rowCount="3"
     android:padding="16dp"
+    android:background="@color/white"
     android:alignmentMode="alignMargins"
     android:columnOrderPreserved="false">
 
@@ -28,7 +29,7 @@
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="-580dp"
+        android:layout_marginTop="-10dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="440dp"
         android:textSize="20dp"
@@ -47,7 +48,7 @@
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="-580dp"
+        android:layout_marginTop="-10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="440dp"
         android:textSize="20dp"
@@ -58,16 +59,16 @@
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_chichewa" />
     <!-- Back Arrow -->
-    <ImageView
-        android:id="@+id/imageViewBackArrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_row="0"
-        android:layout_column="0"
-        android:layout_marginTop="590dp"
-        android:src="@drawable/back_arrow"
-        android:contentDescription="@string/back"
-        android:layout_gravity="start"/>
+    <!--    <ImageView-->
+    <!--        android:id="@+id/back_button"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_row="0"-->
+    <!--        android:layout_column="0"-->
+    <!--        android:layout_marginTop="590dp"-->
+    <!--        android:src="@drawable/back_arrow"-->
+    <!--        android:contentDescription="@string/back"-->
+    <!--        android:layout_gravity="start"/>-->
 
 
 </GridLayout>

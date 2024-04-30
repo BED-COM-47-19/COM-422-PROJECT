@@ -1,4 +1,3 @@
-
 package com.example.teachandlearn.Student.Form1;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +10,8 @@ import com.example.teachandlearn.R;
 
 public class Form1SciencesStudent extends AppCompatActivity {
 
-    private ImageButton buttonBack;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +23,7 @@ public class Form1SciencesStudent extends AppCompatActivity {
         Button buttonPhysics = findViewById(R.id.buttonPhysics);
         Button buttonChemistry = findViewById(R.id.buttonChemistry);
         Button buttonAgriculture = findViewById(R.id.buttonAgriculture);
-        buttonBack = findViewById(R.id.button_back);
+
 
         // Set click listeners for each button
         buttonMathematics.setOnClickListener(new View.OnClickListener() {
@@ -36,55 +36,9 @@ public class Form1SciencesStudent extends AppCompatActivity {
             }
         });
 
-        buttonBiology.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Show toast message
-                showToast("Biology Selected");
-                // Start the Form1ViewContentActivity
-                startActivityForContent();
-            }
-        });
+        // Other button onClickListener implementations...
 
-        buttonChemistry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Show toast message
-                showToast("Chemistry Selected");
-                // Start the Form1ViewContentActivity
-                startActivityForContent();
-            }
-        });
-
-        buttonPhysics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Show toast message
-                showToast("Physics Selected");
-                // Start the Form1ViewContentActivity
-                startActivityForContent();
-            }
-        });
-
-        buttonAgriculture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Show toast message
-                showToast("Agriculture Selected");
-                // Start the Form1ViewContentActivity
-                startActivityForContent();
-            }
-        });
-
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Logic for when the back button is pressed
-                onBackPressed();
-            }
-        });
     }
-
 
     // Helper method to show toast message
     private void showToast(String message) {
@@ -97,10 +51,5 @@ public class Form1SciencesStudent extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    public void onBackPressed() {
-        // Handle the back button action
-        super.onBackPressed();
-        // You can also add custom logic here if needed
-    }
+
 }

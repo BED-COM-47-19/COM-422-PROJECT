@@ -3,8 +3,7 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
-    <!-- Replace this with your actual vector path for social studies -->
     <path
 
-        android:pathData="..."/>
+        android:pathData="M2,2 L22,2 L22,22 L2,22 Z"/>
 </vector>

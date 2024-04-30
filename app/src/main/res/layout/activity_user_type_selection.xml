@@ -44,7 +44,7 @@
         android:textStyle="bold" />
 
     <ImageButton
-        android:id="@+id/button_back"
+        android:id="@+id/back_button"
         android:layout_width="56dp"
         android:layout_height="59dp"
         android:layout_alignParentBottom="true"

@@ -8,15 +8,11 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Teacher.Form3.TeacherForm3Humanities;
-import com.example.teachandlearn.Teacher.Form3.TeacherForm3Languages;
-import com.example.teachandlearn.Teacher.Form3.TeacherForm3Science;
-
 
 
 public class TeacherForm3 extends AppCompatActivity {
 
-    private ImageButton buttonBack;
+//    private ImageButton buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +22,7 @@ public class TeacherForm3 extends AppCompatActivity {
         Button buttonScience = findViewById(R.id.activity_teacher_form3_science);
         Button buttonHumanities = findViewById(R.id.activity_teacher_form3_humanities);
         Button buttonLanguages = findViewById(R.id.activity_teacher_form3_languages);
-        buttonBack = findViewById(R.id.button_back);
+//        buttonBack = findViewById(R.id.back_button);
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {
@@ -56,13 +52,13 @@ public class TeacherForm3 extends AppCompatActivity {
             }
         });
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Logic for when the back button is pressed
-                onBackPressed();
-            }
-        });
+//        buttonBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Logic for when the back button is pressed
+//                onBackPressed();
+//            }
+//        });
 
     }
 

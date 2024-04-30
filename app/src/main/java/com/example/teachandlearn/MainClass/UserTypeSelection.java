@@ -25,7 +25,7 @@ public class UserTypeSelection extends AppCompatActivity {
         // Initialize buttons from layout
         buttonStudent = findViewById(R.id.button_student);
         buttonTeacher = findViewById(R.id.button_teacher);
-        buttonBack = findViewById(R.id.button_back);
+        buttonBack = findViewById(R.id.back_button);
 
         // Set onClick listeners for buttons
         buttonStudent.setOnClickListener(new View.OnClickListener() {
