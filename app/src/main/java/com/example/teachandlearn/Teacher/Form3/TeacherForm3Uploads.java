@@ -3,6 +3,7 @@ package com.example.teachandlearn.Teacher.Form3;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.Manifest;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
@@ -11,12 +12,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
+import android.content.pm.PackageManager;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import java.util.UUID;
 
 public class TeacherForm3Uploads extends AppCompatActivity {

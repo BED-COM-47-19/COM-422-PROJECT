@@ -64,12 +64,32 @@ public class StudentSignup extends AppCompatActivity {
             return;
         }
 
+        // Validate firstname and lastname (should contain only alphabetic characters)
+        if (!firstName.matches("[a-zA-Z]+") || !lastName.matches("[a-zA-Z]+")) {
+            Toast.makeText(getApplicationContext(), "First name and Last name must contain only letters", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        // Validate email (must contain '@')
+        if (!email.contains("@")) {
+            Toast.makeText(getApplicationContext(), "Email must contain @ symbol", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        // Validate password (must match confirmPassword, contain at least one uppercase letter, one special character, and be at least 6 characters long)
+        if (!password.equals(confirmPassword)) {
+            Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!password.matches(".*[A-Z].*") || !password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*") || password.length() < 6) {
+            Toast.makeText(getApplicationContext(), "Password must contain at least one uppercase letter, one special character, and be at least 6 characters long", Toast.LENGTH_LONG).show();
+            return;
+        }
 
-        // Navigate to SelectClassActivity
+        // All validations passed, navigate to the next activity
         startActivity(new Intent(StudentSignup.this, StudentSelectClass.class));
     }
+
 
     @Override
     public void onBackPressed() {
