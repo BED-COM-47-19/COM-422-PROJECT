@@ -160,11 +160,21 @@ public class StudentLogin extends AppCompatActivity {
                         // If login is successful, navigate to the next screen
                         startActivity(new Intent(StudentLogin.this, StudentSelectClass.class));
                     } else {
-                        // If login fails, display a failure message
-                        Toast.makeText(StudentLogin.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        // If login fails, handle different cases
+                        if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+                            // This exception means that the password is incorrect
+                            Toast.makeText(StudentLogin.this, "Incorrect password. Please try again.", Toast.LENGTH_SHORT).show();
+                        } else if (task.getException() instanceof FirebaseAuthInvalidUserException) {
+                            // This exception means the email does not exist or is disabled
+                            Toast.makeText(StudentLogin.this, "No account found with this email or the account is disabled.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // General authentication failure
+                            Toast.makeText(StudentLogin.this, "Authentication failed. Please try again later.", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
     }
+
 
 
 

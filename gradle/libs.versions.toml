@@ -13,6 +13,8 @@ googleServices = "4.4.1"
 firebaseStorage = "20.3.0"
 firebaseAuth = "22.3.1"
 playServicesAuth = "21.1.0"
+firebaseDatabase = "20.3.1"
+firebaseAnalytics = "21.6.2"
 
 [libraries]
 android-pdf-viewer = { group = "com.github.barteksc", name = "android-pdf-viewer", version = "2.8.2" }
@@ -35,6 +37,8 @@ google-services = { group = "com.google.gms", name = "google-services", version.
 firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServicesAuth" }
+firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics", version.ref = "firebaseAnalytics" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
