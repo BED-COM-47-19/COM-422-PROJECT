@@ -58,11 +58,25 @@ public class TeacherForm4Uploads extends AppCompatActivity {
     }
 
     private void openFilePicker(String mimeType, int requestCode) {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType(mimeType);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        startActivityForResult(Intent.createChooser(intent, "Select File"), requestCode);
+        // Create an intent for picking data from the device storage using ACTION_OPEN_DOCUMENT
+        Intent intentStorage = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intentStorage.addCategory(Intent.CATEGORY_OPENABLE);
+        intentStorage.setType(mimeType);
+        intentStorage.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+
+        // Create an intent for picking data from all sources including cloud services using ACTION_GET_CONTENT
+        Intent intentAllSources = new Intent(Intent.ACTION_GET_CONTENT);
+        intentAllSources.addCategory(Intent.CATEGORY_OPENABLE);
+        intentAllSources.setType(mimeType);
+        intentAllSources.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        // Create a chooser intent to let the user select which source to use (local or cloud)
+        Intent chooser = Intent.createChooser(intentAllSources, "Select File");
+        chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] { intentStorage });
+
+        startActivityForResult(chooser, requestCode);
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
