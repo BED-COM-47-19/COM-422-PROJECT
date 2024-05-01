@@ -132,19 +132,20 @@ public class StudentLogin extends AppCompatActivity {
     }
 
     private void sendPasswordResetEmail(String email) {
-        if (!email.isEmpty()) {
+        if (!email.isEmpty() && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             mAuth.sendPasswordResetEmail(email)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            Toast.makeText(StudentLogin.this, "Reset link sent to your email", Toast.LENGTH_LONG).show();
+                            Toast.makeText(StudentLogin.this, "Reset link sent to your email. Please check your inbox to reset your password.", Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(StudentLogin.this, "Failed to send reset email", Toast.LENGTH_LONG).show();
+                            Toast.makeText(StudentLogin.this, "Failed to send reset email. Please check the email address and try again.", Toast.LENGTH_LONG).show();
                         }
                     });
         } else {
-            Toast.makeText(StudentLogin.this, "Please enter your email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(StudentLogin.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     private void loginUser(String email, String password) {
         // Check if email or password is empty
@@ -166,7 +167,7 @@ public class StudentLogin extends AppCompatActivity {
                             Toast.makeText(StudentLogin.this, "Incorrect password. Please try again.", Toast.LENGTH_SHORT).show();
                         } else if (task.getException() instanceof FirebaseAuthInvalidUserException) {
                             // This exception means the email does not exist or is disabled
-                            Toast.makeText(StudentLogin.this, "No account found with this email or the account is disabled.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(StudentLogin.this, "No account found with this email or the email incorrect.", Toast.LENGTH_SHORT).show();
                         } else {
                             // General authentication failure
                             Toast.makeText(StudentLogin.this, "Authentication failed. Please try again later.", Toast.LENGTH_SHORT).show();

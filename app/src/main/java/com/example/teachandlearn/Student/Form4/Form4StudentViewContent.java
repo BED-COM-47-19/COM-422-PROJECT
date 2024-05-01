@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-
+import com.example.teachandlearn.Teacher.Form4.TeacherForm4Uploads;
 
 
 public class Form4StudentViewContent extends AppCompatActivity {
@@ -72,11 +72,11 @@ public class Form4StudentViewContent extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        // Handle the back button action
-//        super.onBackPressed();
-//        // You can also add custom logic here if needed
-//    }
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
 
 }

@@ -1,5 +1,5 @@
 
-package com.example.teachandlearn.Teacher.Form1;
+package com.example.teachandlearn.Teacher.Form4;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -39,7 +39,7 @@ public class TeacherForm4Uploads extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_form1_uploads);
+        setContentView(R.layout.activity_teacher_form4_uploads);
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
