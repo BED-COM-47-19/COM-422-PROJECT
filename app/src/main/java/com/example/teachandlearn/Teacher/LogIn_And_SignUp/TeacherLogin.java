@@ -19,6 +19,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+
+
 
 public class TeacherLogin extends AppCompatActivity {
 
@@ -150,7 +154,7 @@ public class TeacherLogin extends AppCompatActivity {
     private void loginUser(String email, String password) {
         // Check if email or password is empty
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(StudentLogin.this, "Email and password cannot be empty.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(TeacherLogin.this, "Email and password cannot be empty.", Toast.LENGTH_SHORT).show();
             return; // Stop the login process if fields are empty
         }
 
@@ -159,18 +163,20 @@ public class TeacherLogin extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // If login is successful, navigate to the next screen
-                        startActivity(new Intent(StudentLogin.this, StudentSelectClass.class));
+                        startActivity(new Intent(TeacherLogin.this, TeacherSelectClass.class));
                     } else {
                         // If login fails, handle different cases
                         if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                             // This exception means that the password is incorrect
-                            Toast.makeText(StudentLogin.this, "Incorrect password. Please try again.", Toast.LENGTH_SHORT).show();
-                        } else if (task.getException() instanceof FirebaseAuthInvalidUserException) {
+                            Toast.makeText(TeacherLogin.this, "Incorrect password. Please try again.", Toast.LENGTH_SHORT).show();
+                        }
+                        else if (task.getException() instanceof FirebaseAuthInvalidUserException) {
                             // This exception means the email does not exist or is disabled
-                            Toast.makeText(StudentLogin.this, "No account found with this email or the Email is incorrect.", Toast.LENGTH_SHORT).show();
-                        } else {
+                            Toast.makeText(TeacherLogin.this, "No account found with this email or the Email is incorrect.", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
                             // General authentication failure
-                            Toast.makeText(StudentLogin.this, "Authentication failed. Please try again later.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TeacherLogin.this, "Authentication failed. Please try again later.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
