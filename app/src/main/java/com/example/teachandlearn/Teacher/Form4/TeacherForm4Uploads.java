@@ -55,7 +55,34 @@ public class TeacherForm4Uploads extends AppCompatActivity {
         videoButton.setOnClickListener(v -> openFilePicker("video/*", REQUEST_PICK_VIDEO));
         questionsButton.setOnClickListener(v -> openFilePicker("*/*", REQUEST_PICK_QUESTION));
         buttonBack.setOnClickListener(v -> onBackPressed());
+
+
+        pdfButton.setOnClickListener(v -> checkPermissionAndPickFile("application/pdf", REQUEST_PICK_PDF));
+        audioButton.setOnClickListener(v -> checkPermissionAndPickFile("audio/*", REQUEST_PICK_AUDIO));
+        videoButton.setOnClickListener(v -> checkPermissionAndPickFile("video/*", REQUEST_PICK_VIDEO));
+        questionsButton.setOnClickListener(v -> checkPermissionAndPickFile("*/*", REQUEST_PICK_QUESTION));
+
+
     }
+
+    private void checkPermissionAndPickFile(String mimeType, int requestCode) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1000);
+        } else {
+            openFilePicker(mimeType, requestCode);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1000 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            // Call openFilePicker or handle permission granted scenario
+        } else {
+            Toast.makeText(this, "Permission denied!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     private void openFilePicker(String mimeType, int requestCode) {
         // Create an intent for picking data from the device storage using ACTION_OPEN_DOCUMENT
