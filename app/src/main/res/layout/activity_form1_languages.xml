@@ -58,6 +58,8 @@
         android:backgroundTint="@color/chichewa_button_color"
         android:textColor="@android:color/white"
         android:drawableEnd="@drawable/ic_chichewa" />
+
+
     <!-- Back Arrow -->
 <!--    <ImageView-->
 <!--        android:id="@+id/back_button"-->
@@ -72,3 +74,5 @@
 
 
 </GridLayout>
+
+
