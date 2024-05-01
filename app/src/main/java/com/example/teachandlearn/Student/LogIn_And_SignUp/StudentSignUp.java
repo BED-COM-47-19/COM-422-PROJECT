@@ -10,8 +10,18 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import androidx.annotation.NonNull;
+import com.google.firebase.auth.FirebaseUser;
 
-public class StudentSignup extends AppCompatActivity {
+
+
+
+
+public class StudentSignUp extends AppCompatActivity {
 
     private ImageButton buttonBack;
     private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
@@ -86,8 +96,26 @@ public class StudentSignup extends AppCompatActivity {
             return;
         }
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            startActivity(new Intent(StudentSignUp.this, StudentSelectClass.class));
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(StudentSignUp.this, "Authentication failed: " + task.getException().getMessage(),
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
         // All validations passed, navigate to the next activity
-        startActivity(new Intent(StudentSignup.this, StudentSelectClass.class));
+        startActivity(new Intent(StudentSignUp.this, StudentSelectClass.class));
     }
 
 

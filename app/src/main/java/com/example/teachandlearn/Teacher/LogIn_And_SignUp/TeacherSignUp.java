@@ -1,5 +1,4 @@
 
-
 package com.example.teachandlearn.Teacher.LogIn_And_SignUp;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +10,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Teacher.SelectClass.TeacherSelectClass;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import androidx.annotation.NonNull;
+import com.google.firebase.auth.FirebaseUser;
+
+
+
+
 
 public class TeacherSignUp extends AppCompatActivity {
 
@@ -39,6 +48,7 @@ public class TeacherSignUp extends AppCompatActivity {
                 signupTeacher();
             }
         });
+
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,9 +96,26 @@ public class TeacherSignUp extends AppCompatActivity {
             return;
         }
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            startActivity(new Intent(TeacherSignUp.this, TeacherSelectClass.class));
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(TeacherSignUp.this, "Authentication failed: " + task.getException().getMessage(),
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
         // All validations passed, navigate to the next activity
         startActivity(new Intent(TeacherSignUp.this, TeacherSelectClass.class));
-
     }
 
 

@@ -8,7 +8,7 @@ import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.LogIn_And_SignUp.StudentSignup;
+import com.example.teachandlearn.Student.LogIn_And_SignUp.StudentSignUp;
 import com.example.teachandlearn.Teacher.LogIn_And_SignUp.TeacherSignUp;
 
 public class SignupOptions extends AppCompatActivity {
@@ -26,7 +26,7 @@ public class SignupOptions extends AppCompatActivity {
             public void onClick(View v) {
                 // Handle student button click
                 // For example, navigate to student signup activity
-                startActivity(new Intent(SignupOptions.this, StudentSignup.class));
+                startActivity(new Intent(SignupOptions.this, StudentSignUp.class));
             }
         });
 

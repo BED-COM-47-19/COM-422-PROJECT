@@ -44,7 +44,7 @@
                   android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.LogIn_And_SignUp.StudentSignup"
+        <activity android:name=".Student.LogIn_And_SignUp.StudentSignUp"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
