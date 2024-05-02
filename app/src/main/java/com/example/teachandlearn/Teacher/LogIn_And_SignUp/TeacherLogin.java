@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Teacher.SelectClass.TeacherSelectClass;
@@ -18,10 +19,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
-
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-
 
 
 public class TeacherLogin extends AppCompatActivity {
@@ -136,20 +133,19 @@ public class TeacherLogin extends AppCompatActivity {
     }
 
     private void sendPasswordResetEmail(String email) {
-        if (!email.isEmpty() && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if (!email.isEmpty()) {
             mAuth.sendPasswordResetEmail(email)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            Toast.makeText(TeacherLogin.this, "Reset link sent to your email. Please check your inbox to reset your password.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(TeacherLogin.this, "Reset link sent to your email", Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(TeacherLogin.this, "Failed to send reset email. Please check the email address and try again.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(TeacherLogin.this, "Failed to send reset email", Toast.LENGTH_LONG).show();
                         }
                     });
         } else {
-            Toast.makeText(TeacherLogin.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
+            Toast.makeText(TeacherLogin.this, "Please enter your email", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     private void loginUser(String email, String password) {
         // Check if email or password is empty
@@ -165,23 +161,11 @@ public class TeacherLogin extends AppCompatActivity {
                         // If login is successful, navigate to the next screen
                         startActivity(new Intent(TeacherLogin.this, TeacherSelectClass.class));
                     } else {
-                        // If login fails, handle different cases
-                        if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                            // This exception means that the password is incorrect
-                            Toast.makeText(TeacherLogin.this, "Incorrect password. Please try again.", Toast.LENGTH_SHORT).show();
-                        }
-                        else if (task.getException() instanceof FirebaseAuthInvalidUserException) {
-                            // This exception means the email does not exist or is disabled
-                            Toast.makeText(TeacherLogin.this, "No account found with this email or the Email is incorrect.", Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            // General authentication failure
-                            Toast.makeText(TeacherLogin.this, "Authentication failed. Please try again later.", Toast.LENGTH_SHORT).show();
-                        }
+                        // If login fails, display a failure message
+                        Toast.makeText(TeacherLogin.this, "Invalid account", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
-
 
 
 

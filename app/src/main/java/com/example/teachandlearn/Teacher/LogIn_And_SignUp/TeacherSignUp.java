@@ -1,5 +1,5 @@
-
 package com.example.teachandlearn.Teacher.LogIn_And_SignUp;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,16 +10,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Teacher.SelectClass.TeacherSelectClass;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import androidx.annotation.NonNull;
-import com.google.firebase.auth.FirebaseUser;
-
-
-
-
 
 public class TeacherSignUp extends AppCompatActivity {
 
@@ -45,10 +35,9 @@ public class TeacherSignUp extends AppCompatActivity {
         buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signupTeacher();
+                signupStudent();
             }
         });
-
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +49,7 @@ public class TeacherSignUp extends AppCompatActivity {
 
     }
 
-    private void signupTeacher() {
+    private void signupStudent() {
         // Retrieve input values
         String firstName = editTextFirstName.getText().toString().trim();
         String lastName = editTextLastName.getText().toString().trim();
@@ -68,56 +57,35 @@ public class TeacherSignUp extends AppCompatActivity {
         String password = editTextPassword.getText().toString();
         String confirmPassword = editTextConfirmPassword.getText().toString();
 
-        // Perform validation (e.g., check if fields are not empty)
+        // Perform validation
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(getApplicationContext(), "All fields are required", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Validate firstname and lastname (should contain only alphabetic characters)
         if (!firstName.matches("[a-zA-Z]+") || !lastName.matches("[a-zA-Z]+")) {
-            Toast.makeText(getApplicationContext(), "First name and Last name must contain only letters", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "First and Last name must contain only letters", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Validate email (must contain '@')
         if (!email.contains("@")) {
-            Toast.makeText(getApplicationContext(), "Email must contain @ symbol", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Email must contain an '@' symbol", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Validate password (must match confirmPassword, contain at least one uppercase letter, one special character, and be at least 6 characters long)
         if (!password.equals(confirmPassword)) {
             Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (!password.matches(".*[A-Z].*") || !password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*") || password.length() < 6) {
-            Toast.makeText(getApplicationContext(), "Password must contain at least one uppercase letter, one special character, and be at least 6 characters long", Toast.LENGTH_LONG).show();
+
+        if (password.length() < 7) {
+            Toast.makeText(getApplicationContext(), "Password must be at least 6 characters long", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(TeacherSignUp.this, TeacherSelectClass.class));
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(TeacherSignUp.this, "Authentication failed: " + task.getException().getMessage(),
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
-
-        // All validations passed, navigate to the next activity
+        // Navigate to SelectClassActivity
         startActivity(new Intent(TeacherSignUp.this, TeacherSelectClass.class));
     }
-
 
     @Override
     public void onBackPressed() {
@@ -125,5 +93,4 @@ public class TeacherSignUp extends AppCompatActivity {
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
-
 }

@@ -19,10 +19,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-
-
 
 public class StudentLogin extends AppCompatActivity {
 
@@ -47,7 +43,7 @@ public class StudentLogin extends AppCompatActivity {
         // Set listeners
         buttonBack.setOnClickListener(view -> onBackPressed());
         loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
-        signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogin.this, StudentSignUp.class)));
+        signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogin.this, StudentSignup.class)));
         forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
         googleSignInTextView.setOnClickListener(v -> {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -127,7 +123,7 @@ public class StudentLogin extends AppCompatActivity {
         TextView googleSignInTextView = (TextView) rootLayout.getChildAt(6);
 
         loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
-        signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogin.this, StudentSignUp.class)));
+        signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogin.this, StudentSignup.class)));
         forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
         googleSignInTextView.setOnClickListener(v -> {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -136,20 +132,19 @@ public class StudentLogin extends AppCompatActivity {
     }
 
     private void sendPasswordResetEmail(String email) {
-        if (!email.isEmpty() && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if (!email.isEmpty()) {
             mAuth.sendPasswordResetEmail(email)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            Toast.makeText(StudentLogin.this, "Reset link sent to your email. Please check your inbox to reset your password.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(StudentLogin.this, "Reset link sent to your email", Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(StudentLogin.this, "Failed to send reset email. Please check the email address and try again.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(StudentLogin.this, "Failed to send reset email", Toast.LENGTH_LONG).show();
                         }
                     });
         } else {
-            Toast.makeText(StudentLogin.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
+            Toast.makeText(StudentLogin.this, "Please enter your email", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     private void loginUser(String email, String password) {
         // Check if email or password is empty
@@ -164,25 +159,12 @@ public class StudentLogin extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         // If login is successful, navigate to the next screen
                         startActivity(new Intent(StudentLogin.this, StudentSelectClass.class));
-                    }
-                    else {
-                        // If login fails, handle different cases
-                        if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                            // This exception means that the password is incorrect
-                            Toast.makeText(StudentLogin.this, "Incorrect password. Please try again.", Toast.LENGTH_SHORT).show();
-                        }
-                        else if (task.getException() instanceof FirebaseAuthInvalidUserException) {
-                            // This exception means the email does not exist or is disabled
-                            Toast.makeText(StudentLogin.this, "No account found with this email or the email incorrect.", Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            // General authentication failure
-                            Toast.makeText(StudentLogin.this, "Authentication failed. Please try again later.", Toast.LENGTH_SHORT).show();
-                        }
+                    } else {
+                        // If login fails, display a failure message
+                        Toast.makeText(StudentLogin.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
-
 
 
 

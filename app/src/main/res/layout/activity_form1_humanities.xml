@@ -73,9 +73,7 @@
         android:background="@drawable/rounded_button_background"
         android:backgroundTint="@color/history_button_color"
         android:textColor="@android:color/white"
-        android:drawableEnd="@drawable/ic_history"
-        android:paddingLeft="10dp"
-        android:drawablePadding="10dp" />
+        android:drawableEnd="@drawable/ic_history" />
 
     <!-- Bible Knowledge Button -->
     <Button

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Teacher.Form2.TeacherForm2Uploads;
@@ -12,8 +13,9 @@ import com.example.teachandlearn.Teacher.Form2.TeacherForm2Uploads;
 
 public class Form2StudentViewContent extends AppCompatActivity {
 
-    //    private ImageButton buttonBack;
-    @Override
+//    private ImageButton buttonBack
+
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form2_view_content);
@@ -23,7 +25,7 @@ public class Form2StudentViewContent extends AppCompatActivity {
         Button buttonAudio = findViewById(R.id.button_audio);
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
-//        buttonBack = findViewById(R.id.back_button);
+        //ImageButton buttonBack = findViewById(R.id.back_button);
 
         // Set click listeners for each button
         buttonPDF.setOnClickListener(new View.OnClickListener() {

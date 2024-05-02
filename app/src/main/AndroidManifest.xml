@@ -5,14 +5,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/logo_image2"
-        android:label="@string/app_name"
+        android:label="Tsogolo"
         android:roundIcon="@drawable/logo_image2"
         android:supportsRtl="true"
         android:theme="@style/Theme.Teachandlearn"
@@ -23,7 +21,7 @@
 
         <activity android:name=".MainClass.Main"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="Tsogolo"
             android:theme="@style/Theme.AppCompat">
 
             <intent-filter>
@@ -44,7 +42,7 @@
                   android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.LogIn_And_SignUp.StudentSignUp"
+        <activity android:name=".Student.LogIn_And_SignUp.StudentSignup"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -167,9 +165,6 @@
 
 
         <!-- Teacher File Uploader -->
-
-
-
 
         <activity android:name=".Teacher.Form1.TeacherForm1Uploads"
             android:theme="@style/Theme.AppCompat">
