@@ -1,21 +1,21 @@
 
+
 package com.example.teachandlearn.Student.Form2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Teacher.Form2.TeacherForm2Uploads;
+import com.example.teachandlearn.Student.Documents.Audio;
+import com.example.teachandlearn.Student.Documents.PDF;
+import com.example.teachandlearn.Student.Documents.QuizzesAndQuestions;
+import com.example.teachandlearn.Student.Documents.Vedio;
 
 
 public class Form2StudentViewContent extends AppCompatActivity {
 
-//    private ImageButton buttonBack
-
-     @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form2_view_content);
@@ -25,60 +25,38 @@ public class Form2StudentViewContent extends AppCompatActivity {
         Button buttonAudio = findViewById(R.id.button_audio);
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
-        //ImageButton buttonBack = findViewById(R.id.back_button);
 
         // Set click listeners for each button
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToTeacherUploads("pdf");
+                Intent intent = new Intent(Form2StudentViewContent.this, PDF.class);
+                startActivity(intent);
             }
         });
 
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToTeacherUploads("audio");
+                Intent intent = new Intent(Form2StudentViewContent.this, Audio.class);
+                startActivity(intent);
             }
         });
 
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToTeacherUploads("video");
+                Intent intent = new Intent(Form2StudentViewContent.this, Vedio.class);
+                startActivity(intent);
             }
         });
 
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToTeacherUploads("question");
+                Intent intent = new Intent(Form2StudentViewContent.this, QuizzesAndQuestions.class);
+                startActivity(intent);
             }
         });
-
-//        buttonBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Logic for when the back button is pressed
-//                onBackPressed();
-//            }
-//        });
-
     }
-
-    // Helper method to navigate to TeacherUploadsActivity
-    private void navigateToTeacherUploads(String contentType) {
-        Intent intent = new Intent(Form2StudentViewContent.this, TeacherForm2Uploads.class);
-        intent.putExtra("content_type", contentType);
-        intent.putExtra("action", "view");  // This specifies that the student wants to view content
-        startActivity(intent);
-    }
-
-//    @Override
-//    public void onBackPressed() {
-//        // Handle the back button action
-//        super.onBackPressed();
-//        // You can also add custom logic here if needed
-//    }
-
 }
