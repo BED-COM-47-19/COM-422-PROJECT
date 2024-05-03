@@ -1,19 +1,17 @@
 
-
 package com.example.teachandlearn.Student.Documents;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
+import android.view.ViewGroup;
+import android.view.LayoutInflater;
+import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.teachandlearn.R;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-
+import com.example.teachandlearn.R;
 
 public class PDF extends AppCompatActivity {
     private RecyclerView recyclerViewPDFs;
@@ -27,19 +25,30 @@ public class PDF extends AppCompatActivity {
         recyclerViewPDFs = findViewById(R.id.recyclerViewPDFs);
         recyclerViewPDFs.setLayoutManager(new LinearLayoutManager(this));
 
-        List<PDFDocument> pdfDocuments = fetchPDFs();
+        List<PDFDocument> pdfDocuments = loadPDFsFromAssets();
         adapter = new PDFAdapter(pdfDocuments);
         recyclerViewPDFs.setAdapter(adapter);
     }
 
-    private List<PDFDocument> fetchPDFs() {
+    private List<PDFDocument> loadPDFsFromAssets() {
         List<PDFDocument> pdfs = new ArrayList<>();
-        pdfs.add(new PDFDocument("Example PDF 1", "/path/to/pdf1.pdf"));
-        pdfs.add(new PDFDocument("Example PDF 2", "/path/to/pdf2.pdf"));
-        pdfs.add(new PDFDocument("Example PDF 3", "/path/to/pdf3.pdf"));
+        try {
+            // Get list of PDF files in the assets directory
+            String[] files = getAssets().list("");
+            for (String filename : files) {
+                if (filename.endsWith(".pdf")) {
+                    // Assuming PDF title is the filename without the .pdf extension
+                    String title = filename.substring(0, filename.length() - 4);
+                    pdfs.add(new PDFDocument(title, "file:///asset/books/Maths_book_3.pdf" + filename));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return pdfs;
     }
 
+    // Define the PDFDocument class
     public static class PDFDocument {
         private String title;
         private String filePath;
@@ -58,6 +67,7 @@ public class PDF extends AppCompatActivity {
         }
     }
 
+    // Adapter for the RecyclerView
     private class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.PDFViewHolder> {
         private List<PDFDocument> pdfDocuments;
 
