@@ -14,12 +14,7 @@
 
 
 
-        <!-- Strings for button actions -->
-        <string name="mathematics_selected">Mathematics Selected</string>
-        <string name="biology_selected">Biology Selected</string>
-        <string name="physics_selected">Physics Selected</string>
-        <string name="chemistry_selected">Chemistry Selected</string>
-        <string name="agriculture_selected">Agriculture Selected</string>
+
 
         <!-- Strings for popup information -->
         <string name="info_mathematics">Info: Learn more about Mathematics. Mathematics is the study of numbers, shapes, and patterns.</string>
@@ -31,12 +26,7 @@
 
 
 
-    <!-- Strings for main button selections -->
-        <string name="social_studies_selected">Social Studies Selected</string>
-        <string name="life_skills_selected">Life Skills Selected</string>
-        <string name="history_selected">History Selected</string>
-        <string name="bible_knowledge_selected">Bible Knowledge Selected</string>
-        <string name="geography_selected">Geography Selected</string>
+
 
         <!-- Strings for popup information -->
         <string name="info_social_studies">Info: Social Studies involves the study of people in relation to each other and to the world in which they live.</string>
@@ -48,9 +38,6 @@
 
 
 
-        <!-- Strings for button actions -->
-        <string name="english_selected">English Selected</string>
-        <string name="chichewa_selected">Chichewa Selected</string>
 
         <!-- Strings for popup information -->
         <string name="info_english">Info: Learn more about English. English is a West Germanic language first spoken in early medieval England and is now a global lingua franca.</string>
