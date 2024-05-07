@@ -20,109 +20,164 @@
         android:textColor="@color/black"
         android:layout_marginBottom="16dp" />
 
-    <Button
-        android:id="@+id/buttonSocialStudies"
+    <!-- Social Studies Button with small corner button adjusted -->
+    <FrameLayout
+        android:layout_width="135dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="10dp">
+        <Button
+            android:id="@+id/buttonSocialStudies"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_button_background"
+            android:backgroundTint="@color/social_studies_button_color"
+            android:drawableEnd="@drawable/ic_social_studies"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="SOCIAL STUDIES"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/buttonSmallSocialStudies"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="i"
+            android:textColor="@android:color/white"
+            android:background="@drawable/oval_cirlce" />
+    </FrameLayout>
+
+    <!-- Life Skills Button with small corner button adjusted -->
+    <FrameLayout
+        android:layout_width="130dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_margin="10dp">
+        <Button
+            android:id="@+id/buttonLifeSkills"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_button_background"
+            android:backgroundTint="@color/life_skills_button_color"
+            android:drawableEnd="@drawable/ic_life_skills"
+            android:text="LIFE SKILLS"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/buttonSmallLifeSkills"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="i"
+            android:textColor="@android:color/white"
+            android:background="@drawable/oval_cirlce" />
+    </FrameLayout>
+
+    <!-- History Button with small corner button adjusted -->
+    <FrameLayout
         android:layout_width="137dp"
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="380dp"
-        android:background="@drawable/rounded_button_background"
-        android:backgroundTint="@color/social_studies_button_color"
-        android:drawableEnd="@drawable/ic_social_studies"
-        android:text="SOCIAL STUDIES"
-        android:textColor="@android:color/white"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:layout_margin="10dp">
+        <Button
+            android:id="@+id/buttonHistory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_button_background"
+            android:backgroundTint="@color/history_button_color"
+            android:drawableEnd="@drawable/ic_history"
+            android:text="HISTORY"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/buttonSmallHistory"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="i"
+            android:textColor="@android:color/white"
+            android:background="@drawable/oval_cirlce" />
+    </FrameLayout>
 
-    <!-- Life Skills Button -->
-    <Button
-        android:id="@+id/buttonLifeSkills"
-        android:layout_width="142dp"
+    <!-- Bible Knowledge Button with small corner button adjusted -->
+    <FrameLayout
+        android:layout_width="137dp"
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="380dp"
-        android:background="@drawable/rounded_button_background"
-        android:backgroundTint="@color/life_skills_button_color"
-        android:drawableEnd="@drawable/ic_life_skills"
-        android:text="LIFE SKILLS"
-        android:textColor="@android:color/white"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:layout_margin="10dp">
+        <Button
+            android:id="@+id/buttonBibleKnowledge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_button_background"
+            android:backgroundTint="@color/bible_knowledge_button_color"
+            android:drawableEnd="@drawable/ic_bible_knowledge"
+            android:text="BIBLE KNOWLEDGE"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/buttonSmallBibleKnowledge"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="i"
+            android:textColor="@android:color/white"
+            android:background="@drawable/oval_cirlce" />
+    </FrameLayout>
 
-    <Button
-        android:id="@+id/buttonHistory"
-        android:layout_width="0dp"
+    <!-- Geography Button with small corner button adjusted -->
+    <FrameLayout
+        android:layout_width="137dp"
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="-360dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="220dp"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:text="HISTORY"
-        android:background="@drawable/rounded_button_background"
-        android:backgroundTint="@color/history_button_color"
-        android:textColor="@android:color/white"
-        android:drawableEnd="@drawable/ic_history" />
+        android:layout_margin="10dp">
+        <Button
+            android:id="@+id/buttonGeography"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_button_background"
+            android:backgroundTint="@color/geography_button_color"
+            android:drawableEnd="@drawable/ic_geography"
+            android:text="GEOGRAPHY"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/buttonSmallGeography"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="bottom|end"
+            android:text="i"
+            android:textColor="@android:color/white"
+            android:background="@drawable/oval_cirlce" />
 
-    <!-- Bible Knowledge Button -->
-    <Button
-        android:id="@+id/buttonBibleKnowledge"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="-360dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="220dp"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:text="BIBLE KNOWLEDGE"
-        android:background="@drawable/rounded_button_background"
-        android:backgroundTint="@color/bible_knowledge_button_color"
-        android:textColor="@android:color/white"
-        android:drawableEnd="@drawable/ic_bible_knowledge" />
-
-    <Button
-        android:id="@+id/buttonGeography"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="-200dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="60dp"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:text="GEOGRAPHY"
-        android:background="@drawable/rounded_button_background"
-        android:backgroundTint="@color/geography_button_color"
-        android:textColor="@android:color/white"
-        android:drawableEnd="@drawable/ic_geography" />
-
-    <!-- Back Arrow -->
-    <!--    <ImageView-->
-    <!--        android:id="@+id/back_button"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_row="0"-->
-    <!--        android:layout_column="0"-->
-    <!--        android:layout_marginTop="620dp"-->
-    <!--        android:src="@drawable/back_arrow"-->
-    <!--        android:contentDescription="@string/back"-->
-    <!--        android:layout_gravity="start"/>-->
-
-
+    </FrameLayout>
 </GridLayout>
