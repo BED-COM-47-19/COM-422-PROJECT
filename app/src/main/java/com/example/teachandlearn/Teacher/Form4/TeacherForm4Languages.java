@@ -47,8 +47,9 @@ public class TeacherForm4Languages extends AppCompatActivity {
             }
         });
 
-        buttonSmallEnglish.setOnClickListener(v -> showPopup(v, "Info: Learn more about English."));
-        buttonSmallChichewa.setOnClickListener(v -> showPopup(v, "Info: Learn more about Chichewa."));
+        buttonSmallEnglish.setOnClickListener(v -> showPopup(v, getString(R.string.info_english)));
+        buttonSmallChichewa.setOnClickListener(v -> showPopup(v, getString(R.string.info_chichewa)));
+        
     }
 
     private void showPopup(View anchor, String text) {

@@ -39,6 +39,7 @@ public class Form1LanguagesStudent extends AppCompatActivity {
         // Setup listeners for small info buttons to show popups
         buttonSmallEnglish.setOnClickListener(v -> showPopup(v, getString(R.string.info_english)));
         buttonSmallChichewa.setOnClickListener(v -> showPopup(v, getString(R.string.info_chichewa)));
+
     }
 
     private void showPopup(View anchor, String text) {
