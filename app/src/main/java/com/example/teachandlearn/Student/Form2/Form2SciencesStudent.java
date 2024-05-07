@@ -23,7 +23,13 @@ public class Form2SciencesStudent extends AppCompatActivity {
         Button buttonPhysics = findViewById(R.id.buttonPhysics);
         Button buttonChemistry = findViewById(R.id.buttonChemistry);
         Button buttonAgriculture = findViewById(R.id.buttonAgriculture);
-//        ImageButton buttonBack = findViewById(R.id.back_button);
+
+        // Find small info buttons
+        Button buttonSmallMathematics = findViewById(R.id.buttonSmallMathematics);
+        Button buttonSmallBiology = findViewById(R.id.buttonSmallBiology);
+        Button buttonSmallPhysics = findViewById(R.id.buttonSmallPhysics);
+        Button buttonSmallChemistry = findViewById(R.id.buttonSmallChemistry);
+        Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
 
         // Set click listeners for each button
         buttonMathematics.setOnClickListener(new View.OnClickListener() {
@@ -76,13 +82,12 @@ public class Form2SciencesStudent extends AppCompatActivity {
             }
         });
 
-//        buttonBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Logic for when the back button is pressed
-//                onBackPressed();
-//            }
-//        });
+        // Set click listeners for small info buttons
+        buttonSmallMathematics.setOnClickListener(v -> showToast("Info: More about Mathematics"));
+        buttonSmallBiology.setOnClickListener(v -> showToast("Info: More about Biology"));
+        buttonSmallPhysics.setOnClickListener(v -> showToast("Info: More about Physics"));
+        buttonSmallChemistry.setOnClickListener(v -> showToast("Info: More about Chemistry"));
+        buttonSmallAgriculture.setOnClickListener(v -> showToast("Info: More about Agriculture"))
     }
 
     // Helper method to show toast message
