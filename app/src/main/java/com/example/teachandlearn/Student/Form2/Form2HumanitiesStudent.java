@@ -31,7 +31,7 @@ public class Form2HumanitiesStudent extends AppCompatActivity {
         Button buttonSmallBibleKnowledge = findViewById(R.id.buttonSmallBibleKnowledge);
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
 
-//        ImageButton buttonBack = findViewById(R.id.back_button);
+
 
         // Set click listeners for each button
         buttonSocialStudies.setOnClickListener(new View.OnClickListener() {
