@@ -40,6 +40,24 @@ public class Form1LanguagesStudent extends AppCompatActivity {
         buttonSmallChichewa.setOnClickListener(v -> showPopup(v, "Info: Learn more about Chichewa."));
     }
 
+    private void showPopup(View anchor, String text) {
+        // Inflate the popup layout
+        View popupView = LayoutInflater.from(this).inflate(R.layout.popup_info, null);
+        TextView textView = popupView.findViewById(R.id.textViewPopupInfo);
+        textView.setText(text);
+
+        // Create the popup window
+        PopupWindow popupWindow = new PopupWindow(popupView,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                true);  // True means the popup is focusable
+
+        // Show the popup at the top center of the anchor view
+        popupWindow.showAtLocation(anchor, Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
+        // Optionally adjust the position of the popup
+        popupWindow.update(anchor, 0, 100, -1, -1);  // Shift a bit downwards
+    }
+
     // Helper method to show a toast message
     private void showToast(String message) {
         Toast.makeText(Form1LanguagesStudent.this, message, Toast.LENGTH_SHORT).show();
@@ -52,20 +70,5 @@ public class Form1LanguagesStudent extends AppCompatActivity {
     }
 
     // Displays a popup with specified text near the anchor view
-    private void showPopup(View anchor, String text) {
-        // Inflate popup layout
-        View popupView = LayoutInflater.from(this).inflate(R.layout.popup_info, null);
-        TextView textView = popupView.findViewById(R.id.textViewPopupInfo);
-        textView.setText(text);
 
-        // Create and display the popup window
-        PopupWindow popupWindow = new PopupWindow(popupView,
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                true); // true = focusable
-
-        // Displaying the popup at the center of the anchor view
-        popupWindow.showAtLocation(anchor, Gravity.CENTER, 0, 0);
-        popupWindow.update(); // Update to properly manage layout size or position
-    }
 }
