@@ -39,7 +39,7 @@ public class PDF extends AppCompatActivity {
                 if (filename.endsWith(".pdf")) {
                     // Assuming PDF title is the filename without the .pdf extension
                     String title = filename.substring(0, filename.length() - 4);
-                    pdfs.add(new PDFDocument(title, "file:///asset/books/Maths_book_3.pdf" + filename));
+                    pdfs.add(new PDFDocument(title, "file:///asset/books/" + filename));
                 }
             }
         } catch (IOException e) {
