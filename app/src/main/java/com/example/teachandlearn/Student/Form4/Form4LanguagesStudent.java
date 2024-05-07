@@ -21,7 +21,7 @@ public class Form4LanguagesStudent extends AppCompatActivity {
         // Find buttons for each humanities subject
         Button buttonEnglish = findViewById(R.id.buttonEnglish);
         Button buttonChichewa = findViewById(R.id.buttonChichewa);
-        
+
         Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 

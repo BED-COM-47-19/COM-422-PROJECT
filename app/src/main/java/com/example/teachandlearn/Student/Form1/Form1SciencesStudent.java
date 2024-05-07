@@ -24,6 +24,13 @@ public class Form1SciencesStudent extends AppCompatActivity {
         Button buttonChemistry = findViewById(R.id.buttonChemistry);
         Button buttonAgriculture = findViewById(R.id.buttonAgriculture);
 
+        // Find small info buttons
+        Button buttonSmallMathematics = findViewById(R.id.buttonSmallMathematics);
+        Button buttonSmallBiology = findViewById(R.id.buttonSmallBiology);
+        Button buttonSmallPhysics = findViewById(R.id.buttonSmallPhysics);
+        Button buttonSmallChemistry = findViewById(R.id.buttonSmallChemistry);
+        Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
+
 
         // Set click listeners for each button
         buttonMathematics.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +43,53 @@ public class Form1SciencesStudent extends AppCompatActivity {
             }
         });
 
-        // Other button onClickListener implementations...
+        buttonBiology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show toast message
+                showToast("Biology Selected");
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
+            }
+        });
+
+        buttonChemistry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show toast message
+                showToast("Chemistry Selected");
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
+            }
+        });
+
+        buttonPhysics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show toast message
+                showToast("Physics Selected");
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
+            }
+        });
+
+        buttonAgriculture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show toast message
+                showToast("Agriculture Selected");
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
+            }
+        });
+
+
+        // Set click listeners for small info buttons
+        buttonSmallMathematics.setOnClickListener(v -> showToast("Info: More about Mathematics"));
+        buttonSmallBiology.setOnClickListener(v -> showToast("Info: More about Biology"));
+        buttonSmallPhysics.setOnClickListener(v -> showToast("Info: More about Physics"));
+        buttonSmallChemistry.setOnClickListener(v -> showToast("Info: More about Chemistry"));
+        buttonSmallAgriculture.setOnClickListener(v -> showToast("Info: More about Agriculture"))
 
     }
 
