@@ -77,11 +77,11 @@ public class Form4HumanitiesStudent extends AppCompatActivity {
             }
         });
 
-        buttonSmallSocialStudies.setOnClickListener(v -> showPopup(v, "Info: Social Studies"));
-        buttonSmallLifeSkills.setOnClickListener(v -> showPopup(v, "Info: Life Skills"));
-        buttonSmallHistory.setOnClickListener(v -> showPopup(v, "Info: History"));
-        buttonSmallBibleKnowledge.setOnClickListener(v -> showPopup(v, "Info: Bible Knowledge"));
-        buttonSmallGeography.setOnClickListener(v -> showPopup(v, "Info: Geography"));
+        buttonSmallSocialStudies.setOnClickListener(v -> showPopup(v, getString(R.string.info_social_studies)));
+        buttonSmallLifeSkills.setOnClickListener(v -> showPopup(v, getString(R.string.info_life_skills)));
+        buttonSmallHistory.setOnClickListener(v -> showPopup(v, getString(R.string.info_history)));
+        buttonSmallBibleKnowledge.setOnClickListener(v -> showPopup(v, getString(R.string.info_bible_knowledge)));
+        buttonSmallGeography.setOnClickListener(v -> showPopup(v, getString(R.string.info_geography)));
     }
 
     private void showPopup(View anchor, String text) {
