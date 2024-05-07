@@ -23,7 +23,7 @@ public class TeacherForm1Languages extends AppCompatActivity {
         Button buttonEnglish = findViewById(R.id.buttonEnglish);
         Button buttonChichewa = findViewById(R.id.buttonChichewa);
 
-        
+
         Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
