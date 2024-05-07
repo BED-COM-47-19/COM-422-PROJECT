@@ -3,12 +3,6 @@
 
     <string name="default_web_client_id">AIzaSyD6HgUhhnPmP0NVS6IJZWPxU1f6yVQ802U</string>
 
-    <string-array name="class_options_array">
-        <item>Class A</item>
-        <item>Class B</item>
-        <item>Class C</item>
-
-    </string-array>
 
 
         <string name="back_button_description">Go back</string>
@@ -17,6 +11,14 @@
         <string name="upload_video">Upload Video</string>
         <string name="upload_questions">Upload Questions</string>
         <string name="back">Back</string>
+
+
+
+        <string name="mathematics_info">Mathematics is the abstract science of number, quantity, and space.</string>
+        <string name="biology_info">Biology is the science of life and living organisms.</string>
+        <string name="physics_info">Physics is the science of matter and energy and their interactions.</string>
+        <string name="chemistry_info">Chemistry is the science of the composition, structure, properties, and reactions of matter.</string>
+        <string name="agriculture_info">Agriculture involves the science, art, and practice of cultivating plants and livestock.</string>
 
 
 

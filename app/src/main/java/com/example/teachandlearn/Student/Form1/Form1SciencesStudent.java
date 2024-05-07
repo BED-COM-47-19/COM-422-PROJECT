@@ -24,12 +24,13 @@ public class Form1SciencesStudent extends AppCompatActivity {
         Button buttonChemistry = findViewById(R.id.buttonChemistry);
         Button buttonAgriculture = findViewById(R.id.buttonAgriculture);
 
-        // Find small info buttons
-        Button buttonSmallMathematics = findViewById(R.id.buttonSmallMathematics);
-        Button buttonSmallBiology = findViewById(R.id.buttonSmallBiology);
-        Button buttonSmallPhysics = findViewById(R.id.buttonSmallPhysics);
-        Button buttonSmallChemistry = findViewById(R.id.buttonSmallChemistry);
-        Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
+
+        //For the Info Pop Ups
+        setupButtonWithPopup(R.id.buttonMathematics, R.string.mathematics_info);
+        setupButtonWithPopup(R.id.buttonBiology, R.string.biology_info);
+        setupButtonWithPopup(R.id.buttonPhysics, R.string.physics_info);
+        setupButtonWithPopup(R.id.buttonChemistry, R.string.chemistry_info);
+        setupButtonWithPopup(R.id.buttonAgriculture, R.string.agriculture_info);
 
 
         // Set click listeners for each button
