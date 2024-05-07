@@ -79,7 +79,7 @@ public class TeacherForm1Humanities extends AppCompatActivity {
         buttonSmallHistory.setOnClickListener(v -> showToast("Info: History"));
         buttonSmallBibleKnowledge.setOnClickListener(v -> showToast("Info: Bible Knowledge"));
         buttonSmallGeography.setOnClickListener(v -> showToast("Info: Geography"));
-        
+
     }
 
     // Helper method to show toast message
