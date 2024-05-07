@@ -14,16 +14,12 @@
 
 
 
-
-
         <!-- Strings for popup information -->
         <string name="info_mathematics">Info: Learn more about Mathematics. Mathematics is the study of numbers, shapes, and patterns.</string>
         <string name="info_biology">Info: Learn more about Biology. Biology is the natural science that studies life and living organisms.</string>
         <string name="info_physics">Info: Learn more about Physics. Physics is the science of matter, motion, and energy.</string>
         <string name="info_chemistry">Info: Learn more about Chemistry. Chemistry involves the study of chemicals and the reactions they undergo.</string>
         <string name="info_agriculture">Info: Learn more about Agriculture. Agriculture is the science or practice of farming, including cultivation of the soil and the rearing of animals.</string>
-
-
 
 
 
