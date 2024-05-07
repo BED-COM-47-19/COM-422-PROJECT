@@ -26,7 +26,7 @@ public class TeacherForm4Science extends AppCompatActivity {
         Button buttonChemistry = findViewById(R.id.buttonChemistry);
         Button buttonAgriculture = findViewById(R.id.buttonAgriculture);
 
-        
+
         // Find small info buttons
         Button buttonSmallMathematics = findViewById(R.id.buttonSmallMathematics);
         Button buttonSmallBiology = findViewById(R.id.buttonSmallBiology);
@@ -90,7 +90,7 @@ public class TeacherForm4Science extends AppCompatActivity {
         buttonSmallBiology.setOnClickListener(v -> showToast("Info: More about Biology"));
         buttonSmallPhysics.setOnClickListener(v -> showToast("Info: More about Physics"));
         buttonSmallChemistry.setOnClickListener(v -> showToast("Info: More about Chemistry"));
-        buttonSmallAgriculture.setOnClickListener(v -> showToast("Info: More about Agriculture"))
+        buttonSmallAgriculture.setOnClickListener(v -> showToast("Info: More about Agriculture"));
     }
 
     // Helper method to show toast message

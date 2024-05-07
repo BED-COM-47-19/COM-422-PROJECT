@@ -89,7 +89,7 @@ public class Form1SciencesStudent extends AppCompatActivity {
         buttonSmallBiology.setOnClickListener(v -> showToast("Info: More about Biology"));
         buttonSmallPhysics.setOnClickListener(v -> showToast("Info: More about Physics"));
         buttonSmallChemistry.setOnClickListener(v -> showToast("Info: More about Chemistry"));
-        buttonSmallAgriculture.setOnClickListener(v -> showToast("Info: More about Agriculture"))
+        buttonSmallAgriculture.setOnClickListener(v -> showToast("Info: More about Agriculture"));
 
     }
 

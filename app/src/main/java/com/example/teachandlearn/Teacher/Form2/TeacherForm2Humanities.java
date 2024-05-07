@@ -27,11 +27,11 @@ public class TeacherForm2Humanities extends AppCompatActivity {
         Button buttonGeography = findViewById(R.id.buttonGeography);
 
 
-        Button buttonSocialStudies = findViewById(R.id.buttonSocialStudies);
-        Button buttonLifeSkills = findViewById(R.id.buttonLifeSkills);
-        Button buttonHistory = findViewById(R.id.buttonHistory);
-        Button buttonBibleKnowledge = findViewById(R.id.buttonBibleKnowledge);
-        Button buttonGeography = findViewById(R.id.buttonGeography);
+        Button buttonSmallSocialStudies = findViewById(R.id.buttonSmallSocialStudies);
+        Button buttonSmallLifeSkills = findViewById(R.id.buttonSmallLifeSkills);
+        Button buttonSmallHistory = findViewById(R.id.buttonSmallHistory);
+        Button buttonSmallBibleKnowledge = findViewById(R.id.buttonSmallBibleKnowledge);
+        Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
 
         // Set click listeners for each button
         buttonSocialStudies.setOnClickListener(new View.OnClickListener() {
