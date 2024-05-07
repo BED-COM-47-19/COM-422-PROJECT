@@ -71,7 +71,7 @@ public class Form3HumanitiesStudent extends AppCompatActivity {
                 startActivityForContent();
             }
         });
-        
+
         buttonSmallSocialStudies.setOnClickListener(v -> showToast("Info: Social Studies"));
         buttonSmallLifeSkills.setOnClickListener(v -> showToast("Info: Life Skills"));
         buttonSmallHistory.setOnClickListener(v -> showToast("Info: History"));
