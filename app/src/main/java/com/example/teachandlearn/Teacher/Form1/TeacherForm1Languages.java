@@ -22,7 +22,10 @@ public class TeacherForm1Languages extends AppCompatActivity {
         // Find buttons for each humanities subject
         Button buttonEnglish = findViewById(R.id.buttonEnglish);
         Button buttonChichewa = findViewById(R.id.buttonChichewa);
-//        buttonBack = findViewById(R.id.back_button);
+
+        
+        Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
+        Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
 
         // Set click listeners for each button
@@ -42,13 +45,8 @@ public class TeacherForm1Languages extends AppCompatActivity {
             }
         });
 
-//        buttonBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Logic for when the back button is pressed
-//                onBackPressed();
-//            }
-//        });
+        buttonSmallEnglish.setOnClickListener(v -> showToast("Info: English"));
+        buttonSmallChichewa.setOnClickListener(v -> showToast("Info: Chichewa"));
 
     }
 

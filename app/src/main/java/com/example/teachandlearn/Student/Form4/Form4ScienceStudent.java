@@ -23,7 +23,7 @@ public class Form4ScienceStudent extends AppCompatActivity {
         Button buttonPhysics = findViewById(R.id.buttonPhysics);
         Button buttonChemistry = findViewById(R.id.buttonChemistry);
         Button buttonAgriculture = findViewById(R.id.buttonAgriculture);
-        
+
         // Find small info buttons
         Button buttonSmallMathematics = findViewById(R.id.buttonSmallMathematics);
         Button buttonSmallBiology = findViewById(R.id.buttonSmallBiology);
