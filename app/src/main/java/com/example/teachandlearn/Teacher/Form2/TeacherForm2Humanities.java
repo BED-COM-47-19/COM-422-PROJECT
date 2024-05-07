@@ -26,7 +26,7 @@ public class TeacherForm2Humanities extends AppCompatActivity {
         Button buttonBibleKnowledge = findViewById(R.id.buttonBibleKnowledge);
         Button buttonGeography = findViewById(R.id.buttonGeography);
 
-        
+
         Button buttonSocialStudies = findViewById(R.id.buttonSocialStudies);
         Button buttonLifeSkills = findViewById(R.id.buttonLifeSkills);
         Button buttonHistory = findViewById(R.id.buttonHistory);
