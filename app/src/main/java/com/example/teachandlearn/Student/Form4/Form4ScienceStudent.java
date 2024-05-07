@@ -93,7 +93,7 @@ public class Form4ScienceStudent extends AppCompatActivity {
         buttonSmallPhysics.setOnClickListener(v -> showPopup(v, getString(R.string.info_physics)));
         buttonSmallChemistry.setOnClickListener(v -> showPopup(v, getString(R.string.info_chemistry)));
         buttonSmallAgriculture.setOnClickListener(v -> showPopup(v, getString(R.string.info_agriculture)));
-        
+
     }
 
     private void showPopup(View anchor, String text) {

@@ -90,13 +90,13 @@ public class TeacherForm4Science extends AppCompatActivity {
             }
         });
 
-        // Set click listeners for small info buttons
         // Set click listeners for small info buttons to show popups instead of toasts
-        buttonSmallMathematics.setOnClickListener(v -> showPopup(v, "Info: Learn more about Mathematics."));
-        buttonSmallBiology.setOnClickListener(v -> showPopup(v, "Info: Learn more about Biology."));
-        buttonSmallPhysics.setOnClickListener(v -> showPopup(v, "Info: Learn more about Physics."));
-        buttonSmallChemistry.setOnClickListener(v -> showPopup(v, "Info: Learn more about Chemistry."));
-        buttonSmallAgriculture.setOnClickListener(v -> showPopup(v, "Info: Learn more about Agriculture."));
+        buttonSmallMathematics.setOnClickListener(v -> showPopup(v, getString(R.string.info_mathematics)));
+        buttonSmallBiology.setOnClickListener(v -> showPopup(v, getString(R.string.info_biology)));
+        buttonSmallPhysics.setOnClickListener(v -> showPopup(v, getString(R.string.info_physics)));
+        buttonSmallChemistry.setOnClickListener(v -> showPopup(v, getString(R.string.info_chemistry)));
+        buttonSmallAgriculture.setOnClickListener(v -> showPopup(v, getString(R.string.info_agriculture)));
+        
     }
 
     private void showPopup(View anchor, String text) {
