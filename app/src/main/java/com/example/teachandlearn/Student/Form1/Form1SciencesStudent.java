@@ -66,18 +66,6 @@ public class Form1SciencesStudent extends AppCompatActivity {
         buttonSmallAgriculture.setOnClickListener(v -> showPopup(v, "Info: Learn more about Agriculture."));
     }
 
-    // Helper method to show toast message
-    private void showToast(String message) {
-        Toast.makeText(Form1SciencesStudent.this, message, Toast.LENGTH_SHORT).show();
-    }
-
-    // Method to start Form1ViewContentActivity
-    private void startActivityForContent() {
-        Intent intent = new Intent(Form1SciencesStudent.this, Form1StudentViewContent.class);
-        startActivity(intent);
-    }
-
-    // Method to show a popup
     private void showPopup(View anchor, String text) {
         // Inflate the popup layout
         View popupView = LayoutInflater.from(this).inflate(R.layout.popup_info, null);
@@ -91,7 +79,20 @@ public class Form1SciencesStudent extends AppCompatActivity {
                 true);  // True means the popup is focusable
 
         // Show the popup at the top center of the anchor view
-        popupWindow.showAtLocation(anchor, Gravity.CENTER, 0, 0);
-        popupWindow.update(); // Update the popup for proper layout handling
+        popupWindow.showAtLocation(anchor, Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
+        // Optionally adjust the position of the popup
+        popupWindow.update(anchor, 0, 100, -1, -1);  // Shift a bit downwards
     }
+
+    // Helper method to show toast message
+    private void showToast(String message) {
+        Toast.makeText(Form1SciencesStudent.this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    // Method to start Form1ViewContentActivity
+    private void startActivityForContent() {
+        Intent intent = new Intent(Form1SciencesStudent.this, Form1StudentViewContent.class);
+        startActivity(intent);
+    }
+
 }

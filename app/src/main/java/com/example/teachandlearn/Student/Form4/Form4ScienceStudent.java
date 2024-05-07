@@ -2,9 +2,13 @@
 package com.example.teachandlearn.Student.Form4;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
@@ -83,12 +87,32 @@ public class Form4ScienceStudent extends AppCompatActivity {
         });
 
         // Set click listeners for small info buttons
-        buttonSmallMathematics.setOnClickListener(v -> showToast("Info: More about Mathematics"));
-        buttonSmallBiology.setOnClickListener(v -> showToast("Info: More about Biology"));
-        buttonSmallPhysics.setOnClickListener(v -> showToast("Info: More about Physics"));
-        buttonSmallChemistry.setOnClickListener(v -> showToast("Info: More about Chemistry"));
-        buttonSmallAgriculture.setOnClickListener(v -> showToast("Info: More about Agriculture"));
+        // Set click listeners for small info buttons to show popups instead of toasts
+        buttonSmallMathematics.setOnClickListener(v -> showPopup(v, "Info: Learn more about Mathematics."));
+        buttonSmallBiology.setOnClickListener(v -> showPopup(v, "Info: Learn more about Biology."));
+        buttonSmallPhysics.setOnClickListener(v -> showPopup(v, "Info: Learn more about Physics."));
+        buttonSmallChemistry.setOnClickListener(v -> showPopup(v, "Info: Learn more about Chemistry."));
+        buttonSmallAgriculture.setOnClickListener(v -> showPopup(v, "Info: Learn more about Agriculture."));
     }
+
+    private void showPopup(View anchor, String text) {
+        // Inflate the popup layout
+        View popupView = LayoutInflater.from(this).inflate(R.layout.popup_info, null);
+        TextView textView = popupView.findViewById(R.id.textViewPopupInfo);
+        textView.setText(text);
+
+        // Create the popup window
+        PopupWindow popupWindow = new PopupWindow(popupView,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                true);  // True means the popup is focusable
+
+        // Show the popup at the top center of the anchor view
+        popupWindow.showAtLocation(anchor, Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
+        // Optionally adjust the position of the popup
+        popupWindow.update(anchor, 0, 100, -1, -1);  // Shift a bit downwards
+    }
+
 
     // Helper method to show toast message
     private void showToast(String message) {
@@ -101,10 +125,5 @@ public class Form4ScienceStudent extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        // Handle the back button action
-//        super.onBackPressed();
-//        // You can also add custom logic here if needed
-//    }
+
 }
