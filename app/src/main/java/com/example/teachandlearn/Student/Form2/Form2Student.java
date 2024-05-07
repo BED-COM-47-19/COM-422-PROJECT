@@ -11,7 +11,7 @@ import com.example.teachandlearn.R;
 
 public class Form2Student extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
+    private ImageButton buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +21,7 @@ public class Form2Student extends AppCompatActivity {
         Button buttonScience = findViewById(R.id.activity_form2_science);
         Button buttonHumanities = findViewById(R.id.activity_form2_humanities);
         Button buttonLanguages = findViewById(R.id.activity_form2_languages);
-//        ImageButton buttonBack = findViewById(R.id.back_button);
+        ImageButton buttonBack = findViewById(R.id.back_button);
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {
@@ -51,13 +51,13 @@ public class Form2Student extends AppCompatActivity {
             }
         });
 
-//        buttonBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Logic for when the back button is pressed
-//                onBackPressed();
-//            }
-//        });
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
 
     }
 
@@ -66,11 +66,11 @@ public class Form2Student extends AppCompatActivity {
         Toast.makeText(Form2Student.this, message, Toast.LENGTH_SHORT).show();
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        // Handle the back button action
-//        super.onBackPressed();
-//        // You can also add custom logic here if needed
-//    }
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
 
 }

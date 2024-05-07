@@ -14,11 +14,48 @@
 
 
 
-        <string name="mathematics_info">Mathematics is the abstract science of number, quantity, and space.</string>
-        <string name="biology_info">Biology is the science of life and living organisms.</string>
-        <string name="physics_info">Physics is the science of matter and energy and their interactions.</string>
-        <string name="chemistry_info">Chemistry is the science of the composition, structure, properties, and reactions of matter.</string>
-        <string name="agriculture_info">Agriculture involves the science, art, and practice of cultivating plants and livestock.</string>
+        <!-- Strings for button actions -->
+        <string name="mathematics_selected">Mathematics Selected</string>
+        <string name="biology_selected">Biology Selected</string>
+        <string name="physics_selected">Physics Selected</string>
+        <string name="chemistry_selected">Chemistry Selected</string>
+        <string name="agriculture_selected">Agriculture Selected</string>
+
+        <!-- Strings for popup information -->
+        <string name="info_mathematics">Info: Learn more about Mathematics. Mathematics is the study of numbers, shapes, and patterns.</string>
+        <string name="info_biology">Info: Learn more about Biology. Biology is the natural science that studies life and living organisms.</string>
+        <string name="info_physics">Info: Learn more about Physics. Physics is the science of matter, motion, and energy.</string>
+        <string name="info_chemistry">Info: Learn more about Chemistry. Chemistry involves the study of chemicals and the reactions they undergo.</string>
+        <string name="info_agriculture">Info: Learn more about Agriculture. Agriculture is the science or practice of farming, including cultivation of the soil and the rearing of animals.</string>
+
+
+
+
+    <!-- Strings for main button selections -->
+        <string name="social_studies_selected">Social Studies Selected</string>
+        <string name="life_skills_selected">Life Skills Selected</string>
+        <string name="history_selected">History Selected</string>
+        <string name="bible_knowledge_selected">Bible Knowledge Selected</string>
+        <string name="geography_selected">Geography Selected</string>
+
+        <!-- Strings for popup information -->
+        <string name="info_social_studies">Info: Social Studies involves the study of people in relation to each other and to the world in which they live.</string>
+        <string name="info_life_skills">Info: Life Skills includes all the skills needed for everyday living.</string>
+        <string name="info_history">Info: History involves the study of past events, particularly in human affairs.</string>
+        <string name="info_bible_knowledge">Info: Bible Knowledge covers the study of scriptures and theological history.</string>
+        <string name="info_geography">Info: Geography involves the study of places and the relationships between people and their environments.</string>
+
+
+
+
+        <!-- Strings for button actions -->
+        <string name="english_selected">English Selected</string>
+        <string name="chichewa_selected">Chichewa Selected</string>
+
+        <!-- Strings for popup information -->
+        <string name="info_english">Info: Learn more about English. English is a West Germanic language first spoken in early medieval England and is now a global lingua franca.</string>
+        <string name="info_chichewa">Info: Learn more about Chichewa. Chichewa, also known as Chewa, is a language of the Bantu language family widely spoken in south-central Africa.</string>
+
 
 
 

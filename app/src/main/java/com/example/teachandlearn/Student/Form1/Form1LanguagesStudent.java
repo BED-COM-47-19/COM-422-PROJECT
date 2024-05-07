@@ -37,8 +37,8 @@ public class Form1LanguagesStudent extends AppCompatActivity {
         });
 
         // Setup listeners for small info buttons to show popups
-        buttonSmallEnglish.setOnClickListener(v -> showPopup(v, "Info: Learn more about English."));
-        buttonSmallChichewa.setOnClickListener(v -> showPopup(v, "Info: Learn more about Chichewa."));
+        buttonSmallEnglish.setOnClickListener(v -> showPopup(v, "Info: Learn more about English. English is a West Germanic language first spoken in early medieval England and is now a global lingua franca."));
+        buttonSmallChichewa.setOnClickListener(v -> showPopup(v, "Info: Learn more about Chichewa. Chichewa, also known as Chewa, is a language of the Bantu language family widely spoken in south-central Africa."));
     }
 
     private void showPopup(View anchor, String text) {
