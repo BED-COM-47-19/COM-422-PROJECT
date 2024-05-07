@@ -1,16 +1,17 @@
 package com.example.teachandlearn.Student.Form1;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 
 public class Form1SciencesStudent extends AppCompatActivity {
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,74 +25,45 @@ public class Form1SciencesStudent extends AppCompatActivity {
         Button buttonChemistry = findViewById(R.id.buttonChemistry);
         Button buttonAgriculture = findViewById(R.id.buttonAgriculture);
 
-
-        //For the Info Pop Ups
-        setupButtonWithPopup(R.id.buttonMathematics, R.string.mathematics_info);
-        setupButtonWithPopup(R.id.buttonBiology, R.string.biology_info);
-        setupButtonWithPopup(R.id.buttonPhysics, R.string.physics_info);
-        setupButtonWithPopup(R.id.buttonChemistry, R.string.chemistry_info);
-        setupButtonWithPopup(R.id.buttonAgriculture, R.string.agriculture_info);
-
+        // Find small info buttons
+        Button buttonSmallMathematics = findViewById(R.id.buttonSmallMathematics);
+        Button buttonSmallBiology = findViewById(R.id.buttonSmallBiology);
+        Button buttonSmallPhysics = findViewById(R.id.buttonSmallPhysics);
+        Button buttonSmallChemistry = findViewById(R.id.buttonSmallChemistry);
+        Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
 
         // Set click listeners for each button
-        buttonMathematics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Show toast message
-                showToast("Mathematics Selected");
-                // Start the Form1ViewContentActivity
-                startActivityForContent();
-            }
+        buttonMathematics.setOnClickListener(v -> {
+            showToast("Mathematics Selected");
+            startActivityForContent();
         });
 
-        buttonBiology.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Show toast message
-                showToast("Biology Selected");
-                // Start the Form1ViewContentActivity
-                startActivityForContent();
-            }
+        buttonBiology.setOnClickListener(v -> {
+            showToast("Biology Selected");
+            startActivityForContent();
         });
 
-        buttonChemistry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Show toast message
-                showToast("Chemistry Selected");
-                // Start the Form1ViewContentActivity
-                startActivityForContent();
-            }
+        buttonChemistry.setOnClickListener(v -> {
+            showToast("Chemistry Selected");
+            startActivityForContent();
         });
 
-        buttonPhysics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Show toast message
-                showToast("Physics Selected");
-                // Start the Form1ViewContentActivity
-                startActivityForContent();
-            }
+        buttonPhysics.setOnClickListener(v -> {
+            showToast("Physics Selected");
+            startActivityForContent();
         });
 
-        buttonAgriculture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Show toast message
-                showToast("Agriculture Selected");
-                // Start the Form1ViewContentActivity
-                startActivityForContent();
-            }
+        buttonAgriculture.setOnClickListener(v -> {
+            showToast("Agriculture Selected");
+            startActivityForContent();
         });
 
-
-        // Set click listeners for small info buttons
-        buttonSmallMathematics.setOnClickListener(v -> showToast("Info: More about Mathematics"));
-        buttonSmallBiology.setOnClickListener(v -> showToast("Info: More about Biology"));
-        buttonSmallPhysics.setOnClickListener(v -> showToast("Info: More about Physics"));
-        buttonSmallChemistry.setOnClickListener(v -> showToast("Info: More about Chemistry"));
-        buttonSmallAgriculture.setOnClickListener(v -> showToast("Info: More about Agriculture"));
-
+        // Set click listeners for small info buttons to show popups instead of toasts
+        buttonSmallMathematics.setOnClickListener(v -> showPopup(v, "Info: Learn more about Mathematics."));
+        buttonSmallBiology.setOnClickListener(v -> showPopup(v, "Info: Learn more about Biology."));
+        buttonSmallPhysics.setOnClickListener(v -> showPopup(v, "Info: Learn more about Physics."));
+        buttonSmallChemistry.setOnClickListener(v -> showPopup(v, "Info: Learn more about Chemistry."));
+        buttonSmallAgriculture.setOnClickListener(v -> showPopup(v, "Info: Learn more about Agriculture."));
     }
 
     // Helper method to show toast message
@@ -105,5 +77,21 @@ public class Form1SciencesStudent extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // Method to show a popup
+    private void showPopup(View anchor, String text) {
+        // Inflate the popup layout
+        View popupView = LayoutInflater.from(this).inflate(R.layout.popup_info, null);
+        TextView textView = popupView.findViewById(R.id.textViewPopupInfo);
+        textView.setText(text);
 
+        // Create the popup window
+        PopupWindow popupWindow = new PopupWindow(popupView,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                true);  // True means the popup is focusable
+
+        // Show the popup at the top center of the anchor view
+        popupWindow.showAtLocation(anchor, Gravity.CENTER, 0, 0);
+        popupWindow.update(); // Update the popup for proper layout handling
+    }
 }

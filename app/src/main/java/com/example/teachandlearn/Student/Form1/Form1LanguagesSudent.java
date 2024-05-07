@@ -18,13 +18,13 @@ public class Form1LanguagesStudent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form1_languages);
 
-        // Find buttons for each language subject
+        // Initialize language subject buttons
         Button buttonEnglish = findViewById(R.id.buttonEnglish);
         Button buttonChichewa = findViewById(R.id.buttonChichewa);
         Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
-        // Set click listeners for main subject buttons
+        // Setup listeners for main subject buttons
         buttonEnglish.setOnClickListener(v -> {
             showToast("English Selected");
             startActivityForContent();
@@ -35,35 +35,37 @@ public class Form1LanguagesStudent extends AppCompatActivity {
             startActivityForContent();
         });
 
-        // Set click listeners for small info buttons with popups
+        // Setup listeners for small info buttons to show popups
         buttonSmallEnglish.setOnClickListener(v -> showPopup(v, "Info: Learn more about English."));
         buttonSmallChichewa.setOnClickListener(v -> showPopup(v, "Info: Learn more about Chichewa."));
     }
 
-    // Helper method to show toast message
+    // Helper method to show a toast message
     private void showToast(String message) {
         Toast.makeText(Form1LanguagesStudent.this, message, Toast.LENGTH_SHORT).show();
     }
 
-    // Method to start Form1ViewContentActivity
+    // Starts an activity to view content for the selected language subject
     private void startActivityForContent() {
         Intent intent = new Intent(Form1LanguagesStudent.this, Form1StudentViewContent.class);
         startActivity(intent);
     }
 
-    // Method to show a popup
+    // Displays a popup with specified text near the anchor view
     private void showPopup(View anchor, String text) {
+        // Inflate popup layout
         View popupView = LayoutInflater.from(this).inflate(R.layout.popup_info, null);
         TextView textView = popupView.findViewById(R.id.textViewPopupInfo);
         textView.setText(text);
 
+        // Create and display the popup window
         PopupWindow popupWindow = new PopupWindow(popupView,
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
-                true); // True means the popup is focusable
+                true); // true = focusable
 
-        // Show the popup at the specified location
+        // Displaying the popup at the center of the anchor view
         popupWindow.showAtLocation(anchor, Gravity.CENTER, 0, 0);
-        popupWindow.update(); // Update the popup for proper layout handling
+        popupWindow.update(); // Update to properly manage layout size or position
     }
 }
