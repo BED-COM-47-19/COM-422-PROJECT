@@ -79,7 +79,7 @@ public class Form1HumanitiesStudent extends AppCompatActivity {
                 true);  // True means the popup is focusable
 
         // Show the popup at the top center of the anchor view
-        popupWindow.showAtLocation(anchor, Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
+        popupWindow.showAtLocation(anchor, Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 100);
         // Optionally adjust the position of the popup
         popupWindow.update(anchor, 0, 100, -1, -1);  // Shift a bit downwards
     }
