@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 import com.example.teachandlearn.MainClass.UserTypeSelection;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.Form1.Categories.Form1Student;
-import com.example.teachandlearn.Student.Form2.Form2Student;
+import com.example.teachandlearn.Student.Form2.Categories.Form2Student;
 import com.example.teachandlearn.Student.Form3.Form3Student;
 import com.example.teachandlearn.Student.Form4.Form4Student;
 

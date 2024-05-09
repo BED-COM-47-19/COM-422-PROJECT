@@ -1,5 +1,5 @@
 
-package com.example.teachandlearn.Student.Form2;
+package com.example.teachandlearn.Student.Form2.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

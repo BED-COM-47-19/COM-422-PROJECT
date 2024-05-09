@@ -75,7 +75,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Form2Student"
+        <activity android:name=".Student.Form2.Categories.Form2Student"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -94,7 +94,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Form2SciencesStudent"
+        <activity android:name=".Student.Form2.Categories.Form2SciencesStudent"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -113,7 +113,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Form2HumanitiesStudent"
+        <activity android:name=".Student.Form2.Categories.Form2HumanitiesStudent"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -132,7 +132,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Form2LanguagesStudent"
+        <activity android:name=".Student.Form2.Categories.Form2LanguagesStudent"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -151,7 +151,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Form2StudentViewContent"
+        <activity android:name=".Student.Form2.Categories.Form2StudentViewContent"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
