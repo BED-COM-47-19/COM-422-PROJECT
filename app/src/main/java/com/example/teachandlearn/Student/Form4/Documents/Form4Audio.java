@@ -1,5 +1,6 @@
-package com.example.teachandlearn.Student.Form4.Documents;
 
+
+package com.example.teachandlearn.Student.Form4.Documents;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,23 +9,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.teachandlearn.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Form1Audio extends AppCompatActivity {
+
+public class Form4Audio extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AudioAdapter adapter;
     private MediaPlayer mediaPlayer;  // MediaPlayer instance as a member of Form1Audio
@@ -32,7 +31,7 @@ public class Form1Audio extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_audio);
+        setContentView(R.layout.activity_form4_audio);
 
         mediaPlayer = new MediaPlayer();  // Initialize MediaPlayer
         recyclerView = findViewById(R.id.recyclerViewAudio);
@@ -45,7 +44,7 @@ public class Form1Audio extends AppCompatActivity {
 
     private void fetchAudios() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("audios/form1");
+        DatabaseReference ref = database.getReference("audios/form4");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -99,7 +98,7 @@ public class Form1Audio extends AppCompatActivity {
         @NonNull
         @Override
         public AudioViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form1_audio_item, parent, false);
+            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form4_audio_item, parent, false);
             return new AudioViewHolder(itemView);
         }
 

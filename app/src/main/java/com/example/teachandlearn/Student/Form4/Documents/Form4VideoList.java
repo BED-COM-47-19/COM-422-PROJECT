@@ -2,15 +2,15 @@
 
 package com.example.teachandlearn.Student.Form4.Documents;
 
-public class Form1VideoList {
+public class Form4VideoList {
     private String title;
     private String videoUrl;
 
-    public Form1VideoList() {
+    public Form4VideoList() {
         // Default constructor required for calls to DataSnapshot.getValue(Video.class)
     }
 
-    public Form1VideoList(String title, String videoUrl) {
+    public Form4VideoList(String title, String videoUrl) {
         this.title = title;
         this.videoUrl = videoUrl;
     }

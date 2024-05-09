@@ -1,31 +1,27 @@
 
 
 package com.example.teachandlearn.Student.Form4.Documents;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.teachandlearn.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
+public class Form4VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
     private List<DataSnapshot> videoList = new ArrayList<>();
     private LayoutInflater inflater;
 
-    public VideoAdapter(Query query, AppCompatActivity activity) {
+    public Form4VideoAdapter(Query query, AppCompatActivity activity) {
         inflater = LayoutInflater.from(activity);
         query.addValueEventListener(new ValueEventListener() {
             @Override
