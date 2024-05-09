@@ -1,6 +1,6 @@
 
 
-package com.example.teachandlearn.Student.Form2.Documents;
+package com.example.teachandlearn.Student.Form1.Documents;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 
 
-public class Form2VideoAdapter extends RecyclerView.Adapter<Form1VideoAdapter.ViewHolder> {
+public class Form1VideoAdapter extends RecyclerView.Adapter<Form1VideoAdapter.ViewHolder> {
     private List<DataSnapshot> videoList = new ArrayList<>();
     private LayoutInflater inflater;
 

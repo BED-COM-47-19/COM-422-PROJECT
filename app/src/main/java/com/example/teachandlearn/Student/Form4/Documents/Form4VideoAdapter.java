@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Form4VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
+public class Form4VideoAdapter extends RecyclerView.Adapter<Form4VideoAdapter.ViewHolder> {
     private List<DataSnapshot> videoList = new ArrayList<>();
     private LayoutInflater inflater;
 

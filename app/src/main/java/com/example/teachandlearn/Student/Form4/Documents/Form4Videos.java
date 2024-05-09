@@ -9,12 +9,13 @@ import com.example.teachandlearn.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import android.widget.RecyclerView;
 
 
 public class Form4Videos extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private VideoAdapter videoAdapter;
+    private Form4VideoAdapter form4videoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

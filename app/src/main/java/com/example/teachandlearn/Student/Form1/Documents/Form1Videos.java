@@ -9,6 +9,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.example.teachandlearn.R;
+import android.widget.RecyclerView;
 
 
 public class Form1Videos extends AppCompatActivity {
@@ -19,7 +20,7 @@ public class Form1Videos extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form3_video);
+        setContentView(R.layout.activity_form1_video);
 
         recyclerView = findViewById(R.id.rvVideos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
