@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "145578837694",
-    "project_id": "teachandlearn-68e0c",
-    "storage_bucket": "teachandlearn-68e0c.appspot.com"
+    "project_number": "531504318019",
+    "project_id": "teachandlearn-d3be7",
+    "storage_bucket": "teachandlearn-d3be7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:145578837694:android:e687f33da8ae986f4a40ef",
+        "mobilesdk_app_id": "1:531504318019:android:d468575dccd9a8e4f476f6",
         "android_client_info": {
           "package_name": "com.example.teachandlearn"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD6HgUhhnPmP0NVS6IJZWPxU1f6yVQ802U"
+          "current_key": "AIzaSyB5QiTPQ5FEPMZVlZzC9rJ68bxxeTCtIGI"
         }
       ],
       "services": {
