@@ -55,7 +55,7 @@ public class StudentLogin extends AppCompatActivity {
 
         // Set listeners
         buttonBack.setOnClickListener(view -> onBackPressed());
-        //loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
+        loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
         signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogin.this, StudentSignUp.class)));
         forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
         googleSignInTextView.setOnClickListener(v -> {
@@ -204,6 +204,8 @@ public class StudentLogin extends AppCompatActivity {
                     .addOnFailureListener(e -> Toast.makeText(this, "Google sign-in failed.", Toast.LENGTH_SHORT).show());
         }
     }
+
+
 
     private void logAttemptToDatabase(String email) {
         // Create a unique ID for each log entry

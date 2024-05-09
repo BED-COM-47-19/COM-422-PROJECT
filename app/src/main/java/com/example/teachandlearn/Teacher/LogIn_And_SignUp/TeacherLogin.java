@@ -54,7 +54,7 @@ public class TeacherLogin extends AppCompatActivity {
 
         // Set listeners
         buttonBack.setOnClickListener(view -> onBackPressed());
-        //loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
+        loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
         signUpButton.setOnClickListener(v -> startActivity(new Intent(TeacherLogin.this, TeacherSignUp.class)));
         forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
         googleSignInTextView.setOnClickListener(v -> {

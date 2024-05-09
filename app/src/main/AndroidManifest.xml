@@ -128,7 +128,7 @@
 
         <!-- Languages Subjects -->
 
-        <activity android:name=".Student.Form1.Form1LanguagesSudent"
+        <activity android:name=".Student.Form1.Form1LanguagesStudent"
             android:theme="@style/Theme.AppCompat">
         </activity>
 

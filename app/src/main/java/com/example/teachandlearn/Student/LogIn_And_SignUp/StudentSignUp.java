@@ -10,9 +10,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class StudentSignUp extends AppCompatActivity {
-
+    private DatabaseReference databaseReference;
+    private FirebaseAuth mAuth; // Firebase authentication reference
     private ImageButton buttonBack;
     private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
     private Button buttonContinue;
@@ -21,6 +26,10 @@ public class StudentSignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_signup);
+
+        // Initialize Firebase Auth and Database Reference
+        mAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 
         // Initialize views
         editTextFirstName = findViewById(R.id.editTextFirstName);
@@ -39,58 +48,67 @@ public class StudentSignUp extends AppCompatActivity {
             }
         });
 
+        // Set click listener for back button
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Logic for when the back button is pressed
                 onBackPressed();
             }
         });
+    }
 
+    private void registerUser(String email, String password) {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Authentication succeeded
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        saveUserDetails(user); // Save additional user details in Firebase Database
+                        Toast.makeText(StudentSignUp.this, "Registration successful.", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(StudentSignUp.this, StudentSelectClass.class));
+                        finish();
+                    } else {
+                        // Authentication failed
+                        Toast.makeText(StudentSignUp.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void saveUserDetails(FirebaseUser firebaseUser) {
+        if (firebaseUser != null) {
+            String userId = firebaseUser.getUid(); // Get Firebase auth user ID
+            User user = new User(
+                    editTextFirstName.getText().toString().trim(),
+                    editTextLastName.getText().toString().trim(),
+                    editTextEmail.getText().toString().trim(),
+                    "", // Do not store passwords in the database
+                    ""
+            );
+            databaseReference.child(userId).setValue(user);
+        }
     }
 
     private void signupStudent() {
-        // Retrieve input values
-        String firstName = editTextFirstName.getText().toString().trim();
-        String lastName = editTextLastName.getText().toString().trim();
         String email = editTextEmail.getText().toString().trim();
-        String password = editTextPassword.getText().toString();
-        String confirmPassword = editTextConfirmPassword.getText().toString();
-
-        // Perform validation
-        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "All fields are required", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (!firstName.matches("[a-zA-Z]+") || !lastName.matches("[a-zA-Z]+")) {
-            Toast.makeText(getApplicationContext(), "First and Last name must contain only letters", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (!email.contains("@")) {
-            Toast.makeText(getApplicationContext(), "Email must contain an '@' symbol", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        String password = editTextPassword.getText().toString().trim();
+        String confirmPassword = editTextConfirmPassword.getText().toString().trim();
 
         if (!password.equals(confirmPassword)) {
             Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        if (password.length() < 7) {
+        if (password.length() < 6) {
             Toast.makeText(getApplicationContext(), "Password must be at least 6 characters long", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Navigate to SelectClassActivity
-        startActivity(new Intent(StudentSignUp.this, StudentSelectClass.class));
+        // Start the registration process
+        registerUser(email, password);
     }
 
     @Override
     public void onBackPressed() {
-        // Handle the back button action
         super.onBackPressed();
-        // You can also add custom logic here if needed
     }
 }
