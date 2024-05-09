@@ -12,6 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
+import com.example.teachandlearn.R;
 
 public class Form1QuizzesAndQuestions extends AppCompatActivity {
 
