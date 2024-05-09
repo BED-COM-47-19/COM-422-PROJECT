@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
+import android.util.Log;
+
 
 
 public class Form1PDF extends AppCompatActivity {
@@ -66,7 +68,8 @@ public class Form1PDF extends AppCompatActivity {
         private String title;
         private String filePath;
 
-        public PDFDocument() {}
+        public PDFDocument() {
+        }
 
         public PDFDocument(String title, String filePath) {
             this.title = title;
@@ -126,6 +129,11 @@ public class Form1PDF extends AppCompatActivity {
             return pdfDocuments.size();
         }
 
+        public void setPDFDocuments(List<PDFDocument> pdfDocuments) {
+            this.pdfDocuments = pdfDocuments;
+            notifyDataSetChanged(); // Notify the adapter that the data set has changed
+        }
+
         public class PDFViewHolder extends RecyclerView.ViewHolder {
             TextView textViewTitle;
 
@@ -135,4 +143,5 @@ public class Form1PDF extends AppCompatActivity {
             }
         }
     }
+
 }

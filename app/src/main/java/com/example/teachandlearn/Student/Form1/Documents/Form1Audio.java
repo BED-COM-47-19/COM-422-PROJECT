@@ -1,6 +1,5 @@
-
-
 package com.example.teachandlearn.Student.Form1.Documents;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,19 +21,20 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Form1Audio extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AudioAdapter adapter;
+    private MediaPlayer mediaPlayer;  // MediaPlayer instance as a member of Form1Audio
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form1_audio);
 
+        mediaPlayer = new MediaPlayer();  // Initialize MediaPlayer
         recyclerView = findViewById(R.id.recyclerViewAudio);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new AudioAdapter(new ArrayList<>());  // Start with an empty list
+        adapter = new AudioAdapter(new ArrayList<>(), mediaPlayer);  // Pass MediaPlayer to the adapter
         recyclerView.setAdapter(adapter);
 
         fetchAudios();  // Fetch audios from Firebase
@@ -66,6 +66,9 @@ public class Form1Audio extends AppCompatActivity {
         private String title;
         private String filePath;
 
+        // Constructors, getters, and setters
+        public AudioItem() { }  // Needed for Firebase deserialization
+
         public AudioItem(String title, String filePath) {
             this.title = title;
             this.filePath = filePath;
@@ -82,10 +85,12 @@ public class Form1Audio extends AppCompatActivity {
 
     private class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHolder> {
         private List<AudioItem> audioList;
-        private MediaPlayer mediaPlayer = new MediaPlayer();
+        private MediaPlayer mediaPlayer;
 
-        public AudioAdapter(List<AudioItem> audioList) {
+        // Constructor to accept MediaPlayer
+        public AudioAdapter(List<AudioItem> audioList, MediaPlayer mediaPlayer) {
             this.audioList = audioList;
+            this.mediaPlayer = mediaPlayer;
         }
 
         @NonNull
@@ -99,9 +104,7 @@ public class Form1Audio extends AppCompatActivity {
         public void onBindViewHolder(@NonNull AudioViewHolder holder, int position) {
             AudioItem audio = audioList.get(position);
             holder.textViewTitle.setText(audio.getTitle());
-            holder.itemView.setOnClickListener(v -> {
-                playAudio(audio.getFilePath(), holder);
-            });
+            holder.itemView.setOnClickListener(v -> playAudio(audio.getFilePath(), holder));
         }
 
         private void playAudio(String filePath, AudioViewHolder holder) {
@@ -110,12 +113,12 @@ public class Form1Audio extends AppCompatActivity {
                     mediaPlayer.stop();
                     mediaPlayer.reset();
                 }
-                mediaPlayer.setDataSource(filePath);  // Set the source of the audio file
-                mediaPlayer.prepare();               // Prepare the MediaPlayer to play
-                mediaPlayer.start();                 // Start playing
+                mediaPlayer.setDataSource(filePath);
+                mediaPlayer.prepare();
+                mediaPlayer.start();
             } catch (Exception e) {
                 Toast.makeText(holder.itemView.getContext(), "Error playing audio", Toast.LENGTH_SHORT).show();
-                e.printStackTrace();
+                Log.e("AudioAdapter", "Error playing audio", e);
             }
         }
 
