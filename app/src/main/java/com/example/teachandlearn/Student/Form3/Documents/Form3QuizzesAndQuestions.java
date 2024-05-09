@@ -17,7 +17,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 
-public class Form1QuizzesAndQuestions extends AppCompatActivity {
+public class Form3QuizzesAndQuestions extends AppCompatActivity {
 
     private ListView listView;
     private ArrayAdapter<String> adapter;

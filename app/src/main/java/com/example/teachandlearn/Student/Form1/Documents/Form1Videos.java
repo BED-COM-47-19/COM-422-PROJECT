@@ -19,7 +19,7 @@ public class Form1Videos extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_video);
+        setContentView(R.layout.activity_form3_video);
 
         recyclerView = findViewById(R.id.rvVideos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

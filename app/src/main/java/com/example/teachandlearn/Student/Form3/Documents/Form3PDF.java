@@ -31,7 +31,7 @@ import java.util.List;
 
 
 
-public class Form1PDF extends AppCompatActivity {
+public class Form3PDF extends AppCompatActivity {
     private RecyclerView recyclerViewPDFs;
     private PDFAdapter adapter;
 
