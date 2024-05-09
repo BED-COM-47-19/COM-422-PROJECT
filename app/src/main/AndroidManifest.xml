@@ -71,7 +71,7 @@
 
         <!-- Student Class Selection -->
 
-        <activity android:name=".Student.Form1.Form1Student"
+        <activity android:name=".Student.Form1.Categories.Form1Student"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -90,7 +90,7 @@
 
         <!-- Sciences Subjects -->
 
-        <activity android:name=".Student.Form1.Form1SciencesStudent"
+        <activity android:name=".Student.Form1.Categories.Form1SciencesStudent"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -109,7 +109,7 @@
 
         <!-- Humanities Subjects -->
 
-        <activity android:name=".Student.Form1.Form1HumanitiesStudent"
+        <activity android:name=".Student.Form1.Categories.Form1HumanitiesStudent"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -128,7 +128,7 @@
 
         <!-- Languages Subjects -->
 
-        <activity android:name=".Student.Form1.Form1LanguagesStudent"
+        <activity android:name=".Student.Form1.Categories.Form1LanguagesStudent"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -147,7 +147,7 @@
 
         <!-- View Content Classes -->
 
-        <activity android:name=".Student.Form1.Form1StudentViewContent"
+        <activity android:name=".Student.Form1.Categories.Form1StudentViewContent"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
