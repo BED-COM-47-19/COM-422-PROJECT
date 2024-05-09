@@ -29,7 +29,8 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
         listView = findViewById(R.id.list_view);
         pdfNames = new ArrayList<>();
         pdfUrls = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this, android.R.layout.activity_form1_quizzes_and_questions, pdfNames);
+        adapter = new ArrayAdapter<>(this, R.layout.activity_form1_quizzes_and_questions, pdfNames);
+
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
