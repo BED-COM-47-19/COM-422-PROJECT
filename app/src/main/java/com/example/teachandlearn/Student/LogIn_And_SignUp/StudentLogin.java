@@ -20,6 +20,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import java.util.Map;
+import java.util.HashMap;
+import com.google.firebase.database.ServerValue;
+import android.util.Log;
+
+
 
 
 public class StudentLogin extends AppCompatActivity {
@@ -211,6 +217,7 @@ public class StudentLogin extends AppCompatActivity {
                 .addOnSuccessListener(aVoid -> Log.d("Database", "Log saved successfully"))
                 .addOnFailureListener(e -> Log.d("Database", "Error saving log", e));
     }
+
 
 
     @Override
