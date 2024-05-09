@@ -266,11 +266,11 @@
 
 
 
-        <activity android:name=".Student.Documents.PDF"
+        <activity android:name=".Student.Form1.Documents.Form1PDF"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Documents.Audio"
+        <activity android:name=".Student.Form1.Documents.Form1Audio"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
