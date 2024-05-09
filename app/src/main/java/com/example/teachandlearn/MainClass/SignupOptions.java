@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.LogIn_And_SignUp.StudentSignUp;
 import com.example.teachandlearn.Teacher.LogIn_And_SignUp.TeacherSignUp;
@@ -18,8 +16,8 @@ public class SignupOptions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_password_reset);
 
-        Button studentButton = findViewById(R.id.buttonStudent);
-        Button teacherButton = findViewById(R.id.buttonTeacher);
+        Button studentButton = findViewById(R.id.button_student);
+        Button teacherButton = findViewById(R.id.button_teacher);
 
         studentButton.setOnClickListener(new View.OnClickListener() {
             @Override
