@@ -9,7 +9,8 @@ import com.example.teachandlearn.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import android.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 
 public class Form4Videos extends AppCompatActivity {
@@ -29,8 +30,8 @@ public class Form4Videos extends AppCompatActivity {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("videos");
         Query query = databaseReference.orderByKey();
 
-        videoAdapter = new VideoAdapter(query, this); // You'll need to create a custom adapter
-        recyclerView.setAdapter(videoAdapter);
+        form4videoAdapter = new Form4VideoAdapter(query, this); // You'll need to create a custom adapter
+        recyclerView.setAdapter(form4videoAdapter);
     }
 }
 

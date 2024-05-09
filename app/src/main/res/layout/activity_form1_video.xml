@@ -5,11 +5,5 @@
     android:layout_height="match_parent"
     tools:context=".Student.Form1.Documents.Form1Videos">
 
-    <RecyclerView
-        android:id="@+id/rvVideos"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        android:scrollbars="vertical" />
 
 </RelativeLayout>
