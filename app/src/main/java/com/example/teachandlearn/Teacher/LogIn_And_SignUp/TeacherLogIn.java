@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Teacher.SelectClass.TeacherSelectClass;
+import com.example.teachandlearn.Teacher.SelectClass.StudentSelectClass;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -28,7 +28,7 @@ import android.util.Log;
 
 
 
-public class TeacherLogin extends AppCompatActivity {
+public class TeacherLogIn extends AppCompatActivity {
 
     private ImageButton buttonBack;
     private FirebaseAuth mAuth;
@@ -39,10 +39,11 @@ public class TeacherLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_login); // Consider updating this layout name if it's incorrect for this context
+        setContentView(R.layout.activity_teacher_login);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
 
         ImageButton buttonBack = findViewById(R.id.back_button);
         EditText editTextEmail = findViewById(R.id.editTextEmail);
@@ -55,13 +56,15 @@ public class TeacherLogin extends AppCompatActivity {
         // Set listeners
         buttonBack.setOnClickListener(view -> onBackPressed());
         loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
-        signUpButton.setOnClickListener(v -> startActivity(new Intent(TeacherLogin.this, TeacherSignUp.class)));
+        signUpButton.setOnClickListener(v -> startActivity(new Intent(TeacherLogIn.this, TeacherSignUp.class)));
         forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
         googleSignInTextView.setOnClickListener(v -> {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
             startActivityForResult(signInIntent, RC_SIGN_IN);
         });
+        // Initialize Firebase Auth
 
+        buttonBack = findViewById(R.id.back_button);
 
         // Configure Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -70,8 +73,6 @@ public class TeacherLogin extends AppCompatActivity {
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-        // Build the UI dynamically
 
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +83,7 @@ public class TeacherLogin extends AppCompatActivity {
             }
         });
 
+
         loginButton.setOnClickListener(v -> {
             String email = editTextEmail.getText().toString();
             String password = editTextPassword.getText().toString();
@@ -90,6 +92,7 @@ public class TeacherLogin extends AppCompatActivity {
         });
 
     }
+
 
 
     private TextView createTextView(String text, int topMargin) {
@@ -141,7 +144,7 @@ public class TeacherLogin extends AppCompatActivity {
         TextView googleSignInTextView = (TextView) rootLayout.getChildAt(6);
 
         loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
-        signUpButton.setOnClickListener(v -> startActivity(new Intent(TeacherLogin.this, TeacherSignUp.class)));
+        signUpButton.setOnClickListener(v -> startActivity(new Intent(TeacherLogIn.this, TeacherSignUp.class)));
         forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
         googleSignInTextView.setOnClickListener(v -> {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -154,20 +157,20 @@ public class TeacherLogin extends AppCompatActivity {
             mAuth.sendPasswordResetEmail(email)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            Toast.makeText(TeacherLogin.this, "Reset link sent to your email", Toast.LENGTH_LONG).show();
+                            Toast.makeText(TeacherLogIn.this, "Reset link sent to your email", Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(TeacherLogin.this, "Failed to send reset email", Toast.LENGTH_LONG).show();
+                            Toast.makeText(TeacherLogIn.this, "Failed to send reset email", Toast.LENGTH_LONG).show();
                         }
                     });
         } else {
-            Toast.makeText(TeacherLogin.this, "Please enter your email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(TeacherLogIn.this, "Please enter your email", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void loginUser(String email, String password) {
         // Check if email or password is empty
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(TeacherLogin.this, "Email and password cannot be empty.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(TeacherLogIn.this, "Email and password cannot be empty.", Toast.LENGTH_SHORT).show();
             return; // Stop the login process if fields are empty
         }
 
@@ -176,10 +179,10 @@ public class TeacherLogin extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // If login is successful, navigate to the next screen
-                        startActivity(new Intent(TeacherLogin.this, TeacherSelectClass.class));
+                        startActivity(new Intent(TeacherLogIn.this, TeacherSelectClass.class));
                     } else {
                         // If login fails, display a failure message
-                        Toast.makeText(TeacherLogin.this, "Invalid account", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TeacherLogIn.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -202,6 +205,8 @@ public class TeacherLogin extends AppCompatActivity {
         }
     }
 
+
+
     private void logAttemptToDatabase(String email) {
         // Create a unique ID for each log entry
         String key = mDatabase.child("logins").push().getKey();
@@ -223,7 +228,6 @@ public class TeacherLogin extends AppCompatActivity {
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
-
 
 
 }

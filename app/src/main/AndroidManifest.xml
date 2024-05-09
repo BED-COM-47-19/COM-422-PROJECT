@@ -38,7 +38,7 @@
         </activity>
 
 
-        <activity android:name=".Student.LogIn_And_SignUp.StudentLogin"
+        <activity android:name=".Student.LogIn_And_SignUp.StudentLogIn"
                   android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -46,7 +46,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.LogIn_And_SignUp.TeacherLogin"
+        <activity android:name=".Teacher.LogIn_And_SignUp.TeacherLogIn"
                   android:theme="@style/Theme.AppCompat">
         </activity>
 

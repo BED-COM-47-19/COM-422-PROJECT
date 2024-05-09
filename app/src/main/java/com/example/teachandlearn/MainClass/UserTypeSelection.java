@@ -7,8 +7,8 @@ import com.example.teachandlearn.R;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.ImageButton;
-import com.example.teachandlearn.Student.LogIn_And_SignUp.StudentLogin;
-import com.example.teachandlearn.Teacher.LogIn_And_SignUp.TeacherLogin;
+import com.example.teachandlearn.Student.LogIn_And_SignUp.StudentLogIn;
+import com.example.teachandlearn.Teacher.LogIn_And_SignUp.TeacherLogIn;
 
 public class UserTypeSelection extends AppCompatActivity {
 
@@ -32,7 +32,7 @@ public class UserTypeSelection extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Logic for when the 'STUDENT' button is pressed
-                Intent intent = new Intent(UserTypeSelection.this, StudentLogin.class);
+                Intent intent = new Intent(UserTypeSelection.this, StudentLogIn.class);
                 startActivity(intent);
             }
         });
@@ -41,7 +41,7 @@ public class UserTypeSelection extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Logic for when the 'TEACHER' button is pressed
-                Intent intent = new Intent(UserTypeSelection.this, TeacherLogin.class);
+                Intent intent = new Intent(UserTypeSelection.this, TeacherLogIn.class);
                 startActivity(intent);
             }
         });

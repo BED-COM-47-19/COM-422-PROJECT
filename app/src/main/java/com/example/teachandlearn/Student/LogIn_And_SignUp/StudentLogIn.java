@@ -28,7 +28,7 @@ import android.util.Log;
 
 
 
-public class StudentLogin extends AppCompatActivity {
+public class StudentLogIn extends AppCompatActivity {
 
     private ImageButton buttonBack;
     private FirebaseAuth mAuth;
@@ -56,7 +56,7 @@ public class StudentLogin extends AppCompatActivity {
         // Set listeners
         buttonBack.setOnClickListener(view -> onBackPressed());
         loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
-        signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogin.this, StudentSignUp.class)));
+        signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogIn.this, StudentSignUp.class)));
         forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
         googleSignInTextView.setOnClickListener(v -> {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -144,7 +144,7 @@ public class StudentLogin extends AppCompatActivity {
         TextView googleSignInTextView = (TextView) rootLayout.getChildAt(6);
 
         loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
-        signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogin.this, StudentSignUp.class)));
+        signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogIn.this, StudentSignUp.class)));
         forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
         googleSignInTextView.setOnClickListener(v -> {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -157,20 +157,20 @@ public class StudentLogin extends AppCompatActivity {
             mAuth.sendPasswordResetEmail(email)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            Toast.makeText(StudentLogin.this, "Reset link sent to your email", Toast.LENGTH_LONG).show();
+                            Toast.makeText(StudentLogIn.this, "Reset link sent to your email", Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(StudentLogin.this, "Failed to send reset email", Toast.LENGTH_LONG).show();
+                            Toast.makeText(StudentLogIn.this, "Failed to send reset email", Toast.LENGTH_LONG).show();
                         }
                     });
         } else {
-            Toast.makeText(StudentLogin.this, "Please enter your email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(StudentLogIn.this, "Please enter your email", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void loginUser(String email, String password) {
         // Check if email or password is empty
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(StudentLogin.this, "Email and password cannot be empty.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(StudentLogIn.this, "Email and password cannot be empty.", Toast.LENGTH_SHORT).show();
             return; // Stop the login process if fields are empty
         }
 
@@ -179,10 +179,10 @@ public class StudentLogin extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // If login is successful, navigate to the next screen
-                        startActivity(new Intent(StudentLogin.this, StudentSelectClass.class));
+                        startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
                     } else {
                         // If login fails, display a failure message
-                        Toast.makeText(StudentLogin.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StudentLogIn.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
