@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
 
-public class StudentSignupUp extends AppCompatActivity {
+public class StudentSignUp extends AppCompatActivity {
 
     private ImageButton buttonBack;
     private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
@@ -84,7 +84,7 @@ public class StudentSignupUp extends AppCompatActivity {
         }
 
         // Navigate to SelectClassActivity
-        startActivity(new Intent(StudentSignUStudentSignup.this, StudentSelectClass.class));
+        startActivity(new Intent(StudentSignUp.this, StudentSelectClass.class));
     }
 
     @Override
