@@ -1,20 +1,18 @@
 
 package com.example.teachandlearn.Student.Form3.Documents;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.teachandlearn.R;
+
 
 public class Form3PDFViewer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_pdf_item); // Ensure this layout has appropriate content
+        setContentView(R.layout.activity_form3_pdf_item); // Ensure this layout has appropriate content
 
         String filePath = getIntent().getStringExtra("filePath");
         Uri pdfUri = Uri.parse(filePath);

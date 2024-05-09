@@ -1,21 +1,18 @@
 
 
 package com.example.teachandlearn.Student.Form3.Documents;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.teachandlearn.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-
 import java.util.ArrayList;
+
 
 public class Form3QuizzesAndQuestions extends AppCompatActivity {
 
@@ -32,7 +29,7 @@ public class Form3QuizzesAndQuestions extends AppCompatActivity {
         listView = findViewById(R.id.list_view);
         pdfNames = new ArrayList<>();
         pdfUrls = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this, R.layout.activity_form1_quizzes_and_questions, pdfNames);
+        adapter = new ArrayAdapter<>(this, R.layout.activity_form3_quizzes_and_questions, pdfNames);
 
         listView.setAdapter(adapter);
 
@@ -40,7 +37,7 @@ public class Form3QuizzesAndQuestions extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String url = pdfUrls.get(position);
-                Intent intent = new Intent(Form1QuizzesAndQuestions.this, Form1PDFViewer.class);
+                Intent intent = new Intent(Form3QuizzesAndQuestions.this, Form3PDFViewer.class);
                 intent.putExtra("PDF_URL", url);
                 startActivity(intent);
             }

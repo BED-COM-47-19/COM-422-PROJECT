@@ -1,7 +1,6 @@
 
 
 package com.example.teachandlearn.Student.Form3.Documents;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,19 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.teachandlearn.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +34,7 @@ public class Form3PDF extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_pdf);
+        setContentView(R.layout.activity_form3_pdf);
 
         recyclerViewPDFs = findViewById(R.id.recyclerViewPDFs);
         recyclerViewPDFs.setLayoutManager(new LinearLayoutManager(this));
@@ -50,7 +46,7 @@ public class Form3PDF extends AppCompatActivity {
 
     private void fetchPDFsFromFirebase() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("pdfs/form1");
+        DatabaseReference ref = database.getReference("pdfs/form3");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -102,7 +98,7 @@ public class Form3PDF extends AppCompatActivity {
 
         @Override
         public PDFViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form1_pdf_item, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form3_pdf_item, parent, false);
             return new PDFViewHolder(view);
         }
 
