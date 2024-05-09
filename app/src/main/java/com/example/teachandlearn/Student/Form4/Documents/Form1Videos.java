@@ -1,20 +1,23 @@
 
 
-package com.example.teachandlearn.Student.Form1.Documents;
+package com.example.teachandlearn.Student.Form4.Documents;
+
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.teachandlearn.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.example.teachandlearn.R;
 
 
 public class Form1Videos extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private Form1VideoAdapter form1VideoAdapter;
+    private VideoAdapter videoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +31,8 @@ public class Form1Videos extends AppCompatActivity {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("videos");
         Query query = databaseReference.orderByKey();
 
-        form1VideoAdapter = new Form1VideoAdapter(query, this); // You'll need to create a custom adapter
-        recyclerView.setAdapter(form1VideoAdapter);
+        videoAdapter = new VideoAdapter(query, this); // You'll need to create a custom adapter
+        recyclerView.setAdapter(videoAdapter);
     }
 }
 

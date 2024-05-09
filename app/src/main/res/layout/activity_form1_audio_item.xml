@@ -3,15 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:textAlignment="center"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/textViewAudioTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="100dp"
         android:textStyle="bold"
-        android:text="Sample Audio Title"
+        android:textColor="@color/black"
+        android:text="AUDIO TITLE"
         android:textAlignment="center"/>
 
 

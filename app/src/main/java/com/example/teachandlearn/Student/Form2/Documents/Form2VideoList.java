@@ -1,17 +1,16 @@
 
 
-package com.example.teachandlearn.Student.Form1.Documents;
-import com.example.teachandlearn.R;
+package com.example.teachandlearn.Student.Form2.Documents;
 
-public class Form1VideoList {
+public class Form2VideoList {
     private String title;
     private String videoUrl;
 
-    public Form1VideoList() {
+    public Form2VideoList() {
         // Default constructor required for calls to DataSnapshot.getValue(Video.class)
     }
 
-    public Form1VideoList(String title, String videoUrl) {
+    public Form2VideoList(String title, String videoUrl) {
         this.title = title;
         this.videoUrl = videoUrl;
     }
