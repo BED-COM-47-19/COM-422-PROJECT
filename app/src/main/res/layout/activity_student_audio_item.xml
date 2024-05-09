@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:text="Sample Audio Title" />
+        android:text="Sample Audio Title"
+        android:textAlignment="center"/>
 
 
 
