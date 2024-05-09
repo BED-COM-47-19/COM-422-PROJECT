@@ -1,4 +1,7 @@
+
+
 package com.example.teachandlearn.Student.Form1.Documents;
+import com.example.teachandlearn.R;
 
 public class Form1VideoList {
     private String title;
