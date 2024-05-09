@@ -17,6 +17,7 @@ firebaseDatabase = "20.3.1"
 firebaseAnalytics = "21.6.2"
 recyclerview = "1.4.0-alpha01"
 constraintlayout = "2.2.0-alpha13"
+firebaseDatabaseVersion = "21.0.0"
 
 [libraries]
 android-pdf-viewer = { group = "com.github.barteksc", name = "android-pdf-viewer", version = "2.8.2" }
@@ -43,6 +44,7 @@ firebase-database = { group = "com.google.firebase", name = "firebase-database",
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics", version.ref = "firebaseAnalytics" }
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+google-firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabaseVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -11,7 +11,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Teacher.SelectClass.TeacherSelectClass;
@@ -19,6 +18,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class TeacherLogin extends AppCompatActivity {
@@ -26,6 +27,7 @@ public class TeacherLogin extends AppCompatActivity {
     private ImageButton buttonBack;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
+    private DatabaseReference mDatabase;
     private static final int RC_SIGN_IN = 9001;
 
     @Override
@@ -33,6 +35,8 @@ public class TeacherLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_login); // Consider updating this layout name if it's incorrect for this context
 
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         ImageButton buttonBack = findViewById(R.id.back_button);
         EditText editTextEmail = findViewById(R.id.editTextEmail);
@@ -44,15 +48,14 @@ public class TeacherLogin extends AppCompatActivity {
 
         // Set listeners
         buttonBack.setOnClickListener(view -> onBackPressed());
-        loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
+        //loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
         signUpButton.setOnClickListener(v -> startActivity(new Intent(TeacherLogin.this, TeacherSignUp.class)));
         forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
         googleSignInTextView.setOnClickListener(v -> {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
             startActivityForResult(signInIntent, RC_SIGN_IN);
         });
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
+
 
         // Configure Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -72,6 +75,14 @@ public class TeacherLogin extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        loginButton.setOnClickListener(v -> {
+            String email = editTextEmail.getText().toString();
+            String password = editTextPassword.getText().toString();
+            loginUser(email, password);
+            logAttemptToDatabase(email);  // Log the attempt to Firebase Database
+        });
+
     }
 
 
@@ -184,6 +195,20 @@ public class TeacherLogin extends AppCompatActivity {
                     .addOnFailureListener(e -> Toast.makeText(this, "Google sign-in failed.", Toast.LENGTH_SHORT).show());
         }
     }
+
+    private void logAttemptToDatabase(String email) {
+        // Create a unique ID for each log entry
+        String key = mDatabase.child("logins").push().getKey();
+        Map<String, Object> log = new HashMap<>();
+        log.put("email", email);
+        log.put("timestamp", ServerValue.TIMESTAMP);  // Firebase server timestamp
+
+        // Save the log entry to the database
+        mDatabase.child("logins").child(key).setValue(log)
+                .addOnSuccessListener(aVoid -> Log.d("Database", "Log saved successfully"))
+                .addOnFailureListener(e -> Log.d("Database", "Error saving log", e));
+    }
+
 
     @Override
     public void onBackPressed() {

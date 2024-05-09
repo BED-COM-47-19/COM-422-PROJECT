@@ -18,20 +18,27 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class StudentLogin extends AppCompatActivity {
 
     private ImageButton buttonBack;
-
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
+    private DatabaseReference mDatabase;
     private static final int RC_SIGN_IN = 9001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_login); // Consider updating this layout name if it's incorrect for this context
+        setContentView(R.layout.activity_student_login);
+
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+
         ImageButton buttonBack = findViewById(R.id.back_button);
         EditText editTextEmail = findViewById(R.id.editTextEmail);
         EditText editTextPassword = findViewById(R.id.editTextPassword);
@@ -42,7 +49,7 @@ public class StudentLogin extends AppCompatActivity {
 
         // Set listeners
         buttonBack.setOnClickListener(view -> onBackPressed());
-        loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
+        //loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
         signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogin.this, StudentSignUp.class)));
         forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
         googleSignInTextView.setOnClickListener(v -> {
@@ -52,7 +59,6 @@ public class StudentLogin extends AppCompatActivity {
         // Initialize Firebase Auth
 
         buttonBack = findViewById(R.id.back_button);
-        mAuth = FirebaseAuth.getInstance();
 
         // Configure Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -70,6 +76,15 @@ public class StudentLogin extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+
+        loginButton.setOnClickListener(v -> {
+            String email = editTextEmail.getText().toString();
+            String password = editTextPassword.getText().toString();
+            loginUser(email, password);
+            logAttemptToDatabase(email);  // Log the attempt to Firebase Database
+        });
+
     }
 
 
@@ -183,6 +198,20 @@ public class StudentLogin extends AppCompatActivity {
                     .addOnFailureListener(e -> Toast.makeText(this, "Google sign-in failed.", Toast.LENGTH_SHORT).show());
         }
     }
+
+    private void logAttemptToDatabase(String email) {
+        // Create a unique ID for each log entry
+        String key = mDatabase.child("logins").push().getKey();
+        Map<String, Object> log = new HashMap<>();
+        log.put("email", email);
+        log.put("timestamp", ServerValue.TIMESTAMP);  // Firebase server timestamp
+
+        // Save the log entry to the database
+        mDatabase.child("logins").child(key).setValue(log)
+                .addOnSuccessListener(aVoid -> Log.d("Database", "Log saved successfully"))
+                .addOnFailureListener(e -> Log.d("Database", "Error saving log", e));
+    }
+
 
     @Override
     public void onBackPressed() {
