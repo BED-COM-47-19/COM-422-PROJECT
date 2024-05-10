@@ -1,5 +1,4 @@
 package com.example.teachandlearn.Student.Form1.Documents;
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -65,13 +64,17 @@ public class Form1Audio extends AppCompatActivity {
     public static class AudioItem {
         private String title;
         private String filePath;
+        private String description; // Description field
+        private String length; // Length field
 
         // Constructors, getters, and setters
         public AudioItem() { }  // Needed for Firebase deserialization
 
-        public AudioItem(String title, String filePath) {
+        public AudioItem(String title, String filePath, String description, String length) {
             this.title = title;
             this.filePath = filePath;
+            this.description = description;
+            this.length = length;
         }
 
         public String getTitle() {
@@ -81,13 +84,20 @@ public class Form1Audio extends AppCompatActivity {
         public String getFilePath() {
             return filePath;
         }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public String getLength() {
+            return length;
+        }
     }
 
     private class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHolder> {
         private List<AudioItem> audioList;
         private MediaPlayer mediaPlayer;
 
-        // Constructor to accept MediaPlayer
         public AudioAdapter(List<AudioItem> audioList, MediaPlayer mediaPlayer) {
             this.audioList = audioList;
             this.mediaPlayer = mediaPlayer;
@@ -104,7 +114,19 @@ public class Form1Audio extends AppCompatActivity {
         public void onBindViewHolder(@NonNull AudioViewHolder holder, int position) {
             AudioItem audio = audioList.get(position);
             holder.textViewTitle.setText(audio.getTitle());
+            holder.textViewDescription.setText(audio.getDescription());
+            holder.textViewLength.setText(audio.getLength());
             holder.itemView.setOnClickListener(v -> playAudio(audio.getFilePath(), holder));
+        }
+
+        @Override
+        public int getItemCount() {
+            return audioList.size();
+        }
+
+        public void setAudioList(List<AudioItem> list) {
+            this.audioList = list;
+            notifyDataSetChanged();
         }
 
         private void playAudio(String filePath, AudioViewHolder holder) {
@@ -122,22 +144,16 @@ public class Form1Audio extends AppCompatActivity {
             }
         }
 
-        @Override
-        public int getItemCount() {
-            return audioList.size();
-        }
-
-        public void setAudioList(List<AudioItem> list) {
-            this.audioList = list;
-            notifyDataSetChanged();
-        }
-
         public class AudioViewHolder extends RecyclerView.ViewHolder {
             TextView textViewTitle;
+            TextView textViewDescription;
+            TextView textViewLength;
 
             public AudioViewHolder(@NonNull View itemView) {
                 super(itemView);
                 textViewTitle = itemView.findViewById(R.id.textViewAudioTitle);
+                textViewDescription = itemView.findViewById(R.id.textViewAudioDescription);
+                textViewLength = itemView.findViewById(R.id.textViewAudioLength);
             }
         }
     }
