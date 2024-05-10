@@ -1,5 +1,6 @@
-package com.example.teachandlearn.Teacher.Form4;
 
+package com.example.teachandlearn.Teacher.Form4;
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,15 +17,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import android.Manifest;
 import com.example.teachandlearn.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.UUID;
 
@@ -121,7 +121,8 @@ public class TeacherForm4Uploads extends AppCompatActivity {
         String fileName = UUID.randomUUID().toString() + "." + fileType;
         StorageReference fileRef = storageReference.child("uploads/" + fileName);
 
-        try (ParcelFileDescriptor pfd = getContentResolver().openFileDescriptor(fileUri, "r")) {
+        try {
+            ParcelFileDescriptor pfd = getContentResolver().openFileDescriptor(fileUri, "r");
             if (pfd != null) {
                 InputStream stream = new FileInputStream(pfd.getFileDescriptor());
                 UploadTask uploadTask = fileRef.putStream(stream);
@@ -145,16 +146,21 @@ public class TeacherForm4Uploads extends AppCompatActivity {
 
     private String getFileExtension(Uri uri) {
         String result = null;
-        if (uri.getScheme().equals("content")) {
-            try (Cursor cursor = getContentResolver().query(uri, null, null, null, null)) {
-                if (cursor != null && cursor.moveToFirst()) {
-                    result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-                    int lastDot = result.lastIndexOf('.');
-                    if (lastDot != -1) {
-                        result = result.substring(lastDot + 1);
-                    } else {
-                        result = "unknown"; // Handle files without an extension
+        if (uri.getScheme() != null && uri.getScheme().equals("content")) {
+            Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+            if (cursor != null) {
+                try {
+                    if (cursor.moveToFirst()) {
+                        result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                        int lastDot = result.lastIndexOf('.');
+                        if (lastDot != -1) {
+                            result = result.substring(lastDot + 1);
+                        } else {
+                            result = "unknown"; // Handle files without an extension
+                        }
                     }
+                } finally {
+                    cursor.close();
                 }
             }
         }

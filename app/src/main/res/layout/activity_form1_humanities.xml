@@ -1,6 +1,6 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="700dp"
     android:columnCount="2"
     android:rowCount="4"
     android:padding="16dp"
@@ -181,4 +181,26 @@
             android:background="@drawable/oval_cirlce" />
 
     </FrameLayout>
+
+
+<!--    <FrameLayout-->
+<!--        android:layout_width="137dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_rowWeight="1"-->
+<!--        android:layout_columnWeight="1"-->
+<!--        android:layout_margin="10dp">-->
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="48dp"
+            android:layout_height="44dp"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/back_arrow"
+            android:textColor="@android:color/black" />
+
+<!--    </FrameLayout>-->
+
 </GridLayout>
