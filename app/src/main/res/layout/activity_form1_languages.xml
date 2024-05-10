@@ -28,16 +28,16 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="-10dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="350dp">
+        android:layout_marginBottom="380dp">
         <Button
             android:id="@+id/buttonEnglish"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="ENGLISH"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textStyle="bold"
             android:background="@drawable/rounded_button_background"
             android:backgroundTint="@color/english_button_color"
@@ -45,8 +45,8 @@
             android:drawableEnd="@drawable/ic_english" />
         <Button
             android:id="@+id/buttonSmallEnglish"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
@@ -61,16 +61,17 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="-10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="350dp">
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="380dp"
+        android:layout_margin="20dp">
         <Button
             android:id="@+id/buttonChichewa"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="CHICHEWA"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textStyle="bold"
             android:background="@drawable/rounded_button_background"
             android:backgroundTint="@color/chichewa_button_color"
@@ -78,8 +79,8 @@
             android:drawableEnd="@drawable/ic_chichewa" />
         <Button
             android:id="@+id/buttonSmallChichewa"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
@@ -90,16 +91,16 @@
 
 
 
-        <Button
-            android:id="@+id/button_back"
-            android:layout_width="48dp"
-            android:layout_height="44dp"
-            android:layout_gravity="start|bottom"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/back_arrow"
-            android:textColor="@android:color/black" />
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="48dp"
+        android:layout_height="44dp"
+        android:layout_gravity="start|bottom"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/back_arrow"
+        android:textColor="@android:color/black" />
 
 
 </GridLayout>
