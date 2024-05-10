@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.teachandlearn">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/logo_image2"
+        android:label="Tsogolo"
+        android:roundIcon="@drawable/logo_image2"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Teachandlearn"
+        tools:targetApi="31">
+
+
+
+
+        <activity android:name=".MainClass.Main"
+            android:exported="true"
+            android:label="Tsogolo"
+            android:theme="@style/Theme.AppCompat">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+        <activity
+            android:name=".MainClass.UserTypeSelection"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Student.LogIn_And_SignUp.StudentLogIn"
+                  android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.LogIn_And_SignUp.StudentSignUp"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.LogIn_And_SignUp.TeacherLogIn"
+                  android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.LogIn_And_SignUp.TeacherSignUp"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.SelectClass.TeacherSelectClass"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <activity android:name=".Student.SelectClass.StudentSelectClass"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+
+
+        <!-- Student Class Selection -->
+
+        <activity android:name=".Student.Form1.Categories.Form1Student"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Categories.Form2Student"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Categories.Form3Student"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Categories.Form4Student"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- Sciences Subjects -->
+
+        <activity android:name=".Student.Form1.Categories.Form1SciencesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Categories.Form2SciencesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Categories.Form3ScienceScience"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Categories.Form4ScienceStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- Humanities Subjects -->
+
+        <activity android:name=".Student.Form1.Categories.Form1HumanitiesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Categories.Form2HumanitiesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Categories.Form3HumanitiesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Categories.Form4HumanitiesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- Languages Subjects -->
+
+        <activity android:name=".Student.Form1.Categories.Form1LanguagesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Categories.Form2LanguagesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Categories.Form3LanguagesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Categories.Form4LanguagesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- View Content Classes -->
+
+        <activity android:name=".Student.Form1.Categories.Form1StudentViewContent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Categories.Form2StudentViewContent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Categories.Form3StudentViewContent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Categories.Form4StudentViewContent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- Teacher File Uploader -->
+
+        <activity android:name=".Teacher.Form1.TeacherForm1Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.TeacherForm2Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.TeacherForm3Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.TeacherForm4Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+        <!-- Teacher Classes Selection -->
+
+        <activity android:name=".Teacher.Form1.TeacherForm1"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.TeacherForm2"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.TeacherForm3"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.TeacherForm4"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- Teacher Science Selection -->
+
+        <activity android:name=".Teacher.Form1.TeacherForm1Science"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.TeacherForm2Science"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.TeacherForm3Science"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.TeacherForm4Science"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- Teacher Humanities Selection -->
+
+        <activity android:name=".Teacher.Form1.TeacherForm1Humanities"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.TeacherForm2Humanities"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.TeacherForm3Humanities"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.TeacherForm4Humanities"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- Teacher Languages Selection -->
+
+        <activity android:name=".Teacher.Form1.TeacherForm1Languages"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.TeacherForm2Languages"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.TeacherForm3Languages"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.TeacherForm4Languages"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".MainClass.SignupOptions"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <activity android:name=".Student.Form1.Documents.Form1PDF"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Form1Audio"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+
+</application>
+
+</manifest>

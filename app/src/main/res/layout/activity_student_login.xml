@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBF9F9">
+
+    <ImageView
+        android:id="@+id/imageUserProfile"
+        android:layout_width="168dp"
+        android:layout_height="143dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/ic_user_profile" />
+
+    <TextView
+        android:id="@+id/textStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageUserProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="STUDENT"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#120C0C" /> <!-- White text color -->
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="345dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/textStudent"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="Email"
+        android:autofillHints="emailAddress"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" /> <!-- Reference to the edit text background drawable -->
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="345dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/editTextEmail"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="Password"
+        android:autofillHints="password"
+        android:inputType="textPassword"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" /> <!-- Reference to the edit text background drawable -->
+
+    <!-- Reference to the button background drawable -->
+
+    <Button
+        android:id="@+id/buttonLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_below="@id/editTextPassword"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/signin_login_round_boutton"
+        android:text="LOG IN" />
+
+    <Button
+        android:id="@+id/buttonSignIn"
+        android:layout_width="90dp"
+        android:layout_height="34dp"
+        android:layout_below="@id/buttonLogIn"
+        android:layout_marginStart="270dp"
+        android:layout_marginLeft="-200dp"
+        android:layout_marginTop="-36dp"
+        android:layout_marginRight="180dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/signin_login_round_boutton"
+        android:text="SIGN UP" />
+
+    <TextView
+        android:id="@+id/textViewForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSignIn"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginTop="-122dp"
+        android:layout_marginRight="120dp"
+        android:layout_marginStart="40dp"
+        android:text="Forget Password ?"
+        android:textStyle="bold"
+        android:textColor="#130606"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewContinueWithGoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSignIn"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="-124dp"
+        android:layout_marginRight="300dp"
+        android:text="Continue with Google"
+        android:textStyle="bold"
+        android:textColor="#130606"
+        android:textSize="16sp" />
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="56dp"
+        android:layout_height="59dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+
+        android:contentDescription="@string/back"
+        android:src="@drawable/back_arrow" />
+
+</RelativeLayout>

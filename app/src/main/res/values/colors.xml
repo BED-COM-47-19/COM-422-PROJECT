@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="design_default_color_primary">#6200EE</color>
+    <color name="colorPrimary">#3F51B5</color> <!-- This is a sample blue color -->
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="mathematics_button_color">#FFEB3B</color>
+    <color name="biology_button_color">#4CAF50</color>
+    <color name="physics_button_color">#FF9800</color>
+    <color name="agriculture_button_color">#2196F3</color>
+    <color name="chemistry_button_color">#F44336</color>
+    <color name="social_studies_button_color">#673AB7</color> <!-- Purple -->
+    <color name="life_skills_button_color">#9C27B0</color> <!-- Deep Purple -->
+    <color name="history_button_color">#607D8B</color> <!-- Blue Grey -->
+    <color name="bible_knowledge_button_color">#4CAF50</color> <!-- Green -->
+    <color name="geography_button_color">#795548</color>
+    <color name="english_button_color">#3F51B5</color>
+    <color name="chichewa_button_color">#9C27B0</color>
+    <color name="background_color">#333333</color> <!-- Dark background color -->
+    <color name="sciences_button_color">#4E342E</color> <!-- Color for Sciences button -->
+    <color name="humanities_button_color">#AD1457</color>
+    <color name="languages_button_color">#F9A825</color>
+
+
+
+
+</resources>
+
+
