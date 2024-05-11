@@ -45,15 +45,70 @@
             android:layout_height="wrap_content"
             android:text="Dark Mode"/>
 
-        <!-- Add more settings items as needed -->
+        <!-- Edit Texts and Text Views for user account settings -->
+        <EditText
+            android:id="@+id/editText_first_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First Name"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/editText_last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last Name"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/editText_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/editText_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textView_first_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First Name"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textView_last_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Name"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textView_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textView_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:visibility="gone" />
 
         <!-- Button for account -->
         <Button
             android:id="@+id/button_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Account"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:text="Account" />
 
     </LinearLayout>
 
