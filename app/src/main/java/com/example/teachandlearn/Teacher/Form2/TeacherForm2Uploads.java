@@ -52,13 +52,13 @@ public class TeacherForm2Uploads extends AppCompatActivity {
         videoButton.setOnClickListener(v -> openFilePicker("video/*", REQUEST_PICK_VIDEO));
         questionsButton.setOnClickListener(v -> openFilePicker("*/*", REQUEST_PICK_QUESTION));
 
-//        buttonBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Logic for when the back button is pressed
-//                onBackPressed();
-//            }
-//        });
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Finish the current activity to go back to the previous one
+                finish();
+            }
+        });
 
     }
 

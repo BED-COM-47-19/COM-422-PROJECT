@@ -1,4 +1,5 @@
 
+
 package com.example.teachandlearn.Teacher.Form1;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -6,19 +7,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
 import java.util.UUID;
+
 
 public class TeacherForm1Uploads extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
     private static final int REQUEST_PICK_PDF = 1;
     private static final int REQUEST_PICK_AUDIO = 2;
     private static final int REQUEST_PICK_VIDEO = 3;
@@ -45,20 +44,21 @@ public class TeacherForm1Uploads extends AppCompatActivity {
         Button audioButton = findViewById(R.id.button_audio);
         Button videoButton = findViewById(R.id.button_videos);
         Button questionsButton = findViewById(R.id.button_tests_quizzes);
-//        buttonBack = findViewById(R.id.back_button);
+        Button backButton = findViewById(R.id.button_back);
 
         pdfButton.setOnClickListener(v -> openFilePicker("application/pdf", REQUEST_PICK_PDF));
         audioButton.setOnClickListener(v -> openFilePicker("audio/*", REQUEST_PICK_AUDIO));
         videoButton.setOnClickListener(v -> openFilePicker("video/*", REQUEST_PICK_VIDEO));
         questionsButton.setOnClickListener(v -> openFilePicker("*/*", REQUEST_PICK_QUESTION));
 
-//        buttonBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Logic for when the back button is pressed
-//                onBackPressed();
-//            }
-//        });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Finish the current activity to go back to the previous one
+                finish();
+            }
+        });
 
     }
 
@@ -128,11 +128,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        // Handle the back button action
-//        super.onBackPressed();
-//        // You can also add custom logic here if needed
-//    }
+
+
 
 }

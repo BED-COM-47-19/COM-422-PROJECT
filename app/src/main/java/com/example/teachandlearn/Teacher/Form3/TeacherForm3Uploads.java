@@ -45,20 +45,20 @@ public class TeacherForm3Uploads extends AppCompatActivity {
         Button audioButton = findViewById(R.id.button_audio);
         Button videoButton = findViewById(R.id.button_videos);
         Button questionsButton = findViewById(R.id.button_tests_quizzes);
-//        buttonBack = findViewById(R.id.back_button);
+        Button backButton = findViewById(R.id.button_back);
 
         pdfButton.setOnClickListener(v -> openFilePicker("application/pdf", REQUEST_PICK_PDF));
         audioButton.setOnClickListener(v -> openFilePicker("audio/*", REQUEST_PICK_AUDIO));
         videoButton.setOnClickListener(v -> openFilePicker("video/*", REQUEST_PICK_VIDEO));
         questionsButton.setOnClickListener(v -> openFilePicker("*/*", REQUEST_PICK_QUESTION));
 
-//        buttonBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Logic for when the back button is pressed
-//                onBackPressed();
-//            }
-//        });
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Finish the current activity to go back to the previous one
+                finish();
+            }
+        });
 
     }
 
