@@ -59,7 +59,7 @@ public class TeacherForm4Uploads extends AppCompatActivity {
         Button audioButton = findViewById(R.id.button_audio);
         Button videoButton = findViewById(R.id.button_videos);
         Button questionsButton = findViewById(R.id.button_tests_quizzes);
-        buttonBack = findViewById(R.id.back_button);
+        Button backButton = findViewById(R.id.button_back);
 
         pdfButton.setOnClickListener(v -> openFilePicker("application/pdf", REQUEST_PICK_PDF));
         audioButton.setOnClickListener(v -> openFilePicker("audio/*", REQUEST_PICK_AUDIO));
@@ -68,7 +68,7 @@ public class TeacherForm4Uploads extends AppCompatActivity {
 
         checkStoragePermission();
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Finish the current activity to go back to the previous one
