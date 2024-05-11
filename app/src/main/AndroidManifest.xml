@@ -7,9 +7,12 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 
+=======
+>>>>>>> b749537f995e5933ebcab340fa2d4ac30513b319
 
     <application
         android:allowBackup="true"
