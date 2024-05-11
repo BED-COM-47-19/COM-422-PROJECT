@@ -27,7 +27,6 @@ public class UserAccountSettings extends AppCompatActivity {
 
     private Toolbar toolbar;
     private Switch switchNotifications;
-    private Switch switchDarkMode;
     private Button buttonAccount;
     private EditText editTextFirstName;
     private EditText editTextLastName;
@@ -59,8 +58,6 @@ public class UserAccountSettings extends AppCompatActivity {
 
         // Initialize views
         switchNotifications = findViewById(R.id.switch_notifications);
-        switchDarkMode = findViewById(R.id.switch_dark_mode);
-        buttonAccount = findViewById(R.id.button_account);
         editTextFirstName = findViewById(R.id.editText_first_name);
         editTextLastName = findViewById(R.id.editText_last_name);
         editTextEmail = findViewById(R.id.editText_email);
@@ -79,20 +76,7 @@ public class UserAccountSettings extends AppCompatActivity {
             }
         });
 
-        switchDarkMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Handle dark mode switch change
-                if (isChecked) {
-                    // Dark mode enabled
-                    setTheme(R.style.DarkTheme);
-                } else {
-                    // Light mode enabled
-                    setTheme(R.style.LightTheme);
-                }
-                recreate(); // Recreate the activity to apply the new theme
-            }
-        });
+
 
 
         // Set up listener for Account button
