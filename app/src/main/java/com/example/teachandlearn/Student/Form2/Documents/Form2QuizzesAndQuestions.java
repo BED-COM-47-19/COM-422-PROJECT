@@ -1,5 +1,6 @@
 
 
+
 package com.example.teachandlearn.Student.Form2.Documents;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +8,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
 
@@ -24,12 +27,12 @@ public class Form2QuizzesAndQuestions extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form2_past_papers);
+        setContentView(R.layout.activity_form2_quizzes_and_questions);
 
         listView = findViewById(R.id.list_view);
         pdfNames = new ArrayList<>();
         pdfUrls = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this, R.layout.activity_form2_quizzes_and_questions, pdfNames);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pdfNames);
 
         listView.setAdapter(adapter);
 
@@ -37,29 +40,44 @@ public class Form2QuizzesAndQuestions extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String url = pdfUrls.get(position);
-                Intent intent = new Intent(Form2QuizzesAndQuestions.this, Form2PDFViewer.class);
+                Intent intent = new Intent(Form2QuizzesAndQuestions.this, Form1PDFViewer.class);
                 intent.putExtra("PDF_URL", url);
                 startActivity(intent);
             }
         });
 
-        loadPDFs();
+        loadPDFsFromStorage();
     }
 
-    private void loadPDFs() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("pastpapers").get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                for (QueryDocumentSnapshot document : task.getResult()) {
-                    String name = document.getString("name");
-                    String url = document.getString("url");
+    private void loadPDFsFromStorage() {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference().child("form2/quizzes_and_questions");
+
+        storageRef.listAll().addOnSuccessListener(listResult -> {
+            if (listResult.getItems().isEmpty()) {
+                // If no documents are found, show "No file Uploaded" message
+                showNoFilesUploaded();
+            } else {
+                for (StorageReference item : listResult.getItems()) {
+                    String name = item.getName();
+                    String url = item.getDownloadUrl().toString();
                     pdfNames.add(name);
                     pdfUrls.add(url);
                     adapter.notifyDataSetChanged();
                 }
-            } else {
-                // Handle the error
             }
+        }).addOnFailureListener(exception -> {
+            // Handle the error
+            Toast.makeText(Form1QuizzesAndQuestions.this, "Failed to load past papers", Toast.LENGTH_SHORT).show();
         });
+    }
+
+    private void showNoFilesUploaded() {
+        // Clear the existing list of PDFs
+        pdfNames.clear();
+        pdfUrls.clear();
+        adapter.notifyDataSetChanged();
+        // Display "No file Uploaded" message
+        Toast.makeText(this, "No file Uploaded", Toast.LENGTH_SHORT).show();
     }
 }
