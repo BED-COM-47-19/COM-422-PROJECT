@@ -45,7 +45,7 @@ public class TeacherForm2Uploads extends AppCompatActivity {
         Button audioButton = findViewById(R.id.button_audio);
         Button videoButton = findViewById(R.id.button_videos);
         Button questionsButton = findViewById(R.id.button_tests_quizzes);
-//        buttonBack = findViewById(R.id.back_button);
+        buttonBack = findViewById(R.id.back_button);
 
         pdfButton.setOnClickListener(v -> openFilePicker("application/pdf", REQUEST_PICK_PDF));
         audioButton.setOnClickListener(v -> openFilePicker("audio/*", REQUEST_PICK_AUDIO));
