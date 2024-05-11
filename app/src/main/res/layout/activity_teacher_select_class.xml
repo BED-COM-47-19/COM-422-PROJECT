@@ -10,7 +10,7 @@
     <TextView
         android:text="CLASSES"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="110dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginRight="30dp"
         android:textStyle="bold"
         android:textSize="25dp"
@@ -90,14 +90,32 @@
         android:background="@drawable/signin_login_round_boutton"
         android:text="LOG OUT" />
 
+    <Button
+        android:id="@+id/menu_button"
+        android:layout_width="68dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="-540dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/menu_button_background"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="10dp"
+        android:text="MENU"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+
     <ImageButton
         android:id="@+id/back_button"
         android:layout_width="56dp"
         android:layout_height="59dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="400dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="-65dp"
+        android:layout_marginTop="430dp"
         android:contentDescription="@string/back"
         android:src="@drawable/back_arrow" />
 
