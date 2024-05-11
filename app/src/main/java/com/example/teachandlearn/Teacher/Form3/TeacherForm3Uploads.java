@@ -123,7 +123,7 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                         String downloadUrl = uri.toString();
                         String fileId = UUID.randomUUID().toString(); // Generate unique ID for the file
                         UploadFile upload = new UploadFile(fileName, downloadUrl, fileType);
-                        databaseReference.child("form4_uploads").child(fileId).setValue(upload)
+                        databaseReference.child("form3_uploads").child(fileId).setValue(upload)
                                 .addOnSuccessListener(aVoid -> showToast("File metadata saved successfully"))
                                 .addOnFailureListener(e -> showToast("Failed to save file metadata: " + e.getMessage()));
                     }).addOnFailureListener(exception -> {

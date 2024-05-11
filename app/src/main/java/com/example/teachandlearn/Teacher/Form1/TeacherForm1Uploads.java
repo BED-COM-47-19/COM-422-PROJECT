@@ -1,6 +1,5 @@
-
-
 package com.example.teachandlearn.Teacher.Form1;
+
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -28,7 +27,6 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.UUID;
 
-
 public class TeacherForm1Uploads extends AppCompatActivity {
 
     private static final int REQUEST_PICK_PDF = 1;
@@ -52,6 +50,9 @@ public class TeacherForm1Uploads extends AppCompatActivity {
 
         Button pdfButton = findViewById(R.id.button_pdf);
         pdfButton.setOnClickListener(v -> openFilePicker("application/pdf", REQUEST_PICK_PDF));
+
+        Button backButton = findViewById(R.id.button_back);
+        backButton.setOnClickListener(v -> onBackPressed());
 
         checkStoragePermission();
     }
@@ -123,7 +124,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
                         String downloadUrl = uri.toString();
                         String fileId = UUID.randomUUID().toString(); // Generate unique ID for the file
                         UploadFile upload = new UploadFile(fileName, downloadUrl, fileType);
-                        databaseReference.child("form4_uploads").child(fileId).setValue(upload)
+                        databaseReference.child("form1_uploads").child(fileId).setValue(upload)
                                 .addOnSuccessListener(aVoid -> showToast("File metadata saved successfully"))
                                 .addOnFailureListener(e -> showToast("Failed to save file metadata: " + e.getMessage()));
                     }).addOnFailureListener(exception -> {
@@ -166,11 +167,6 @@ public class TeacherForm1Uploads extends AppCompatActivity {
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 
     private static class UploadFile {
