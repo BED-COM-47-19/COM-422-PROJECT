@@ -27,7 +27,9 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_margin="20dp">
+        android:layout_margin="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="40dp">
         <Button
             android:id="@+id/buttonMathematics"
             android:layout_width="match_parent"
@@ -60,7 +62,9 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_margin="20dp">
+        android:layout_margin="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
         <Button
             android:id="@+id/buttonBiology"
             android:layout_width="match_parent"
@@ -92,7 +96,9 @@
         android:layout_height="20dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_margin="20dp">
+        android:layout_margin="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="40dp">
         <Button
             android:id="@+id/buttonPhysics"
             android:layout_width="match_parent"
@@ -124,7 +130,9 @@
         android:layout_height="20dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_margin="20dp">
+        android:layout_margin="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
         <Button
             android:id="@+id/buttonChemistry"
             android:layout_width="match_parent"
@@ -156,9 +164,11 @@
         android:layout_height="20dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_margin="20dp"
         android:layout_marginTop="-15dp"
-        android:layout_marginBottom="60dp">
+        android:layout_marginBottom="60dp"
+        android:layout_margin="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="40dp">
 
         <Button
             android:id="@+id/buttonAgriculture"
@@ -181,7 +191,7 @@
             android:layout_gravity="bottom|end"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/oval_cirlce"
             android:text="¡"
             android:textColor="@android:color/white" />
