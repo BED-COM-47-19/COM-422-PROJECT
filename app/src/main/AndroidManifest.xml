@@ -68,8 +68,11 @@
         </activity>
 
 
+        <!-- User Account Settings -->
 
-
+        <activity android:name=".MainClass.UserAccountSettings"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
 
 
         <!-- Student Class Selection -->

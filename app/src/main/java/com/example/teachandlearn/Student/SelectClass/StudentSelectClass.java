@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+
+import com.example.teachandlearn.MainClass.UserAccountSettings;
 import com.example.teachandlearn.MainClass.UserTypeSelection;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.Form1.Categories.Form1Student;
@@ -12,6 +14,7 @@ import com.example.teachandlearn.Student.Form2.Categories.Form2Student;
 import com.example.teachandlearn.Student.Form3.Categories.Form3Student;
 import com.example.teachandlearn.Student.Form4.Categories.Form4Student;
 import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Switch;
 
 public class StudentSelectClass extends AppCompatActivity {
 
@@ -80,11 +83,13 @@ public class StudentSelectClass extends AppCompatActivity {
         });
 
         // Set onClickListener for the menu button
+
+
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Open the user account settings page
-                startActivity(new Intent(StudentSelectClass.this, UserAccountSettingsActivity.class));
+                startActivity(new Intent(StudentSelectClass.this, UserAccountSettings.class));
             }
         });
 
