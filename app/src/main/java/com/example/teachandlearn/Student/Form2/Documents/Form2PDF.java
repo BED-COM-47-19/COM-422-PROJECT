@@ -1,5 +1,6 @@
-package com.example.teachandlearn.Student.Form2.Documents;
 
+
+package com.example.teachandlearn.Student.Form2.Documents;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,18 +11,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class Form2PDF extends AppCompatActivity {
     private RecyclerView recyclerViewPDFs;
@@ -43,7 +43,7 @@ public class Form2PDF extends AppCompatActivity {
     private void fetchPDFsFromFirebase() {
         // Get a reference to the Firebase storage location
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("form1/pdfs");
+        StorageReference storageRef = storage.getReference().child("form2/pdfs");
 
         // List all the items (PDFs) in the storage location
         storageRef.listAll().addOnSuccessListener(listResult -> {
@@ -80,6 +80,7 @@ public class Form2PDF extends AppCompatActivity {
         Toast.makeText(this, "NO file Uploaded", Toast.LENGTH_SHORT).show();
     }
 
+
     public static class PDFDocument {
         private String title;
         private String downloadUrl;
@@ -112,7 +113,7 @@ public class Form2PDF extends AppCompatActivity {
 
         @Override
         public PDFViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form1_pdf_item, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form2_pdf_item, parent, false);
             return new PDFViewHolder(view);
         }
 
