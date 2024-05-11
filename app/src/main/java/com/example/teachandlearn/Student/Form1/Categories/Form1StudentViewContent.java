@@ -12,7 +12,6 @@ import com.example.teachandlearn.Student.Form1.Documents.Form1PDF;
 import com.example.teachandlearn.Student.Form1.Documents.Form1QuizzesAndQuestions;
 import com.example.teachandlearn.Student.Form1.Documents.Form1Videos;
 
-
 public class Form1StudentViewContent extends AppCompatActivity {
 
     @Override
@@ -25,6 +24,7 @@ public class Form1StudentViewContent extends AppCompatActivity {
         Button buttonAudio = findViewById(R.id.button_audio);
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
+        Button buttonBack = findViewById(R.id.button_back); // Find the back button
 
         // Set click listeners for each button
         buttonPDF.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +56,15 @@ public class Form1StudentViewContent extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Form1StudentViewContent.this, Form1QuizzesAndQuestions.class);
                 startActivity(intent);
+            }
+        });
+
+        // Set click listener for the back button
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Finish the current activity to go back to the previous one
+                finish();
             }
         });
     }

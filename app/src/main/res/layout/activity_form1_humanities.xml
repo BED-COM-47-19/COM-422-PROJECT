@@ -1,6 +1,6 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="700dp"
     android:columnCount="2"
     android:rowCount="4"
     android:padding="16dp"
@@ -27,7 +27,9 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_margin="10dp">
+        android:layout_margin="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="40dp">
         <Button
             android:id="@+id/buttonSocialStudies"
             android:layout_width="match_parent"
@@ -39,12 +41,12 @@
             android:layout_marginBottom="10dp"
             android:text="SOCIAL STUDIES"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textStyle="bold" />
         <Button
             android:id="@+id/buttonSmallSocialStudies"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
@@ -59,7 +61,9 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_margin="10dp">
+        android:layout_margin="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
         <Button
             android:id="@+id/buttonLifeSkills"
             android:layout_width="match_parent"
@@ -71,12 +75,12 @@
             android:drawableEnd="@drawable/ic_life_skills"
             android:text="LIFE SKILLS"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textStyle="bold" />
         <Button
             android:id="@+id/buttonSmallLifeSkills"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
@@ -91,7 +95,9 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_margin="10dp">
+        android:layout_margin="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="40dp">
         <Button
             android:id="@+id/buttonHistory"
             android:layout_width="match_parent"
@@ -103,12 +109,12 @@
             android:drawableEnd="@drawable/ic_history"
             android:text="HISTORY"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textStyle="bold" />
         <Button
             android:id="@+id/buttonSmallHistory"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
@@ -123,7 +129,9 @@
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_margin="10dp">
+        android:layout_margin="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
         <Button
             android:id="@+id/buttonBibleKnowledge"
             android:layout_width="match_parent"
@@ -135,12 +143,12 @@
             android:drawableEnd="@drawable/ic_bible_knowledge"
             android:text="BIBLE KNOWLEDGE"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textStyle="bold" />
         <Button
             android:id="@+id/buttonSmallBibleKnowledge"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
@@ -152,10 +160,14 @@
     <!-- Geography Button with small corner button adjusted -->
     <FrameLayout
         android:layout_width="137dp"
-        android:layout_height="0dp"
+        android:layout_height="5dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
-        android:layout_margin="10dp">
+        android:layout_marginBottom="100dp"
+        android:layout_margin="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="40dp">
+
         <Button
             android:id="@+id/buttonGeography"
             android:layout_width="match_parent"
@@ -167,18 +179,35 @@
             android:drawableEnd="@drawable/ic_geography"
             android:text="GEOGRAPHY"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textStyle="bold" />
+
         <Button
             android:id="@+id/buttonSmallGeography"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_gravity="bottom|end"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
-            android:layout_gravity="bottom|end"
+            android:background="@drawable/oval_cirlce"
             android:text="¡"
-            android:textColor="@android:color/white"
-            android:background="@drawable/oval_cirlce" />
+            android:textColor="@android:color/white" />
 
     </FrameLayout>
+
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="48dp"
+            android:layout_height="44dp"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="-170dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/back_arrow"
+            android:textColor="@android:color/black" />
+
+<!--    </FrameLayout>-->
+
 </GridLayout>

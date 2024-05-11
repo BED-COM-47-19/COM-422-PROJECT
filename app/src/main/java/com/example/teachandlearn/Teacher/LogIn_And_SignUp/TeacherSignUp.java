@@ -36,67 +36,78 @@ public class TeacherSignUp extends AppCompatActivity {
         buttonContinue = findViewById(R.id.buttonContinue);
         buttonBack = findViewById(R.id.back_button);
 
-        // Set click listener for continue button
         buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signupStudent();
+                signupTeacher();
             }
         });
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Logic for when the back button is pressed
                 onBackPressed();
             }
         });
-
     }
 
-    private void signupStudent() {
-        // Retrieve input values
+    private void signupTeacher() {
         String firstName = editTextFirstName.getText().toString().trim();
         String lastName = editTextLastName.getText().toString().trim();
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString();
         String confirmPassword = editTextConfirmPassword.getText().toString();
 
-        String userId = databaseReference.push().getKey();
+        boolean isValid = true;
 
+        if (firstName.isEmpty()) {
+            editTextFirstName.setError("First name is required");
+            isValid = false;
+        } else if (!firstName.matches("[a-zA-Z]+")) {
+            editTextFirstName.setError("First name must contain only letters");
+            isValid = false;
+        }
+
+        if (lastName.isEmpty()) {
+            editTextLastName.setError("Last name is required");
+            isValid = false;
+        } else if (!lastName.matches("[a-zA-Z]+")) {
+            editTextLastName.setError("Last name must contain only letters");
+            isValid = false;
+        }
+
+        if (email.isEmpty()) {
+            editTextEmail.setError("Email is required");
+            isValid = false;
+        } else if (!email.contains("@")) {
+            editTextEmail.setError("Email must contain an '@' symbol");
+            isValid = false;
+        }
+
+        if (password.isEmpty()) {
+            editTextPassword.setError("Password is required");
+            isValid = false;
+        } else if (password.length() < 7) {
+            editTextPassword.setError("Password must be at least 6 characters long");
+            isValid = false;
+        }
+
+        if (confirmPassword.isEmpty()) {
+            editTextConfirmPassword.setError("Confirm Password is required");
+            isValid = false;
+        } else if (!password.equals(confirmPassword)) {
+            editTextConfirmPassword.setError("Passwords do not match");
+            isValid = false;
+        }
+
+        if (!isValid) {
+            return;
+        }
+
+        String userId = databaseReference.push().getKey();
         User user = new User(firstName, lastName, email, password, confirmPassword);
 
-
-        // Perform validation
-        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "All fields are required", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (!firstName.matches("[a-zA-Z]+") || !lastName.matches("[a-zA-Z]+")) {
-            Toast.makeText(getApplicationContext(), "First and Last name must contain only letters", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (!email.contains("@")) {
-            Toast.makeText(getApplicationContext(), "Email must contain an '@' symbol", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (!password.equals(confirmPassword)) {
-            Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (password.length() < 7) {
-            Toast.makeText(getApplicationContext(), "Password must be at least 6 characters long", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Navigate to SelectClassActivity
-        startActivity(new Intent(TeacherSignUp.this, TeacherSelectClass.class));
-
-
+        // Attempt to save user and navigate
         databaseReference.child(userId).setValue(user).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(getApplicationContext(), "User registration successful", Toast.LENGTH_SHORT).show();
@@ -105,15 +116,10 @@ public class TeacherSignUp extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Registration failed", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     @Override
     public void onBackPressed() {
-        // Handle the back button action
         super.onBackPressed();
-        // You can also add custom logic here if needed
     }
-
-
 }

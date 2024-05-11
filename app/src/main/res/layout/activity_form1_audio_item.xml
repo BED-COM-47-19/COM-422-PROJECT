@@ -19,5 +19,22 @@
         android:textAlignment="center"/>
 
 
+    <TextView
+        android:id="@+id/textViewAudioDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:padding="8dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textViewAudioLength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Length"
+        android:padding="8dp"
+        android:textSize="14sp" />
+
+
 
 </LinearLayout>

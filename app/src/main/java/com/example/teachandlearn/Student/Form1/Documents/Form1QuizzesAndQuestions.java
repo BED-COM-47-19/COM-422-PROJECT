@@ -48,7 +48,7 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
 
     private void loadPDFs() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("pastpapers").get().addOnCompleteListener(task -> {
+        db.collection("form1_pastpapers").get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 for (QueryDocumentSnapshot document : task.getResult()) {
                     String name = document.getString("name");

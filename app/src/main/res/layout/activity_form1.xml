@@ -9,7 +9,6 @@
     android:alignmentMode="alignMargins"
     android:useDefaultMargins="true">
 
-
     <!-- Title TextView -->
     <TextView
         android:layout_width="wrap_content"
@@ -23,15 +22,14 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
-
     <!-- Item 1 -->
     <Button
         android:id="@+id/activity_form1_science"
         android:layout_width="270dp"
         android:layout_height="80dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="-480dp"
+        android:layout_marginTop="-440dp"
         android:layout_marginBottom="20dp"
         android:textColor="@color/black"
         android:textSize="30dp"
@@ -39,14 +37,13 @@
         android:background="@drawable/sciences_background"
         android:text="SCIENCES" />
 
-
     <!-- Item 2 -->
     <Button
         android:id="@+id/activity_form1_humanities"
         android:layout_width="270dp"
         android:layout_height="80dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="10dp"
         android:textColor="@color/black"
@@ -55,14 +52,13 @@
         android:background="@drawable/humanities_background"
         android:text="HUMANITIES" />
 
-
     <!-- Item 3 -->
     <Button
         android:id="@+id/activity_form1_languages"
         android:layout_width="270dp"
         android:layout_height="80dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="30dp"
         android:textColor="@color/black"
         android:textSize="30dp"
@@ -70,16 +66,16 @@
         android:background="@drawable/languages_background"
         android:text="LANGUAGES" />
 
-
-    
     <ImageButton
         android:id="@+id/back_button"
         android:layout_width="61dp"
         android:layout_height="59dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="560dp"
-        android:layout_marginLeft="-330dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginLeft="-320dp"
         android:contentDescription="@string/back"
         android:src="@drawable/back_arrow" />
+
+
 
 </GridLayout>
