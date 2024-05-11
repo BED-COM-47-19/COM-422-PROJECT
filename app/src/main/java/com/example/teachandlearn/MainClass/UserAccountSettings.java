@@ -1,5 +1,6 @@
-package com.example.teachandlearn.MainClass;
 
+
+package com.example.teachandlearn.MainClass;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import com.example.teachandlearn.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +19,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.example.teachandlearn.R; // Assuming R is generated in the same package as UserAccountSettings
+import android.app.Dialog;
+
 
 public class UserAccountSettings extends AppCompatActivity {
 
@@ -96,6 +99,17 @@ public class UserAccountSettings extends AppCompatActivity {
         buttonAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Create a dialog to display user details
+                final Dialog dialog = new Dialog(UserAccountSettings.this);
+                dialog.setContentView(R.layout.activity_user_account_settings);
+                dialog.setTitle("User Details");
+
+                // Find TextViews in the dialog layout
+                TextView textViewFirstName = dialog.findViewById(R.id.textView_first_name);
+                TextView textViewLastName = dialog.findViewById(R.id.textView_last_name);
+                TextView textViewEmail = dialog.findViewById(R.id.textView_email);
+                TextView textViewPassword = dialog.findViewById(R.id.textView_password);
+
                 // Retrieve user information from Firebase
                 mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -108,21 +122,11 @@ public class UserAccountSettings extends AppCompatActivity {
                             String email = dataSnapshot.child("email").getValue().toString();
                             String password = dataSnapshot.child("password").getValue().toString();
 
-                            // Display user details
-                            editTextFirstName.setVisibility(View.GONE);
-                            editTextLastName.setVisibility(View.GONE);
-                            editTextEmail.setVisibility(View.GONE);
-                            editTextPassword.setVisibility(View.GONE);
-
+                            // Display user details in TextViews
                             textViewFirstName.setText(firstName);
                             textViewLastName.setText(lastName);
                             textViewEmail.setText(email);
                             textViewPassword.setText(password);
-
-                            textViewFirstName.setVisibility(View.VISIBLE);
-                            textViewLastName.setVisibility(View.VISIBLE);
-                            textViewEmail.setVisibility(View.VISIBLE);
-                            textViewPassword.setVisibility(View.VISIBLE);
                         }
                     }
 
@@ -132,7 +136,11 @@ public class UserAccountSettings extends AppCompatActivity {
                         Toast.makeText(UserAccountSettings.this, "Failed to retrieve user information", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+                // Show the dialog
+                dialog.show();
             }
         });
+
     }
 }
