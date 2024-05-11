@@ -47,6 +47,14 @@
 
         <!-- Add more settings items as needed -->
 
+        <!-- Button for account -->
+        <Button
+            android:id="@+id/button_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Account"
+            android:layout_marginTop="16dp"/>
+
     </LinearLayout>
 
 </RelativeLayout>
