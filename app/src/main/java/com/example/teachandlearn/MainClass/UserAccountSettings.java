@@ -1,11 +1,11 @@
 
-
 package com.example.teachandlearn.MainClass;
-import android.os.Bundle;
 import android.view.View;
+import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.example.teachandlearn.R; // Assuming R is generated in the same package as UserAccountSettings
+import com.example.teachandlearn.R;
 import android.app.Dialog;
 
 
@@ -36,6 +36,7 @@ public class UserAccountSettings extends AppCompatActivity {
     private TextView textViewLastName;
     private TextView textViewEmail;
     private TextView textViewPassword;
+    private ImageButton backButton; // Add this line
 
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
@@ -66,6 +67,7 @@ public class UserAccountSettings extends AppCompatActivity {
         textViewLastName = findViewById(R.id.textView_last_name);
         textViewEmail = findViewById(R.id.textView_email);
         textViewPassword = findViewById(R.id.textView_password);
+        backButton = findViewById(R.id.back_button); // Initialize backButton
 
         // Set up listeners for switches
         switchNotifications.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -75,9 +77,6 @@ public class UserAccountSettings extends AppCompatActivity {
                 // Example: update user settings in Firebase database
             }
         });
-
-
-
 
         // Set up listener for Account button
         buttonAccount.setOnClickListener(new View.OnClickListener() {
@@ -126,5 +125,12 @@ public class UserAccountSettings extends AppCompatActivity {
             }
         });
 
+        // Set up listener for back button
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // Close the current activity
+            }
+        });
     }
 }

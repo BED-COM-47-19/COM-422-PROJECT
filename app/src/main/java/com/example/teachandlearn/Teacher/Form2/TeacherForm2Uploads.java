@@ -1,36 +1,42 @@
-package com.example.teachandlearn.Teacher.Form2;
 
+
+package com.example.teachandlearn.Teacher.Form2;
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
+import android.provider.OpenableColumns;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import com.example.teachandlearn.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
+import com.google.firebase.storage.UploadTask;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.UUID;
+
 
 public class TeacherForm2Uploads extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
     private static final int REQUEST_PICK_PDF = 1;
-    private static final int REQUEST_PICK_AUDIO = 2;
-    private static final int REQUEST_PICK_VIDEO = 3;
-    private static final int REQUEST_PICK_QUESTION = 4;
-
+    private static final int PERMISSION_REQUEST_READ_STORAGE = 100;
     private Uri selectedPdfUri;
-    private Uri selectedAudioUri;
-    private Uri selectedVideoUri;
-    private Uri selectedQuestionUri;
-
     private FirebaseStorage storage;
     private StorageReference storageReference;
+    private DatabaseReference databaseReference;
     private ProgressDialog progressDialog;
 
     @Override
@@ -40,88 +46,120 @@ public class TeacherForm2Uploads extends AppCompatActivity {
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         Button pdfButton = findViewById(R.id.button_pdf);
-        Button audioButton = findViewById(R.id.button_audio);
-        Button videoButton = findViewById(R.id.button_videos);
-        Button questionsButton = findViewById(R.id.button_tests_quizzes);
-        Button backButton = findViewById(R.id.button_back);
-
         pdfButton.setOnClickListener(v -> openFilePicker("application/pdf", REQUEST_PICK_PDF));
-        audioButton.setOnClickListener(v -> openFilePicker("audio/*", REQUEST_PICK_AUDIO));
-        videoButton.setOnClickListener(v -> openFilePicker("video/*", REQUEST_PICK_VIDEO));
-        questionsButton.setOnClickListener(v -> openFilePicker("*/*", REQUEST_PICK_QUESTION));
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Finish the current activity to go back to the previous one
-                finish();
+        checkStoragePermission();
+    }
+
+    private void checkStoragePermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    PERMISSION_REQUEST_READ_STORAGE);
+        } else {
+            showToast("Storage permission already granted.");
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_READ_STORAGE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                showToast("Permission granted");
+            } else {
+                showToast("Permission denied. Cannot access storage.");
             }
-        });
-
+        }
     }
 
     private void openFilePicker(String mimeType, int requestCode) {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType(mimeType);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        startActivityForResult(Intent.createChooser(intent, "Select File"), requestCode);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.setType(mimeType);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            startActivityForResult(Intent.createChooser(intent, "Select File"), requestCode);
+        } else {
+            showToast("Storage permission is required to access files.");
+        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && data != null && data.getData() != null) {
-            Uri selectedFileUri = data.getData();
-            switch (requestCode) {
-                case REQUEST_PICK_PDF:
-                    selectedPdfUri = selectedFileUri;
-                    uploadFile(selectedPdfUri);
-                    showToast("PDF Selected: " + selectedFileUri.toString());
-                    break;
-                case REQUEST_PICK_AUDIO:
-                    selectedAudioUri = selectedFileUri;
-                    uploadFile(selectedAudioUri);
-                    showToast("Audio Selected: " + selectedFileUri.toString());
-                    break;
-                case REQUEST_PICK_VIDEO:
-                    selectedVideoUri = selectedFileUri;
-                    uploadFile(selectedVideoUri);
-                    showToast("Video Selected: " + selectedFileUri.toString());
-                    break;
-                case REQUEST_PICK_QUESTION:
-                    selectedQuestionUri = selectedFileUri;
-                    uploadFile(selectedQuestionUri);
-                    showToast("Question Selected: " + selectedFileUri.toString());
-                    break;
-            }
+            selectedPdfUri = data.getData();
+            uploadPdfFile(selectedPdfUri);
         }
     }
 
-    private void uploadFile(Uri fileUri) {
-        if (fileUri != null) {
-            progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading...");
-            progressDialog.show();
+    private void uploadPdfFile(Uri fileUri) {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Uploading...");
+        progressDialog.show();
 
-            String fileName = UUID.randomUUID().toString();
-            StorageReference fileRef = storageReference.child("uploads/" + fileName);
+        String fileName = getFileName(fileUri);
+        String fileType = "pdf"; // You can change this if you have different file types
 
-            fileRef.putFile(fileUri)
-                    .addOnSuccessListener(taskSnapshot -> {
+        StorageReference fileRef = storageReference.child("form2_uploads").child(fileName);
+
+        try {
+            ParcelFileDescriptor pfd = getContentResolver().openFileDescriptor(fileUri, "r");
+            if (pfd != null) {
+                InputStream stream = new FileInputStream(pfd.getFileDescriptor());
+                UploadTask uploadTask = fileRef.putStream(stream);
+                uploadTask.addOnSuccessListener(taskSnapshot -> {
+                    progressDialog.dismiss();
+                    showToast("File uploaded successfully");
+                    // Get the download URL for the uploaded file
+                    fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                        // Save file metadata to the Realtime Database
+                        String downloadUrl = uri.toString();
+                        String fileId = UUID.randomUUID().toString(); // Generate unique ID for the file
+                        UploadFile upload = new UploadFile(fileName, downloadUrl, fileType);
+                        databaseReference.child("form4_uploads").child(fileId).setValue(upload)
+                                .addOnSuccessListener(aVoid -> showToast("File metadata saved successfully"))
+                                .addOnFailureListener(e -> showToast("Failed to save file metadata: " + e.getMessage()));
+                    }).addOnFailureListener(exception -> {
                         progressDialog.dismiss();
-                        showToast("File uploaded successfully");
-                    })
-                    .addOnFailureListener(e -> {
-                        progressDialog.dismiss();
-                        showToast("Failed to upload file: " + e.getMessage());
-                    })
-                    .addOnProgressListener(taskSnapshot -> {
-                        double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                        progressDialog.setMessage("Uploaded " + (int) progress + "%");
+                        showToast("Failed to get download URL: " + exception.getMessage());
                     });
+                }).addOnFailureListener(e -> {
+                    progressDialog.dismiss();
+                    showToast("Failed to upload file: " + e.getMessage());
+                }).addOnProgressListener(taskSnapshot -> {
+                    double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                    progressDialog.setMessage("Uploaded " + (int) progress + "%");
+                });
+            }
+        } catch (Exception e) {
+            progressDialog.dismiss();
+            showToast("Error uploading file: " + e.getMessage());
         }
+    }
+
+    private String getFileName(Uri uri) {
+        String result = null;
+        if (uri.getScheme() != null && uri.getScheme().equals("content")) {
+            Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+            if (cursor != null) {
+                try {
+                    if (cursor.moveToFirst()) {
+                        result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                    }
+                } finally {
+                    cursor.close();
+                }
+            }
+        }
+        if (result == null) {
+            result = uri.getLastPathSegment();
+        }
+        return result;
     }
 
     private void showToast(String message) {
@@ -130,9 +168,16 @@ public class TeacherForm2Uploads extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Handle the back button action
         super.onBackPressed();
-        // You can also add custom logic here if needed
     }
 
+    private static class UploadFile {
+        public String name, url, type;
+
+        public UploadFile(String name, String url, String type) {
+            this.name = name;
+            this.url = url;
+            this.type = type;
+        }
+    }
 }

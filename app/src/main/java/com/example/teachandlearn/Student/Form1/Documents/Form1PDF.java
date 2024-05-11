@@ -46,7 +46,7 @@ public class Form1PDF extends AppCompatActivity {
 
     private void fetchPDFsFromFirebase() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("pdfs/form1");
+        DatabaseReference ref = database.getReference("form1_pdfs");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override

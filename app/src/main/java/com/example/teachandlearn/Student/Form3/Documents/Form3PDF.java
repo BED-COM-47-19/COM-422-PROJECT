@@ -21,20 +21,27 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 
 public class Form3PDF extends AppCompatActivity {
     private RecyclerView recyclerViewPDFs;
     private PDFAdapter adapter;
 
+    // Firebase Storage reference
+    private StorageReference storageRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form3_pdf);
+
+        // Initialize Firebase Storage
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        storageRef = storage.getReference();
 
         recyclerViewPDFs = findViewById(R.id.recyclerViewPDFs);
         recyclerViewPDFs.setLayoutManager(new LinearLayoutManager(this));
@@ -46,7 +53,7 @@ public class Form3PDF extends AppCompatActivity {
 
     private void fetchPDFsFromFirebase() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("pdfs/form3");
+        DatabaseReference ref = database.getReference("form3_pdfs");
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -54,6 +61,10 @@ public class Form3PDF extends AppCompatActivity {
                 List<PDFDocument> pdfs = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     PDFDocument pdf = snapshot.getValue(PDFDocument.class);
+
+                    // Retrieve the download URL for each PDF
+                    retrieveDownloadUrl(pdf);
+
                     pdfs.add(pdf);
                 }
                 adapter.setPDFDocuments(pdfs);
@@ -66,9 +77,22 @@ public class Form3PDF extends AppCompatActivity {
         });
     }
 
+    private void retrieveDownloadUrl(PDFDocument pdf) {
+        StorageReference fileRef = storageRef.child("form3_uploads").child(pdf.getFilePath());
+        fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
+            // Update the PDFDocument object with the download URL
+            pdf.setDownloadUrl(uri.toString());
+            adapter.notifyDataSetChanged(); // Notify adapter of the change
+        }).addOnFailureListener(exception -> {
+            // Handle any errors
+            Log.e("Form3PDF", "Error getting download URL: " + exception.getMessage());
+        });
+    }
+
     public static class PDFDocument {
         private String title;
         private String filePath;
+        private String downloadUrl; // Download URL for Firebase Storage
 
         public PDFDocument() {
         }
@@ -84,6 +108,14 @@ public class Form3PDF extends AppCompatActivity {
 
         public String getFilePath() {
             return filePath;
+        }
+
+        public String getDownloadUrl() {
+            return downloadUrl;
+        }
+
+        public void setDownloadUrl(String downloadUrl) {
+            this.downloadUrl = downloadUrl;
         }
     }
 
@@ -106,14 +138,20 @@ public class Form3PDF extends AppCompatActivity {
         public void onBindViewHolder(PDFViewHolder holder, int position) {
             PDFDocument document = pdfDocuments.get(position);
             holder.textViewTitle.setText(document.getTitle());
-            holder.itemView.setOnClickListener(v -> {
-                // Replace `openPDF` call with `openPDFInViewer` to switch to the internal viewer
-                openPDF(document.getFilePath());
-            });
+
+            // If download URL is available, set click listener to open PDF
+            if (document.getDownloadUrl() != null && !document.getDownloadUrl().isEmpty()) {
+                holder.itemView.setOnClickListener(v -> openPDF(document.getDownloadUrl()));
+            } else {
+                holder.itemView.setOnClickListener(v -> {
+                    // Handle scenario when download URL is not available
+                    Toast.makeText(context, "Download URL not available", Toast.LENGTH_SHORT).show();
+                });
+            }
         }
 
-        private void openPDF(String filePath) {
-            Uri pdfUri = Uri.parse(filePath); // Adjust this if you need to handle local files differently
+        private void openPDF(String downloadUrl) {
+            Uri pdfUri = Uri.parse(downloadUrl);
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(pdfUri, "application/pdf");
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
@@ -145,5 +183,4 @@ public class Form3PDF extends AppCompatActivity {
             }
         }
     }
-
 }

@@ -27,7 +27,7 @@ public class Form1Videos extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Initialize your Firebase components and setup your query
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("videos");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("form1_videos");
         Query query = databaseReference.orderByKey();
 
         form1VideoAdapter = new Form1VideoAdapter(query, this); // You'll need to create a custom adapter
