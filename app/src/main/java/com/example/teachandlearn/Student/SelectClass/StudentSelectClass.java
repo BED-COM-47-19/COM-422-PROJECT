@@ -19,7 +19,7 @@ import android.widget.Switch;
 public class StudentSelectClass extends AppCompatActivity {
 
     private ImageButton buttonBack;
-    private Button menuButton; // Add reference to the menu button
+
 
 
     @Override
@@ -35,7 +35,7 @@ public class StudentSelectClass extends AppCompatActivity {
         Button buttonForm4 = findViewById(R.id.button_form4);
         Button logOutButton = findViewById(R.id.log_out_button);  // Initialize the log out button
         buttonBack = findViewById(R.id.back_button);
-        menuButton = findViewById(R.id.menu_button); // Initialize the menu button
+         // Initialize the menu button
 
         // Set click listeners for each button
         buttonForm1.setOnClickListener(new View.OnClickListener() {
@@ -82,16 +82,6 @@ public class StudentSelectClass extends AppCompatActivity {
             }
         });
 
-        // Set onClickListener for the menu button
-
-
-        menuButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open the user account settings page
-                startActivity(new Intent(StudentSelectClass.this, UserAccountSettings.class));
-            }
-        });
 
     }
 

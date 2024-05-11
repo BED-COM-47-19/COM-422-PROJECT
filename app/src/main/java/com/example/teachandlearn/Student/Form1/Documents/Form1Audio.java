@@ -1,4 +1,5 @@
 package com.example.teachandlearn.Student.Form1.Documents;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,68 +8,88 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.teachandlearn.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.ListResult;
+import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Form1Audio extends AppCompatActivity {
+
     private RecyclerView recyclerView;
     private AudioAdapter adapter;
-    private MediaPlayer mediaPlayer;  // MediaPlayer instance as a member of Form1Audio
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form1_audio);
 
-        mediaPlayer = new MediaPlayer();  // Initialize MediaPlayer
+        mediaPlayer = new MediaPlayer();
         recyclerView = findViewById(R.id.recyclerViewAudio);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new AudioAdapter(new ArrayList<>(), mediaPlayer);  // Pass MediaPlayer to the adapter
+        adapter = new AudioAdapter(new ArrayList<>(), mediaPlayer);
         recyclerView.setAdapter(adapter);
 
-        fetchAudios();  // Fetch audios from Firebase
+        fetchAudios();
     }
 
     private void fetchAudios() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("form1_audios");
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference().child("form1/audios");
 
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<AudioItem> list = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    AudioItem audio = snapshot.getValue(AudioItem.class);
-                    list.add(audio);
-                }
+        storageRef.listAll().addOnSuccessListener(listResult -> {
+            List<AudioItem> list = new ArrayList<>();
+            for (StorageReference item : listResult.getItems()) {
+                String fileName = item.getName();
+                String filePath = item.getPath();
+                String title = fileName.substring(0, fileName.lastIndexOf('.'));
+                list.add(new AudioItem(title, filePath, "", ""));
+            }
+            if (list.isEmpty()) {
+                // If no audio files found, show "No file Uploaded" message
+                showNoFilesUploaded();
+            } else {
                 adapter.setAudioList(list);
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("Audio", "Failed to read audio", databaseError.toException());
-            }
+        }).addOnFailureListener(exception -> {
+            Log.e("Form1Audio", "Failed to fetch audio files", exception);
+            Toast.makeText(this, "Failed to fetch audio files", Toast.LENGTH_SHORT).show();
         });
+    }
+
+    private void showNoFilesUploaded() {
+        // Clear the existing list of audio items
+        adapter.setAudioList(new ArrayList<>());
+        // Display "No file Uploaded" message
+        Toast.makeText(this, "No file Uploaded", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+            }
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 
     public static class AudioItem {
         private String title;
         private String filePath;
-        private String description; // Description field
-        private String length; // Length field
-
-        // Constructors, getters, and setters
-        public AudioItem() { }  // Needed for Firebase deserialization
+        private String description;
+        private String length;
 
         public AudioItem(String title, String filePath, String description, String length) {
             this.title = title;
@@ -113,10 +134,7 @@ public class Form1Audio extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull AudioViewHolder holder, int position) {
             AudioItem audio = audioList.get(position);
-            holder.textViewTitle.setText(audio.getTitle());
-            holder.textViewDescription.setText(audio.getDescription());
-            holder.textViewLength.setText(audio.getLength());
-            holder.itemView.setOnClickListener(v -> playAudio(audio.getFilePath(), holder));
+            // Bind audio data to views
         }
 
         @Override
@@ -129,20 +147,7 @@ public class Form1Audio extends AppCompatActivity {
             notifyDataSetChanged();
         }
 
-        private void playAudio(String filePath, AudioViewHolder holder) {
-            try {
-                if (mediaPlayer.isPlaying()) {
-                    mediaPlayer.stop();
-                    mediaPlayer.reset();
-                }
-                mediaPlayer.setDataSource(filePath);
-                mediaPlayer.prepare();
-                mediaPlayer.start();
-            } catch (Exception e) {
-                Toast.makeText(holder.itemView.getContext(), "Error playing audio", Toast.LENGTH_SHORT).show();
-                Log.e("AudioAdapter", "Error playing audio", e);
-            }
-        }
+        // Other methods and inner class definitions
 
         public class AudioViewHolder extends RecyclerView.ViewHolder {
             TextView textViewTitle;
@@ -155,18 +160,6 @@ public class Form1Audio extends AppCompatActivity {
                 textViewDescription = itemView.findViewById(R.id.textViewAudioDescription);
                 textViewLength = itemView.findViewById(R.id.textViewAudioLength);
             }
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mediaPlayer != null) {
-            if (mediaPlayer.isPlaying()) {
-                mediaPlayer.stop();
-            }
-            mediaPlayer.release();
-            mediaPlayer = null;
         }
     }
 }
