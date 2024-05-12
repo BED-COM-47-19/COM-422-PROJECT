@@ -68,7 +68,7 @@ public class Form2QuizzesAndQuestions extends AppCompatActivity {
             }
         }).addOnFailureListener(exception -> {
             // Handle the error
-            Toast.makeText(Form1QuizzesAndQuestions.this, "Failed to load past papers", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Form2QuizzesAndQuestions.this, "Failed to load past papers", Toast.LENGTH_SHORT).show();
         });
     }
 
