@@ -5,7 +5,9 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +34,8 @@ public class Form1SciencesStudent extends AppCompatActivity {
         Button buttonSmallPhysics = findViewById(R.id.buttonSmallPhysics);
         Button buttonSmallChemistry = findViewById(R.id.buttonSmallChemistry);
         Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
+
+
 
         // Set click listeners for each button
         buttonMathematics.setOnClickListener(v -> {
@@ -96,5 +100,7 @@ public class Form1SciencesStudent extends AppCompatActivity {
         Intent intent = new Intent(Form1SciencesStudent.this, Form1StudentViewContent.class);
         startActivity(intent);
     }
+
+
 
 }

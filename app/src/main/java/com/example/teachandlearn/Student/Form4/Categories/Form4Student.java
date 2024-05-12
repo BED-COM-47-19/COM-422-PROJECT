@@ -1,5 +1,5 @@
-
 package com.example.teachandlearn.Student.Form4.Categories;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +10,8 @@ import com.example.teachandlearn.R;
 
 public class Form4Student extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
+    private Button buttonBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +21,7 @@ public class Form4Student extends AppCompatActivity {
         Button buttonScience = findViewById(R.id.activity_form4_science);
         Button buttonHumanities = findViewById(R.id.activity_form4_humanities);
         Button buttonLanguages = findViewById(R.id.activity_form4_languages);
-//        buttonBack = findViewById(R.id.back_button);
+        buttonBack = findViewById(R.id.back_button);
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {
@@ -52,13 +53,13 @@ public class Form4Student extends AppCompatActivity {
             }
         });
 
-//        buttonBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Logic for when the back button is pressed
-//                onBackPressed();
-//            }
-//        });
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
 
     }
 
@@ -67,11 +68,11 @@ public class Form4Student extends AppCompatActivity {
         Toast.makeText(Form4Student.this, message, Toast.LENGTH_SHORT).show();
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        // Handle the back button action
-//        super.onBackPressed();
-//        // You can also add custom logic here if needed
-//    }
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
 
 }

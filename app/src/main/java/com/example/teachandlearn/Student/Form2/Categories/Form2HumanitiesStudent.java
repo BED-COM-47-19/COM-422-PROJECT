@@ -12,6 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form1.Categories.Form1HumanitiesStudent;
+import com.example.teachandlearn.Student.Form1.Categories.Form1SciencesStudent;
+import com.example.teachandlearn.Student.Form1.Categories.Form1StudentViewContent;
 
 public class Form2HumanitiesStudent extends AppCompatActivity {
 
@@ -34,6 +37,8 @@ public class Form2HumanitiesStudent extends AppCompatActivity {
         Button buttonSmallHistory = findViewById(R.id.buttonSmallHistory);
         Button buttonSmallBibleKnowledge = findViewById(R.id.buttonSmallBibleKnowledge);
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
+
+
 
 
 
@@ -103,7 +108,6 @@ public class Form2HumanitiesStudent extends AppCompatActivity {
         popupWindow.update(anchor, 0, 100, -1, -1);  // Shift a bit downwards
     }
 
-
     // Helper method to show toast message
     private void showToast(String message) {
         Toast.makeText(Form2HumanitiesStudent.this, message, Toast.LENGTH_SHORT).show();
@@ -111,9 +115,9 @@ public class Form2HumanitiesStudent extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(Form2HumanitiesStudent.this, Form2StudentViewContent.class);
+        Intent intent = new Intent(Form2HumanitiesStudent.this, Form1StudentViewContent.class);
         startActivity(intent);
     }
 
-
 }
+

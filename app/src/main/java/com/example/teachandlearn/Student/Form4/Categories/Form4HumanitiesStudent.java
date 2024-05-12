@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form1.Categories.Form1SciencesStudent;
+import com.example.teachandlearn.Student.Form1.Categories.Form1StudentViewContent;
 
 public class Form4HumanitiesStudent extends AppCompatActivity {
 
@@ -33,6 +35,8 @@ public class Form4HumanitiesStudent extends AppCompatActivity {
         Button buttonSmallHistory = findViewById(R.id.buttonSmallHistory);
         Button buttonSmallBibleKnowledge = findViewById(R.id.buttonSmallBibleKnowledge);
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
+
+
 
 
         // Set click listeners for each button
@@ -108,10 +112,8 @@ public class Form4HumanitiesStudent extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(Form4HumanitiesStudent.this, Form4StudentViewContent.class);
+        Intent intent = new Intent(Form4HumanitiesStudent.this, Form1StudentViewContent.class);
         startActivity(intent);
     }
-
-
 
 }

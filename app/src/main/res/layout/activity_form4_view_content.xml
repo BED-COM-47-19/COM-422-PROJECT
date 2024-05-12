@@ -1,110 +1,142 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="700dp"
-    android:padding="16dp"
-    android:columnCount="2"
-    android:rowCount="2"
+    android:layout_height="match_parent"
     android:background="@color/white"
-    android:alignmentMode="alignMargins"
-    android:columnOrderPreserved="false">
-
+    android:columnOrderPreserved="false"
+    android:orientation="vertical"
+    android:padding="30dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnSpan="2"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="0.0"
         android:text="VIEW CONTENT"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        android:textSize="30sp"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:layout_marginBottom="16dp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
-    <!-- PDF Button -->
-    <Button
-        android:id="@+id/button_pdf"
-        android:layout_width="0dp"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="-25dp"
+        android:layout_weight="0.025"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <!-- Social Studies Button with small corner button adjusted -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="15dp"
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/button_pdf"
+                android:layout_width="match_parent"
+                android:layout_height="134dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="#6e6e6e"
+                android:text="PDF"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+        </FrameLayout>
+
+        <!-- Life Skills Button with small co rner button adjusted -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/button_audio"
+                android:layout_width="match_parent"
+                android:layout_height="134dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="#5a5acb"
+                android:text="AUDIO"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+        </FrameLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="-10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="440dp"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:text="PDF"
-        android:layout_margin="8dp"
-        android:background="@drawable/rounded_button_background"
-        android:backgroundTint="#6e6e6e"/>
+        android:layout_marginTop="-35dp"
+        android:layout_weight="0.045"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <!-- History Button with small corner button adjusted -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="15dp"
+            android:layout_weight="0.5">
 
-    <!-- Audio Button -->
-    <Button
-        android:id="@+id/button_audio"
-        android:layout_width="0dp"
-        android:layout_height="8dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_margin="4dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="-10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="440dp"
-        android:background="@drawable/rounded_button_background"
-        android:backgroundTint="#5a5acb"
-        android:text="AUDIO"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+            <Button
+                android:id="@+id/button_videos"
+                android:layout_width="match_parent"
+                android:layout_height="134dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="#c855d3"
+                android:text="VIDEOS"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-    <!-- Videos Button -->
-    <Button
-        android:id="@+id/button_videos"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_margin="4dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="-400dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="290dp"
-        android:background="@drawable/rounded_button_background"
-        android:backgroundTint="#c855d3"
-        android:text="VIDEOS"
-        android:textSize="20dp"
-        android:textStyle="bold" />
 
-    <!-- Tests and Quizzes Button -->
-    <Button
-        android:id="@+id/button_tests_quizzes"
-        android:layout_width="0dp"
-        android:layout_height="19dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_margin="4dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="-400dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="290dp"
-        android:background="@drawable/rounded_button_background"
-        android:backgroundTint="#4a6d2f"
-        android:text="TESTS AND QUIZZES"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        </FrameLayout>
 
-    <!-- Back Arrow -->
-    <Button
-        android:id="@+id/button_back"
-        android:layout_width="48dp"
-        android:layout_height="44dp"
-        android:layout_gravity="start|bottom"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="-95dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/back_arrow"
-        android:textColor="@android:color/black" />
+        <!-- Bible Knowledge Button with small corner button adjusted -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="15dp"
+            android:layout_weight="0.5">
 
-</GridLayout>
+            <Button
+                android:id="@+id/button_tests_quizzes"
+                android:layout_width="match_parent"
+                android:layout_height="134dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="#4a6d2f"
+                android:text="TESTS AND QUIZZES"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

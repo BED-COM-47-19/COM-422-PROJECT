@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp"
+    android:background="@color/white"
     android:layout_marginTop="20dp"
     android:orientation="horizontal">
 
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+        android:background="@color/white"
         android:layout_marginLeft="140dp"
         android:textColor="@color/black"
         android:textStyle="bold"

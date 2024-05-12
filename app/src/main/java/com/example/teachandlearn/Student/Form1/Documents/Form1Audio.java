@@ -1,5 +1,6 @@
-package com.example.teachandlearn.Student.Form1.Documents;
 
+
+package com.example.teachandlearn.Student.Form1.Documents;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,17 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -134,8 +132,37 @@ public class Form1Audio extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull AudioViewHolder holder, int position) {
             AudioItem audio = audioList.get(position);
+
             // Bind audio data to views
+            holder.textViewTitle.setText(audio.getTitle());
+            holder.textViewDescription.setText(audio.getDescription());
+            holder.textViewLength.setText(audio.getLength());
+
+            // Set click listener to play audio when clicked
+            holder.itemView.setOnClickListener(v -> {
+                // Stop any previous playback
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                    mediaPlayer.reset();
+                }
+
+                try {
+                    // Set the data source to the Firebase Storage URL
+                    mediaPlayer.setDataSource(audio.getFilePath());
+                    // Prepare the media player asynchronously
+                    mediaPlayer.prepareAsync();
+                    // Set a listener for when preparation is done
+                    mediaPlayer.setOnPreparedListener(mp -> {
+                        // Start playback
+                        mp.start();
+                    });
+                } catch (Exception e) {
+                    Log.e("AudioAdapter", "Error playing audio", e);
+                    Toast.makeText(holder.itemView.getContext(), "Error playing audio", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
+
 
         @Override
         public int getItemCount() {

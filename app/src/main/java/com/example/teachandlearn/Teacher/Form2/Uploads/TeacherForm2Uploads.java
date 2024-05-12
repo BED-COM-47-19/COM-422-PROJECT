@@ -1,47 +1,44 @@
-
 package com.example.teachandlearn.Teacher.Form2.Uploads;
+
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.teachandlearn.R;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import java.util.UUID;
-import android.util.Log;
-import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.UUID;
 
 public class TeacherForm2Uploads extends AppCompatActivity {
 
-    //    private ImageButton buttonBack;
     private static final int REQUEST_PICK_PDF = 1;
     private static final int REQUEST_PICK_AUDIO = 2;
     private static final int REQUEST_PICK_VIDEO = 3;
     private static final int REQUEST_PICK_QUESTION = 4;
 
-    private Uri selectedPdfUri;
-    private Uri selectedAudioUri;
-    private Uri selectedVideoUri;
-    private Uri selectedQuestionUri;
-
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private ProgressDialog progressDialog;
 
-    private static final String TAG = "TeacherForm2uploads";
-
+    private static final String TAG = "TeacherForm2Uploads";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_form2_uploads);
+        setContentView(R.layout.activity_teacher_form1_uploads);
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -50,21 +47,11 @@ public class TeacherForm2Uploads extends AppCompatActivity {
         Button audioButton = findViewById(R.id.button_audio);
         Button videoButton = findViewById(R.id.button_videos);
         Button questionsButton = findViewById(R.id.button_tests_quizzes);
-//        buttonBack = findViewById(R.id.back_button);
 
         pdfButton.setOnClickListener(v -> openFilePicker("application/pdf", REQUEST_PICK_PDF));
         audioButton.setOnClickListener(v -> openFilePicker("audio/*", REQUEST_PICK_AUDIO));
         videoButton.setOnClickListener(v -> openFilePicker("video/*", REQUEST_PICK_VIDEO));
         questionsButton.setOnClickListener(v -> openFilePicker("*/*", REQUEST_PICK_QUESTION));
-
-//        buttonBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Logic for when the back button is pressed
-//                onBackPressed();
-//            }
-//        });
-
     }
 
     private void openFilePicker(String mimeType, int requestCode) {
@@ -81,53 +68,58 @@ public class TeacherForm2Uploads extends AppCompatActivity {
             Uri selectedFileUri = data.getData();
             switch (requestCode) {
                 case REQUEST_PICK_PDF:
-                    selectedPdfUri = selectedFileUri;
-                    uploadFile(selectedPdfUri, "form2/pdfs/", "pdfs");
+                    uploadFile(selectedFileUri, "form2/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
                     showToast("PDF Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_AUDIO:
-                    selectedAudioUri = selectedFileUri;
-                    uploadFile(selectedAudioUri, "form2/audio/", "audio");
+                    uploadFile(selectedFileUri, "form2/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
                     showToast("Audio Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_VIDEO:
-                    selectedVideoUri = selectedFileUri;
-                    uploadFile(selectedVideoUri, "form2/videos/", "videos");
+                    uploadFile(selectedFileUri, "form2/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Vedio format.");
                     showToast("Video Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_QUESTION:
-                    selectedQuestionUri = selectedFileUri;
-                    uploadFile(selectedQuestionUri, "form2/quizzes_and_questions/", "questions");
+                    uploadFile(selectedFileUri, "form2/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
                     break;
             }
-
         }
-
     }
 
-
-
-    // Inside your uploadFile method after uploading the file
-    private void uploadFile(Uri fileUri) {
+    private void uploadFile(Uri fileUri, String storagePath, String firestoreCollection, String[] allowedExtensions, String errorMessage) {
         if (fileUri != null) {
             progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
             String fileName = UUID.randomUUID().toString();
-            StorageReference fileRef = storageReference.child("form2/pdfs/" + fileName);
+            String fileExtension = getFileExtension(fileUri);
+
+            boolean isExtensionAllowed = false;
+            for (String extension : allowedExtensions) {
+                if (fileExtension != null && fileExtension.equalsIgnoreCase(extension)) {
+                    isExtensionAllowed = true;
+                    break;
+                }
+            }
+
+            if (!isExtensionAllowed) {
+                progressDialog.dismiss();
+                showToast(errorMessage);
+                return;
+            }
+
+            StorageReference fileRef = storageReference.child(storagePath + fileName);
 
             fileRef.putFile(fileUri)
                     .addOnSuccessListener(taskSnapshot -> {
                         progressDialog.dismiss();
                         showToast("File uploaded successfully");
 
-                        // Retrieve the download URL after successful upload
                         fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
                             String fileUrl = uri.toString();
-                            // Save fileUrl to Firestore or another database
-                            saveFileUrlToFirestore(fileUrl);
+                            saveFileUrlToFirestore(fileUrl, firestoreCollection);
                         });
                     })
                     .addOnFailureListener(e -> {
@@ -141,13 +133,18 @@ public class TeacherForm2Uploads extends AppCompatActivity {
         }
     }
 
-    // Method to save the file URL to Firestore
-    private void saveFileUrlToFirestore(String fileUrl) {
+    private String getFileExtension(Uri uri) {
+        ContentResolver contentResolver = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+    }
+
+    private void saveFileUrlToFirestore(String fileUrl, String firestoreCollection) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> fileData = new HashMap<>();
         fileData.put("fileUrl", fileUrl);
 
-        db.collection("files")
+        db.collection(firestoreCollection)
                 .add(fileData)
                 .addOnSuccessListener(documentReference -> {
                     Log.d(TAG, "File URL added with ID: " + documentReference.getId());
@@ -157,16 +154,7 @@ public class TeacherForm2Uploads extends AppCompatActivity {
                 });
     }
 
-
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-
-//    @Override
-//    public void onBackPressed() {
-//        // Handle the back button action
-//        super.onBackPressed();
-//        // You can also add custom logic here if needed
-//    }
-
 }

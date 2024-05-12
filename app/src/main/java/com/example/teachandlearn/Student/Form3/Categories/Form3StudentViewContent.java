@@ -25,7 +25,7 @@ public class Form3StudentViewContent extends AppCompatActivity {
         Button buttonAudio = findViewById(R.id.button_audio);
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
-        Button buttonBack = findViewById(R.id.button_back); // Find the back button
+        //Button buttonBack = findViewById(R.id.button_back); // Find the back button
 
 
         // Set click listeners for each button
@@ -61,12 +61,12 @@ public class Form3StudentViewContent extends AppCompatActivity {
             }
         });
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Finish the current activity to go back to the previous one
-                finish();
-            }
-        });
+//        buttonBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Finish the current activity to go back to the previous one
+//                finish();
+//            }
+//        });
     }
 }
