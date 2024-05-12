@@ -1,42 +1,41 @@
 
-package com.example.teachandlearn.Teacher.Form3;
+package com.example.teachandlearn.Teacher.Form2.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Teacher.Form2.Uploads.TeacherForm2Uploads;
 
 
-public class TeacherForm3Humanities extends AppCompatActivity {
+public class TeacherForm2Humanities extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_form3_humanities);
+        setContentView(R.layout.activity_teacher_form2_humanities);
 
-        //Buttons for each humanities subject
+        // Find buttons for each humanities subject
         Button buttonSocialStudies = findViewById(R.id.buttonSocialStudies);
         Button buttonLifeSkills = findViewById(R.id.buttonLifeSkills);
         Button buttonHistory = findViewById(R.id.buttonHistory);
         Button buttonBibleKnowledge = findViewById(R.id.buttonBibleKnowledge);
         Button buttonGeography = findViewById(R.id.buttonGeography);
 
-        //For Small Buttons
+
         Button buttonSmallSocialStudies = findViewById(R.id.buttonSmallSocialStudies);
         Button buttonSmallLifeSkills = findViewById(R.id.buttonSmallLifeSkills);
         Button buttonSmallHistory = findViewById(R.id.buttonSmallHistory);
         Button buttonSmallBibleKnowledge = findViewById(R.id.buttonSmallBibleKnowledge);
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
-
 
         // Set click listeners for each button
         buttonSocialStudies.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +83,6 @@ public class TeacherForm3Humanities extends AppCompatActivity {
         buttonSmallHistory.setOnClickListener(v -> showPopup(v, getString(R.string.info_history)));
         buttonSmallBibleKnowledge.setOnClickListener(v -> showPopup(v, getString(R.string.info_bible_knowledge)));
         buttonSmallGeography.setOnClickListener(v -> showPopup(v, getString(R.string.info_geography)));
-
     }
 
     private void showPopup(View anchor, String text) {
@@ -105,14 +103,15 @@ public class TeacherForm3Humanities extends AppCompatActivity {
         popupWindow.update(anchor, 0, 100, -1, -1);  // Shift a bit downwards
     }
 
+
     // Helper method to show toast message
     private void showToast(String message) {
-        Toast.makeText(TeacherForm3Humanities.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(TeacherForm2Humanities.this, message, Toast.LENGTH_SHORT).show();
     }
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(TeacherForm3Humanities.this, TeacherForm3Uploads.class);
+        Intent intent = new Intent(TeacherForm2Humanities.this, TeacherForm2Uploads.class);
         startActivity(intent);
     }
 

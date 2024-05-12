@@ -1,5 +1,5 @@
 
-package com.example.teachandlearn.Teacher.Form4;
+package com.example.teachandlearn.Teacher.Form4.Uploads;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -38,7 +38,7 @@ public class TeacherForm4Uploads extends AppCompatActivity {
     private StorageReference storageReference;
     private ProgressDialog progressDialog;
 
-    private static final String TAG = "TeacherForm1Uploads";
+    private static final String TAG = "TeacherForm4Uploads";
 
 
     @Override

@@ -1,27 +1,26 @@
 
-package com.example.teachandlearn.Teacher.Form3;
+package com.example.teachandlearn.Teacher.Form2.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 
 
-public class TeacherForm3 extends AppCompatActivity {
+public class TeacherForm2 extends AppCompatActivity {
 
 //    private ImageButton buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_form3);
+        setContentView(R.layout.activity_teacher_form2);
 
         // Find the buttons for SCIENCE, HUMANITIES, and LANGUAGES
-        Button buttonScience = findViewById(R.id.activity_teacher_form3_science);
-        Button buttonHumanities = findViewById(R.id.activity_teacher_form3_humanities);
-        Button buttonLanguages = findViewById(R.id.activity_teacher_form3_languages);
+        Button buttonScience = findViewById(R.id.activity_teacher_form2_science);
+        Button buttonHumanities = findViewById(R.id.activity_teacher_form2_humanities);
+        Button buttonLanguages = findViewById(R.id.activity_teacher_form2_languages);
 //        buttonBack = findViewById(R.id.back_button);
 
         // Set onClickListener for SCIENCE button
@@ -29,7 +28,7 @@ public class TeacherForm3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start SelectScienceActivity when SCIENCE button is clicked
-                Intent intent = new Intent(TeacherForm3.this, TeacherForm3Science.class);
+                Intent intent = new Intent(TeacherForm2.this, TeacherForm2Science.class);
                 startActivity(intent);
             }
         });
@@ -38,7 +37,7 @@ public class TeacherForm3 extends AppCompatActivity {
         buttonHumanities.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TeacherForm3.this, TeacherForm3Humanities.class);
+                Intent intent = new Intent(TeacherForm2.this, TeacherForm2Humanities.class);
                 startActivity(intent);
             }
         });
@@ -47,7 +46,7 @@ public class TeacherForm3 extends AppCompatActivity {
         buttonLanguages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TeacherForm3.this, TeacherForm3Languages.class);
+                Intent intent = new Intent(TeacherForm2.this, TeacherForm2Languages.class);
                 startActivity(intent);
             }
         });
@@ -64,7 +63,7 @@ public class TeacherForm3 extends AppCompatActivity {
 
     // Helper method to show toast message
     private void showToast(String message) {
-        Toast.makeText(TeacherForm3.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(TeacherForm2.this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

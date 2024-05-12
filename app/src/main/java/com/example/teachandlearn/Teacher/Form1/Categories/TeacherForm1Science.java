@@ -1,28 +1,27 @@
 
-package com.example.teachandlearn.Teacher.Form4;
+package com.example.teachandlearn.Teacher.Form1.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Teacher.Form1.Uploads.TeacherForm1Uploads;
 
 
-
-public class TeacherForm4Science extends AppCompatActivity {
+public class TeacherForm1Science extends AppCompatActivity {
 
 //    private ImageButton buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_form4_sciences);
+        setContentView(R.layout.activity_teacher_form1_science);
 
         // Find buttons for each science field
         Button buttonMathematics = findViewById(R.id.buttonMathematics);
@@ -30,7 +29,6 @@ public class TeacherForm4Science extends AppCompatActivity {
         Button buttonPhysics = findViewById(R.id.buttonPhysics);
         Button buttonChemistry = findViewById(R.id.buttonChemistry);
         Button buttonAgriculture = findViewById(R.id.buttonAgriculture);
-
 
         // Find small info buttons
         Button buttonSmallMathematics = findViewById(R.id.buttonSmallMathematics);
@@ -120,14 +118,15 @@ public class TeacherForm4Science extends AppCompatActivity {
 
     // Helper method to show toast message
     private void showToast(String message) {
-        Toast.makeText(TeacherForm4Science.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(TeacherForm1Science.this, message, Toast.LENGTH_SHORT).show();
     }
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(TeacherForm4Science.this, TeacherForm4Uploads.class);
+        Intent intent = new Intent(TeacherForm1Science.this, TeacherForm1Uploads.class);
         startActivity(intent);
     }
+
 
 
 }

@@ -175,97 +175,98 @@
 
         <!-- Teacher File Uploader -->
 
-        <activity android:name=".Teacher.Form1.TeacherForm1Uploads"
+        <activity android:name=".Teacher.Form1.Uploads.TeacherForm1Uploads"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form2.TeacherForm2Uploads"
+
+        <activity android:name=".Teacher.Form2.Uploads.TeacherForm2Uploads"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form3.TeacherForm3Uploads"
+        <activity android:name=".Teacher.Form3.Uploads.TeacherForm3Uploads"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form4.TeacherForm4Uploads"
+
+        <activity android:name=".Teacher.Form4.Uploads.TeacherForm4Uploads"
             android:theme="@style/Theme.AppCompat">
         </activity>
-
 
 
 
         <!-- Teacher Classes Selection -->
 
-        <activity android:name=".Teacher.Form1.TeacherForm1"
+        <activity android:name=".Teacher.Form1.Categories.TeacherForm1"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form2.TeacherForm2"
+        <activity android:name=".Teacher.Form2.Categories.TeacherForm2"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form3.TeacherForm3"
+        <activity android:name=".Teacher.Form3.Categories.TeacherForm3"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form4.TeacherForm4"
+        <activity android:name=".Teacher.Form4.Categories.TeacherForm4"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
 
         <!-- Teacher Science Selection -->
 
-        <activity android:name=".Teacher.Form1.TeacherForm1Science"
+        <activity android:name=".Teacher.Form1.Categories.TeacherForm1Science"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form2.TeacherForm2Science"
+        <activity android:name=".Teacher.Form2.Categories.TeacherForm2Science"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form3.TeacherForm3Science"
+        <activity android:name=".Teacher.Form3.Categories.TeacherForm3Science"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form4.TeacherForm4Science"
+        <activity android:name=".Teacher.Form4.Categories.TeacherForm4Science"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
 
         <!-- Teacher Humanities Selection -->
 
-        <activity android:name=".Teacher.Form1.TeacherForm1Humanities"
+        <activity android:name=".Teacher.Form1.Categories.TeacherForm1Humanities"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form2.TeacherForm2Humanities"
+        <activity android:name=".Teacher.Form2.Categories.TeacherForm2Humanities"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form3.TeacherForm3Humanities"
+        <activity android:name=".Teacher.Form3.Categories.TeacherForm3Humanities"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form4.TeacherForm4Humanities"
+        <activity android:name=".Teacher.Form4.Categories.TeacherForm4Humanities"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
 
         <!-- Teacher Languages Selection -->
 
-        <activity android:name=".Teacher.Form1.TeacherForm1Languages"
+        <activity android:name=".Teacher.Form1.Categories.TeacherForm1Languages"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form2.TeacherForm2Languages"
+        <activity android:name=".Teacher.Form2.Categories.TeacherForm2Languages"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form3.TeacherForm3Languages"
+        <activity android:name=".Teacher.Form3.Categories.TeacherForm3Languages"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Teacher.Form4.TeacherForm4Languages"
+        <activity android:name=".Teacher.Form4.Categories.TeacherForm4Languages"
             android:theme="@style/Theme.AppCompat">
         </activity>
 

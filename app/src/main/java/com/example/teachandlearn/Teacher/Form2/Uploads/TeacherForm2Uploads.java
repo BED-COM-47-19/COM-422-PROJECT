@@ -1,12 +1,10 @@
 
-package com.example.teachandlearn.Teacher.Form1;
+package com.example.teachandlearn.Teacher.Form2.Uploads;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +16,9 @@ import android.util.Log;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
-import android.util.Log;
 
 
-public class TeacherForm1Uploads extends AppCompatActivity {
+public class TeacherForm2Uploads extends AppCompatActivity {
 
     //    private ImageButton buttonBack;
     private static final int REQUEST_PICK_PDF = 1;
@@ -38,13 +35,13 @@ public class TeacherForm1Uploads extends AppCompatActivity {
     private StorageReference storageReference;
     private ProgressDialog progressDialog;
 
-    private static final String TAG = "TeacherForm1Uploads";
+    private static final String TAG = "TeacherForm2uploads";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_form1_uploads);
+        setContentView(R.layout.activity_teacher_form2_uploads);
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -115,8 +112,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
             progressDialog.show();
 
             String fileName = UUID.randomUUID().toString();
-            StorageReference fileRef = storageReference.child("form1/pdfs/" + fileName);
-
+            StorageReference fileRef = storageReference.child("form2/pdfs/" + fileName);
 
             fileRef.putFile(fileUri)
                     .addOnSuccessListener(taskSnapshot -> {
@@ -140,7 +136,6 @@ public class TeacherForm1Uploads extends AppCompatActivity {
                     });
         }
     }
-
 
     // Method to save the file URL to Firestore
     private void saveFileUrlToFirestore(String fileUrl) {

@@ -5,16 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import com.example.teachandlearn.MainClass.UserAccountSettings;
+
 import com.example.teachandlearn.MainClass.UserTypeSelection;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
-import com.example.teachandlearn.Teacher.Form1.TeacherForm1;
-import com.example.teachandlearn.Teacher.Form2.TeacherForm2;
-import com.example.teachandlearn.Teacher.Form3.TeacherForm3;
-import com.example.teachandlearn.Teacher.Form4.TeacherForm4;
+import com.example.teachandlearn.Teacher.Form1.Categories.TeacherForm1;
+import com.example.teachandlearn.Teacher.Form2.Categories.TeacherForm2;
+import com.example.teachandlearn.Teacher.Form3.Categories.TeacherForm3;
+import com.example.teachandlearn.Teacher.Form4.Categories.TeacherForm4;
 import androidx.appcompat.app.AppCompatActivity;
-import android.widget.Switch;
 
 public class TeacherSelectClass extends AppCompatActivity {
 

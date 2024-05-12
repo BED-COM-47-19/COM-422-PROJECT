@@ -1,28 +1,27 @@
 
-package com.example.teachandlearn.Teacher.Form1;
+package com.example.teachandlearn.Teacher.Form2.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Teacher.Form2.Uploads.TeacherForm2Uploads;
 
 
-
-public class TeacherForm1Science extends AppCompatActivity {
+public class TeacherForm2Science extends AppCompatActivity {
 
 //    private ImageButton buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_form1_science);
+        setContentView(R.layout.activity_teacher_form2_science);
 
         // Find buttons for each science field
         Button buttonMathematics = findViewById(R.id.buttonMathematics);
@@ -37,7 +36,6 @@ public class TeacherForm1Science extends AppCompatActivity {
         Button buttonSmallPhysics = findViewById(R.id.buttonSmallPhysics);
         Button buttonSmallChemistry = findViewById(R.id.buttonSmallChemistry);
         Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
-
         // Set click listeners for each button
         buttonMathematics.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +87,7 @@ public class TeacherForm1Science extends AppCompatActivity {
             }
         });
 
+
         // Set click listeners for small info buttons to show popups instead of toasts
         buttonSmallMathematics.setOnClickListener(v -> showPopup(v, getString(R.string.info_mathematics)));
         buttonSmallBiology.setOnClickListener(v -> showPopup(v, getString(R.string.info_biology)));
@@ -116,18 +115,16 @@ public class TeacherForm1Science extends AppCompatActivity {
         popupWindow.update(anchor, 0, 100, -1, -1);  // Shift a bit downwards
     }
 
-
     // Helper method to show toast message
     private void showToast(String message) {
-        Toast.makeText(TeacherForm1Science.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(TeacherForm2Science.this, message, Toast.LENGTH_SHORT).show();
     }
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(TeacherForm1Science.this, TeacherForm1Uploads.class);
+        Intent intent = new Intent(TeacherForm2Science.this, TeacherForm2Uploads.class);
         startActivity(intent);
     }
-
 
 
 }

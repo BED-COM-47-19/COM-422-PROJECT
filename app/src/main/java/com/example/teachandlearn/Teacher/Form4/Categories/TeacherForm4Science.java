@@ -1,27 +1,27 @@
 
-package com.example.teachandlearn.Teacher.Form2;
+package com.example.teachandlearn.Teacher.Form4.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Teacher.Form4.Uploads.TeacherForm4Uploads;
 
 
-public class TeacherForm2Science extends AppCompatActivity {
+public class TeacherForm4Science extends AppCompatActivity {
 
 //    private ImageButton buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher_form2_science);
+        setContentView(R.layout.activity_teacher_form4_sciences);
 
         // Find buttons for each science field
         Button buttonMathematics = findViewById(R.id.buttonMathematics);
@@ -30,12 +30,14 @@ public class TeacherForm2Science extends AppCompatActivity {
         Button buttonChemistry = findViewById(R.id.buttonChemistry);
         Button buttonAgriculture = findViewById(R.id.buttonAgriculture);
 
+
         // Find small info buttons
         Button buttonSmallMathematics = findViewById(R.id.buttonSmallMathematics);
         Button buttonSmallBiology = findViewById(R.id.buttonSmallBiology);
         Button buttonSmallPhysics = findViewById(R.id.buttonSmallPhysics);
         Button buttonSmallChemistry = findViewById(R.id.buttonSmallChemistry);
         Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
+
         // Set click listeners for each button
         buttonMathematics.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +89,6 @@ public class TeacherForm2Science extends AppCompatActivity {
             }
         });
 
-
         // Set click listeners for small info buttons to show popups instead of toasts
         buttonSmallMathematics.setOnClickListener(v -> showPopup(v, getString(R.string.info_mathematics)));
         buttonSmallBiology.setOnClickListener(v -> showPopup(v, getString(R.string.info_biology)));
@@ -115,14 +116,15 @@ public class TeacherForm2Science extends AppCompatActivity {
         popupWindow.update(anchor, 0, 100, -1, -1);  // Shift a bit downwards
     }
 
+
     // Helper method to show toast message
     private void showToast(String message) {
-        Toast.makeText(TeacherForm2Science.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(TeacherForm4Science.this, message, Toast.LENGTH_SHORT).show();
     }
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(TeacherForm2Science.this, TeacherForm2Uploads.class);
+        Intent intent = new Intent(TeacherForm4Science.this, TeacherForm4Uploads.class);
         startActivity(intent);
     }
 
