@@ -43,7 +43,7 @@ public class Form2PDF extends AppCompatActivity {
     private void fetchPDFsFromFirebase() {
         // Get a reference to the Firebase storage location
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("form2/pdfs");
+        StorageReference storageRef = storage.getReference().child("form2/pdfs/");
 
         // List all the items (PDFs) in the storage location
         storageRef.listAll().addOnSuccessListener(listResult -> {

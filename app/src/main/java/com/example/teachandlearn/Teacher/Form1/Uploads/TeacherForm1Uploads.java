@@ -81,39 +81,57 @@ public class TeacherForm1Uploads extends AppCompatActivity {
             Uri selectedFileUri = data.getData();
             switch (requestCode) {
                 case REQUEST_PICK_PDF:
-                    selectedPdfUri = selectedFileUri;
-                    uploadFile(selectedPdfUri);
+                    uploadFile(selectedFileUri, "form1/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
                     showToast("PDF Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_AUDIO:
-                    selectedAudioUri = selectedFileUri;
-                    uploadFile(selectedAudioUri);
+                    uploadFile(selectedFileUri, "form1/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
                     showToast("Audio Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_VIDEO:
-                    selectedVideoUri = selectedFileUri;
-                    uploadFile(selectedVideoUri);
+                    uploadFile(selectedFileUri, "form1/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Vedio format.");
                     showToast("Video Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_QUESTION:
-                    selectedQuestionUri = selectedFileUri;
-                    uploadFile(selectedQuestionUri);
+                    uploadFile(selectedFileUri, "form1/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
                     break;
             }
         }
     }
 
+
+
+
+
     // Inside your uploadFile method after uploading the file
-    private void uploadFile(Uri fileUri) {
+    private void uploadFile(Uri fileUri, String storagePath, String firestoreCollection, String[] allowedExtensions, String errorMessage) {
         if (fileUri != null) {
             progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
             String fileName = UUID.randomUUID().toString();
-            StorageReference fileRef = storageReference.child("form1/pdfs/" + fileName);
+            // Get the file extension
+            String fileExtension = getFileExtension(fileUri);
 
+            // Check if the file extension is allowed
+            boolean isExtensionAllowed = false;
+            for (String extension : allowedExtensions) {
+                if (fileExtension != null && fileExtension.equalsIgnoreCase(extension)) {
+                    isExtensionAllowed = true;
+                    break;
+                }
+            }
+
+            if (!isExtensionAllowed) {
+                progressDialog.dismiss();
+                showToast(errorMessage);
+                return;
+            }
+
+            // Continue with the upload process if the extension is allowed
+            StorageReference fileRef = storageReference.child(storagePath + fileName);
 
             fileRef.putFile(fileUri)
                     .addOnSuccessListener(taskSnapshot -> {
@@ -124,7 +142,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
                         fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
                             String fileUrl = uri.toString();
                             // Save fileUrl to Firestore or another database
-                            saveFileUrlToFirestore(fileUrl);
+                            saveFileUrlToFirestore(fileUrl, firestoreCollection);
                         });
                     })
                     .addOnFailureListener(e -> {
@@ -137,6 +155,14 @@ public class TeacherForm1Uploads extends AppCompatActivity {
                     });
         }
     }
+
+    // Method to get the file extension
+    private String getFileExtension(Uri uri) {
+        ContentResolver contentResolver = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+    }
+
 
 
     // Method to save the file URL to Firestore

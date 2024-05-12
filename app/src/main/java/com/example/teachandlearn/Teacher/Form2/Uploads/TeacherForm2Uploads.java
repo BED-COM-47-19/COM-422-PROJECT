@@ -82,27 +82,31 @@ public class TeacherForm2Uploads extends AppCompatActivity {
             switch (requestCode) {
                 case REQUEST_PICK_PDF:
                     selectedPdfUri = selectedFileUri;
-                    uploadFile(selectedPdfUri);
+                    uploadFile(selectedPdfUri, "form2/pdfs/", "pdfs");
                     showToast("PDF Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_AUDIO:
                     selectedAudioUri = selectedFileUri;
-                    uploadFile(selectedAudioUri);
+                    uploadFile(selectedAudioUri, "form2/audio/", "audio");
                     showToast("Audio Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_VIDEO:
                     selectedVideoUri = selectedFileUri;
-                    uploadFile(selectedVideoUri);
+                    uploadFile(selectedVideoUri, "form2/videos/", "videos");
                     showToast("Video Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_QUESTION:
                     selectedQuestionUri = selectedFileUri;
-                    uploadFile(selectedQuestionUri);
+                    uploadFile(selectedQuestionUri, "form2/quizzes_and_questions/", "questions");
                     showToast("Question Selected: " + selectedFileUri.toString());
                     break;
             }
+
         }
+
     }
+
+
 
     // Inside your uploadFile method after uploading the file
     private void uploadFile(Uri fileUri) {

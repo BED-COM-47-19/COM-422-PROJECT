@@ -36,7 +36,7 @@ public class Form2Videos extends AppCompatActivity {
 
     private void fetchVideos() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("form2/videos");
+        StorageReference storageRef = storage.getReference().child("form2/videos/");
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
             List<VideoItem> videos = new ArrayList<>();

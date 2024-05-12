@@ -43,7 +43,7 @@ public class Form4Audio extends AppCompatActivity {
 
     private void fetchAudios() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("form4/audios");
+        StorageReference storageRef = storage.getReference().child("form4/audios/");
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
             List<AudioItem> list = new ArrayList<>();

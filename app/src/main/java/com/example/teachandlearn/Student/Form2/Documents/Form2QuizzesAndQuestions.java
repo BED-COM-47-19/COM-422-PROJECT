@@ -51,7 +51,7 @@ public class Form2QuizzesAndQuestions extends AppCompatActivity {
 
     private void loadPDFsFromStorage() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("form2/quizzes_and_questions");
+        StorageReference storageRef = storage.getReference().child("form2/quizzes_and_questions/");
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
             if (listResult.getItems().isEmpty()) {

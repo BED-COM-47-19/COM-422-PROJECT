@@ -50,7 +50,7 @@ public class Form3QuizzesAndQuestions extends AppCompatActivity {
 
     private void loadPDFsFromStorage() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("form3/quizzes_and_questions");
+        StorageReference storageRef = storage.getReference().child("form3/quizzes_and_questions/");
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
             if (listResult.getItems().isEmpty()) {

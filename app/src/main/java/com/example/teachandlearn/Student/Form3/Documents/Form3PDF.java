@@ -42,7 +42,7 @@ public class Form3PDF extends AppCompatActivity {
     private void fetchPDFsFromFirebase() {
         // Get a reference to the Firebase storage location
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("form3/pdfs");
+        StorageReference storageRef = storage.getReference().child("form3/pdfs/");
 
         // List all the items (PDFs) in the storage location
         storageRef.listAll().addOnSuccessListener(listResult -> {

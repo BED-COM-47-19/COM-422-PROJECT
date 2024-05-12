@@ -82,40 +82,44 @@ public class TeacherForm3Uploads extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri selectedFileUri = data.getData();
+            //FORM 4
+
             switch (requestCode) {
                 case REQUEST_PICK_PDF:
                     selectedPdfUri = selectedFileUri;
-                    uploadFile(selectedPdfUri);
+                    uploadFile(selectedPdfUri, "form4/pdfs/", "pdfs");
                     showToast("PDF Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_AUDIO:
                     selectedAudioUri = selectedFileUri;
-                    uploadFile(selectedAudioUri);
+                    uploadFile(selectedAudioUri, "form4/audio/", "audio");
                     showToast("Audio Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_VIDEO:
                     selectedVideoUri = selectedFileUri;
-                    uploadFile(selectedVideoUri);
+                    uploadFile(selectedVideoUri, "form4/videos/", "videos");
                     showToast("Video Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_QUESTION:
                     selectedQuestionUri = selectedFileUri;
-                    uploadFile(selectedQuestionUri);
+                    uploadFile(selectedQuestionUri, "form4/quizzes_and_questions/", "questions");
                     showToast("Question Selected: " + selectedFileUri.toString());
                     break;
             }
         }
     }
 
+
     // Inside your uploadFile method after uploading the file
-    private void uploadFile(Uri fileUri) {
+    private void uploadFile(Uri fileUri, String storagePath, String firestoreCollection) {
         if (fileUri != null) {
             progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
             String fileName = UUID.randomUUID().toString();
-            StorageReference fileRef = storageReference.child("form3/pdfs/" + fileName);
+            // Update the path to upload files to the specified storagePath
+            StorageReference fileRef = storageReference.child(storagePath + fileName);
 
             fileRef.putFile(fileUri)
                     .addOnSuccessListener(taskSnapshot -> {
@@ -126,7 +130,7 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                         fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
                             String fileUrl = uri.toString();
                             // Save fileUrl to Firestore or another database
-                            saveFileUrlToFirestore(fileUrl);
+                            saveFileUrlToFirestore(fileUrl, firestoreCollection);
                         });
                     })
                     .addOnFailureListener(e -> {
@@ -155,7 +159,6 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                     Log.w(TAG, "Error adding file URL", e);
                 });
     }
-
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
