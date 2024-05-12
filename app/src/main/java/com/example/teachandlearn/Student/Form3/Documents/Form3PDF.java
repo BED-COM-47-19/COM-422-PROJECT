@@ -1,5 +1,6 @@
-package com.example.teachandlearn.Student.Form3.Documents;
 
+
+package com.example.teachandlearn.Student.Form3.Documents;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,18 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Form3PDF extends AppCompatActivity {
     private RecyclerView recyclerViewPDFs;
@@ -79,6 +78,7 @@ public class Form3PDF extends AppCompatActivity {
         // Display "NO file Uploaded" message
         Toast.makeText(this, "NO file Uploaded", Toast.LENGTH_SHORT).show();
     }
+
 
     public static class PDFDocument {
         private String title;
