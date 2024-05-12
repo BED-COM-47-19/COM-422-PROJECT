@@ -21,7 +21,7 @@ import java.util.List;
 public class Form2Videos extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private Form1VideoAdapter form1VideoAdapter;
+    private Form2VideoAdapter form2VideoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,12 +75,12 @@ public class Form2Videos extends AppCompatActivity {
         }
     }
 
-    public static class Form2VideoAdapter extends RecyclerView.Adapter<Form1VideoAdapter.VideoViewHolder> {
+    public static class Form2VideoAdapter extends RecyclerView.Adapter<Form2VideoAdapter.VideoViewHolder> {
 
         private List<VideoItem> videos;
         private Context context;
 
-        public Form1VideoAdapter(List<VideoItem> videos, Context context) {
+        public Form2VideoAdapter(List<VideoItem> videos, Context context) {
             this.videos = videos;
             this.context = context;
         }
