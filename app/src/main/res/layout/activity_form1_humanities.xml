@@ -228,7 +228,25 @@
                 android:text="¡"
                 android:textColor="@android:color/white" />
 
+
+
+            <Button
+                android:id="@+id/back_button"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_marginBottom="-100dp"
+                android:layout_marginLeft="-10dp"
+                android:text="BACK"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/black"
+                android:background="@drawable/back_button_rounderd"
+                android:textSize="20dp" />
+
+
         </FrameLayout>
+
+
 
 
     </LinearLayout>
