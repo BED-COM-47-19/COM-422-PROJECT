@@ -40,7 +40,7 @@ public class Form2QuizzesAndQuestions extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String url = pdfUrls.get(position);
-                Intent intent = new Intent(Form2QuizzesAndQuestions.this, Form1PDFViewer.class);
+                Intent intent = new Intent(Form2QuizzesAndQuestions.this, Form2PDFViewer.class);
                 intent.putExtra("PDF_URL", url);
                 startActivity(intent);
             }
