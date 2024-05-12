@@ -105,6 +105,13 @@
         android:layout_marginBottom="40dp"
         android:background="@drawable/back_arrow"
         android:textColor="@android:color/black" />
+<<<<<<< HEAD
+
+
+
+
+=======
+>>>>>>> b749537f995e5933ebcab340fa2d4ac30513b319
 
 
 
