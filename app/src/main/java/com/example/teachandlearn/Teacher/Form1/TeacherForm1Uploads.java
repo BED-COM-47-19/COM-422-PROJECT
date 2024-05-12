@@ -117,7 +117,6 @@ public class TeacherForm1Uploads extends AppCompatActivity {
             String fileName = UUID.randomUUID().toString();
             StorageReference fileRef = storageReference.child("form1/pdfs/" + fileName);
 
-            
 
             fileRef.putFile(fileUri)
                     .addOnSuccessListener(taskSnapshot -> {
