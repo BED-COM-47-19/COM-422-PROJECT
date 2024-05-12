@@ -7,7 +7,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 
-
 public class Form3PDFViewer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
