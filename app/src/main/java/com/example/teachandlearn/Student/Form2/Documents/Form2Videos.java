@@ -21,7 +21,7 @@ import java.util.List;
 public class Form2Videos extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private Form1VideoAdapter form1VideoAdapter;
+    private Form2VideoAdapter form2VideoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
