@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Root layout using RelativeLayout -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="20dp"
-    tools:context=".Student.Form1.Documents.Form1Videos">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="8dp">
 
-    <!-- RecyclerView for displaying the list of videos -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvVideos"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+    <TextView
+        android:id="@+id/textViewVideoName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Video Name"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/textViewVideoUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Video URL"
+        android:textSize="14sp" />
+
+</LinearLayout>
