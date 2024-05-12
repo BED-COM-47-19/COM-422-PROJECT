@@ -49,8 +49,8 @@ public class Form3Videos extends AppCompatActivity {
                 // If no videos found, show "Nothing Uploaded yet" message
                 Toast.makeText(this, "Nothing Uploaded yet", Toast.LENGTH_SHORT).show();
             } else {
-                form1VideoAdapter = new Form1VideoAdapter(videos, this);
-                recyclerView.setAdapter(form1VideoAdapter);
+                form3VideoAdapter = new Form3VideoAdapter(videos, this);
+                recyclerView.setAdapter(form3VideoAdapter);
             }
         }).addOnFailureListener(e -> {
             Toast.makeText(this, "Failed to fetch videos", Toast.LENGTH_SHORT).show();

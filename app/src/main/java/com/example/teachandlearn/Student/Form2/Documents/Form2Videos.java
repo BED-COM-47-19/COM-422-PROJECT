@@ -21,7 +21,7 @@ import java.util.List;
 public class Form2Videos extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private Form2VideoAdapter form2VideoAdapter;
+    private Form1VideoAdapter form1VideoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +49,8 @@ public class Form2Videos extends AppCompatActivity {
                 // If no videos found, show "Nothing Uploaded yet" message
                 Toast.makeText(this, "Nothing Uploaded yet", Toast.LENGTH_SHORT).show();
             } else {
-                form1VideoAdapter = new Form1VideoAdapter(videos, this);
-                recyclerView.setAdapter(form1VideoAdapter);
+                form2VideoAdapter = new Form2VideoAdapter(videos, this);
+                recyclerView.setAdapter(form2VideoAdapter);
             }
         }).addOnFailureListener(e -> {
             Toast.makeText(this, "Failed to fetch videos", Toast.LENGTH_SHORT).show();
