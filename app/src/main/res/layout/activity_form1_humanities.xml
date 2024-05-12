@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:columnCount="2"
-    android:rowCount="3"
+    android:rowCount="4"
     android:padding="16dp"
     android:background="@color/white"
     android:alignmentMode="alignMargins"
@@ -17,13 +17,13 @@
         android:textAlignment="center"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="30dp"
         android:textColor="@color/black"
         android:layout_marginBottom="16dp" />
 
     <!-- Social Studies Button with small corner button adjusted -->
     <FrameLayout
-        android:layout_width="0dp"
+        android:layout_width="135dp"
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
@@ -34,16 +34,15 @@
             android:id="@+id/buttonSocialStudies"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="SOCIAL STUDIES"
-            android:textSize="15dp"
-            android:textAlignment="center"
-            android:textStyle="bold"
             android:background="@drawable/rounded_button_background"
             android:backgroundTint="@color/social_studies_button_color"
+            android:drawableEnd="@drawable/ic_social_studies"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="SOCIAL STUDIES"
             android:textColor="@android:color/white"
-            android:drawableEnd="@drawable/ic_social_studies" />
+            android:textSize="15dp"
+            android:textStyle="bold" />
         <Button
             android:id="@+id/buttonSmallSocialStudies"
             android:layout_width="18dp"
@@ -58,7 +57,7 @@
 
     <!-- Life Skills Button with small corner button adjusted -->
     <FrameLayout
-        android:layout_width="0dp"
+        android:layout_width="130dp"
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
@@ -69,15 +68,15 @@
             android:id="@+id/buttonLifeSkills"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="LIFE SKILLS"
-            android:textSize="15dp"
-            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_button_background"
             android:backgroundTint="@color/life_skills_button_color"
+            android:drawableEnd="@drawable/ic_life_skills"
+            android:text="LIFE SKILLS"
             android:textColor="@android:color/white"
-            android:drawableEnd="@drawable/ic_life_skills" />
+            android:textSize="15dp"
+            android:textStyle="bold" />
         <Button
             android:id="@+id/buttonSmallLifeSkills"
             android:layout_width="18dp"
@@ -92,7 +91,7 @@
 
     <!-- History Button with small corner button adjusted -->
     <FrameLayout
-        android:layout_width="0dp"
+        android:layout_width="137dp"
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
@@ -103,15 +102,15 @@
             android:id="@+id/buttonHistory"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="HISTORY"
-            android:textSize="15dp"
-            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_button_background"
             android:backgroundTint="@color/history_button_color"
+            android:drawableEnd="@drawable/ic_history"
+            android:text="HISTORY"
             android:textColor="@android:color/white"
-            android:drawableEnd="@drawable/ic_history" />
+            android:textSize="15dp"
+            android:textStyle="bold" />
         <Button
             android:id="@+id/buttonSmallHistory"
             android:layout_width="18dp"
@@ -126,7 +125,7 @@
 
     <!-- Bible Knowledge Button with small corner button adjusted -->
     <FrameLayout
-        android:layout_width="0dp"
+        android:layout_width="137dp"
         android:layout_height="0dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
@@ -137,15 +136,15 @@
             android:id="@+id/buttonBibleKnowledge"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="BIBLE KNOWLEDGE"
-            android:textSize="15dp"
-            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_button_background"
             android:backgroundTint="@color/bible_knowledge_button_color"
+            android:drawableEnd="@drawable/ic_bible_knowledge"
+            android:text="BIBLE KNOWLEDGE"
             android:textColor="@android:color/white"
-            android:drawableEnd="@drawable/ic_bible_knowledge" />
+            android:textSize="15dp"
+            android:textStyle="bold" />
         <Button
             android:id="@+id/buttonSmallBibleKnowledge"
             android:layout_width="18dp"
@@ -160,26 +159,29 @@
 
     <!-- Geography Button with small corner button adjusted -->
     <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="137dp"
+        android:layout_height="5dp"
         android:layout_rowWeight="1"
         android:layout_columnWeight="1"
+        android:layout_marginBottom="100dp"
         android:layout_margin="15dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="40dp">
+
         <Button
             android:id="@+id/buttonGeography"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="GEOGRAPHY"
-            android:textSize="15dp"
-            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_button_background"
             android:backgroundTint="@color/geography_button_color"
+            android:drawableEnd="@drawable/ic_geography"
+            android:text="GEOGRAPHY"
             android:textColor="@android:color/white"
-            android:drawableEnd="@drawable/ic_geography" />
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/buttonSmallGeography"
             android:layout_width="18dp"
@@ -187,10 +189,12 @@
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
+            android:background="@drawable/oval_cirlce"
             android:text="¡"
-            android:textColor="@android:color/white"
-            android:background="@drawable/oval_cirlce" />
+            android:textColor="@android:color/white" />
+
     </FrameLayout>
+
 
     <Button
         android:id="@+id/button_back"
@@ -200,8 +204,10 @@
         android:layout_marginStart="-170dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/back_arrow"
         android:textColor="@android:color/black" />
+
+    <!--    </FrameLayout>-->
 
 </GridLayout>
