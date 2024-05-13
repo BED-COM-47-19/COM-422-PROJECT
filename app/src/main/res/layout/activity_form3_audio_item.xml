@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:textAlignment="center"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewAudioTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="100dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:text="AUDIO TITLE"
+        android:textAlignment="center"/>
+
+
+    <TextView
+        android:id="@+id/textViewAudioDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:padding="8dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textViewAudioLength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Length"
+        android:padding="8dp"
+        android:textSize="14sp" />
+
+
+
+</LinearLayout>

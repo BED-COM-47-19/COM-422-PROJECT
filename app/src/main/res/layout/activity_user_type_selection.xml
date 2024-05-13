@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:screenOrientation="portrait"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/image_logo"
+        android:layout_width="377dp"
+        android:layout_height="207dp"
+        android:layout_marginTop="64dp"
+        android:background="@color/white"
+        android:src="@drawable/logo_image2" />
+
+    <Button
+        android:id="@+id/button_student"
+        android:layout_width="147dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_logo"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/button_background"
+        android:padding="8dp"
+        android:text="STUDENT"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button_teacher"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_student"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/button_background"
+        android:padding="8dp"
+        android:text="TEACHER"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginTop="590dp"
+        android:layout_weight="0.2"
+        android:background="@drawable/back_button_rounderd"
+        android:text="BACK"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+
+</RelativeLayout>
