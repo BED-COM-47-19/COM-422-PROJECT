@@ -4,6 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+<<<<<<< HEAD
+=======
+import android.widget.ImageButton;
+
+import com.example.teachandlearn.MainClass.UserAccountSettings;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 import com.example.teachandlearn.MainClass.UserTypeSelection;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.Form1.Categories.Form1Student;
@@ -11,11 +17,19 @@ import com.example.teachandlearn.Student.Form2.Categories.Form2Student;
 import com.example.teachandlearn.Student.Form3.Categories.Form3Student;
 import com.example.teachandlearn.Student.Form4.Categories.Form4Student;
 import androidx.appcompat.app.AppCompatActivity;
+<<<<<<< HEAD
 
 
 public class StudentSelectClass extends AppCompatActivity {
 
     private Button buttonBack;
+=======
+import android.widget.Switch;
+
+public class StudentSelectClass extends AppCompatActivity {
+
+    private ImageButton buttonBack;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
 
 
@@ -32,6 +46,7 @@ public class StudentSelectClass extends AppCompatActivity {
         Button buttonForm4 = findViewById(R.id.button_form4);
         Button logOutButton = findViewById(R.id.log_out_button);  // Initialize the log out button
         buttonBack = findViewById(R.id.back_button);
+<<<<<<< HEAD
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +55,8 @@ public class StudentSelectClass extends AppCompatActivity {
                 onBackPressed();
             }
         });
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
          // Initialize the menu button
 
         // Set click listeners for each button

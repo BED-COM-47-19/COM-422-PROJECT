@@ -12,11 +12,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+<<<<<<< HEAD
 import com.example.teachandlearn.Student.Form1.Categories.Form1SciencesStudent;
 import com.example.teachandlearn.Student.Form1.Categories.Form1StudentViewContent;
 
 public class Form4HumanitiesStudent extends AppCompatActivity {
     private Button buttonBack;
+=======
+
+public class Form4HumanitiesStudent extends AppCompatActivity {
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,7 @@ public class Form4HumanitiesStudent extends AppCompatActivity {
         Button buttonSmallBibleKnowledge = findViewById(R.id.buttonSmallBibleKnowledge);
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
 
+<<<<<<< HEAD
         buttonBack = findViewById(R.id.back_button);
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +53,8 @@ public class Form4HumanitiesStudent extends AppCompatActivity {
             }
         });
 
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
         // Set click listeners for each button
         buttonSocialStudies.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +129,7 @@ public class Form4HumanitiesStudent extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
+<<<<<<< HEAD
         Intent intent = new Intent(Form4HumanitiesStudent.this, Form1StudentViewContent.class);
         startActivity(intent);
     }
@@ -130,5 +140,12 @@ public class Form4HumanitiesStudent extends AppCompatActivity {
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
+=======
+        Intent intent = new Intent(Form4HumanitiesStudent.this, Form4StudentViewContent.class);
+        startActivity(intent);
+    }
+
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
 }

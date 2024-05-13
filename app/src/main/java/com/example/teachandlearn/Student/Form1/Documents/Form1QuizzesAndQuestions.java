@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 package com.example.teachandlearn.Student.Form1.Documents;
 import android.content.Intent;
 import android.os.Bundle;

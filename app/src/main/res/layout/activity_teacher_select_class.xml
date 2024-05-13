@@ -28,7 +28,10 @@
         android:background="@drawable/edit_text_background"
         android:backgroundTint="#4C62D1"
         android:text="FORM 1"
+<<<<<<< HEAD
         android:textColor="@color/white"
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         android:textSize="40dp"
         android:textStyle="bold" />
 
@@ -43,7 +46,10 @@
         android:background="@drawable/edit_text_background"
         android:backgroundTint="#D81C7C"
         android:text="FORM 2"
+<<<<<<< HEAD
         android:textColor="@color/white"
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         android:textSize="40dp"
         android:textStyle="bold" />
 
@@ -58,7 +64,10 @@
         android:background="@drawable/edit_text_background"
         android:backgroundTint="#00BCD4"
         android:text="FORM 3"
+<<<<<<< HEAD
         android:textColor="@color/white"
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         android:textSize="40dp"
         android:textStyle="bold" />
 
@@ -73,7 +82,10 @@
         android:background="@drawable/edit_text_background"
         android:backgroundTint="#FF9800"
         android:text="FORM 4"
+<<<<<<< HEAD
         android:textColor="@color/white"
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         android:textSize="40dp"
         android:textStyle="bold" />
 
@@ -88,13 +100,18 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="60dp"
         android:layout_marginRight="90dp"
+<<<<<<< HEAD
         android:layout_marginBottom="-30dp"
+=======
+        android:layout_marginBottom="10dp"
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         android:textColor="@color/white"
         android:textStyle="bold"
         android:background="@drawable/signin_login_round_boutton"
         android:text="LOG OUT" />
 
 
+<<<<<<< HEAD
     <Button
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
@@ -106,6 +123,19 @@
         android:textColor="@color/white"
         android:textSize="20sp" />
 
+=======
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="56dp"
+        android:layout_height="59dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="400dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-65dp"
+        android:contentDescription="@string/back"
+        android:src="@drawable/back_arrow" />
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
 
 </GridLayout>

@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 package com.example.teachandlearn.Student.Form3.Categories;
 
+=======
+
+package com.example.teachandlearn.Student.Form3.Categories;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +15,11 @@ import com.example.teachandlearn.R;
 
 public class Form3Student extends AppCompatActivity {
 
+<<<<<<< HEAD
     private Button buttonBack;
+=======
+//    private ImageButton buttonBack;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +30,11 @@ public class Form3Student extends AppCompatActivity {
         Button buttonScience = findViewById(R.id.activity_form3_science);
         Button buttonHumanities = findViewById(R.id.activity_form3_humanities);
         Button buttonLanguages = findViewById(R.id.activity_form3_languages);
+<<<<<<< HEAD
         buttonBack = findViewById(R.id.back_button);
+=======
+//        ImageButton buttonBack = findViewById(R.id.back_button);
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +64,7 @@ public class Form3Student extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +72,15 @@ public class Form3Student extends AppCompatActivity {
                 onBackPressed();
             }
         });
+=======
+//        buttonBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Logic for when the back button is pressed
+//                onBackPressed();
+//            }
+//        });
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     }
 
     // Helper method to show toast message
@@ -65,10 +88,20 @@ public class Form3Student extends AppCompatActivity {
         Toast.makeText(Form3Student.this, message, Toast.LENGTH_SHORT).show();
     }
 
+<<<<<<< HEAD
     @Override
     public void onBackPressed() {
         // Handle the back button action
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
+=======
+//    @Override
+//    public void onBackPressed() {
+//        // Handle the back button action
+//        super.onBackPressed();
+//        // You can also add custom logic here if needed
+//    }
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 }

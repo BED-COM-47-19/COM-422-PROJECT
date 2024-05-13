@@ -17,7 +17,11 @@ import com.google.firebase.database.FirebaseDatabase;
 public class TeacherSignUp extends AppCompatActivity {
 
     private DatabaseReference databaseReference; // Firebase database reference
+<<<<<<< HEAD
     private Button buttonBack;
+=======
+    private ImageButton buttonBack;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
     private Button buttonContinue;
 
@@ -34,7 +38,10 @@ public class TeacherSignUp extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
         buttonContinue = findViewById(R.id.buttonContinue);
+<<<<<<< HEAD
 
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         buttonBack = findViewById(R.id.back_button);
 
         buttonContinue.setOnClickListener(new View.OnClickListener() {

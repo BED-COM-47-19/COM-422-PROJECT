@@ -14,7 +14,11 @@ public class UserTypeSelection extends AppCompatActivity {
 
     private Button buttonStudent;
     private Button buttonTeacher;
+<<<<<<< HEAD
     private Button buttonBack;
+=======
+    private ImageButton buttonBack;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

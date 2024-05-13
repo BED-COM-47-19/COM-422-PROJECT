@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+<<<<<<< HEAD
     android:layout_height="50dp"
     android:orientation="vertical"
     android:layout_marginTop="40dp"
@@ -27,5 +28,26 @@
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
         android:layout_marginTop="8dp" />
+=======
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/textViewVideoName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Video Name"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewVideoUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Video URL"
+        android:textSize="14sp" />
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
 </LinearLayout>

@@ -13,8 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+<<<<<<< HEAD
 import com.example.teachandlearn.Student.LogIn_And_SignUp.StudentLogIn;
 import com.example.teachandlearn.Student.LogIn_And_SignUp.StudentSignUp;
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 import com.example.teachandlearn.Teacher.SelectClass.TeacherSelectClass;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -32,7 +35,11 @@ import android.util.Log;
 
 public class TeacherLogIn extends AppCompatActivity {
 
+<<<<<<< HEAD
     private Button buttonBack;
+=======
+    private ImageButton buttonBack;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private DatabaseReference mDatabase;
@@ -47,7 +54,11 @@ public class TeacherLogIn extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
+<<<<<<< HEAD
         buttonBack = findViewById(R.id.back_button);
+=======
+        ImageButton buttonBack = findViewById(R.id.back_button);
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         EditText editTextEmail = findViewById(R.id.editTextEmail);
         EditText editTextPassword = findViewById(R.id.editTextPassword);
         Button loginButton = findViewById(R.id.buttonLogIn);
@@ -56,22 +67,32 @@ public class TeacherLogIn extends AppCompatActivity {
         TextView googleSignInTextView = findViewById(R.id.textViewContinueWithGoogle);
 
         // Set listeners
+<<<<<<< HEAD
 
 
         buttonBack.setOnClickListener(view -> onBackPressed());
         loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
         signUpButton.setOnClickListener(v -> startActivity(new Intent(TeacherLogIn.this, StudentSignUp.class)));
+=======
+        buttonBack.setOnClickListener(view -> onBackPressed());
+        loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
+        signUpButton.setOnClickListener(v -> startActivity(new Intent(TeacherLogIn.this, TeacherSignUp.class)));
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         forgotPasswordTextView.setOnClickListener(v -> sendPasswordResetEmail(editTextEmail.getText().toString()));
         googleSignInTextView.setOnClickListener(v -> {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
             startActivityForResult(signInIntent, RC_SIGN_IN);
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         });
         // Initialize Firebase Auth
 
         buttonBack = findViewById(R.id.back_button);
 
+<<<<<<< HEAD
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +101,8 @@ public class TeacherLogIn extends AppCompatActivity {
             }
         });
 
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         // Configure Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))

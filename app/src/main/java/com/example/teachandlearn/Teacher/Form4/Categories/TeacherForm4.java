@@ -12,7 +12,11 @@ import com.example.teachandlearn.R;
 
 public class TeacherForm4 extends AppCompatActivity {
 
+<<<<<<< HEAD
     private Button buttonBack;
+=======
+    private ImageButton buttonBack;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

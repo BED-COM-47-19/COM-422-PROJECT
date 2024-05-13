@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 
 
 package com.example.teachandlearn.Student.Form1.Documents;
+=======
+package com.example.teachandlearn.Student.Form1.Documents;
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;

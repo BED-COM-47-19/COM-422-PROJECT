@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.example.teachandlearn.Student.Form1.Categories;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,12 +11,24 @@ import android.widget.ImageButton;
 import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+=======
+
+package com.example.teachandlearn.Student.Form1.Categories;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 
 public class Form1HumanitiesStudent extends AppCompatActivity {
+<<<<<<< HEAD
     private Button buttonBack;
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +48,7 @@ public class Form1HumanitiesStudent extends AppCompatActivity {
         Button buttonSmallBibleKnowledge = findViewById(R.id.buttonSmallBibleKnowledge);
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
 
+<<<<<<< HEAD
         buttonBack = findViewById(R.id.back_button);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +59,8 @@ public class Form1HumanitiesStudent extends AppCompatActivity {
         });
 
 
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         // Set click listeners for each button
         buttonSocialStudies.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +136,7 @@ public class Form1HumanitiesStudent extends AppCompatActivity {
     }
 
     private void showPopup(View anchor, String text) {
+<<<<<<< HEAD
         // Inflate the popup layout
         View popupView = LayoutInflater.from(this).inflate(R.layout.popup_info, null);
         TextView textView = popupView.findViewById(R.id.textViewPopupInfo);
@@ -138,15 +155,24 @@ public class Form1HumanitiesStudent extends AppCompatActivity {
     }
 
     // Helper method to show toast message
+=======
+        // Implement your popup window logic here
+    }
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     private void showToast(String message) {
         Toast.makeText(Form1HumanitiesStudent.this, message, Toast.LENGTH_SHORT).show();
     }
 
+<<<<<<< HEAD
     // Method to start Form1ViewContentActivity
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     private void startActivityForContent() {
         Intent intent = new Intent(Form1HumanitiesStudent.this, Form1StudentViewContent.class);
         startActivity(intent);
     }
+<<<<<<< HEAD
 
     @Override
     public void onBackPressed() {
@@ -155,4 +181,6 @@ public class Form1HumanitiesStudent extends AppCompatActivity {
         // You can also add custom logic here if needed
     }
 
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 }

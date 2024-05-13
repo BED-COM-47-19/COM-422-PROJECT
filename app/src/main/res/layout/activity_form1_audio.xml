@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+<<<<<<< HEAD
     android:background="@color/white"
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     android:padding="20dp">
 
     <androidx.recyclerview.widget.RecyclerView

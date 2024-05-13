@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 
 
 package com.example.teachandlearn.Student.Form1.Documents;
+=======
+package com.example.teachandlearn.Student.Form1.Documents;
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,14 +14,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+<<<<<<< HEAD
+=======
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+<<<<<<< HEAD
+=======
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
+<<<<<<< HEAD
+=======
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 import java.util.ArrayList;
 import java.util.List;
 
@@ -132,6 +149,7 @@ public class Form1Audio extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull AudioViewHolder holder, int position) {
             AudioItem audio = audioList.get(position);
+<<<<<<< HEAD
 
             // Bind audio data to views
             holder.textViewTitle.setText(audio.getTitle());
@@ -164,6 +182,11 @@ public class Form1Audio extends AppCompatActivity {
         }
 
 
+=======
+            // Bind audio data to views
+        }
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         @Override
         public int getItemCount() {
             return audioList.size();

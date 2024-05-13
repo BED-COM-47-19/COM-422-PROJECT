@@ -5,6 +5,10 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="testRunner" value="GRADLE" />
+<<<<<<< HEAD
+=======
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleJvm" value="jbr-17" />
         <option name="modules">
@@ -13,7 +17,10 @@
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
+<<<<<<< HEAD
         <option name="resolveExternalAnnotations" value="false" />
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
       </GradleProjectSettings>
     </option>
   </component>

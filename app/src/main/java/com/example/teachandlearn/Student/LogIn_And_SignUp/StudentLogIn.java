@@ -30,7 +30,11 @@ import android.util.Log;
 
 public class StudentLogIn extends AppCompatActivity {
 
+<<<<<<< HEAD
     private Button buttonBack;
+=======
+    private ImageButton buttonBack;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private DatabaseReference mDatabase;
@@ -45,6 +49,10 @@ public class StudentLogIn extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
+<<<<<<< HEAD
+=======
+        ImageButton buttonBack = findViewById(R.id.back_button);
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         EditText editTextEmail = findViewById(R.id.editTextEmail);
         EditText editTextPassword = findViewById(R.id.editTextPassword);
         Button loginButton = findViewById(R.id.buttonLogIn);
@@ -52,9 +60,13 @@ public class StudentLogIn extends AppCompatActivity {
         TextView forgotPasswordTextView = findViewById(R.id.textViewForgotPassword);
         TextView googleSignInTextView = findViewById(R.id.textViewContinueWithGoogle);
 
+<<<<<<< HEAD
         buttonBack = findViewById(R.id.back_button); // Initialize buttonBack
 
 // Set listeners
+=======
+        // Set listeners
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         buttonBack.setOnClickListener(view -> onBackPressed());
         loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
         signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogIn.this, StudentSignUp.class)));
@@ -63,6 +75,7 @@ public class StudentLogIn extends AppCompatActivity {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
             startActivityForResult(signInIntent, RC_SIGN_IN);
         });
+<<<<<<< HEAD
 
         // Initialize Firebase Auth
         buttonBack = findViewById(R.id.back_button);
@@ -76,6 +89,12 @@ public class StudentLogIn extends AppCompatActivity {
 
         // In
 
+=======
+        // Initialize Firebase Auth
+
+        buttonBack = findViewById(R.id.back_button);
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         // Configure Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))

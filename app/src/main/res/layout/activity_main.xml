@@ -1,7 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:screenOrientation="portrait"
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     android:padding="16dp"
     android:background="@color/white">
 

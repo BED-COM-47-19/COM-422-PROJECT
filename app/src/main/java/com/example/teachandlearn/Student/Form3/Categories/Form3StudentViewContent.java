@@ -14,7 +14,11 @@ import com.example.teachandlearn.Student.Form1.Documents.Form1Videos;
 
 
 public class Form3StudentViewContent extends AppCompatActivity {
+<<<<<<< HEAD
     private Button buttonBack;
+=======
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +29,7 @@ public class Form3StudentViewContent extends AppCompatActivity {
         Button buttonAudio = findViewById(R.id.button_audio);
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
+<<<<<<< HEAD
 
         buttonBack = findViewById(R.id.back_button);
 
@@ -35,6 +40,9 @@ public class Form3StudentViewContent extends AppCompatActivity {
                 onBackPressed();
             }
         });
+=======
+        Button buttonBack = findViewById(R.id.button_back); // Find the back button
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
 
         // Set click listeners for each button
@@ -70,6 +78,7 @@ public class Form3StudentViewContent extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,4 +97,14 @@ public class Form3StudentViewContent extends AppCompatActivity {
         // You can also add custom logic here if needed
     }
 
+=======
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Finish the current activity to go back to the previous one
+                finish();
+            }
+        });
+    }
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 }

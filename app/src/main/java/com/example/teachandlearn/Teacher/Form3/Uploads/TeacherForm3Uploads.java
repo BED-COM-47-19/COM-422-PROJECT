@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.example.teachandlearn.Teacher.Form3.Uploads;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
@@ -8,10 +9,22 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+=======
+
+package com.example.teachandlearn.Teacher.Form3.Uploads;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+<<<<<<< HEAD
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -23,21 +36,52 @@ import java.util.UUID;
 public class TeacherForm3Uploads extends AppCompatActivity {
     private Button buttonBack;
 
+=======
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import java.util.UUID;
+import android.util.Log;
+import com.google.firebase.firestore.FirebaseFirestore;
+import java.util.HashMap;
+import java.util.Map;
+import android.util.Log;
+
+
+public class TeacherForm3Uploads extends AppCompatActivity {
+
+    //    private ImageButton buttonBack;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     private static final int REQUEST_PICK_PDF = 1;
     private static final int REQUEST_PICK_AUDIO = 2;
     private static final int REQUEST_PICK_VIDEO = 3;
     private static final int REQUEST_PICK_QUESTION = 4;
 
+<<<<<<< HEAD
+=======
+    private Uri selectedPdfUri;
+    private Uri selectedAudioUri;
+    private Uri selectedVideoUri;
+    private Uri selectedQuestionUri;
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private ProgressDialog progressDialog;
 
     private static final String TAG = "TeacherForm3Uploads";
 
+<<<<<<< HEAD
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_form1_uploads);
+=======
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_teacher_form3_uploads);
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -46,12 +90,17 @@ public class TeacherForm3Uploads extends AppCompatActivity {
         Button audioButton = findViewById(R.id.button_audio);
         Button videoButton = findViewById(R.id.button_videos);
         Button questionsButton = findViewById(R.id.button_tests_quizzes);
+<<<<<<< HEAD
+=======
+//        buttonBack = findViewById(R.id.back_button);
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
         pdfButton.setOnClickListener(v -> openFilePicker("application/pdf", REQUEST_PICK_PDF));
         audioButton.setOnClickListener(v -> openFilePicker("audio/*", REQUEST_PICK_AUDIO));
         videoButton.setOnClickListener(v -> openFilePicker("video/*", REQUEST_PICK_VIDEO));
         questionsButton.setOnClickListener(v -> openFilePicker("*/*", REQUEST_PICK_QUESTION));
 
+<<<<<<< HEAD
         buttonBack = findViewById(R.id.back_button);
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +110,16 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                 onBackPressed();
             }
         });
+=======
+//        buttonBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Logic for when the back button is pressed
+//                onBackPressed();
+//            }
+//        });
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     }
 
     private void openFilePicker(String mimeType, int requestCode) {
@@ -75,6 +134,7 @@ public class TeacherForm3Uploads extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri selectedFileUri = data.getData();
+<<<<<<< HEAD
             switch (requestCode) {
                 case REQUEST_PICK_PDF:
                     uploadFile(selectedFileUri, "form3/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
@@ -90,19 +150,49 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                     break;
                 case REQUEST_PICK_QUESTION:
                     uploadFile(selectedFileUri, "form3/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
+=======
+            //FORM 4
+
+            switch (requestCode) {
+                case REQUEST_PICK_PDF:
+                    selectedPdfUri = selectedFileUri;
+                    uploadFile(selectedPdfUri, "form4/pdfs/", "pdfs");
+                    showToast("PDF Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_AUDIO:
+                    selectedAudioUri = selectedFileUri;
+                    uploadFile(selectedAudioUri, "form4/audio/", "audio");
+                    showToast("Audio Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_VIDEO:
+                    selectedVideoUri = selectedFileUri;
+                    uploadFile(selectedVideoUri, "form4/videos/", "videos");
+                    showToast("Video Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_QUESTION:
+                    selectedQuestionUri = selectedFileUri;
+                    uploadFile(selectedQuestionUri, "form4/quizzes_and_questions/", "questions");
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
                     showToast("Question Selected: " + selectedFileUri.toString());
                     break;
             }
         }
     }
 
+<<<<<<< HEAD
     private void uploadFile(Uri fileUri, String storagePath, String firestoreCollection, String[] allowedExtensions, String errorMessage) {
+=======
+
+    // Inside your uploadFile method after uploading the file
+    private void uploadFile(Uri fileUri, String storagePath, String firestoreCollection) {
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         if (fileUri != null) {
             progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
             String fileName = UUID.randomUUID().toString();
+<<<<<<< HEAD
             String fileExtension = getFileExtension(fileUri);
 
             boolean isExtensionAllowed = false;
@@ -119,6 +209,9 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                 return;
             }
 
+=======
+            // Update the path to upload files to the specified storagePath
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
             StorageReference fileRef = storageReference.child(storagePath + fileName);
 
             fileRef.putFile(fileUri)
@@ -126,8 +219,15 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                         progressDialog.dismiss();
                         showToast("File uploaded successfully");
 
+<<<<<<< HEAD
                         fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
                             String fileUrl = uri.toString();
+=======
+                        // Retrieve the download URL after successful upload
+                        fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                            String fileUrl = uri.toString();
+                            // Save fileUrl to Firestore or another database
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
                             saveFileUrlToFirestore(fileUrl, firestoreCollection);
                         });
                     })
@@ -142,6 +242,7 @@ public class TeacherForm3Uploads extends AppCompatActivity {
         }
     }
 
+<<<<<<< HEAD
     private String getFileExtension(Uri uri) {
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
@@ -149,11 +250,19 @@ public class TeacherForm3Uploads extends AppCompatActivity {
     }
 
     private void saveFileUrlToFirestore(String fileUrl, String firestoreCollection) {
+=======
+    // Method to save the file URL to Firestore
+    private void saveFileUrlToFirestore(String fileUrl) {
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> fileData = new HashMap<>();
         fileData.put("fileUrl", fileUrl);
 
+<<<<<<< HEAD
         db.collection(firestoreCollection)
+=======
+        db.collection("files")
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
                 .add(fileData)
                 .addOnSuccessListener(documentReference -> {
                     Log.d(TAG, "File URL added with ID: " + documentReference.getId());
@@ -167,6 +276,7 @@ public class TeacherForm3Uploads extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
+<<<<<<< HEAD
 
     @Override
     public void onBackPressed() {
@@ -174,4 +284,13 @@ public class TeacherForm3Uploads extends AppCompatActivity {
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
+=======
+//    @Override
+//    public void onBackPressed() {
+//        // Handle the back button action
+//        super.onBackPressed();
+//        // You can also add custom logic here if needed
+//    }
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 }

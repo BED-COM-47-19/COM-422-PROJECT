@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+<<<<<<< HEAD
     android:layout_height="50dp"
     android:orientation="vertical"
     android:layout_marginTop="40dp"
+=======
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:textAlignment="center"
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
     android:padding="16dp">
 
     <TextView
         android:id="@+id/textViewAudioTitle"
+<<<<<<< HEAD
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="25sp"
@@ -17,20 +24,46 @@
         android:textColorLink="@color/white"
         android:backgroundTint="@color/item_color"
         android:textColor="@android:color/white" />
+=======
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="100dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:text="AUDIO TITLE"
+        android:textAlignment="center"/>
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
     <TextView
         android:id="@+id/textViewAudioDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:textSize="25sp"
         android:textColor="@android:color/darker_gray"
         android:layout_marginBottom="8dp" />
+=======
+        android:text="Description"
+        android:padding="8dp"
+        android:textSize="14sp" />
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
     <TextView
         android:id="@+id/textViewAudioLength"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:textSize="25sp"
         android:textColor="@android:color/darker_gray" />
+=======
+        android:text="Length"
+        android:padding="8dp"
+        android:textSize="14sp" />
+
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
 </LinearLayout>

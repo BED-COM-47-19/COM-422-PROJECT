@@ -11,6 +11,10 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
