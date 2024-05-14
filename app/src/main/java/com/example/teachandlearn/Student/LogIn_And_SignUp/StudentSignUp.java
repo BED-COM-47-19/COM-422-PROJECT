@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
@@ -13,20 +14,10 @@ import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
-
 public class StudentSignUp extends AppCompatActivity {
 
     private DatabaseReference databaseReference; // Firebase database reference
-<<<<<<< HEAD
     private Button buttonBack;
-=======
-<<<<<<< HEAD
-    private Button buttonBack;
-=======
-    private ImageButton buttonBack;
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
     private Button buttonContinue;
 
@@ -43,14 +34,7 @@ public class StudentSignUp extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
         buttonContinue = findViewById(R.id.buttonContinue);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         buttonBack = findViewById(R.id.back_button);
 
         buttonContinue.setOnClickListener(new View.OnClickListener() {

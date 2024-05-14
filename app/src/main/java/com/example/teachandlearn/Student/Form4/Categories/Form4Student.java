@@ -1,15 +1,5 @@
-<<<<<<< HEAD
 package com.example.teachandlearn.Student.Form4.Categories;
 
-=======
-<<<<<<< HEAD
-package com.example.teachandlearn.Student.Form4.Categories;
-
-=======
-
-package com.example.teachandlearn.Student.Form4.Categories;
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,17 +10,8 @@ import com.example.teachandlearn.R;
 
 public class Form4Student extends AppCompatActivity {
 
-<<<<<<< HEAD
     private Button buttonBack;
 
-=======
-<<<<<<< HEAD
-    private Button buttonBack;
-
-=======
-//    private ImageButton buttonBack;
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,15 +21,7 @@ public class Form4Student extends AppCompatActivity {
         Button buttonScience = findViewById(R.id.activity_form4_science);
         Button buttonHumanities = findViewById(R.id.activity_form4_humanities);
         Button buttonLanguages = findViewById(R.id.activity_form4_languages);
-<<<<<<< HEAD
         buttonBack = findViewById(R.id.back_button);
-=======
-<<<<<<< HEAD
-        buttonBack = findViewById(R.id.back_button);
-=======
-//        buttonBack = findViewById(R.id.back_button);
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {
@@ -80,10 +53,6 @@ public class Form4Student extends AppCompatActivity {
             }
         });
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,18 +60,6 @@ public class Form4Student extends AppCompatActivity {
                 onBackPressed();
             }
         });
-<<<<<<< HEAD
-=======
-=======
-//        buttonBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Logic for when the back button is pressed
-//                onBackPressed();
-//            }
-//        });
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
     }
 
@@ -111,26 +68,11 @@ public class Form4Student extends AppCompatActivity {
         Toast.makeText(Form4Student.this, message, Toast.LENGTH_SHORT).show();
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     @Override
     public void onBackPressed() {
         // Handle the back button action
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
-<<<<<<< HEAD
-=======
-=======
-//    @Override
-//    public void onBackPressed() {
-//        // Handle the back button action
-//        super.onBackPressed();
-//        // You can also add custom logic here if needed
-//    }
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
 }

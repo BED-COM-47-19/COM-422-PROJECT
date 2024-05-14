@@ -16,14 +16,7 @@ import com.example.teachandlearn.Teacher.Form1.Uploads.TeacherForm1Uploads;
 
 
 public class TeacherForm1Humanities extends AppCompatActivity {
-<<<<<<< HEAD
     private Button buttonBack;
-=======
-<<<<<<< HEAD
-    private Button buttonBack;
-=======
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
 
     @Override
@@ -38,23 +31,12 @@ public class TeacherForm1Humanities extends AppCompatActivity {
         Button buttonBibleKnowledge = findViewById(R.id.buttonBibleKnowledge);
         Button buttonGeography = findViewById(R.id.buttonGeography);
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         Button buttonSmallSocialStudies = findViewById(R.id.buttonSmallSocialStudies);
         Button buttonSmallLifeSkills = findViewById(R.id.buttonSmallLifeSkills);
         Button buttonSmallHistory = findViewById(R.id.buttonSmallHistory);
         Button buttonSmallBibleKnowledge = findViewById(R.id.buttonSmallBibleKnowledge);
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         buttonBack = findViewById(R.id.back_button);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,11 +47,6 @@ public class TeacherForm1Humanities extends AppCompatActivity {
         });
 
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         // Set click listeners for each button
         buttonSocialStudies.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,10 +123,6 @@ public class TeacherForm1Humanities extends AppCompatActivity {
         Intent intent = new Intent(TeacherForm1Humanities.this, TeacherForm1Uploads.class);
         startActivity(intent);
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
     @Override
     public void onBackPressed() {
@@ -157,17 +130,4 @@ public class TeacherForm1Humanities extends AppCompatActivity {
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
-<<<<<<< HEAD
-=======
-=======
-//
-//    @Override
-//    public void onBackPressed() {
-//        // Handle the back button action
-//        super.onBackPressed();
-//        // You can also add custom logic here if needed
-//    }
-//
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 }

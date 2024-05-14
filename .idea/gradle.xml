@@ -4,14 +4,6 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-<<<<<<< HEAD
-=======
-        <option name="testRunner" value="GRADLE" />
-<<<<<<< HEAD
-=======
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
@@ -20,16 +12,8 @@
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
-<<<<<<< HEAD
         <option name="resolveExternalAnnotations" value="false" />
-=======
-<<<<<<< HEAD
-        <option name="resolveExternalAnnotations" value="false" />
-=======
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
       </GradleProjectSettings>
     </option>
-    <option name="offlineMode" value="true" />
   </component>
 </project>

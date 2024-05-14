@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,41 +5,14 @@
     android:screenOrientation="portrait"
     android:padding="16dp"
     android:background="@color/white">
-=======
-<<<<<<< HEAD
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:screenOrientation="portrait"
-    android:padding="16dp"
-    android:background="@color/white">
-=======
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="700dp"
-    android:columnCount="1"
-    android:rowCount="6"
-    android:background="@color/white"
-    android:useDefaultMargins="true"
-    android:alignmentMode="alignMargins"
-    android:padding="16dp">
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
     <!-- First Name Input Field -->
     <EditText
         android:id="@+id/editTextFirstName"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         android:layout_width="290dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginStart="40dp"
-<<<<<<< HEAD
-=======
         android:hint="First Name"
         android:inputType="textPersonName"
         android:background="@drawable/edit_text_background"
@@ -57,43 +29,10 @@
         android:hint="Last Name"
         android:inputType="textPersonName"
         android:background="@drawable/edit_text_background"
-=======
-        android:layout_width="305dp"
-        android:layout_height="55dp"
-        android:layout_below="@id/editTextFirstName"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="40dp"
-        android:autofillHints="first name"
-        android:background="@drawable/edit_text_background"
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
-        android:hint="First Name"
-        android:inputType="textPersonName"
-        android:background="@drawable/edit_text_background"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black" />
-
-    <!-- Last Name Input Field -->
-    <EditText
-        android:id="@+id/editTextLastName"
-        android:layout_width="290dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="40dp"
-        android:hint="Last Name"
-        android:inputType="textPersonName"
-<<<<<<< HEAD
-        android:background="@drawable/edit_text_background"
-=======
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         android:textColor="@color/black"
         android:textColorHint="@color/black" />
 
     <!-- Email Input Field -->
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="290dp"
@@ -118,89 +57,29 @@
         android:background="@drawable/edit_text_background"
         android:textColor="@color/black"
         android:textColorHint="@color/black" />
-=======
-
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
-    <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="290dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="40dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:background="@drawable/edit_text_background"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black" />
-
-    <!-- Password Input Field -->
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="290dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="40dp"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:background="@drawable/edit_text_background"
-        android:textColor="@color/black"
-<<<<<<< HEAD
-        android:textColorHint="@color/black" />
-=======
-        android:textColorHint="@color/black" />  <!-- Reference to the edit text background drawable -->
-
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
     <!-- Confirm Password Input Field -->
     <EditText
         android:id="@+id/editTextConfirmPassword"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         android:layout_width="290dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:layout_marginStart="40dp"
         android:hint="Confirm Password"
-<<<<<<< HEAD
         android:inputType="textPassword"
         android:background="@drawable/edit_text_background"
-=======
-        android:inputType="textPassword"
-        android:background="@drawable/edit_text_background"
-=======
-        android:layout_width="305dp"
-        android:layout_height="55dp"
-        android:layout_below="@id/editTextPassword"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="10dp"
-        android:autofillHints="ConfirmPassword"
-        android:background="@drawable/edit_text_background"
-        android:hint="ConfirmPassword"
-        android:inputType="textPassword"
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         android:textColor="@color/black"
         android:textColorHint="@color/black" />
 
     <!-- Continue Button -->
     <Button
         android:id="@+id/buttonContinue"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginTop="60dp"
         android:layout_marginStart="80dp"
         android:layout_marginEnd="50dp"
-<<<<<<< HEAD
-=======
         android:background="@drawable/signin_login_round_boutton"
         android:text="CONTINUE"
         android:textColor="@color/white"
@@ -220,40 +99,3 @@
         android:textSize="20sp" />
 
 </LinearLayout>
-=======
-        android:layout_width="110dp"
-        android:layout_height="38dp"
-        android:layout_below="@id/buttonContinue"
-        android:layout_marginStart="200dp"
-        android:layout_marginLeft="-300dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="60dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
-        android:background="@drawable/signin_login_round_boutton"
-        android:text="CONTINUE"
-        android:textColor="@color/white"
-        android:textSize="13sp"
-        android:textStyle="bold" />
-
-    <!-- Back Button -->
-    <Button
-        android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginTop="-40dp"
-        android:background="@drawable/back_button_rounderd"
-        android:text="BACK"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
-
-<<<<<<< HEAD
-</LinearLayout>
-=======
-</GridLayout>
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945

@@ -84,25 +84,13 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="60dp"
         android:layout_marginRight="90dp"
-<<<<<<< HEAD
         android:layout_marginBottom="-30dp"
-=======
-<<<<<<< HEAD
-        android:layout_marginBottom="-30dp"
-=======
-        android:layout_marginBottom="10dp"
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         android:textColor="@color/white"
         android:textStyle="bold"
         android:background="@drawable/signin_login_round_boutton"
         android:text="LOG OUT" />
 
 
-<<<<<<< HEAD
-    <Button
-=======
-<<<<<<< HEAD
     <Button
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
@@ -115,22 +103,5 @@
         android:textSize="20sp" />
 
 
-=======
-
-
-    <ImageButton
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
-        android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginTop="-20dp"
-        android:background="@drawable/back_button_rounderd"
-        android:text="BACK"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
-
-
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
 
 </GridLayout>

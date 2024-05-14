@@ -15,15 +15,7 @@ import com.example.teachandlearn.R;
 
 public class Form3ScienceScience extends AppCompatActivity {
 
-<<<<<<< HEAD
     private Button buttonBack;
-=======
-<<<<<<< HEAD
-    private Button buttonBack;
-=======
-//    private ImageButton buttonBack;
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +34,6 @@ public class Form3ScienceScience extends AppCompatActivity {
         Button buttonSmallPhysics = findViewById(R.id.buttonSmallPhysics);
         Button buttonSmallChemistry = findViewById(R.id.buttonSmallChemistry);
         Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         buttonBack = findViewById(R.id.back_button);
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -55,12 +43,6 @@ public class Form3ScienceScience extends AppCompatActivity {
                 onBackPressed();
             }
         });
-<<<<<<< HEAD
-=======
-=======
-
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         // Set click listeners for each button
         buttonMathematics.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,20 +132,11 @@ public class Form3ScienceScience extends AppCompatActivity {
         startActivity(intent);
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     @Override
     public void onBackPressed() {
         // Handle the back button action
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
 }

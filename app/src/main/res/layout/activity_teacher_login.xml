@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:screenOrientation="portrait"
-    android:padding="5dp"
+    android:padding="1dp"
     android:background="#FBF9F9">
 
     <ImageView
@@ -20,10 +20,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
-        android:text="STUDENT"
+        android:text="TEACHER"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="#120C0C" /> <!-- White text color -->
+        android:textColor="#120C0C" />
 
     <!-- Email Field -->
     <TextView
@@ -68,27 +68,16 @@
         android:autofillHints="password"
         android:inputType="textPassword"
         android:textColor="@color/black"
-        android:textColorHint="@color/black" /> <!-- Reference to the edit text background drawable -->
+        android:textColorHint="@color/black" />
 
-    <!-- Reference to the button background drawable -->
 
     <Button
         android:id="@+id/buttonLogIn"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-<<<<<<< HEAD
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="26dp"
-        android:layout_marginLeft="40dp"
-=======
-        android:layout_below="@id/editTextPassword"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="32dp"
-<<<<<<< HEAD
-        android:textColor="@color/white"
-=======
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
+        android:layout_marginLeft="-120dp"
         android:background="@drawable/signin_login_round_boutton"
         android:text="LOG IN"
         android:textColor="@color/white"
@@ -99,22 +88,9 @@
         android:id="@+id/buttonSignIn"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-<<<<<<< HEAD
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="-35dp"
+        android:layout_marginTop="-460dp"
         android:layout_marginLeft="120dp"
-=======
-        android:layout_below="@id/buttonLogIn"
-        android:layout_marginStart="230dp"
-        android:layout_marginLeft="-200dp"
-        android:layout_marginTop="-36dp"
-        android:layout_marginRight="180dp"
-        android:layout_marginBottom="60dp"
-<<<<<<< HEAD
-        android:textColor="@color/white"
-=======
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         android:background="@drawable/signin_login_round_boutton"
         android:text="SIGN UP"
         android:textColor="@color/white"
@@ -125,8 +101,9 @@
         android:id="@+id/textViewForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:layout_marginTop="-140dp"
-        android:layout_marginLeft="240dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="285dp"
+        android:layout_marginLeft="100dp"
         android:text="Forget Password ?"
         android:textStyle="bold"
         android:textColor="@color/english_button_color"
@@ -136,49 +113,23 @@
         android:id="@+id/textViewContinueWithGoogle"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginLeft="-15dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="85dp"
+        android:layout_marginLeft="235dp"
         android:text="Continue with Google"
         android:textStyle="bold"
         android:textColor="@color/english_button_color"
         android:textSize="16sp" />
 
-<<<<<<< HEAD
     <Button
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_gravity="start"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="120dp"
         android:layout_marginLeft="20dp"
         android:background="@drawable/back_button_rounderd"
         android:text="BACK"
         android:textColor="@color/white"
         android:textSize="20sp" />
-=======
-<<<<<<< HEAD
-    <Button
-        android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginTop="580dp"
-        android:background="@drawable/back_button_rounderd"
-        android:text="BACK"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
-=======
-    <ImageButton
-        android:id="@+id/back_button"
-        android:layout_width="56dp"
-        android:layout_height="59dp"
-        android:layout_marginLeft="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="16dp"
-        android:contentDescription="@string/back"
-        android:src="@drawable/back_arrow" />
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
 </LinearLayout>

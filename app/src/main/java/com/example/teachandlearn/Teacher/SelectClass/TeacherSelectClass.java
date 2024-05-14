@@ -16,15 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class TeacherSelectClass extends AppCompatActivity {
 
-<<<<<<< HEAD
     private Button buttonBack;
-=======
-<<<<<<< HEAD
-    private Button buttonBack;
-=======
-    private ImageButton buttonBack;
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
 
     @Override
@@ -38,14 +30,7 @@ public class TeacherSelectClass extends AppCompatActivity {
         Button buttonForm3 = findViewById(R.id.button_form3);
         Button buttonForm4 = findViewById(R.id.button_form4);
         Button logOutButton = findViewById(R.id.log_out_button);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         buttonBack = findViewById(R.id.back_button);
 
 

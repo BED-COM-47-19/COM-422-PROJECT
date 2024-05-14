@@ -1,17 +1,6 @@
-<<<<<<< HEAD
 
 
 package com.example.teachandlearn.Student.Form1.Documents;
-=======
-<<<<<<< HEAD
-
-
-package com.example.teachandlearn.Student.Form1.Documents;
-=======
-package com.example.teachandlearn.Student.Form1.Documents;
-
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,51 +11,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 import java.util.ArrayList;
 import java.util.List;
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
 
-
-
 public class Form1Audio extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-
     private AudioAdapter adapter;
-
     private MediaPlayer mediaPlayer;
 
     private ChatGPTService chatGPTService;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,8 +49,6 @@ public class Form1Audio extends AppCompatActivity {
 
 
     private void fetchAudios() {
-
-
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef;
 
@@ -233,44 +194,7 @@ public class Form1Audio extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull AudioViewHolder holder, int position) {
             AudioItem audio = audioList.get(position);
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-            // Bind audio data to views
-            holder.textViewTitle.setText(audio.getTitle());
-            holder.textViewDescription.setText(audio.getDescription());
-            holder.textViewLength.setText(audio.getLength());
-
-            // Set click listener to play audio when clicked
-            holder.itemView.setOnClickListener(v -> {
-                // Stop any previous playback
-                if (mediaPlayer.isPlaying()) {
-                    mediaPlayer.stop();
-                    mediaPlayer.reset();
-                }
-
-                try {
-                    // Set the data source to the Firebase Storage URL
-                    mediaPlayer.setDataSource(audio.getFilePath());
-                    // Prepare the media player asynchronously
-                    mediaPlayer.prepareAsync();
-                    // Set a listener for when preparation is done
-                    mediaPlayer.setOnPreparedListener(mp -> {
-                        // Start playback
-                        mp.start();
-                    });
-                } catch (Exception e) {
-                    Log.e("AudioAdapter", "Error playing audio", e);
-                    Toast.makeText(holder.itemView.getContext(), "Error playing audio", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-
-
-=======
->>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
             // Bind audio data to views
             holder.textViewTitle.setText(audio.getTitle());
             holder.textViewDescription.setText(audio.getDescription());
@@ -322,7 +246,6 @@ public class Form1Audio extends AppCompatActivity {
             });
         }
 
->>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
         @Override
         public int getItemCount() {
             return audioList.size();
