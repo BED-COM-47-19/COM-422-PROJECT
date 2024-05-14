@@ -23,13 +23,18 @@ import java.util.ArrayList;
 import java.util.List;
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
 
+
+
 public class Form1Audio extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+
     private AudioAdapter adapter;
+
     private MediaPlayer mediaPlayer;
 
     private ChatGPTService chatGPTService;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,8 @@ public class Form1Audio extends AppCompatActivity {
 
 
     private void fetchAudios() {
+
+
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef;
 
