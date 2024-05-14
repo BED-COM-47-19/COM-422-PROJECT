@@ -15,7 +15,15 @@ import com.example.teachandlearn.R;
 
 public class Form2LanguagesStudent extends AppCompatActivity {
 
+<<<<<<< HEAD
     private Button buttonBack;
+=======
+<<<<<<< HEAD
+    private Button buttonBack;
+=======
+//    private ImageButton buttonBack;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +37,15 @@ public class Form2LanguagesStudent extends AppCompatActivity {
         Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
+<<<<<<< HEAD
         buttonBack = findViewById(R.id.back_button);
+=======
+<<<<<<< HEAD
+        buttonBack = findViewById(R.id.back_button);
+=======
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         // Set click listeners for each button
         buttonEnglish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,11 +97,26 @@ public class Form2LanguagesStudent extends AppCompatActivity {
         startActivity(intent);
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     @Override
     public void onBackPressed() {
         // Handle the back button action
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
+<<<<<<< HEAD
+=======
+=======
+//    @Override
+//    public void onBackPressed() {
+//        // Handle the back button action
+//        super.onBackPressed();
+//        // You can also add custom logic here if needed
+//    }
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
 }

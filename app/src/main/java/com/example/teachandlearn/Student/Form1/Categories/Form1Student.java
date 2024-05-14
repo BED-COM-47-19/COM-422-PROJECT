@@ -3,13 +3,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import android.widget.ImageButton;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 
 public class Form1Student extends AppCompatActivity {
 
+<<<<<<< HEAD
     private Button buttonBack;
+=======
+<<<<<<< HEAD
+    private Button buttonBack;
+=======
+    private ImageButton buttonBack;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +72,13 @@ public class Form1Student extends AppCompatActivity {
                 onBackPressed();
             }
         });
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     }
 
     // Helper method to show toast message

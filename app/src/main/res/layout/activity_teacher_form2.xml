@@ -1,17 +1,46 @@
+<<<<<<< HEAD
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<<<<<<< HEAD
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
     android:background="@color/white">
+=======
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+<<<<<<< HEAD
+    android:background="@color/white">
+=======
+    android:background="@color/white"
+    android:alignmentMode="alignMargins"
+    android:useDefaultMargins="true">
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
     <!-- Title TextView -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+<<<<<<< HEAD
         android:layout_marginTop="40dp"
         android:layout_marginBottom="40dp"
+=======
+<<<<<<< HEAD
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+=======
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp"
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         android:text="SUBJECT CATEGORIES"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -19,6 +48,10 @@
         android:textStyle="bold" />
 
     <!-- Item 1 -->
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,6 +70,8 @@
             android:textStyle="bold" />
 
     </FrameLayout>
+<<<<<<< HEAD
+=======
 
     <!-- Item 2 -->
     <FrameLayout
@@ -92,3 +127,80 @@
         android:textSize="20dp" />
 
 </LinearLayout>
+=======
+    <Button
+        android:id="@+id/activity_teacher_form2_science"
+        android:layout_width="270dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="-440dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:background="@drawable/sciences_background"
+        android:text="SCIENCES" />
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
+
+    <!-- Item 2 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp">
+
+        <Button
+            android:id="@+id/activity_teacher_form2_humanities"
+            android:layout_width="264dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/humanities_background"
+            android:text="HUMANITIES"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+    <!-- Item 3 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp">
+
+        <Button
+            android:id="@+id/activity_teacher_form2_languages"
+            android:layout_width="260dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/languages_background"
+            android:text="LANGUAGES"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginBottom="1dp"
+        android:text="BACK"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/white"
+        android:background="@drawable/back_button_rounderd"
+        android:textSize="20dp" />
+
+<<<<<<< HEAD
+</LinearLayout>
+=======
+
+
+</GridLayout>
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945

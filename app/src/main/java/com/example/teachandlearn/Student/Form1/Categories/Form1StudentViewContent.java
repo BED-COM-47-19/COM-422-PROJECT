@@ -13,7 +13,14 @@ import com.example.teachandlearn.Student.Form1.Documents.Form1QuizzesAndQuestion
 import com.example.teachandlearn.Student.Form1.Documents.Form1Videos;
 
 public class Form1StudentViewContent extends AppCompatActivity {
+<<<<<<< HEAD
     private Button buttonBack;
+=======
+<<<<<<< HEAD
+    private Button buttonBack;
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +32,15 @@ public class Form1StudentViewContent extends AppCompatActivity {
         Button buttonAudio = findViewById(R.id.button_audio);
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
+<<<<<<< HEAD
         buttonBack = findViewById(R.id.back_button);
+=======
+<<<<<<< HEAD
+        buttonBack = findViewById(R.id.back_button);
+=======
+        Button buttonBack = findViewById(R.id.button_back); // Find the back button
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
         // Set click listeners for each button
         buttonPDF.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +75,10 @@ public class Form1StudentViewContent extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,4 +97,28 @@ public class Form1StudentViewContent extends AppCompatActivity {
         // You can also add custom logic here if needed
     }
 
+=======
+        // Set click listener for the back button
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
+
+    }
+<<<<<<< HEAD
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
+
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 }

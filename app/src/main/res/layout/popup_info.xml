@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     xmlns:app="http://schemas.android.com/apk/res-auto"
+=======
+<<<<<<< HEAD
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     android:id="@+id/textViewPopupInfo"
     android:layout_width="360dp"
     android:layout_height="200dp"
     android:layout_marginTop="10dp"
     android:layout_marginRight="100dp"
     android:layout_marginLeft="20dp"
+<<<<<<< HEAD
     android:background="@drawable/pop_up_rounded"
+=======
+<<<<<<< HEAD
+    android:background="@drawable/pop_up_rounded"
+=======
+    android:background="@color/black"
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     android:padding="10dp"
     android:textStyle="bold"
     android:textColor="#F7F6F0F0"

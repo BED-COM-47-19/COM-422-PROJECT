@@ -17,7 +17,15 @@ import com.example.teachandlearn.Teacher.Form3.Uploads.TeacherForm3Uploads;
 
 public class TeacherForm3Science extends AppCompatActivity {
 
+<<<<<<< HEAD
    private Button buttonBack;
+=======
+<<<<<<< HEAD
+   private Button buttonBack;
+=======
+//    private ImageButton buttonBack;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +44,10 @@ public class TeacherForm3Science extends AppCompatActivity {
         Button buttonSmallPhysics = findViewById(R.id.buttonSmallPhysics);
         Button buttonSmallChemistry = findViewById(R.id.buttonSmallChemistry);
         Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
         buttonBack = findViewById(R.id.back_button);
 
@@ -47,6 +59,11 @@ public class TeacherForm3Science extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         // Set click listeners for each button
 
         // Set click listeners for each button
@@ -140,6 +157,10 @@ public class TeacherForm3Science extends AppCompatActivity {
         startActivity(intent);
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
     @Override
     public void onBackPressed() {
@@ -147,4 +168,9 @@ public class TeacherForm3Science extends AppCompatActivity {
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 }

@@ -3,7 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp"
+<<<<<<< HEAD
     android:background="@color/white"
+=======
+<<<<<<< HEAD
+    android:background="@color/white"
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     android:layout_marginTop="20dp"
     android:orientation="horizontal">
 
@@ -12,7 +19,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+<<<<<<< HEAD
         android:background="@color/white"
+=======
+<<<<<<< HEAD
+        android:background="@color/white"
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         android:layout_marginLeft="140dp"
         android:textColor="@color/black"
         android:textStyle="bold"

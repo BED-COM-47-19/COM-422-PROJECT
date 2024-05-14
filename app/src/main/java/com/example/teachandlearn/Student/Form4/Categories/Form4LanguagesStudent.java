@@ -15,7 +15,15 @@ import com.example.teachandlearn.R;
 
 public class Form4LanguagesStudent extends AppCompatActivity {
 
+<<<<<<< HEAD
     private Button buttonBack;
+=======
+<<<<<<< HEAD
+    private Button buttonBack;
+=======
+//    private ImageButton buttonBack;
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +37,10 @@ public class Form4LanguagesStudent extends AppCompatActivity {
         Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
         buttonBack = findViewById(R.id.back_button);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +49,11 @@ public class Form4LanguagesStudent extends AppCompatActivity {
                 onBackPressed();
             }
         });
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
         // Set click listeners for each button
         buttonEnglish.setOnClickListener(new View.OnClickListener() {
@@ -89,12 +106,22 @@ public class Form4LanguagesStudent extends AppCompatActivity {
         Intent intent = new Intent(Form4LanguagesStudent.this, Form4StudentViewContent.class);
         startActivity(intent);
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
     @Override
     public void onBackPressed() {
         // Handle the back button action
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
 
 }

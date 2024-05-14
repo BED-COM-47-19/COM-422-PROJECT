@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<<<<<<< HEAD
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,10 +11,31 @@
     android:screenOrientation="portrait"
     android:padding="30dp"
     android:weightSum="1">
+=======
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+<<<<<<< HEAD
+    android:columnOrderPreserved="false"
+    android:orientation="vertical"
+    android:screenOrientation="portrait"
+    android:padding="30dp"
+    android:weightSum="1">
+=======
+    android:alignmentMode="alignMargins"
+    android:columnOrderPreserved="false">
+
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
@@ -161,3 +186,160 @@
 
 
 </LinearLayout>
+=======
+        android:layout_columnSpan="2"
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="0.05"
+        android:text="TEACHER UPLOADS"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="15dp"
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/button_pdf"
+                android:layout_width="match_parent"
+                android:layout_height="134dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="#00897B"
+                android:text="PDF"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+        </FrameLayout>
+
+
+<<<<<<< HEAD
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/button_audio"
+                android:layout_width="match_parent"
+                android:layout_height="134dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="#5a5acb"
+                android:text="AUDIO"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+        </FrameLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="-35dp"
+        android:layout_weight="0.4"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/button_videos"
+                android:layout_width="match_parent"
+                android:layout_height="134dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="#c855d3"
+                android:text="VIDEOS"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/button_tests_quizzes"
+                android:layout_width="match_parent"
+                android:layout_height="134dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="#4a6d2f"
+                android:textColor="@color/white"
+                android:text="TESTS AND QUIZZES"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+
+        </FrameLayout>
+
+
+
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="15dp"
+        android:layout_weight="0.2">
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_weight="0.2"
+            android:background="@drawable/back_button_rounderd"
+            android:text="BACK"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+    </FrameLayout>
+
+
+</LinearLayout>
+=======
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945

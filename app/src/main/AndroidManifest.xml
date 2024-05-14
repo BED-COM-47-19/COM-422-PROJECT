@@ -10,6 +10,23 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+=======
+<<<<<<< HEAD
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+=======
+>>>>>>> b749537f995e5933ebcab340fa2d4ac30513b319
+>>>>>>> 1384ace04ec8cbc5b02ee7f22b9b2443aea204f5
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
 
     <application
         android:allowBackup="true"

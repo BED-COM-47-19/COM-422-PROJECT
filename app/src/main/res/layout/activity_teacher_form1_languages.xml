@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<<<<<<< HEAD
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -115,3 +119,127 @@
 
 </LinearLayout>
 
+=======
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:columnOrderPreserved="false"
+    android:orientation="vertical"
+    android:screenOrientation="portrait"
+    android:padding="30dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="0.0"
+        android:text="LANGUAGES SUBJECTS"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="-25dp"
+        android:layout_marginBottom="340dp"
+        android:layout_weight="0.002"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <!-- Social Studies Button with small corner button adjusted -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="15dp"
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/buttonEnglish"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="@color/english_button_color"
+                android:drawableEnd="@drawable/ic_english"
+                android:text="ENGLISH"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buttonSmallEnglish"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/oval_cirlce"
+                android:text="¡"
+                android:textColor="@android:color/white" />
+        </FrameLayout>
+
+        <!-- Life Skills Button with small co rner button adjusted -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/buttonChichewa"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="@color/chichewa_button_color"
+                android:drawableEnd="@drawable/ic_chichewa"
+                android:text="CHICHEWA"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buttonSmallChichewa"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/oval_cirlce"
+                android:text="¡"
+                android:textColor="@android:color/white" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginTop="-0dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/back_button_rounderd"
+        android:text="BACK"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+</LinearLayout>
+
+<<<<<<< HEAD
+=======
+</GridLayout>
+>>>>>>> c06ca37f6b90fd49d15a73383d6b614e132cb81f
+>>>>>>> 478ae2cf83a1416e08dfd8df85fc69d63b4f5945
