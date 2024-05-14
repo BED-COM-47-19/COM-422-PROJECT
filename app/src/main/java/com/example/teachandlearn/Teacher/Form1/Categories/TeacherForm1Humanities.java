@@ -16,6 +16,7 @@ import com.example.teachandlearn.Teacher.Form1.Uploads.TeacherForm1Uploads;
 
 
 public class TeacherForm1Humanities extends AppCompatActivity {
+    private Button buttonBack;
 
 
     @Override
@@ -30,12 +31,21 @@ public class TeacherForm1Humanities extends AppCompatActivity {
         Button buttonBibleKnowledge = findViewById(R.id.buttonBibleKnowledge);
         Button buttonGeography = findViewById(R.id.buttonGeography);
 
-
         Button buttonSmallSocialStudies = findViewById(R.id.buttonSmallSocialStudies);
         Button buttonSmallLifeSkills = findViewById(R.id.buttonSmallLifeSkills);
         Button buttonSmallHistory = findViewById(R.id.buttonSmallHistory);
         Button buttonSmallBibleKnowledge = findViewById(R.id.buttonSmallBibleKnowledge);
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
+
+        buttonBack = findViewById(R.id.back_button);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
+
 
         // Set click listeners for each button
         buttonSocialStudies.setOnClickListener(new View.OnClickListener() {
@@ -113,12 +123,11 @@ public class TeacherForm1Humanities extends AppCompatActivity {
         Intent intent = new Intent(TeacherForm1Humanities.this, TeacherForm1Uploads.class);
         startActivity(intent);
     }
-//
-//    @Override
-//    public void onBackPressed() {
-//        // Handle the back button action
-//        super.onBackPressed();
-//        // You can also add custom logic here if needed
-//    }
-//
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
 }

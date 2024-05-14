@@ -5,9 +5,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.view.WindowManager;
-import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +14,7 @@ import com.example.teachandlearn.R;
 
 public class Form1SciencesStudent extends AppCompatActivity {
 
+    private Button buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +34,14 @@ public class Form1SciencesStudent extends AppCompatActivity {
         Button buttonSmallChemistry = findViewById(R.id.buttonSmallChemistry);
         Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
 
+        buttonBack = findViewById(R.id.back_button);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
 
 
         // Set click listeners for each button
@@ -100,7 +107,12 @@ public class Form1SciencesStudent extends AppCompatActivity {
         Intent intent = new Intent(Form1SciencesStudent.this, Form1StudentViewContent.class);
         startActivity(intent);
     }
-
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
 
 
 }

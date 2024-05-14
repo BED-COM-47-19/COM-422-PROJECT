@@ -50,7 +50,32 @@ public class Form3QuizzesAndQuestions extends AppCompatActivity {
 
     private void loadPDFsFromStorage() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("form3/quizzes_and_questions/");
+        StorageReference storageRef;
+
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/humanities/geography/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/humanities/history/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/humanities/life_skills/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/humanities/social_studies/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/languages/english/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/languages/chichewa/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/sciences/agriculture/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/sciences/biology/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/sciences/chemistry/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/sciences/mathematics/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/sciences/physics/quizzes_and_questions/");
+
+
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
             if (listResult.getItems().isEmpty()) {

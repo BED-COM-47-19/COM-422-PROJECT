@@ -17,7 +17,7 @@ import com.example.teachandlearn.Teacher.Form3.Uploads.TeacherForm3Uploads;
 
 public class TeacherForm3Languages extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
+   private Button buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +31,15 @@ public class TeacherForm3Languages extends AppCompatActivity {
         Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
+        buttonBack = findViewById(R.id.back_button);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
         // Set click listeners for each button
         buttonEnglish.setOnClickListener(new View.OnClickListener() {
             @Override

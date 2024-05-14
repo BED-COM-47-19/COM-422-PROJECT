@@ -3,6 +3,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:columnOrderPreserved="false"
+    android:screenOrientation="portrait"
     android:orientation="vertical"
     android:padding="30dp">
 
@@ -18,6 +19,7 @@
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -227,10 +229,23 @@
                 android:text="¡"
                 android:textColor="@android:color/white" />
 
+
         </FrameLayout>
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginBottom="-60dp"
+        android:text="BACK"
+        android:layout_marginTop="-0dp"
+        android:textColor="@color/white"
+        android:background="@drawable/back_button_rounderd"
+        android:textSize="20dp" />
 
 
 </LinearLayout>

@@ -17,7 +17,7 @@ import com.example.teachandlearn.Teacher.Form1.Uploads.TeacherForm1Uploads;
 
 public class TeacherForm1Science extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
+   private Button buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +36,17 @@ public class TeacherForm1Science extends AppCompatActivity {
         Button buttonSmallPhysics = findViewById(R.id.buttonSmallPhysics);
         Button buttonSmallChemistry = findViewById(R.id.buttonSmallChemistry);
         Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
+
+        buttonBack = findViewById(R.id.back_button);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
+
 
         // Set click listeners for each button
         buttonMathematics.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +137,12 @@ public class TeacherForm1Science extends AppCompatActivity {
         Intent intent = new Intent(TeacherForm1Science.this, TeacherForm1Uploads.class);
         startActivity(intent);
     }
-
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
 
 
 }

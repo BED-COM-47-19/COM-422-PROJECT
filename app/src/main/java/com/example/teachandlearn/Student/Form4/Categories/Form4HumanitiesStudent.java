@@ -16,7 +16,7 @@ import com.example.teachandlearn.Student.Form1.Categories.Form1SciencesStudent;
 import com.example.teachandlearn.Student.Form1.Categories.Form1StudentViewContent;
 
 public class Form4HumanitiesStudent extends AppCompatActivity {
-
+    private Button buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,15 @@ public class Form4HumanitiesStudent extends AppCompatActivity {
         Button buttonSmallBibleKnowledge = findViewById(R.id.buttonSmallBibleKnowledge);
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
 
+        buttonBack = findViewById(R.id.back_button);
 
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
 
 
         // Set click listeners for each button
@@ -114,6 +122,13 @@ public class Form4HumanitiesStudent extends AppCompatActivity {
     private void startActivityForContent() {
         Intent intent = new Intent(Form4HumanitiesStudent.this, Form1StudentViewContent.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
     }
 
 }

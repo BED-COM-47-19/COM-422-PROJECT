@@ -14,6 +14,7 @@ import com.example.teachandlearn.R;
 
 public class Form1LanguagesStudent extends AppCompatActivity {
 
+    private Button buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,15 @@ public class Form1LanguagesStudent extends AppCompatActivity {
         Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
+        buttonBack = findViewById(R.id.back_button);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
         // Setup listeners for main subject buttons
         buttonEnglish.setOnClickListener(v -> {
             showToast("English Selected");
@@ -71,6 +81,13 @@ public class Form1LanguagesStudent extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     // Displays a popup with specified text near the anchor view
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
 
 }

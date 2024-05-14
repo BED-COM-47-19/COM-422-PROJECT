@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class TeacherForm2Uploads extends AppCompatActivity {
+    private Button buttonBack;
 
     private static final int REQUEST_PICK_PDF = 1;
     private static final int REQUEST_PICK_AUDIO = 2;
@@ -52,6 +54,17 @@ public class TeacherForm2Uploads extends AppCompatActivity {
         audioButton.setOnClickListener(v -> openFilePicker("audio/*", REQUEST_PICK_AUDIO));
         videoButton.setOnClickListener(v -> openFilePicker("video/*", REQUEST_PICK_VIDEO));
         questionsButton.setOnClickListener(v -> openFilePicker("*/*", REQUEST_PICK_QUESTION));
+
+        buttonBack = findViewById(R.id.back_button);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
+
+
     }
 
     private void openFilePicker(String mimeType, int requestCode) {
@@ -66,24 +79,244 @@ public class TeacherForm2Uploads extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri selectedFileUri = data.getData();
+
+
+            //HUMANITIES SUBJECTS
+
             switch (requestCode) {
                 case REQUEST_PICK_PDF:
-                    uploadFile(selectedFileUri, "form2/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
+                    uploadFile(selectedFileUri, "/form2/humanities/bible_knowledge/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
                     showToast("PDF Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_AUDIO:
-                    uploadFile(selectedFileUri, "form2/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    uploadFile(selectedFileUri, "/form2/humanities/bible_knowledge/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
                     showToast("Audio Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_VIDEO:
-                    uploadFile(selectedFileUri, "form2/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Vedio format.");
+                    uploadFile(selectedFileUri, "/form2/humanities/bible_knowledge/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Video format.");
                     showToast("Video Selected: " + selectedFileUri.toString());
                     break;
                 case REQUEST_PICK_QUESTION:
-                    uploadFile(selectedFileUri, "form2/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
+                    uploadFile(selectedFileUri, "/form2/humanities/bible_knowledge/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
                     break;
             }
+
+            switch (requestCode) {
+                case REQUEST_PICK_PDF:
+                    uploadFile(selectedFileUri, "/form2/humanities/geography/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
+                    showToast("PDF Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_AUDIO:
+                    uploadFile(selectedFileUri, "/form2/humanities/geography/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    showToast("Audio Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_VIDEO:
+                    uploadFile(selectedFileUri, "/form2/humanities/geography/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Video format.");
+                    showToast("Video Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_QUESTION:
+                    uploadFile(selectedFileUri, "/form2/humanities/geography/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
+                    showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+            }
+
+            switch (requestCode) {
+                case REQUEST_PICK_PDF:
+                    uploadFile(selectedFileUri, "/form2/humanities/history/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
+                    showToast("PDF Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_AUDIO:
+                    uploadFile(selectedFileUri, "/form2/humanities/history/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    showToast("Audio Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_VIDEO:
+                    uploadFile(selectedFileUri, "/form2/humanities/history/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Video format.");
+                    showToast("Video Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_QUESTION:
+                    uploadFile(selectedFileUri, "/form2/humanities/history/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
+                    showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+            }
+
+            switch (requestCode) {
+                case REQUEST_PICK_PDF:
+                    uploadFile(selectedFileUri, "/form2/humanities/life_skills/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
+                    showToast("PDF Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_AUDIO:
+                    uploadFile(selectedFileUri, "/form2/humanities/life_skills/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    showToast("Audio Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_VIDEO:
+                    uploadFile(selectedFileUri, "/form2/humanities/life_skills/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Video format.");
+                    showToast("Video Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_QUESTION:
+                    uploadFile(selectedFileUri, "/form2/humanities/life_skills/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
+                    showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+            }
+
+            switch (requestCode) {
+                case REQUEST_PICK_PDF:
+                    uploadFile(selectedFileUri, "/form2/humanities/social_studies/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
+                    showToast("PDF Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_AUDIO:
+                    uploadFile(selectedFileUri, "/form2/humanities/social_studies/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    showToast("Audio Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_VIDEO:
+                    uploadFile(selectedFileUri, "/form2/humanities/social_studies/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Video format.");
+                    showToast("Video Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_QUESTION:
+                    uploadFile(selectedFileUri, "/form2/humanities/social_studies/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
+                    showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+            }
+
+
+            //LANGUAGES SUBJECT
+
+            switch (requestCode) {
+                case REQUEST_PICK_PDF:
+                    uploadFile(selectedFileUri, "/form2/languages/english/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
+                    showToast("PDF Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_AUDIO:
+                    uploadFile(selectedFileUri, "/form2/languages/english/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    showToast("Audio Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_VIDEO:
+                    uploadFile(selectedFileUri, "/form2/languages/english/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Video format.");
+                    showToast("Video Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_QUESTION:
+                    uploadFile(selectedFileUri, "/form2/languages/english/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
+                    showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+            }
+
+            switch (requestCode) {
+                case REQUEST_PICK_PDF:
+                    uploadFile(selectedFileUri, "/form2/languages/chichewa/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
+                    showToast("PDF Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_AUDIO:
+                    uploadFile(selectedFileUri, "/form2/languages/chichewa/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    showToast("Audio Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_VIDEO:
+                    uploadFile(selectedFileUri, "/form2/languages/chichewa/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Video format.");
+                    showToast("Video Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_QUESTION:
+                    uploadFile(selectedFileUri, "/form2/languages/chichewa/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
+                    showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+            }
+
+            //SCIENCE SUBJECTS
+
+            switch (requestCode) {
+                case REQUEST_PICK_PDF:
+                    uploadFile(selectedFileUri, "/form2/sciences/agriculture/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
+                    showToast("PDF Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_AUDIO:
+                    uploadFile(selectedFileUri, "/form2/sciences/agriculture/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    showToast("Audio Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_VIDEO:
+                    uploadFile(selectedFileUri, "/form2/sciences/agriculture/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Video format.");
+                    showToast("Video Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_QUESTION:
+                    uploadFile(selectedFileUri, "/form2/sciences/agriculture/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
+                    showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+            }
+
+            switch (requestCode) {
+                case REQUEST_PICK_PDF:
+                    uploadFile(selectedFileUri, "/form2/sciences/biology/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
+                    showToast("PDF Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_AUDIO:
+                    uploadFile(selectedFileUri, "/form2/sciences/biology/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    showToast("Audio Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_VIDEO:
+                    uploadFile(selectedFileUri, "/form2/sciences/biology/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Video format.");
+                    showToast("Video Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_QUESTION:
+                    uploadFile(selectedFileUri, "/form2/sciences/biology/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
+                    showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+            }
+
+            switch (requestCode) {
+                case REQUEST_PICK_PDF:
+                    uploadFile(selectedFileUri, "/form2/sciences/chemistry/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
+                    showToast("PDF Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_AUDIO:
+                    uploadFile(selectedFileUri, "/form2/sciences/chemistry/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    showToast("Audio Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_VIDEO:
+                    uploadFile(selectedFileUri, "/form2/sciences/chemistry/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Video format.");
+                    showToast("Video Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_QUESTION:
+                    uploadFile(selectedFileUri, "/form2/sciences/chemistry/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
+                    showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+            }
+
+            switch (requestCode) {
+                case REQUEST_PICK_PDF:
+                    uploadFile(selectedFileUri, "/form2/sciences/mathematics/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
+                    showToast("PDF Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_AUDIO:
+                    uploadFile(selectedFileUri, "/form2/sciences/mathematics/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    showToast("Audio Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_VIDEO:
+                    uploadFile(selectedFileUri, "/form2/sciences/mathematics/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Video format.");
+                    showToast("Video Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_QUESTION:
+                    uploadFile(selectedFileUri, "/form2/sciences/mathematics/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
+                    showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+            }
+
+            switch (requestCode) {
+                case REQUEST_PICK_PDF:
+                    uploadFile(selectedFileUri, "/form2/sciences/physics/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
+                    showToast("PDF Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_AUDIO:
+                    uploadFile(selectedFileUri, "/form2/sciences/physics/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    showToast("Audio Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_VIDEO:
+                    uploadFile(selectedFileUri, "/form2/sciences/physics/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV" , "MOV"}, "Please Select Video format.");
+                    showToast("Video Selected: " + selectedFileUri.toString());
+                    break;
+                case REQUEST_PICK_QUESTION:
+                    uploadFile(selectedFileUri, "/form2/sciences/physics/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
+                    showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+            }
+
+
         }
     }
 
@@ -157,4 +390,13 @@ public class TeacherForm2Uploads extends AppCompatActivity {
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
+
 }

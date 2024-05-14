@@ -30,7 +30,7 @@ import android.util.Log;
 
 public class StudentLogIn extends AppCompatActivity {
 
-    private ImageButton buttonBack;
+    private Button buttonBack;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private DatabaseReference mDatabase;
@@ -45,7 +45,6 @@ public class StudentLogIn extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
-        ImageButton buttonBack = findViewById(R.id.back_button);
         EditText editTextEmail = findViewById(R.id.editTextEmail);
         EditText editTextPassword = findViewById(R.id.editTextPassword);
         Button loginButton = findViewById(R.id.buttonLogIn);
@@ -53,7 +52,9 @@ public class StudentLogIn extends AppCompatActivity {
         TextView forgotPasswordTextView = findViewById(R.id.textViewForgotPassword);
         TextView googleSignInTextView = findViewById(R.id.textViewContinueWithGoogle);
 
-        // Set listeners
+        buttonBack = findViewById(R.id.back_button); // Initialize buttonBack
+
+// Set listeners
         buttonBack.setOnClickListener(view -> onBackPressed());
         loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
         signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogIn.this, StudentSignUp.class)));
@@ -62,9 +63,18 @@ public class StudentLogIn extends AppCompatActivity {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
             startActivityForResult(signInIntent, RC_SIGN_IN);
         });
-        // Initialize Firebase Auth
 
+        // Initialize Firebase Auth
         buttonBack = findViewById(R.id.back_button);
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Your login button click logic here
+            }
+        });
+
+        // In
 
         // Configure Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

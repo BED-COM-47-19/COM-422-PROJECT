@@ -1,5 +1,4 @@
 package com.example.teachandlearn.Student.Form1.Categories;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -16,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 
 public class Form1HumanitiesStudent extends AppCompatActivity {
+    private Button buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,15 @@ public class Form1HumanitiesStudent extends AppCompatActivity {
         Button buttonSmallHistory = findViewById(R.id.buttonSmallHistory);
         Button buttonSmallBibleKnowledge = findViewById(R.id.buttonSmallBibleKnowledge);
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
+
+        buttonBack = findViewById(R.id.back_button);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
 
 
         // Set click listeners for each button
@@ -137,6 +146,13 @@ public class Form1HumanitiesStudent extends AppCompatActivity {
     private void startActivityForContent() {
         Intent intent = new Intent(Form1HumanitiesStudent.this, Form1StudentViewContent.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
     }
 
 }

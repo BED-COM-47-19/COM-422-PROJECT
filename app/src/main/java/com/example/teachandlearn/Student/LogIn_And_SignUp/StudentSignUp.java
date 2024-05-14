@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class StudentSignUp extends AppCompatActivity {
 
     private DatabaseReference databaseReference; // Firebase database reference
-    private ImageButton buttonBack;
+    private Button buttonBack;
     private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
     private Button buttonContinue;
 
@@ -34,6 +34,7 @@ public class StudentSignUp extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
         buttonContinue = findViewById(R.id.buttonContinue);
+
         buttonBack = findViewById(R.id.back_button);
 
         buttonContinue.setOnClickListener(new View.OnClickListener() {

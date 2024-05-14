@@ -36,7 +36,32 @@ public class Form3Videos extends AppCompatActivity {
 
     private void fetchVideos() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("form3/videos/");
+        StorageReference storageRef;
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/humanities/bible_knowledge/videos/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/humanities/geography/videos/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/humanities/history/videos/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/humanities/life_skills/videos/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/humanities/social_studies/videos/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/languages/english/videos/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/languages/chichewa/videos/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/sciences/agriculture/videos/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/sciences/biology/videos/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/sciences/chemistry/videos/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/sciences/mathematics/videos/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form3/sciences/physics/videos/");
+
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
             List<VideoItem> videos = new ArrayList<>();

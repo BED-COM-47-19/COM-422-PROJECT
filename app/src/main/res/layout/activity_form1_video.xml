@@ -11,4 +11,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+
+    <EditText
+        android:id="@+id/editTextComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rvVideos"
+        android:hint="Enter your comment"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/buttonSubmitComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextComment"
+        android:layout_alignParentEnd="true"
+        android:text="Submit"
+        android:layout_margin="10dp"/>
+
 </RelativeLayout>

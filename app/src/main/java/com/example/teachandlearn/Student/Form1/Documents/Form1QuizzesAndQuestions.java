@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -23,11 +26,22 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
     private ArrayList<String> pdfNames;
     private ArrayList<String> pdfUrls; // To store URLs of the PDFs
 
+    private ChatGPTService chatGPTService;
+
+    private EditText editTextComment;
+    private Button buttonSubmitComment;
+
+    private ArrayList<String> comments;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form1_quizzes_and_questions);
 
+
+
+        editTextComment = findViewById(R.id.editTextComment);
+        buttonSubmitComment = findViewById(R.id.buttonSubmitComment);
         listView = findViewById(R.id.list_view);
         pdfNames = new ArrayList<>();
         pdfUrls = new ArrayList<>();
@@ -35,22 +49,66 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
 
         listView.setAdapter(adapter);
 
+        chatGPTService = new ChatGPTService();
+
+        comments = new ArrayList<>();
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String comment = comments.get(position);
                 String url = pdfUrls.get(position);
                 Intent intent = new Intent(Form1QuizzesAndQuestions.this, Form1PDFViewer.class);
                 intent.putExtra("PDF_URL", url);
+                intent.putExtra("COMMENT", comment);
                 startActivity(intent);
             }
         });
+
+        buttonSubmitComment.setOnClickListener(v -> {
+            String comment = editTextComment.getText().toString().trim();
+            if (!comment.isEmpty()) {
+                comments.add(comment);
+                editTextComment.setText(""); // Clear the comment field after submission
+                adapter.notifyDataSetChanged(); // Notify adapter of data change
+                chatGPTService.sendCommentToAI(comment);
+            }
+        });
+
 
         loadPDFsFromStorage();
     }
 
     private void loadPDFsFromStorage() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("form1/quizzes_and_questions/");
+        StorageReference storageRef;
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/humanities/bible_knowledge/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/humanities/geography/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/humanities/history/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/humanities/life_skills/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/humanities/social_studies/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/languages/english/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/languages/chichewa/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/sciences/agriculture/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/sciences/biology/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/sciences/chemistry/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/sciences/mathematics/quizzes_and_questions/");
+
+        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/sciences/physics/quizzes_and_questions/");
+
+
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
             if (listResult.getItems().isEmpty()) {
@@ -62,6 +120,7 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
                     String url = item.getDownloadUrl().toString();
                     pdfNames.add(name);
                     pdfUrls.add(url);
+                    comments.add("");
                     adapter.notifyDataSetChanged();
                 }
             }
@@ -76,6 +135,7 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
         pdfNames.clear();
         pdfUrls.clear();
         adapter.notifyDataSetChanged();
+        comments.clear();
         // Display "No file Uploaded" message
         Toast.makeText(this, "No file Uploaded", Toast.LENGTH_SHORT).show();
     }

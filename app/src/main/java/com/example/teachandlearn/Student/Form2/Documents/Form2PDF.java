@@ -15,7 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form1.Documents.Form1PDF;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
@@ -41,36 +43,68 @@ public class Form2PDF extends AppCompatActivity {
     }
 
     private void fetchPDFsFromFirebase() {
-        // Get a reference to the Firebase storage location
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("form2/pdfs/");
 
-        // List all the items (PDFs) in the storage location
-        storageRef.listAll().addOnSuccessListener(listResult -> {
-            List<PDFDocument> pdfs = new ArrayList<>();
-            // Iterate through each item (PDF) in the storage location
-            for (StorageReference item : listResult.getItems()) {
-                // Get the download URL for the PDF
-                item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Add the PDF with its download URL to the list
-                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                    // Update the adapter with the new list of PDFs
-                    adapter.setPDFDocuments(pdfs);
-                }).addOnFailureListener(exception -> {
-                    // Handle any errors
-                    Log.e("PDF", "Failed to get download URL for PDF", exception);
-                });
-            }
-            // If no PDFs were found, display "NO file Uploaded"
-            if (pdfs.isEmpty()) {
+        // List of storage references for PDFs
+        List<StorageReference> pdfStorageRefs = new ArrayList<>();
+
+
+        pdfStorageRefs.add(storage.getReference().child("form2/humanities/bible_knowledge/pdfs/"));
+
+        pdfStorageRefs.add(storage.getReference().child("form2/humanities/geography/pdfs/"));
+
+        pdfStorageRefs.add(storage.getReference().child("form2/humanities/history/pdfs/"));
+
+        pdfStorageRefs.add(storage.getReference().child("form2/humanities/life_skills/pdfs/"));
+
+        pdfStorageRefs.add(storage.getReference().child("form2/humanities/social_studies/pdfs/"));
+
+        pdfStorageRefs.add(storage.getReference().child("form2/languages/english/pdfs/"));
+
+        pdfStorageRefs.add(storage.getReference().child("form2/languages/chichewa/pdfs/"));
+
+        pdfStorageRefs.add(storage.getReference().child("form2/sciences/agriculture/pdfs/"));
+
+        pdfStorageRefs.add(storage.getReference().child("form2/sciences/biology/pdfs/"));
+
+        pdfStorageRefs.add(storage.getReference().child("form2/sciences/chemistry/pdfs/"));
+
+        pdfStorageRefs.add(storage.getReference().child("form2/sciences/mathematics/pdfs/"));
+
+        pdfStorageRefs.add(storage.getReference().child("form2/sciences/physics/pdfs/"));
+
+
+        // Iterate through each storage reference for PDFs
+        for (StorageReference pdfStorageRef : pdfStorageRefs) {
+            pdfStorageRef.listAll().addOnSuccessListener(listResult -> {
+                List<Form2PDF.PDFDocument> pdfs = new ArrayList<>();
+                // Iterate through each item (PDF) in the storage location
+                for (StorageReference item : listResult.getItems()) {
+                    // Get the download URL for the PDF
+                    item.getDownloadUrl().addOnSuccessListener(uri -> {
+                        // Add the PDF with its download URL to the list
+                        pdfs.add(new Form2PDF.PDFDocument(item.getName(), uri.toString()));
+                        // Update the adapter with the new list of PDFs
+                        adapter.setPDFDocuments(pdfs);
+                    }).addOnFailureListener(exception -> {
+                        // Handle any errors
+                        Log.e("PDF", "Failed to get download URL for PDF", exception);
+                    });
+                }
+                // If no PDFs were found, display "NO file Uploaded"
+                if (pdfs.isEmpty()) {
+                    showNoFilesUploaded();
+                } else {
+                    // Send the first PDF title as a comment to ChatGPT
+                    sendCommentToAI(pdfs.get(0).getTitle());
+                }
+            }).addOnFailureListener(exception -> {
+                // Handle any errors
+                Log.e("PDF", "Failed to list PDF files", exception);
+                // Show "NO file Uploaded" in case of failure as well
                 showNoFilesUploaded();
-            }
-        }).addOnFailureListener(exception -> {
-            // Handle any errors
-            Log.e("PDF", "Failed to list PDF files", exception);
-            // Show "NO file Uploaded" in case of failure as well
-            showNoFilesUploaded();
-        });
+            });
+        }
     }
 
     private void showNoFilesUploaded() {
@@ -78,6 +112,11 @@ public class Form2PDF extends AppCompatActivity {
         adapter.setPDFDocuments(new ArrayList<>());
         // Display "NO file Uploaded" message
         Toast.makeText(this, "NO file Uploaded", Toast.LENGTH_SHORT).show();
+    }
+
+    private void sendCommentToAI(String comment) {
+        ChatGPTService chatGPTService = new ChatGPTService();
+        chatGPTService.sendCommentToAI(comment);
     }
 
 
@@ -102,24 +141,24 @@ public class Form2PDF extends AppCompatActivity {
         }
     }
 
-    private static class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.PDFViewHolder> {
-        private List<PDFDocument> pdfDocuments;
+    private static class PDFAdapter extends RecyclerView.Adapter<Form2PDF.PDFAdapter.PDFViewHolder> {
+        private List<Form2PDF.PDFDocument> pdfDocuments;
         private Context context;
 
-        public PDFAdapter(List<PDFDocument> pdfDocuments, Context context) {
+        public PDFAdapter(List<Form2PDF.PDFDocument> pdfDocuments, Context context) {
             this.pdfDocuments = pdfDocuments;
             this.context = context;
         }
 
         @Override
-        public PDFViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public Form2PDF.PDFAdapter.PDFViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form2_pdf_item, parent, false);
-            return new PDFViewHolder(view);
+            return new Form2PDF.PDFAdapter.PDFViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(PDFViewHolder holder, int position) {
-            PDFDocument document = pdfDocuments.get(position);
+        public void onBindViewHolder(Form2PDF.PDFAdapter.PDFViewHolder holder, int position) {
+            Form2PDF.PDFDocument document = pdfDocuments.get(position);
             holder.textViewTitle.setText(document.getTitle());
             holder.itemView.setOnClickListener(v -> {
                 // Download and view the PDF when the item is clicked
@@ -147,7 +186,7 @@ public class Form2PDF extends AppCompatActivity {
             return pdfDocuments.size();
         }
 
-        public void setPDFDocuments(List<PDFDocument> pdfDocuments) {
+        public void setPDFDocuments(List<Form2PDF.PDFDocument> pdfDocuments) {
             this.pdfDocuments = pdfDocuments;
             notifyDataSetChanged(); // Notify the adapter that the data set has changed
         }

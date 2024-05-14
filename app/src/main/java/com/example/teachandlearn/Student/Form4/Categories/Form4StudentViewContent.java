@@ -13,6 +13,8 @@ import com.example.teachandlearn.Student.Form1.Documents.Form1Videos;
 
 public class Form4StudentViewContent extends AppCompatActivity {
 
+
+    private Button buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +25,16 @@ public class Form4StudentViewContent extends AppCompatActivity {
         Button buttonAudio = findViewById(R.id.button_audio);
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
-       // Button buttonBack = findViewById(R.id.button_back); // Find the back button
+
+        buttonBack = findViewById(R.id.back_button);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
 
 
         // Set click listeners for each button
@@ -59,12 +70,22 @@ public class Form4StudentViewContent extends AppCompatActivity {
             }
         });
 
-//        buttonBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Finish the current activity to go back to the previous one
-//                finish();
-//            }
-//        });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
+
     }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
+
 }

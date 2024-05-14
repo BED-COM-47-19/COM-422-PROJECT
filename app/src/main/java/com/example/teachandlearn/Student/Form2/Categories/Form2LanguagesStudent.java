@@ -15,7 +15,7 @@ import com.example.teachandlearn.R;
 
 public class Form2LanguagesStudent extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
+    private Button buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +29,7 @@ public class Form2LanguagesStudent extends AppCompatActivity {
         Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
-
+        buttonBack = findViewById(R.id.back_button);
         // Set click listeners for each button
         buttonEnglish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,11 +81,11 @@ public class Form2LanguagesStudent extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        // Handle the back button action
-//        super.onBackPressed();
-//        // You can also add custom logic here if needed
-//    }
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
 
 }
