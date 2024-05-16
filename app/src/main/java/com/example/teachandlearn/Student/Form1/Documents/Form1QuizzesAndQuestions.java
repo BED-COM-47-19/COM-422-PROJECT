@@ -21,16 +21,14 @@ import java.util.ArrayList;
 
 public class Form1QuizzesAndQuestions extends AppCompatActivity {
 
+
     private ListView listView;
     private ArrayAdapter<String> adapter;
     private ArrayList<String> pdfNames;
     private ArrayList<String> pdfUrls; // To store URLs of the PDFs
-
     private ChatGPTService chatGPTService;
-
     private EditText editTextComment;
     private Button buttonSubmitComment;
-
     private ArrayList<String> comments;
 
     @Override

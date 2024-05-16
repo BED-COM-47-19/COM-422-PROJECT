@@ -17,12 +17,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Documents.Form1PDF;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
-
 
 
 public class Form2PDF extends AppCompatActivity {
@@ -42,12 +40,12 @@ public class Form2PDF extends AppCompatActivity {
         fetchPDFsFromFirebase();
     }
 
+
     private void fetchPDFsFromFirebase() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
 
         // List of storage references for PDFs
         List<StorageReference> pdfStorageRefs = new ArrayList<>();
-
 
         pdfStorageRefs.add(storage.getReference().child("form2/humanities/bible_knowledge/pdfs/"));
 
@@ -73,17 +71,16 @@ public class Form2PDF extends AppCompatActivity {
 
         pdfStorageRefs.add(storage.getReference().child("form2/sciences/physics/pdfs/"));
 
-
         // Iterate through each storage reference for PDFs
         for (StorageReference pdfStorageRef : pdfStorageRefs) {
             pdfStorageRef.listAll().addOnSuccessListener(listResult -> {
-                List<Form2PDF.PDFDocument> pdfs = new ArrayList<>();
+                List<PDFDocument> pdfs = new ArrayList<>();
                 // Iterate through each item (PDF) in the storage location
                 for (StorageReference item : listResult.getItems()) {
                     // Get the download URL for the PDF
                     item.getDownloadUrl().addOnSuccessListener(uri -> {
                         // Add the PDF with its download URL to the list
-                        pdfs.add(new Form2PDF.PDFDocument(item.getName(), uri.toString()));
+                        pdfs.add(new PDFDocument(item.getName(), uri.toString()));
                         // Update the adapter with the new list of PDFs
                         adapter.setPDFDocuments(pdfs);
                     }).addOnFailureListener(exception -> {
@@ -141,24 +138,24 @@ public class Form2PDF extends AppCompatActivity {
         }
     }
 
-    private static class PDFAdapter extends RecyclerView.Adapter<Form2PDF.PDFAdapter.PDFViewHolder> {
-        private List<Form2PDF.PDFDocument> pdfDocuments;
+    private static class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.PDFViewHolder> {
+        private List<PDFDocument> pdfDocuments;
         private Context context;
 
-        public PDFAdapter(List<Form2PDF.PDFDocument> pdfDocuments, Context context) {
+        public PDFAdapter(List<PDFDocument> pdfDocuments, Context context) {
             this.pdfDocuments = pdfDocuments;
             this.context = context;
         }
 
         @Override
-        public Form2PDF.PDFAdapter.PDFViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public PDFViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form2_pdf_item, parent, false);
-            return new Form2PDF.PDFAdapter.PDFViewHolder(view);
+            return new PDFViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(Form2PDF.PDFAdapter.PDFViewHolder holder, int position) {
-            Form2PDF.PDFDocument document = pdfDocuments.get(position);
+        public void onBindViewHolder(PDFViewHolder holder, int position) {
+            PDFDocument document = pdfDocuments.get(position);
             holder.textViewTitle.setText(document.getTitle());
             holder.itemView.setOnClickListener(v -> {
                 // Download and view the PDF when the item is clicked
@@ -186,7 +183,7 @@ public class Form2PDF extends AppCompatActivity {
             return pdfDocuments.size();
         }
 
-        public void setPDFDocuments(List<Form2PDF.PDFDocument> pdfDocuments) {
+        public void setPDFDocuments(List<PDFDocument> pdfDocuments) {
             this.pdfDocuments = pdfDocuments;
             notifyDataSetChanged(); // Notify the adapter that the data set has changed
         }

@@ -25,8 +25,11 @@ import com.example.teachandlearn.CHATGPT.ChatGPTService;
 
 public class Form1Audio extends AppCompatActivity {
 
+
     private RecyclerView recyclerView;
+
     private AudioAdapter adapter;
+
     private MediaPlayer mediaPlayer;
 
     private ChatGPTService chatGPTService;

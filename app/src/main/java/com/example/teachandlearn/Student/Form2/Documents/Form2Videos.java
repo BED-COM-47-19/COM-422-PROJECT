@@ -1,4 +1,5 @@
 
+
 package com.example.teachandlearn.Student.Form2.Documents;
 import android.content.Context;
 import android.os.Bundle;
@@ -17,11 +18,20 @@ import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
+import android.widget.Button;
+import android.widget.EditText;
+import com.example.teachandlearn.CHATGPT.ChatGPTService;
+
 
 public class Form2Videos extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private Form2VideoAdapter form2VideoAdapter;
+    private ChatGPTService chatGPTService;
+    private EditText editTextComment;
+    private Button buttonSubmitComment;
+
+    private ArrayList<String> comments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +39,33 @@ public class Form2Videos extends AppCompatActivity {
         setContentView(R.layout.activity_form2_video);
 
         recyclerView = findViewById(R.id.rvVideos);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        editTextComment = findViewById(R.id.editTextComment);
+
+        buttonSubmitComment = findViewById(R.id.buttonSubmitComment);
+
+        chatGPTService = new ChatGPTService();
+
+        comments = new ArrayList<>();
+
+        buttonSubmitComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String comment = editTextComment.getText().toString().trim();
+                if (!comment.isEmpty()) {
+                    comments.add(comment);
+                    editTextComment.setText(""); // Clear the comment field after submission
+                    // Notify adapter of data change
+                    form2VideoAdapter.notifyDataSetChanged();
+                    // Send the comment to ChatGPT for processing
+                    chatGPTService.sendCommentToAI(comment);
+                } else {
+                    Toast.makeText(Form2Videos.this, "Please enter a comment", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         fetchVideos();
     }
@@ -69,6 +105,7 @@ public class Form2Videos extends AppCompatActivity {
                 String name = item.getName();
                 String url = item.getDownloadUrl().toString();
                 videos.add(new VideoItem(name, url));
+                comments.add("");
             }
             if (videos.isEmpty()) {
                 // If no videos found, show "Nothing Uploaded yet" message
@@ -105,9 +142,15 @@ public class Form2Videos extends AppCompatActivity {
         private List<VideoItem> videos;
         private Context context;
 
+        private List<String> comments;
+
+
+
+
         public Form2VideoAdapter(List<VideoItem> videos, Context context) {
             this.videos = videos;
             this.context = context;
+            this.comments = comments;
         }
 
         @NonNull
@@ -119,8 +162,12 @@ public class Form2Videos extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
+
+
             VideoItem videoItem = videos.get(position);
-            holder.bind(videoItem);
+            String comment = comments.get(position);
+            holder.bind(videoItem, comment);
+
         }
 
         @Override
@@ -132,16 +179,22 @@ public class Form2Videos extends AppCompatActivity {
 
             TextView textViewName;
             TextView textViewUrl;
+            TextView textViewComment;
 
             public VideoViewHolder(@NonNull View itemView) {
+
                 super(itemView);
                 textViewName = itemView.findViewById(R.id.textViewVideoName);
                 textViewUrl = itemView.findViewById(R.id.textViewVideoUrl);
+                textViewComment = itemView.findViewById(R.id.textViewComment);
             }
 
-            public void bind(VideoItem videoItem) {
+            public void bind(VideoItem videoItem, String comment) {
                 textViewName.setText(videoItem.getName());
                 textViewUrl.setText(videoItem.getUrl());
+                textViewComment.setText(comment);
+
+
             }
         }
     }
