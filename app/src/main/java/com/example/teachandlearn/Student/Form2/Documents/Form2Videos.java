@@ -186,7 +186,7 @@ public class Form2Videos extends AppCompatActivity {
                 super(itemView);
                 textViewName = itemView.findViewById(R.id.textViewVideoName);
                 textViewUrl = itemView.findViewById(R.id.textViewVideoUrl);
-                textViewComment = itemView.findViewById(R.id.textViewComment);
+                textViewComment = itemView.findViewById(R.id.editTextComment);
             }
 
             public void bind(VideoItem videoItem, String comment) {

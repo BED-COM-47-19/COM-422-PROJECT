@@ -15,15 +15,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.Map;
 import java.util.HashMap;
 import com.google.firebase.database.ServerValue;
 import android.util.Log;
+import com.google.android.gms.tasks.Task;
+
 
 
 
@@ -102,7 +109,6 @@ public class StudentLogIn extends AppCompatActivity {
         });
 
     }
-
 
 
     private TextView createTextView(String text, int topMargin) {
@@ -192,30 +198,52 @@ public class StudentLogIn extends AppCompatActivity {
                         startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
                     } else {
                         // If login fails, display a failure message
-                        Toast.makeText(StudentLogIn.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StudentLogIn.this, "Email or Password Incorrect.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
 
-
-
+    private void signInWithGoogle() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RC_SIGN_IN) {
-            GoogleSignIn.getSignedInAccountFromIntent(data)
-                    .addOnSuccessListener(googleSignInAccount -> {
-                        // Firebase Google Auth
-                        // Use googleSignInAccount to authenticate with Firebase
-                    })
-                    .addOnFailureListener(e -> Toast.makeText(this, "Google sign-in failed.", Toast.LENGTH_SHORT).show());
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                // Google Sign-In was successful, authenticate with Firebase
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account.getIdToken());
+            } catch (ApiException e) {
+                // Google Sign-In failed
+                Log.w("GoogleSignIn", "Google sign in failed", e);
+                Toast.makeText(StudentLogIn.this, "Google sign-in failed.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-
+    private void firebaseAuthWithGoogle(String idToken) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        // Proceed with your app logic, for example, navigate to a new activity
+                        startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("FirebaseAuth", "signInWithCredential:failure", task.getException());
+                        Toast.makeText(StudentLogIn.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 
     private void logAttemptToDatabase(String email) {
         // Create a unique ID for each log entry
@@ -231,7 +259,6 @@ public class StudentLogIn extends AppCompatActivity {
     }
 
 
-
     @Override
     public void onBackPressed() {
         // Handle the back button action
@@ -241,3 +268,16 @@ public class StudentLogIn extends AppCompatActivity {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//9F:57:A9:9C:24:5E:33:7C:97:C8:4A:71:A0:E1:FE:51:81:99:8E:16

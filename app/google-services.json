@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "531504318019",
+    "firebase_url": "https://teachandlearn-d3be7-default-rtdb.firebaseio.com",
     "project_id": "teachandlearn-d3be7",
     "storage_bucket": "teachandlearn-d3be7.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.teachandlearn"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "531504318019-3rek4jhom9jubc1ou8fqr43u4ehavsdv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.teachandlearn",
+            "certificate_hash": "9f57a99c245e337c97c84a71a0e1fe5181998e16"
+          }
+        },
+        {
+          "client_id": "531504318019-5dc68glk0a2eitkaj168brogvc2tmm09.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyB5QiTPQ5FEPMZVlZzC9rJ68bxxeTCtIGI"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "531504318019-5dc68glk0a2eitkaj168brogvc2tmm09.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

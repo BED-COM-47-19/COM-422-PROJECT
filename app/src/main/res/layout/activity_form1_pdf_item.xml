@@ -27,13 +27,19 @@
         android:background="@android:color/darker_gray"
         android:layout_marginBottom="8dp"/>
 
+
     <EditText
         android:id="@+id/editTextComment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="345dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="400dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/edit_text_background"
         android:hint="Write a comment..."
         android:inputType="textMultiLine"
-        android:lines="3"/>
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="8dp" />
 
     <Button
         android:id="@+id/buttonSubmitComment"

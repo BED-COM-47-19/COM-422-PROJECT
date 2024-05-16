@@ -96,6 +96,10 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                     uploadFile(selectedFileUri, "/form3/humanities/bible_knowledge/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
                     break;
+
+                default:
+                    // Handle default case or add other cases if needed
+                    break;
             }
 
             switch (requestCode) {
@@ -114,6 +118,10 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                 case REQUEST_PICK_QUESTION:
                     uploadFile(selectedFileUri, "/form3/humanities/geography/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+
+                default:
+                    // Handle default case or add other cases if needed
                     break;
             }
 
@@ -134,6 +142,10 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                     uploadFile(selectedFileUri, "/form3/humanities/history/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
                     break;
+
+                default:
+                    // Handle default case or add other cases if needed
+                    break;
             }
 
             switch (requestCode) {
@@ -153,6 +165,11 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                     uploadFile(selectedFileUri, "/form3/humanities/life_skills/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
                     break;
+
+                default:
+                    // Handle default case or add other cases if needed
+                    break;
+
             }
 
             switch (requestCode) {
@@ -171,6 +188,10 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                 case REQUEST_PICK_QUESTION:
                     uploadFile(selectedFileUri, "/form3/humanities/social_studies/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+
+                default:
+                    // Handle default case or add other cases if needed
                     break;
             }
 
@@ -194,6 +215,10 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                     uploadFile(selectedFileUri, "/form3/languages/english/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
                     break;
+
+                default:
+                    // Handle default case or add other cases if needed
+                    break;
             }
 
             switch (requestCode) {
@@ -212,6 +237,10 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                 case REQUEST_PICK_QUESTION:
                     uploadFile(selectedFileUri, "/form3/languages/chichewa/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+
+                default:
+                    // Handle default case or add other cases if needed
                     break;
             }
 
@@ -234,6 +263,10 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                     uploadFile(selectedFileUri, "/form3/sciences/agriculture/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
                     break;
+
+                default:
+                    // Handle default case or add other cases if needed
+                    break;
             }
 
             switch (requestCode) {
@@ -252,6 +285,10 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                 case REQUEST_PICK_QUESTION:
                     uploadFile(selectedFileUri, "/form3/sciences/biology/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+
+                default:
+                    // Handle default case or add other cases if needed
                     break;
             }
 
@@ -272,6 +309,10 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                     uploadFile(selectedFileUri, "/form3/sciences/chemistry/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
                     break;
+
+                default:
+                    // Handle default case or add other cases if needed
+                    break;
             }
 
             switch (requestCode) {
@@ -290,6 +331,10 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                 case REQUEST_PICK_QUESTION:
                     uploadFile(selectedFileUri, "/form3/sciences/mathematics/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
+                    break;
+
+                default:
+                    // Handle default case or add other cases if needed
                     break;
             }
 
@@ -310,6 +355,11 @@ public class TeacherForm3Uploads extends AppCompatActivity {
                     uploadFile(selectedFileUri, "/form3/sciences/physics/quizzes_and_questions/", "questions", new String[]{}, "No restriction on question formats.");
                     showToast("Question Selected: " + selectedFileUri.toString());
                     break;
+
+                default:
+                    // Handle default case or add other cases if needed
+                    break;
+
             }
 
 

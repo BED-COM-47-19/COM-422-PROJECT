@@ -1,6 +1,5 @@
-
-
 package com.example.teachandlearn.Student.Form4.Documents;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -40,65 +39,37 @@ public class Form4PDF extends AppCompatActivity {
     }
 
     private void fetchPDFsFromFirebase() {
+        // Get a reference to the Firebase storage location
         FirebaseStorage storage = FirebaseStorage.getInstance();
 
-        // List of storage references for PDFs
-        List<StorageReference> pdfStorageRefs = new ArrayList<>();
+        StorageReference storageRef = storage.getReferenceFromUrl("gs://teachandlearn-d3be7.appspot.com/form4/sciences/mathematics/pdfs");
 
-
-        pdfStorageRefs.add(storage.getReference().child("form4/humanities/bible_knowledge/pdfs/"));
-
-        pdfStorageRefs.add(storage.getReference().child("form4/humanities/geography/pdfs/"));
-
-        pdfStorageRefs.add(storage.getReference().child("form4/humanities/history/pdfs/"));
-
-        pdfStorageRefs.add(storage.getReference().child("form4/humanities/life_skills/pdfs/"));
-
-        pdfStorageRefs.add(storage.getReference().child("form4/humanities/social_studies/pdfs/"));
-
-        pdfStorageRefs.add(storage.getReference().child("form4/languages/english/pdfs/"));
-
-        pdfStorageRefs.add(storage.getReference().child("form4/languages/chichewa/pdfs/"));
-
-        pdfStorageRefs.add(storage.getReference().child("form4/sciences/agriculture/pdfs/"));
-
-        pdfStorageRefs.add(storage.getReference().child("form4/sciences/biology/pdfs/"));
-
-        pdfStorageRefs.add(storage.getReference().child("form4/sciences/chemistry/pdfs/"));
-
-        pdfStorageRefs.add(storage.getReference().child("form4/sciences/mathematics/pdfs/"));
-
-        pdfStorageRefs.add(storage.getReference().child("form4/sciences/physics/pdfs/"));
-
-
-        // Iterate through each storage reference for PDFs
-        for (StorageReference pdfStorageRef : pdfStorageRefs) {
-            pdfStorageRef.listAll().addOnSuccessListener(listResult -> {
-                List<PDFDocument> pdfs = new ArrayList<>();
-                // Iterate through each item (PDF) in the storage location
-                for (StorageReference item : listResult.getItems()) {
-                    // Get the download URL for the PDF
-                    item.getDownloadUrl().addOnSuccessListener(uri -> {
-                        // Add the PDF with its download URL to the list
-                        pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                        // Update the adapter with the new list of PDFs
-                        adapter.setPDFDocuments(pdfs);
-                    }).addOnFailureListener(exception -> {
-                        // Handle any errors
-                        Log.e("PDF", "Failed to get download URL for PDF", exception);
-                    });
-                }
-                // If no PDFs were found, display "NO file Uploaded"
-                if (pdfs.isEmpty()) {
-                    showNoFilesUploaded();
-                }
-            }).addOnFailureListener(exception -> {
-                // Handle any errors
-                Log.e("PDF", "Failed to list PDF files", exception);
-                // Show "NO file Uploaded" in case of failure as well
+        // List all the items (PDFs) in the storage location
+        storageRef.listAll().addOnSuccessListener(listResult -> {
+            List<PDFDocument> pdfs = new ArrayList<>();
+            // Iterate through each item (PDF) in the storage location
+            for (StorageReference item : listResult.getItems()) {
+                // Get the download URL for the PDF
+                item.getDownloadUrl().addOnSuccessListener(uri -> {
+                    // Add the PDF with its download URL to the list
+                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
+                    // Update the adapter with the new list of PDFs
+                    adapter.setPDFDocuments(pdfs);
+                }).addOnFailureListener(exception -> {
+                    // Handle any errors
+                    Log.e("PDF", "Failed to get download URL for PDF", exception);
+                });
+            }
+            // If no PDFs were found, display "NO file Uploaded"
+            if (pdfs.isEmpty()) {
                 showNoFilesUploaded();
-            });
-        }
+            }
+        }).addOnFailureListener(exception -> {
+            // Handle any errors
+            Log.e("PDF", "Failed to list PDF files", exception);
+            // Show "NO file Uploaded" in case of failure as well
+            showNoFilesUploaded();
+        });
     }
 
     private void showNoFilesUploaded() {
@@ -107,9 +78,6 @@ public class Form4PDF extends AppCompatActivity {
         // Display "NO file Uploaded" message
         Toast.makeText(this, "NO file Uploaded", Toast.LENGTH_SHORT).show();
     }
-
-
-
 
 
     public static class PDFDocument {
