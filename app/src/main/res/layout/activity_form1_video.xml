@@ -1,32 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".Student.Form1.Documents.Form1Videos">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvVideos"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/editTextComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rvVideos"
-        android:hint="Enter your comment"
-        android:layout_margin="10dp"/>
+        android:hint="Enter your comment" />
 
     <Button
         android:id="@+id/buttonSubmitComment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextComment"
-        android:layout_alignParentEnd="true"
-        android:text="Submit"
-        android:layout_margin="10dp"/>
+        android:text="Submit Comment" />
 
-</RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVideos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

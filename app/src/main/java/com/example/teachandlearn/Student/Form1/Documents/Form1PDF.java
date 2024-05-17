@@ -1,6 +1,7 @@
 
 
 package com.example.teachandlearn.Student.Form1.Documents;
+import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -22,10 +23,10 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Form1PDF extends AppCompatActivity {
     private RecyclerView recyclerViewPDFs;
     private PDFAdapter adapter;
+    private ChatGPTService chatGPTService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +38,9 @@ public class Form1PDF extends AppCompatActivity {
         adapter = new PDFAdapter(new ArrayList<>(), this);
         recyclerViewPDFs.setAdapter(adapter);
 
-
+        chatGPTService = new ChatGPTService();
         fetchPDFsFromFirebase("gs://teachandlearn-d3be7.appspot.com/form1/sciences/mathematics/pdfs/");
-
-
     }
-
 
     private void fetchPDFsFromFirebase(String storageRefPath) {
         FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -52,7 +50,12 @@ public class Form1PDF extends AppCompatActivity {
             List<PDFDocument> pdfs = new ArrayList<>();
             for (StorageReference item : listResult.getItems()) {
                 item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
+                    PDFDocument pdfDocument = new PDFDocument(item.getName(), uri.toString());
+                    pdfs.add(pdfDocument);
+                    if (pdfs.size() == 1) {
+                        // Send the first PDF document title to ChatGPT as a comment
+                        sendCommentToAI(pdfDocument.getTitle());
+                    }
                     adapter.setPDFDocuments(pdfs);
                 }).addOnFailureListener(exception -> {
                     Log.e("PDF", "Failed to get download URL for PDF", exception);
@@ -60,14 +63,13 @@ public class Form1PDF extends AppCompatActivity {
             }
             if (pdfs.isEmpty()) {
                 showNoFilesUploaded();
-            } else {
-                sendCommentToAI(pdfs.get(0).getTitle());
             }
         }).addOnFailureListener(exception -> {
             Log.e("PDF", "Failed to list PDF files", exception);
             showNoFilesUploaded();
         });
     }
+
     private void showNoFilesUploaded() {
         // Clear the existing list of PDFs
         adapter.setPDFDocuments(new ArrayList<>());
@@ -76,10 +78,20 @@ public class Form1PDF extends AppCompatActivity {
     }
 
     private void sendCommentToAI(String comment) {
-        ChatGPTService chatGPTService = new ChatGPTService();
-        chatGPTService.sendCommentToAI(comment);
-    }
+        chatGPTService.sendCommentToAI(comment, new ChatGPTService.ChatGPTCallback() {
+            @Override
+            public void onSuccess(String response) {
+                // Handle the successful AI response
+                Toast.makeText(Form1PDF.this, "AI Response: " + response, Toast.LENGTH_LONG).show();
+            }
 
+            @Override
+            public void onFailure(Throwable t) {
+                // Handle the failure of the AI response
+                Toast.makeText(Form1PDF.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     public static class PDFDocument {
         private String title;

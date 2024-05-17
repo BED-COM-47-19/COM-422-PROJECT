@@ -1,15 +1,14 @@
-
-
 package com.example.teachandlearn.Student.Form1.Documents;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
@@ -18,9 +17,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
-
 public class Form1QuizzesAndQuestions extends AppCompatActivity {
-
 
     private ListView listView;
     private ArrayAdapter<String> adapter;
@@ -36,15 +33,12 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form1_quizzes_and_questions);
 
-
-
         editTextComment = findViewById(R.id.editTextComment);
         buttonSubmitComment = findViewById(R.id.buttonSubmitComment);
         listView = findViewById(R.id.list_view);
         pdfNames = new ArrayList<>();
         pdfUrls = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pdfNames);
-
         listView.setAdapter(adapter);
 
         chatGPTService = new ChatGPTService();
@@ -54,7 +48,6 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 String comment = comments.get(position);
                 String url = pdfUrls.get(position);
                 Intent intent = new Intent(Form1QuizzesAndQuestions.this, Form1PDFViewer.class);
@@ -70,10 +63,21 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
                 comments.add(comment);
                 editTextComment.setText(""); // Clear the comment field after submission
                 adapter.notifyDataSetChanged(); // Notify adapter of data change
-                chatGPTService.sendCommentToAI(comment);
+                chatGPTService.sendCommentToAI(comment, new ChatGPTService.ChatGPTCallback() {
+                    @Override
+                    public void onSuccess(String response) {
+                        // Handle the successful AI response
+                        Toast.makeText(Form1QuizzesAndQuestions.this, "AI Response: " + response, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        // Handle the failure of the AI response
+                        Toast.makeText(Form1QuizzesAndQuestions.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
-
 
         loadPDFsFromStorage();
     }
@@ -82,44 +86,32 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef;
 
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/humanities/bible_knowledge/quizzes_and_questions/");
+        // Initialize the storage reference for the desired path
+        storageRef = storage.getReference().child("/form1/humanities/bible_knowledge/quizzes_and_questions/");
 
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/humanities/geography/quizzes_and_questions/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/humanities/history/quizzes_and_questions/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/humanities/life_skills/quizzes_and_questions/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/humanities/social_studies/quizzes_and_questions/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/languages/english/quizzes_and_questions/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/languages/chichewa/quizzes_and_questions/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/sciences/agriculture/quizzes_and_questions/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/sciences/biology/quizzes_and_questions/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/sciences/chemistry/quizzes_and_questions/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/sciences/mathematics/quizzes_and_questions/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form1/sciences/physics/quizzes_and_questions/");
-
-
-
+        // Now you can use this reference to list the items in the directory
         storageRef.listAll().addOnSuccessListener(listResult -> {
             if (listResult.getItems().isEmpty()) {
                 // If no documents are found, show "No file Uploaded" message
                 showNoFilesUploaded();
             } else {
                 for (StorageReference item : listResult.getItems()) {
+                    // Get the name and download URL for each item
                     String name = item.getName();
-                    String url = item.getDownloadUrl().toString();
-                    pdfNames.add(name);
-                    pdfUrls.add(url);
-                    comments.add("");
-                    adapter.notifyDataSetChanged();
+                    item.getDownloadUrl().addOnSuccessListener(uri -> {
+                        // Convert the URI to a string URL
+                        String url = uri.toString();
+                        // Add the name and URL to the respective lists
+                        pdfNames.add(name);
+                        pdfUrls.add(url);
+                        // Add an empty comment for each item
+                        comments.add("");
+                        // Notify the adapter of the data change
+                        adapter.notifyDataSetChanged();
+                    }).addOnFailureListener(e -> {
+                        // Handle failure to get download URL
+                        Log.e("Form1QuizzesAndQuestions", "Failed to get download URL", e);
+                    });
                 }
             }
         }).addOnFailureListener(exception -> {

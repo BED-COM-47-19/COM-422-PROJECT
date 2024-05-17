@@ -1,50 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/activity_form1_pdf_item.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginTop="40dp"
-    android:padding="16dp">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="8dp"/>
+    android:padding="8dp">
 
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginBottom="8dp"
-        android:textColor="@android:color/black" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        android:layout_marginBottom="8dp"/>
-
-
-    <EditText
-        android:id="@+id/editTextComment"
-        android:layout_width="345dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="400dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/edit_text_background"
-        android:hint="Write a comment..."
-        android:inputType="textMultiLine"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:layout_marginTop="8dp" />
-
-    <Button
-        android:id="@+id/buttonSubmitComment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"/>
+        android:paddingBottom="4dp"
+        android:text="PDF Title" />
 
 </LinearLayout>

@@ -1,52 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/activity_form1_audio_item.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginTop="40dp"
-    android:padding="16dp">
+    android:padding="8dp">
 
     <TextView
         android:id="@+id/textViewAudioTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:background="@color/item_color"
-        android:layout_marginBottom="8dp"
-        android:textColorLink="@color/white"
-        android:backgroundTint="@color/item_color"
-        android:textColor="@android:color/white" />
+        android:paddingBottom="4dp"
+        android:text="Audio Title" />
 
     <TextView
         android:id="@+id/textViewAudioDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:textColor="@android:color/darker_gray"
-        android:layout_marginBottom="8dp" />
+        android:textSize="14sp"
+        android:paddingBottom="4dp"
+        android:text="Audio Description" />
 
     <TextView
         android:id="@+id/textViewAudioLength"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:textColor="@android:color/darker_gray" />
+        android:textSize="14sp"
+        android:paddingBottom="4dp"
+        android:text="Audio Length" />
 
     <EditText
         android:id="@+id/editTextComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="230dp"
-
-        android:hint="Write a comment..."
-        android:inputType="textMultiLine"
-        android:lines="3"/>
+        android:hint="Enter your comment"
+        android:padding="8dp"
+        android:background="@drawable/edittext_background"
+        android:layout_marginBottom="8dp" />
 
     <Button
         android:id="@+id/buttonSubmitComment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"/>
-
+        android:text="Submit Comment"
+        android:padding="8dp"
+        android:background="@drawable/button_background" />
 </LinearLayout>
+

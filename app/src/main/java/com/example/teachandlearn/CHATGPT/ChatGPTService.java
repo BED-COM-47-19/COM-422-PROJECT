@@ -1,7 +1,5 @@
-
-
 package com.example.teachandlearn.CHATGPT;
-import android.widget.Toast;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -12,10 +10,11 @@ import retrofit2.http.POST;
 import retrofit2.converter.gson.GsonConverterFactory;
 import java.util.List;
 
-
 public class ChatGPTService {
 
-    public void sendCommentToAI(String comment) {
+    private ChatGPTServiceInterface service;
+
+    public ChatGPTService() {
         // Create a Retrofit instance
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.openai.com/v1/")
@@ -23,8 +22,10 @@ public class ChatGPTService {
                 .build();
 
         // Create an instance of the ChatGPT service interface
-        ChatGPTServiceInterface service = retrofit.create(ChatGPTServiceInterface.class);
+        service = retrofit.create(ChatGPTServiceInterface.class);
+    }
 
+    public void sendCommentToAI(String comment, ChatGPTCallback callback) {
         // Make an API request to get a response from ChatGPT
         Call<ChatGPTResponse> call = service.getChatResponse(comment, 50); // Adjust max_tokens as needed
 
@@ -32,32 +33,28 @@ public class ChatGPTService {
             @Override
             public void onResponse(Call<ChatGPTResponse> call, Response<ChatGPTResponse> response) {
                 if (response.isSuccessful()) {
-                    // Step 5: Display Response to the Student
                     ChatGPTResponse responseBody = response.body();
-                    String generatedResponse = responseBody.getChoices().get(0).getText();
-
-                    // Update the UI to display the generated response
-                    // Assuming you have a TextView named textViewResponse in your activity
-                    // textViewResponse.setText(generatedResponse);
+                    if (responseBody != null && !responseBody.getChoices().isEmpty()) {
+                        String generatedResponse = responseBody.getChoices().get(0).getText();
+                        callback.onSuccess(generatedResponse);
+                    } else {
+                        callback.onFailure(new Exception("Empty response from AI"));
+                    }
                 } else {
-                    // Handle unsuccessful response
-                    // Assuming this code is within an Activity
-                    // Toast.makeText(MainActivity.this, "Failed to process comment", Toast.LENGTH_SHORT).show();
-                    // Handle failure to make API request
-                    // Assuming this code is within an Activity
-                    // Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    callback.onFailure(new Exception("Failed to process comment"));
                 }
             }
 
-
             @Override
             public void onFailure(Call<ChatGPTResponse> call, Throwable t) {
-                // Handle failure to make API request
-                // Assuming this code is within an Activity
-                //Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                callback.onFailure(t);
             }
-
         });
+    }
+
+    public interface ChatGPTCallback {
+        void onSuccess(String response);
+        void onFailure(Throwable t);
     }
 
     interface ChatGPTServiceInterface {
@@ -69,19 +66,27 @@ public class ChatGPTService {
         );
     }
 
-    class ChatGPTResponse {
+    public static class ChatGPTResponse {
         private List<ChatGPTChoice> choices;
 
         public List<ChatGPTChoice> getChoices() {
             return choices;
         }
+
+        public void setChoices(List<ChatGPTChoice> choices) {
+            this.choices = choices;
+        }
     }
 
-    class ChatGPTChoice {
+    public static class ChatGPTChoice {
         private String text;
 
         public String getText() {
             return text;
+        }
+
+        public void setText(String text) {
+            this.text = text;
         }
     }
 }
