@@ -30,6 +30,14 @@ public class Form2LanguagesStudent extends AppCompatActivity {
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
         buttonBack = findViewById(R.id.back_button);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
         // Set click listeners for each button
         buttonEnglish.setOnClickListener(new View.OnClickListener() {
             @Override

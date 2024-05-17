@@ -36,6 +36,14 @@ public class Form2SciencesStudent extends AppCompatActivity {
         Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
 
         buttonBack = findViewById(R.id.back_button);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
         // Set click listeners for each button
         buttonMathematics.setOnClickListener(new View.OnClickListener() {
             @Override

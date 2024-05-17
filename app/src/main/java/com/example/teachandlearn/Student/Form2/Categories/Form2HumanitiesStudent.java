@@ -39,6 +39,13 @@ public class Form2HumanitiesStudent extends AppCompatActivity {
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
         buttonBack = findViewById(R.id.back_button);
 
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
 
 
 
@@ -82,6 +89,7 @@ public class Form2HumanitiesStudent extends AppCompatActivity {
                 startActivityForContent();
             }
         });
+
 
         buttonSmallSocialStudies.setOnClickListener(v -> showPopup(v, getString(R.string.info_social_studies)));
         buttonSmallLifeSkills.setOnClickListener(v -> showPopup(v, getString(R.string.info_life_skills)));
