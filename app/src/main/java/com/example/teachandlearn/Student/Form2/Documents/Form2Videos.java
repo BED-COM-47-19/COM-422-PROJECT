@@ -1,5 +1,6 @@
 
 
+
 package com.example.teachandlearn.Student.Form2.Documents;
 import android.content.Context;
 import android.os.Bundle;
@@ -14,14 +15,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.ListResult;
 import java.util.ArrayList;
 import java.util.List;
 import android.widget.Button;
 import android.widget.EditText;
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
-
 
 public class Form2Videos extends AppCompatActivity {
 
@@ -33,37 +33,44 @@ public class Form2Videos extends AppCompatActivity {
 
     private ArrayList<String> comments;
 
+    private TextView textViewComment;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form2_video);
 
         recyclerView = findViewById(R.id.rvVideos);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         editTextComment = findViewById(R.id.editTextComment);
-
         buttonSubmitComment = findViewById(R.id.buttonSubmitComment);
 
         chatGPTService = new ChatGPTService();
-
         comments = new ArrayList<>();
 
-        buttonSubmitComment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String comment = editTextComment.getText().toString().trim();
-                if (!comment.isEmpty()) {
-                    comments.add(comment);
-                    editTextComment.setText(""); // Clear the comment field after submission
-                    // Notify adapter of data change
-                    form2VideoAdapter.notifyDataSetChanged();
-                    // Send the comment to ChatGPT for processing
-                    chatGPTService.sendCommentToAI(comment);
-                } else {
-                    Toast.makeText(Form2Videos.this, "Please enter a comment", Toast.LENGTH_SHORT).show();
-                }
+        buttonSubmitComment.setOnClickListener(v -> {
+            String comment = editTextComment.getText().toString().trim();
+            if (!comment.isEmpty()) {
+                comments.add(comment);
+                editTextComment.setText(""); // Clear the comment field after submission
+                form2VideoAdapter.notifyDataSetChanged(); // Notify adapter of data change
+                chatGPTService.sendCommentToAI(comment, new ChatGPTService.ChatGPTCallback() {
+                    @Override
+                    public void onSuccess(String response) {
+                        // Handle the successful AI response
+                        Toast.makeText(Form2Videos.this, "AI Response: " + response, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        // Handle the failure of the AI response
+                        Toast.makeText(Form2Videos.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } else {
+                Toast.makeText(Form2Videos.this, "Please enter a comment", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -72,47 +79,26 @@ public class Form2Videos extends AppCompatActivity {
 
     private void fetchVideos() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef;
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/humanities/bible_knowledge/videos/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/humanities/geography/videos/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/humanities/history/videos/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/humanities/life_skills/videos/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/humanities/social_studies/videos/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/languages/english/videos/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/languages/chichewa/videos/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/sciences/agriculture/videos/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/sciences/biology/videos/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/sciences/chemistry/videos/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/sciences/mathematics/videos/");
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/sciences/physics/videos/");
-
+        StorageReference storageRef = storage.getReference().child("/form2/humanities/bible_knowledge/videos/");
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
             List<VideoItem> videos = new ArrayList<>();
             for (StorageReference item : listResult.getItems()) {
-                String name = item.getName();
-                String url = item.getDownloadUrl().toString();
-                videos.add(new VideoItem(name, url));
-                comments.add("");
+                item.getDownloadUrl().addOnSuccessListener(uri -> {
+                    String name = item.getName();
+                    String url = uri.toString();
+                    videos.add(new VideoItem(name, url));
+                    comments.add(""); // Add an empty comment for each item
+                    if (videos.size() == listResult.getItems().size()) {
+                        form2VideoAdapter = new Form2VideoAdapter(videos, Form2Videos.this, comments);
+                        recyclerView.setAdapter(form2VideoAdapter);
+                    }
+                }).addOnFailureListener(e -> {
+                    Toast.makeText(this, "Failed to get download URL", Toast.LENGTH_SHORT).show();
+                });
             }
             if (videos.isEmpty()) {
-                // If no videos found, show "Nothing Uploaded yet" message
                 Toast.makeText(this, "Nothing Uploaded yet", Toast.LENGTH_SHORT).show();
-            } else {
-                form2VideoAdapter = new Form2VideoAdapter(videos, this);
-                recyclerView.setAdapter(form2VideoAdapter);
             }
         }).addOnFailureListener(e -> {
             Toast.makeText(this, "Failed to fetch videos", Toast.LENGTH_SHORT).show();
@@ -141,13 +127,9 @@ public class Form2Videos extends AppCompatActivity {
 
         private List<VideoItem> videos;
         private Context context;
-
         private List<String> comments;
 
-
-
-
-        public Form2VideoAdapter(List<VideoItem> videos, Context context) {
+        public Form2VideoAdapter(List<VideoItem> videos, Context context, List<String> comments) {
             this.videos = videos;
             this.context = context;
             this.comments = comments;
@@ -162,12 +144,9 @@ public class Form2Videos extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
-
-
             VideoItem videoItem = videos.get(position);
             String comment = comments.get(position);
             holder.bind(videoItem, comment);
-
         }
 
         @Override
@@ -177,24 +156,22 @@ public class Form2Videos extends AppCompatActivity {
 
         public class VideoViewHolder extends RecyclerView.ViewHolder {
 
+
             TextView textViewName;
             TextView textViewUrl;
             TextView textViewComment;
 
             public VideoViewHolder(@NonNull View itemView) {
-
                 super(itemView);
                 textViewName = itemView.findViewById(R.id.textViewVideoName);
                 textViewUrl = itemView.findViewById(R.id.textViewVideoUrl);
-                textViewComment = itemView.findViewById(R.id.editTextComment);
+                textViewComment = itemView.findViewById(R.id.textViewComment);
             }
 
             public void bind(VideoItem videoItem, String comment) {
                 textViewName.setText(videoItem.getName());
                 textViewUrl.setText(videoItem.getUrl());
                 textViewComment.setText(comment);
-
-
             }
         }
     }

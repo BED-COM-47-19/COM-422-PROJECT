@@ -1,3 +1,5 @@
+
+
 package com.example.teachandlearn.Student.Form2.Documents;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -14,22 +16,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
-import com.example.teachandlearn.CHATGPT.ChatGPTService;
 
 public class Form2Audio extends AppCompatActivity {
 
-
     private RecyclerView recyclerView;
-
     private AudioAdapter adapter;
-
     private MediaPlayer mediaPlayer;
-
     private ChatGPTService chatGPTService;
 
     @Override
@@ -40,56 +38,33 @@ public class Form2Audio extends AppCompatActivity {
         mediaPlayer = new MediaPlayer();
         recyclerView = findViewById(R.id.recyclerViewAudio);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new AudioAdapter(new ArrayList<>(), mediaPlayer);
+        adapter = new AudioAdapter(new ArrayList<>(), mediaPlayer, new ChatGPTService());
         recyclerView.setAdapter(adapter);
-
-        chatGPTService = new ChatGPTService();
 
         fetchAudios();
     }
 
-
     private void fetchAudios() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef;
+        String[] paths = {
+                "/form1/humanities/bible_knowledge/audios/",
+                "/form1/humanities/geography/audios/",
+                "/form1/humanities/history/audios/",
+                "/form1/humanities/life_skills/audios/",
+                "/form1/humanities/social_studies/audios/",
+                "/form1/languages/english/audios/",
+                "/form1/languages/chichewa/audios/",
+                "/form1/sciences/agriculture/audios/",
+                "/form1/sciences/biology/audios/",
+                "/form1/sciences/chemistry/audios/",
+                "/form1/sciences/mathematics/audios/",
+                "/form1/sciences/physics/audios/"
+        };
 
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/humanities/bible_knowledge/audios/");
-        fetchFromStorage(storageRef);
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/humanities/geography/audios/");
-        fetchFromStorage(storageRef);
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/humanities/history/audios/");
-        fetchFromStorage(storageRef);
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/humanities/life_skills/audios/");
-        fetchFromStorage(storageRef);
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/humanities/social_studies/audios/");
-        fetchFromStorage(storageRef);
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/languages/english/audios/");
-        fetchFromStorage(storageRef);
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/languages/chichewa/audios/");
-        fetchFromStorage(storageRef);
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/sciences/agriculture/audios/");
-        fetchFromStorage(storageRef);
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/sciences/biology/audios/");
-        fetchFromStorage(storageRef);
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/sciences/chemistry/audios/");
-        fetchFromStorage(storageRef);
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/sciences/mathematics/audios/");
-        fetchFromStorage(storageRef);
-
-        storageRef = FirebaseStorage.getInstance().getReference().child("/form2/sciences/physics/audios/");
-        fetchFromStorage(storageRef);
-
-
+        for (String path : paths) {
+            StorageReference storageRef = storage.getReference().child(path);
+            fetchFromStorage(storageRef);
+        }
     }
 
     private void fetchFromStorage(StorageReference storageRef) {
@@ -100,27 +75,22 @@ public class Form2Audio extends AppCompatActivity {
                 String filePath = item.getPath();
                 String title = fileName.substring(0, fileName.lastIndexOf('.'));
                 list.add(new AudioItem(title, filePath, "", "", "")); // Include an empty string for the comment
-
             }
             if (list.isEmpty()) {
-                // If no audio files found, show "No file Uploaded" message
                 showNoFilesUploaded();
             } else {
                 adapter.setAudioList(list);
             }
         }).addOnFailureListener(exception -> {
-            Log.e("Form2Audio", "Failed to fetch audio files", exception);
+            Log.e("Form1Audio", "Failed to fetch audio files", exception);
             Toast.makeText(this, "Failed to fetch audio files", Toast.LENGTH_SHORT).show();
         });
     }
 
     private void showNoFilesUploaded() {
-        // Clear the existing list of audio items
         adapter.setAudioList(new ArrayList<>());
-        // Display "No file Uploaded" message
         Toast.makeText(this, "No file Uploaded", Toast.LENGTH_SHORT).show();
     }
-
 
     @Override
     protected void onDestroy() {
@@ -135,10 +105,10 @@ public class Form2Audio extends AppCompatActivity {
     }
 
     public static class AudioItem {
-        private String title;
-        private String filePath;
-        private String description;
-        private String length;
+        private final String title;
+        private final String filePath;
+        private final String description;
+        private final String length;
         private String comment;
 
         public AudioItem(String title, String filePath, String description, String length, String comment) {
@@ -172,23 +142,23 @@ public class Form2Audio extends AppCompatActivity {
         public void setComment(String comment) {
             this.comment = comment;
         }
-
-
     }
 
     public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHolder> {
         private List<AudioItem> audioList;
-        private MediaPlayer mediaPlayer;
+        private final MediaPlayer mediaPlayer;
+        private final ChatGPTService chatGPTService;
 
-        public AudioAdapter(List<AudioItem> audioList, MediaPlayer mediaPlayer) {
+        public AudioAdapter(List<AudioItem> audioList, MediaPlayer mediaPlayer, ChatGPTService chatGPTService) {
             this.audioList = audioList;
             this.mediaPlayer = mediaPlayer;
+            this.chatGPTService = chatGPTService;
         }
 
         @NonNull
         @Override
         public AudioViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form2_audio_item, parent, false);
+            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form1_audio_item, parent, false);
             return new AudioViewHolder(itemView);
         }
 
@@ -196,49 +166,46 @@ public class Form2Audio extends AppCompatActivity {
         public void onBindViewHolder(@NonNull AudioViewHolder holder, int position) {
             AudioItem audio = audioList.get(position);
 
-            // Bind audio data to views
             holder.textViewTitle.setText(audio.getTitle());
             holder.textViewDescription.setText(audio.getDescription());
             holder.textViewLength.setText(audio.getLength());
-
-
-
-            holder.buttonSubmitComment.setOnClickListener(v -> {
-                String newComment = holder.editTextComment.getText().toString();
-                // Update the comment in the AudioItem object
-                audio.setComment(newComment);
-
-                // Send comment to AI
-                chatGPTService.sendCommentToAI(newComment); // Call ChatGPTService method
-            });
-
-
             holder.editTextComment.setText(audio.getComment());
+
             holder.buttonSubmitComment.setOnClickListener(v -> {
                 String newComment = holder.editTextComment.getText().toString();
-                // Update the comment in the AudioItem object
                 audio.setComment(newComment);
-                // Notify the adapter that data has changed
+                chatGPTService.sendCommentToAI(newComment, new ChatGPTService.ChatGPTCallback() {
+                    @Override
+                    public void onSuccess(String response) {
+                        // Handle the successful AI response
+                        Toast.makeText(holder.itemView.getContext(), "AI Response: " + response, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        // Handle the failure of the AI response
+                        Toast.makeText(holder.itemView.getContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
                 notifyDataSetChanged();
             });
 
-            // Set click listener to play audio when clicked
             holder.itemView.setOnClickListener(v -> {
-                // Stop any previous playback
                 if (mediaPlayer.isPlaying()) {
                     mediaPlayer.stop();
                     mediaPlayer.reset();
                 }
+                mediaPlayer.setOnPreparedListener(mp -> mp.start());
 
                 try {
-                    // Set the data source to the Firebase Storage URL
-                    mediaPlayer.setDataSource(audio.getFilePath());
-                    // Prepare the media player asynchronously
-                    mediaPlayer.prepareAsync();
-                    // Set a listener for when preparation is done
-                    mediaPlayer.setOnPreparedListener(mp -> {
-                        // Start playback
-                        mp.start();
+                    FirebaseStorage.getInstance().getReference(audio.getFilePath()).getDownloadUrl().addOnSuccessListener(uri -> {
+                        try {
+                            mediaPlayer.setDataSource(uri.toString());
+                            mediaPlayer.prepareAsync();
+                        } catch (Exception e) {
+                            Log.e("AudioAdapter", "Error setting data source", e);
+                            Toast.makeText(holder.itemView.getContext(), "Error playing audio", Toast.LENGTH_SHORT).show();
+                        }
                     });
                 } catch (Exception e) {
                     Log.e("AudioAdapter", "Error playing audio", e);
@@ -274,5 +241,4 @@ public class Form2Audio extends AppCompatActivity {
             }
         }
     }
-
 }
