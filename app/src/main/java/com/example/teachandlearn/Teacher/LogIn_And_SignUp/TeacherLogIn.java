@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
+import com.example.teachandlearn.Teacher.SelectClass.TeacherSelectClass;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -195,7 +196,7 @@ public class TeacherLogIn extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // If login is successful, navigate to the next screen
-                        startActivity(new Intent(TeacherLogIn.this, StudentSelectClass.class));
+                        startActivity(new Intent(TeacherLogIn.this, TeacherSelectClass.class));
                     } else {
                         // If login fails, display a failure message
                         Toast.makeText(TeacherLogIn.this, "Email or Password Incorrect.", Toast.LENGTH_SHORT).show();
@@ -235,7 +236,7 @@ public class TeacherLogIn extends AppCompatActivity {
                         // Sign in success, update UI with the signed-in user's information
                         FirebaseUser user = mAuth.getCurrentUser();
                         // Proceed with your app logic, for example, navigate to a new activity
-                        startActivity(new Intent(TeacherLogIn.this, StudentSelectClass.class));
+                        startActivity(new Intent(TeacherLogIn.this, TeacherSelectClass.class));
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("FirebaseAuth", "signInWithCredential:failure", task.getException());

@@ -1,50 +1,39 @@
-<!-- res/layout/activity_form1_audio_item.xml -->
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textViewAudioTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:paddingBottom="4dp"
-        android:text="Audio Title" />
+        android:text="Title" />
 
     <TextView
         android:id="@+id/textViewAudioDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:paddingBottom="4dp"
-        android:text="Audio Description" />
+        android:text="Description" />
 
     <TextView
         android:id="@+id/textViewAudioLength"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:paddingBottom="4dp"
-        android:text="Audio Length" />
-
-    <EditText
-        android:id="@+id/editTextComment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter your comment"
-        android:padding="8dp"
-        android:background="@drawable/edittext_background"
-        android:layout_marginBottom="8dp" />
+        android:text="Length" />
 
     <Button
         android:id="@+id/buttonSubmitComment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit Comment"
-        android:padding="8dp"
-        android:background="@drawable/button_background" />
-</LinearLayout>
+        android:text="Submit" />
 
+    <EditText
+        android:id="@+id/editTextComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Type your comment here"
+        android:maxLines="5"
+        android:inputType="textMultiLine" />
+
+</LinearLayout>

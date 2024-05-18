@@ -1,7 +1,6 @@
 
 
 package com.example.teachandlearn.Student.Form1.Documents;
-import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,17 +15,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Form1PDF extends AppCompatActivity {
     private RecyclerView recyclerViewPDFs;
     private PDFAdapter adapter;
-    private ChatGPTService chatGPTService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,36 +36,246 @@ public class Form1PDF extends AppCompatActivity {
         adapter = new PDFAdapter(new ArrayList<>(), this);
         recyclerViewPDFs.setAdapter(adapter);
 
-        chatGPTService = new ChatGPTService();
-        fetchPDFsFromFirebase("gs://teachandlearn-d3be7.appspot.com/form1/sciences/mathematics/pdfs/");
+        fetchPDFsFromFirebase();
     }
 
-    private void fetchPDFsFromFirebase(String storageRefPath) {
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference pdfStorageRef = storage.getReference().child(storageRefPath);
+    private void fetchPDFsFromFirebase() {
+        // Get a reference to the Firebase storage location
 
-        pdfStorageRef.listAll().addOnSuccessListener(listResult -> {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+
+
+        StorageReference storageRef1 = storage.getReference().child("/form1/sciences/mathematics/pdfs/");
+
+        StorageReference storageRef2 = storage.getReference().child("/form1/sciences/mathematics/audios/");
+
+        StorageReference storageRef3 = storage.getReference().child("/form1/sciences/mathematics/videos/");
+
+        StorageReference storageRef4 = storage.getReference().child("/form1/sciences/mathematics/quizzes_and-questions/");
+
+
+        StorageReference storageRef5 = storage.getReference().child("/form1/sciences/biology/pdfs/");
+
+        StorageReference storageRef6 = storage.getReference().child("/form1/sciences/biology/audios/");
+
+        StorageReference storageRef7 = storage.getReference().child("/form1/sciences/biology/videos/");
+
+        StorageReference storageRef8 = storage.getReference().child("/form1/sciences/biology/quizzes_and-questions/");
+
+
+
+        storageRef1.listAll().addOnSuccessListener(listResult -> {
             List<PDFDocument> pdfs = new ArrayList<>();
+            // Iterate through each item (PDF) in the storage location
             for (StorageReference item : listResult.getItems()) {
+                // Get the download URL for the PDF
                 item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    PDFDocument pdfDocument = new PDFDocument(item.getName(), uri.toString());
-                    pdfs.add(pdfDocument);
-                    if (pdfs.size() == 1) {
-                        // Send the first PDF document title to ChatGPT as a comment
-                        sendCommentToAI(pdfDocument.getTitle());
-                    }
+                    // Add the PDF with its download URL to the list
+                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
+                    // Update the adapter with the new list of PDFs
                     adapter.setPDFDocuments(pdfs);
                 }).addOnFailureListener(exception -> {
+                    // Handle any errors
                     Log.e("PDF", "Failed to get download URL for PDF", exception);
                 });
             }
+            // If no PDFs were found, display "NO file Uploaded"
             if (pdfs.isEmpty()) {
                 showNoFilesUploaded();
             }
         }).addOnFailureListener(exception -> {
+            // Handle any errors
             Log.e("PDF", "Failed to list PDF files", exception);
+            // Show "NO file Uploaded" in case of failure as well
             showNoFilesUploaded();
         });
+
+        storageRef2.listAll().addOnSuccessListener(listResult -> {
+            List<PDFDocument> pdfs = new ArrayList<>();
+            // Iterate through each item (PDF) in the storage location
+            for (StorageReference item : listResult.getItems()) {
+                // Get the download URL for the PDF
+                item.getDownloadUrl().addOnSuccessListener(uri -> {
+                    // Add the PDF with its download URL to the list
+                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
+                    // Update the adapter with the new list of PDFs
+                    adapter.setPDFDocuments(pdfs);
+                }).addOnFailureListener(exception -> {
+                    // Handle any errors
+                    Log.e("PDF", "Failed to get download URL for PDF", exception);
+                });
+            }
+            // If no PDFs were found, display "NO file Uploaded"
+            if (pdfs.isEmpty()) {
+                showNoFilesUploaded();
+            }
+        }).addOnFailureListener(exception -> {
+            // Handle any errors
+            Log.e("PDF", "Failed to list PDF files", exception);
+            // Show "NO file Uploaded" in case of failure as well
+            showNoFilesUploaded();
+        });
+
+        storageRef3.listAll().addOnSuccessListener(listResult -> {
+            List<PDFDocument> pdfs = new ArrayList<>();
+            // Iterate through each item (PDF) in the storage location
+            for (StorageReference item : listResult.getItems()) {
+                // Get the download URL for the PDF
+                item.getDownloadUrl().addOnSuccessListener(uri -> {
+                    // Add the PDF with its download URL to the list
+                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
+                    // Update the adapter with the new list of PDFs
+                    adapter.setPDFDocuments(pdfs);
+                }).addOnFailureListener(exception -> {
+                    // Handle any errors
+                    Log.e("PDF", "Failed to get download URL for PDF", exception);
+                });
+            }
+            // If no PDFs were found, display "NO file Uploaded"
+            if (pdfs.isEmpty()) {
+                showNoFilesUploaded();
+            }
+        }).addOnFailureListener(exception -> {
+            // Handle any errors
+            Log.e("PDF", "Failed to list PDF files", exception);
+            // Show "NO file Uploaded" in case of failure as well
+            showNoFilesUploaded();
+        });
+
+
+        storageRef4.listAll().addOnSuccessListener(listResult -> {
+            List<PDFDocument> pdfs = new ArrayList<>();
+            // Iterate through each item (PDF) in the storage location
+            for (StorageReference item : listResult.getItems()) {
+                // Get the download URL for the PDF
+                item.getDownloadUrl().addOnSuccessListener(uri -> {
+                    // Add the PDF with its download URL to the list
+                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
+                    // Update the adapter with the new list of PDFs
+                    adapter.setPDFDocuments(pdfs);
+                }).addOnFailureListener(exception -> {
+                    // Handle any errors
+                    Log.e("PDF", "Failed to get download URL for PDF", exception);
+                });
+            }
+            // If no PDFs were found, display "NO file Uploaded"
+            if (pdfs.isEmpty()) {
+                showNoFilesUploaded();
+            }
+        }).addOnFailureListener(exception -> {
+            // Handle any errors
+            Log.e("PDF", "Failed to list PDF files", exception);
+            // Show "NO file Uploaded" in case of failure as well
+            showNoFilesUploaded();
+        });
+
+
+
+        storageRef5.listAll().addOnSuccessListener(listResult -> {
+            List<PDFDocument> pdfs = new ArrayList<>();
+            // Iterate through each item (PDF) in the storage location
+            for (StorageReference item : listResult.getItems()) {
+                // Get the download URL for the PDF
+                item.getDownloadUrl().addOnSuccessListener(uri -> {
+                    // Add the PDF with its download URL to the list
+                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
+                    // Update the adapter with the new list of PDFs
+                    adapter.setPDFDocuments(pdfs);
+                }).addOnFailureListener(exception -> {
+                    // Handle any errors
+                    Log.e("PDF", "Failed to get download URL for PDF", exception);
+                });
+            }
+            // If no PDFs were found, display "NO file Uploaded"
+            if (pdfs.isEmpty()) {
+                showNoFilesUploaded();
+            }
+        }).addOnFailureListener(exception -> {
+            // Handle any errors
+            Log.e("PDF", "Failed to list PDF files", exception);
+            // Show "NO file Uploaded" in case of failure as well
+            showNoFilesUploaded();
+        });
+
+        storageRef6.listAll().addOnSuccessListener(listResult -> {
+            List<PDFDocument> pdfs = new ArrayList<>();
+            // Iterate through each item (PDF) in the storage location
+            for (StorageReference item : listResult.getItems()) {
+                // Get the download URL for the PDF
+                item.getDownloadUrl().addOnSuccessListener(uri -> {
+                    // Add the PDF with its download URL to the list
+                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
+                    // Update the adapter with the new list of PDFs
+                    adapter.setPDFDocuments(pdfs);
+                }).addOnFailureListener(exception -> {
+                    // Handle any errors
+                    Log.e("PDF", "Failed to get download URL for PDF", exception);
+                });
+            }
+            // If no PDFs were found, display "NO file Uploaded"
+            if (pdfs.isEmpty()) {
+                showNoFilesUploaded();
+            }
+        }).addOnFailureListener(exception -> {
+            // Handle any errors
+            Log.e("PDF", "Failed to list PDF files", exception);
+            // Show "NO file Uploaded" in case of failure as well
+            showNoFilesUploaded();
+        });
+
+        storageRef7.listAll().addOnSuccessListener(listResult -> {
+            List<PDFDocument> pdfs = new ArrayList<>();
+            // Iterate through each item (PDF) in the storage location
+            for (StorageReference item : listResult.getItems()) {
+                // Get the download URL for the PDF
+                item.getDownloadUrl().addOnSuccessListener(uri -> {
+                    // Add the PDF with its download URL to the list
+                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
+                    // Update the adapter with the new list of PDFs
+                    adapter.setPDFDocuments(pdfs);
+                }).addOnFailureListener(exception -> {
+                    // Handle any errors
+                    Log.e("PDF", "Failed to get download URL for PDF", exception);
+                });
+            }
+            // If no PDFs were found, display "NO file Uploaded"
+            if (pdfs.isEmpty()) {
+                showNoFilesUploaded();
+            }
+        }).addOnFailureListener(exception -> {
+            // Handle any errors
+            Log.e("PDF", "Failed to list PDF files", exception);
+            // Show "NO file Uploaded" in case of failure as well
+            showNoFilesUploaded();
+        });
+
+
+        storageRef8.listAll().addOnSuccessListener(listResult -> {
+            List<PDFDocument> pdfs = new ArrayList<>();
+            // Iterate through each item (PDF) in the storage location
+            for (StorageReference item : listResult.getItems()) {
+                // Get the download URL for the PDF
+                item.getDownloadUrl().addOnSuccessListener(uri -> {
+                    // Add the PDF with its download URL to the list
+                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
+                    // Update the adapter with the new list of PDFs
+                    adapter.setPDFDocuments(pdfs);
+                }).addOnFailureListener(exception -> {
+                    // Handle any errors
+                    Log.e("PDF", "Failed to get download URL for PDF", exception);
+                });
+            }
+            // If no PDFs were found, display "NO file Uploaded"
+            if (pdfs.isEmpty()) {
+                showNoFilesUploaded();
+            }
+        }).addOnFailureListener(exception -> {
+            // Handle any errors
+            Log.e("PDF", "Failed to list PDF files", exception);
+            // Show "NO file Uploaded" in case of failure as well
+            showNoFilesUploaded();
+        });
+
     }
 
     private void showNoFilesUploaded() {
@@ -77,21 +285,6 @@ public class Form1PDF extends AppCompatActivity {
         Toast.makeText(this, "No file Uploaded", Toast.LENGTH_SHORT).show();
     }
 
-    private void sendCommentToAI(String comment) {
-        chatGPTService.sendCommentToAI(comment, new ChatGPTService.ChatGPTCallback() {
-            @Override
-            public void onSuccess(String response) {
-                // Handle the successful AI response
-                Toast.makeText(Form1PDF.this, "AI Response: " + response, Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-                // Handle the failure of the AI response
-                Toast.makeText(Form1PDF.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
     public static class PDFDocument {
         private String title;

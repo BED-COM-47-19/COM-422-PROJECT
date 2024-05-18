@@ -1,5 +1,6 @@
 
 
+
 package com.example.teachandlearn.Student.Form1.Documents;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -18,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +73,13 @@ public class Form1Audio extends AppCompatActivity {
             for (StorageReference item : listResult.getItems()) {
                 String fileName = item.getName();
                 String filePath = item.getPath();
-                String title = fileName.substring(0, fileName.lastIndexOf('.'));
+                String title;
+                int lastIndex = fileName.lastIndexOf('.');
+                if (lastIndex != -1) {
+                    title = fileName.substring(0, lastIndex);
+                } else {
+                    title = fileName;
+                }
                 list.add(new AudioItem(title, filePath, "", "", "")); // Include an empty string for the comment
             }
             if (list.isEmpty()) {
@@ -171,6 +177,32 @@ public class Form1Audio extends AppCompatActivity {
             holder.textViewLength.setText(audio.getLength());
             holder.editTextComment.setText(audio.getComment());
 
+            holder.itemView.setOnClickListener(v -> {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                    mediaPlayer.reset();
+                }
+
+                try {
+                    FirebaseStorage.getInstance().getReference(audio.getFilePath()).getDownloadUrl().addOnSuccessListener(uri -> {
+                        try {
+                            mediaPlayer.setDataSource(uri.toString());
+                            mediaPlayer.setOnPreparedListener(mp -> {
+                                mp.start();
+                                Toast.makeText(holder.itemView.getContext(), "Playing audio", Toast.LENGTH_SHORT).show();
+                            });
+                            mediaPlayer.prepareAsync();
+                        } catch (Exception e) {
+                            Log.e("AudioAdapter", "Error setting data source", e);
+                            Toast.makeText(holder.itemView.getContext(), "Error playing audio", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } catch (Exception e) {
+                    Log.e("AudioAdapter", "Error playing audio", e);
+                    Toast.makeText(holder.itemView.getContext(), "Error playing audio", Toast.LENGTH_SHORT).show();
+                }
+            });
+
             holder.buttonSubmitComment.setOnClickListener(v -> {
                 String newComment = holder.editTextComment.getText().toString();
                 audio.setComment(newComment);
@@ -188,29 +220,6 @@ public class Form1Audio extends AppCompatActivity {
                     }
                 });
                 notifyDataSetChanged();
-            });
-
-            holder.itemView.setOnClickListener(v -> {
-                if (mediaPlayer.isPlaying()) {
-                    mediaPlayer.stop();
-                    mediaPlayer.reset();
-                }
-                mediaPlayer.setOnPreparedListener(mp -> mp.start());
-
-                try {
-                    FirebaseStorage.getInstance().getReference(audio.getFilePath()).getDownloadUrl().addOnSuccessListener(uri -> {
-                        try {
-                            mediaPlayer.setDataSource(uri.toString());
-                            mediaPlayer.prepareAsync();
-                        } catch (Exception e) {
-                            Log.e("AudioAdapter", "Error setting data source", e);
-                            Toast.makeText(holder.itemView.getContext(), "Error playing audio", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                } catch (Exception e) {
-                    Log.e("AudioAdapter", "Error playing audio", e);
-                    Toast.makeText(holder.itemView.getContext(), "Error playing audio", Toast.LENGTH_SHORT).show();
-                }
             });
         }
 
@@ -239,6 +248,9 @@ public class Form1Audio extends AppCompatActivity {
                 editTextComment = itemView.findViewById(R.id.editTextComment);
                 buttonSubmitComment = itemView.findViewById(R.id.buttonSubmitComment);
             }
+
         }
+
     }
+
 }
