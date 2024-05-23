@@ -1,5 +1,4 @@
 
-
 package com.example.teachandlearn.Student.Form1.Documents;
 import android.content.Context;
 import android.content.Intent;
@@ -9,13 +8,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.teachandlearn.CHATGPT.ChatBot;
 import com.example.teachandlearn.R;
+import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
@@ -23,389 +27,141 @@ import java.util.List;
 
 
 public class Form1PDF extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private CourseAdapter courseAdapter;
+    private List<CourseModule> courseModules;
+    private PDFAdapter pdfAdapter;
+    private Button resetProgressButton;
     private RecyclerView recyclerViewPDFs;
-    private PDFAdapter adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form1_pdf);
 
+        recyclerView = findViewById(R.id.recyclerView);
+        resetProgressButton = findViewById(R.id.resetProgressButton);
         recyclerViewPDFs = findViewById(R.id.recyclerViewPDFs);
+
+        courseModules = loadCourseModules();
+        courseAdapter = new CourseAdapter(courseModules, this::openModule);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(courseAdapter);
+
         recyclerViewPDFs.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new PDFAdapter(new ArrayList<>(), this);
-        recyclerViewPDFs.setAdapter(adapter);
+        pdfAdapter = new PDFAdapter(new ArrayList<>(), this);
+        recyclerViewPDFs.setAdapter(pdfAdapter);
 
         fetchPDFsFromFirebase();
+
+        resetProgressButton.setOnClickListener(v -> resetProgress());
+
+        Button chatbotButton = findViewById(R.id.chatbotButton);
+        chatbotButton.setOnClickListener(v -> {
+            EditText messageEditText = findViewById(R.id.messageEditText);
+            String message = messageEditText.getText().toString().trim();
+            if (!message.isEmpty()) {
+                sendMessageToChatbot(message);
+            }
+        });
+    }
+
+    private List<CourseModule> loadCourseModules() {
+        List<CourseModule> modules = new ArrayList<>();
+        modules.add(new CourseModule("Introduction to Cybersecurity", getProgress("Introduction to Cybersecurity")));
+        modules.add(new CourseModule("Types of Organizational Data", getProgress("Types of Organizational Data")));
+        return modules;
+    }
+
+    private int getProgress(String moduleTitle) {
+        return getSharedPreferences("CourseProgress", MODE_PRIVATE).getInt(moduleTitle, 0);
+    }
+
+    private void openModule(CourseModule module) {
+        Intent intent = new Intent(this, Form1ModuleContent.class);
+        intent.putExtra("moduleTitle", module.getTitle());
+        startActivity(intent);
+    }
+
+    private void resetProgress() {
+        getSharedPreferences("CourseProgress", MODE_PRIVATE).edit().clear().apply();
+        for (CourseModule module : courseModules) {
+            module.setProgress(0);
+        }
+        courseAdapter.notifyDataSetChanged();
+    }
+
+    private void sendMessageToChatbot(String message) {
+        ChatBot.sendMessage(message, response -> {
+            TextView chatbotResponseTextView = findViewById(R.id.chatbotResponseTextView);
+            chatbotResponseTextView.setText(response);
+        });
     }
 
     private void fetchPDFsFromFirebase() {
-        // Get a reference to the Firebase storage location
-
         FirebaseStorage storage = FirebaseStorage.getInstance();
 
-
         StorageReference storageRef1 = storage.getReference().child("/form1/sciences/mathematics/pdfs/");
-
         StorageReference storageRef2 = storage.getReference().child("/form1/sciences/biology/pdfs/");
 
-        StorageReference storageRef3 = storage.getReference().child("/form1/sciences/agriculture/pdfs/");
+        // Fetch PDFs from both references
+        fetchPDFsFromReference(storageRef1);
+        fetchPDFsFromReference(storageRef2);
+    }
 
-        StorageReference storageRef4 = storage.getReference().child("/form1/sciences/chemistry/pdfs/");
-
-        StorageReference storageRef5 = storage.getReference().child("/form1/sciences/physics/pdfs/");
-
-        StorageReference storageRef6 = storage.getReference().child("/form1/languages/english/pdfs/");
-
-        StorageReference storageRef7 = storage.getReference().child("/form1/languages/chichewa/pdfs/");
-
-        StorageReference storageRef8 = storage.getReference().child("/form1/humanities/social_studies/pdfs/");
-
-        StorageReference storageRef9 = storage.getReference().child("/form1/humanities/history/pdfs/");
-
-        StorageReference storageRef10 = storage.getReference().child("/form1/humanities/life_skills/pdfs/");
-
-        StorageReference storageRef11 = storage.getReference().child("/form1/humanities/bible_knowledge/pdfs/");
-
-        StorageReference storageRef12 = storage.getReference().child("/form1/humanities/geography/pdfs/");
-
-
-
-        storageRef1.listAll().addOnSuccessListener(listResult -> {
+    private void fetchPDFsFromReference(StorageReference storageRef) {
+        storageRef.listAll().addOnSuccessListener(listResult -> {
             List<PDFDocument> pdfs = new ArrayList<>();
-            // Iterate through each item (PDF) in the storage location
             for (StorageReference item : listResult.getItems()) {
-                // Get the download URL for the PDF
                 item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Add the PDF with its download URL to the list
                     pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                    // Update the adapter with the new list of PDFs
-                    adapter.setPDFDocuments(pdfs);
+                    pdfAdapter.setPDFDocuments(pdfs);
                 }).addOnFailureListener(exception -> {
-                    // Handle any errors
                     Log.e("PDF", "Failed to get download URL for PDF", exception);
                 });
             }
-            // If no PDFs were found, display "NO file Uploaded"
             if (pdfs.isEmpty()) {
                 showNoFilesUploaded();
             }
         }).addOnFailureListener(exception -> {
-            // Handle any errors
             Log.e("PDF", "Failed to list PDF files", exception);
-            // Show "NO file Uploaded" in case of failure as well
             showNoFilesUploaded();
         });
-
-        storageRef2.listAll().addOnSuccessListener(listResult -> {
-            List<PDFDocument> pdfs = new ArrayList<>();
-            // Iterate through each item (PDF) in the storage location
-            for (StorageReference item : listResult.getItems()) {
-                // Get the download URL for the PDF
-                item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Add the PDF with its download URL to the list
-                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                    // Update the adapter with the new list of PDFs
-                    adapter.setPDFDocuments(pdfs);
-                }).addOnFailureListener(exception -> {
-                    // Handle any errors
-                    Log.e("PDF", "Failed to get download URL for PDF", exception);
-                });
-            }
-            // If no PDFs were found, display "NO file Uploaded"
-            if (pdfs.isEmpty()) {
-                showNoFilesUploaded();
-            }
-        }).addOnFailureListener(exception -> {
-            // Handle any errors
-            Log.e("PDF", "Failed to list PDF files", exception);
-            // Show "NO file Uploaded" in case of failure as well
-            showNoFilesUploaded();
-        });
-
-        storageRef3.listAll().addOnSuccessListener(listResult -> {
-            List<PDFDocument> pdfs = new ArrayList<>();
-            // Iterate through each item (PDF) in the storage location
-            for (StorageReference item : listResult.getItems()) {
-                // Get the download URL for the PDF
-                item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Add the PDF with its download URL to the list
-                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                    // Update the adapter with the new list of PDFs
-                    adapter.setPDFDocuments(pdfs);
-                }).addOnFailureListener(exception -> {
-                    // Handle any errors
-                    Log.e("PDF", "Failed to get download URL for PDF", exception);
-                });
-            }
-            // If no PDFs were found, display "NO file Uploaded"
-            if (pdfs.isEmpty()) {
-                showNoFilesUploaded();
-            }
-        }).addOnFailureListener(exception -> {
-            // Handle any errors
-            Log.e("PDF", "Failed to list PDF files", exception);
-            // Show "NO file Uploaded" in case of failure as well
-            showNoFilesUploaded();
-        });
-
-
-        storageRef4.listAll().addOnSuccessListener(listResult -> {
-            List<PDFDocument> pdfs = new ArrayList<>();
-            // Iterate through each item (PDF) in the storage location
-            for (StorageReference item : listResult.getItems()) {
-                // Get the download URL for the PDF
-                item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Add the PDF with its download URL to the list
-                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                    // Update the adapter with the new list of PDFs
-                    adapter.setPDFDocuments(pdfs);
-                }).addOnFailureListener(exception -> {
-                    // Handle any errors
-                    Log.e("PDF", "Failed to get download URL for PDF", exception);
-                });
-            }
-            // If no PDFs were found, display "NO file Uploaded"
-            if (pdfs.isEmpty()) {
-                showNoFilesUploaded();
-            }
-        }).addOnFailureListener(exception -> {
-            // Handle any errors
-            Log.e("PDF", "Failed to list PDF files", exception);
-            // Show "NO file Uploaded" in case of failure as well
-            showNoFilesUploaded();
-        });
-
-
-
-        storageRef5.listAll().addOnSuccessListener(listResult -> {
-            List<PDFDocument> pdfs = new ArrayList<>();
-            // Iterate through each item (PDF) in the storage location
-            for (StorageReference item : listResult.getItems()) {
-                // Get the download URL for the PDF
-                item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Add the PDF with its download URL to the list
-                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                    // Update the adapter with the new list of PDFs
-                    adapter.setPDFDocuments(pdfs);
-                }).addOnFailureListener(exception -> {
-                    // Handle any errors
-                    Log.e("PDF", "Failed to get download URL for PDF", exception);
-                });
-            }
-            // If no PDFs were found, display "NO file Uploaded"
-            if (pdfs.isEmpty()) {
-                showNoFilesUploaded();
-            }
-        }).addOnFailureListener(exception -> {
-            // Handle any errors
-            Log.e("PDF", "Failed to list PDF files", exception);
-            // Show "NO file Uploaded" in case of failure as well
-            showNoFilesUploaded();
-        });
-
-        storageRef6.listAll().addOnSuccessListener(listResult -> {
-            List<PDFDocument> pdfs = new ArrayList<>();
-            // Iterate through each item (PDF) in the storage location
-            for (StorageReference item : listResult.getItems()) {
-                // Get the download URL for the PDF
-                item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Add the PDF with its download URL to the list
-                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                    // Update the adapter with the new list of PDFs
-                    adapter.setPDFDocuments(pdfs);
-                }).addOnFailureListener(exception -> {
-                    // Handle any errors
-                    Log.e("PDF", "Failed to get download URL for PDF", exception);
-                });
-            }
-            // If no PDFs were found, display "NO file Uploaded"
-            if (pdfs.isEmpty()) {
-                showNoFilesUploaded();
-            }
-        }).addOnFailureListener(exception -> {
-            // Handle any errors
-            Log.e("PDF", "Failed to list PDF files", exception);
-            // Show "NO file Uploaded" in case of failure as well
-            showNoFilesUploaded();
-        });
-
-        storageRef7.listAll().addOnSuccessListener(listResult -> {
-            List<PDFDocument> pdfs = new ArrayList<>();
-            // Iterate through each item (PDF) in the storage location
-            for (StorageReference item : listResult.getItems()) {
-                // Get the download URL for the PDF
-                item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Add the PDF with its download URL to the list
-                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                    // Update the adapter with the new list of PDFs
-                    adapter.setPDFDocuments(pdfs);
-                }).addOnFailureListener(exception -> {
-                    // Handle any errors
-                    Log.e("PDF", "Failed to get download URL for PDF", exception);
-                });
-            }
-            // If no PDFs were found, display "NO file Uploaded"
-            if (pdfs.isEmpty()) {
-                showNoFilesUploaded();
-            }
-        }).addOnFailureListener(exception -> {
-            // Handle any errors
-            Log.e("PDF", "Failed to list PDF files", exception);
-            // Show "NO file Uploaded" in case of failure as well
-            showNoFilesUploaded();
-        });
-
-
-        storageRef8.listAll().addOnSuccessListener(listResult -> {
-            List<PDFDocument> pdfs = new ArrayList<>();
-            // Iterate through each item (PDF) in the storage location
-            for (StorageReference item : listResult.getItems()) {
-                // Get the download URL for the PDF
-                item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Add the PDF with its download URL to the list
-                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                    // Update the adapter with the new list of PDFs
-                    adapter.setPDFDocuments(pdfs);
-                }).addOnFailureListener(exception -> {
-                    // Handle any errors
-                    Log.e("PDF", "Failed to get download URL for PDF", exception);
-                });
-            }
-            // If no PDFs were found, display "NO file Uploaded"
-            if (pdfs.isEmpty()) {
-                showNoFilesUploaded();
-            }
-        }).addOnFailureListener(exception -> {
-            // Handle any errors
-            Log.e("PDF", "Failed to list PDF files", exception);
-            // Show "NO file Uploaded" in case of failure as well
-            showNoFilesUploaded();
-        });
-
-
-        storageRef9.listAll().addOnSuccessListener(listResult -> {
-            List<PDFDocument> pdfs = new ArrayList<>();
-            // Iterate through each item (PDF) in the storage location
-            for (StorageReference item : listResult.getItems()) {
-                // Get the download URL for the PDF
-                item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Add the PDF with its download URL to the list
-                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                    // Update the adapter with the new list of PDFs
-                    adapter.setPDFDocuments(pdfs);
-                }).addOnFailureListener(exception -> {
-                    // Handle any errors
-                    Log.e("PDF", "Failed to get download URL for PDF", exception);
-                });
-            }
-            // If no PDFs were found, display "NO file Uploaded"
-            if (pdfs.isEmpty()) {
-                showNoFilesUploaded();
-            }
-        }).addOnFailureListener(exception -> {
-            // Handle any errors
-            Log.e("PDF", "Failed to list PDF files", exception);
-            // Show "NO file Uploaded" in case of failure as well
-            showNoFilesUploaded();
-        });
-
-        storageRef10.listAll().addOnSuccessListener(listResult -> {
-            List<PDFDocument> pdfs = new ArrayList<>();
-            // Iterate through each item (PDF) in the storage location
-            for (StorageReference item : listResult.getItems()) {
-                // Get the download URL for the PDF
-                item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Add the PDF with its download URL to the list
-                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                    // Update the adapter with the new list of PDFs
-                    adapter.setPDFDocuments(pdfs);
-                }).addOnFailureListener(exception -> {
-                    // Handle any errors
-                    Log.e("PDF", "Failed to get download URL for PDF", exception);
-                });
-            }
-            // If no PDFs were found, display "NO file Uploaded"
-            if (pdfs.isEmpty()) {
-                showNoFilesUploaded();
-            }
-        }).addOnFailureListener(exception -> {
-            // Handle any errors
-            Log.e("PDF", "Failed to list PDF files", exception);
-            // Show "NO file Uploaded" in case of failure as well
-            showNoFilesUploaded();
-        });
-
-        storageRef11.listAll().addOnSuccessListener(listResult -> {
-            List<PDFDocument> pdfs = new ArrayList<>();
-            // Iterate through each item (PDF) in the storage location
-            for (StorageReference item : listResult.getItems()) {
-                // Get the download URL for the PDF
-                item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Add the PDF with its download URL to the list
-                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                    // Update the adapter with the new list of PDFs
-                    adapter.setPDFDocuments(pdfs);
-                }).addOnFailureListener(exception -> {
-                    // Handle any errors
-                    Log.e("PDF", "Failed to get download URL for PDF", exception);
-                });
-            }
-            // If no PDFs were found, display "NO file Uploaded"
-            if (pdfs.isEmpty()) {
-                showNoFilesUploaded();
-            }
-        }).addOnFailureListener(exception -> {
-            // Handle any errors
-            Log.e("PDF", "Failed to list PDF files", exception);
-            // Show "NO file Uploaded" in case of failure as well
-            showNoFilesUploaded();
-        });
-
-
-        storageRef12.listAll().addOnSuccessListener(listResult -> {
-            List<PDFDocument> pdfs = new ArrayList<>();
-            // Iterate through each item (PDF) in the storage location
-            for (StorageReference item : listResult.getItems()) {
-                // Get the download URL for the PDF
-                item.getDownloadUrl().addOnSuccessListener(uri -> {
-                    // Add the PDF with its download URL to the list
-                    pdfs.add(new PDFDocument(item.getName(), uri.toString()));
-                    // Update the adapter with the new list of PDFs
-                    adapter.setPDFDocuments(pdfs);
-                }).addOnFailureListener(exception -> {
-                    // Handle any errors
-                    Log.e("PDF", "Failed to get download URL for PDF", exception);
-                });
-            }
-            // If no PDFs were found, display "NO file Uploaded"
-            if (pdfs.isEmpty()) {
-                showNoFilesUploaded();
-            }
-        }).addOnFailureListener(exception -> {
-            // Handle any errors
-            Log.e("PDF", "Failed to list PDF files", exception);
-            // Show "NO file Uploaded" in case of failure as well
-            showNoFilesUploaded();
-        });
-
-
     }
 
     private void showNoFilesUploaded() {
-        // Clear the existing list of PDFs
-        adapter.setPDFDocuments(new ArrayList<>());
-        // Display "NO file Uploaded" message
+        pdfAdapter.setPDFDocuments(new ArrayList<>());
         Toast.makeText(this, "No file Uploaded", Toast.LENGTH_SHORT).show();
     }
 
+    // CourseAdapter and PDFAdapter classes go here
+
+    public static class CourseModule {
+        private String title;
+        private int progress;
+
+        public CourseModule(String title, int progress) {
+            this.title = title;
+            this.progress = progress;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public int getProgress() {
+            return progress;
+        }
+
+        public void setProgress(int progress) {
+            this.progress = progress;
+        }
+    }
 
     public static class PDFDocument {
         private String title;
         private String downloadUrl;
-
-        public PDFDocument() {
-        }
 
         public PDFDocument(String title, String downloadUrl) {
             this.title = title;
@@ -421,7 +177,63 @@ public class Form1PDF extends AppCompatActivity {
         }
     }
 
-    private static class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.PDFViewHolder> {
+    public static class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseViewHolder> {
+
+        private List<CourseModule> courseModules;
+        private OnItemClickListener listener;
+
+        public interface OnItemClickListener {
+            void onItemClick(CourseModule module);
+        }
+
+        public CourseAdapter(List<CourseModule> courseModules, OnItemClickListener listener) {
+            this.courseModules = courseModules;
+            this.listener = listener;
+        }
+
+        @NonNull
+        @Override
+        public CourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View itemView = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.activity_form1_item_module, parent, false);
+            return new CourseViewHolder(itemView);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull CourseViewHolder holder, int position) {
+            CourseModule module = courseModules.get(position);
+            holder.bind(module, listener);
+        }
+
+        @Override
+        public int getItemCount() {
+            return courseModules.size();
+        }
+
+        public static class CourseViewHolder extends RecyclerView.ViewHolder {
+            private TextView titleTextView;
+            private TextView progressTextView;
+
+            public CourseViewHolder(@NonNull View itemView) {
+                super(itemView);
+                titleTextView = itemView.findViewById(R.id.moduleTitle);
+                progressTextView = itemView.findViewById(R.id.moduleProgress);
+            }
+
+            public void bind(final CourseModule module, final OnItemClickListener listener) {
+                if (titleTextView != null) {
+                    titleTextView.setText(module.getTitle());
+                }
+                if (progressTextView != null) {
+                    progressTextView.setText(module.getProgress() + "%");
+                }
+                itemView.setOnClickListener(v -> listener.onItemClick(module));
+            }
+
+        }
+    }
+
+    public static class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.PDFViewHolder> {
         private List<PDFDocument> pdfDocuments;
         private Context context;
 
@@ -441,22 +253,18 @@ public class Form1PDF extends AppCompatActivity {
             PDFDocument document = pdfDocuments.get(position);
             holder.textViewTitle.setText(document.getTitle());
             holder.itemView.setOnClickListener(v -> {
-                // Download and view the PDF when the item is clicked
                 downloadAndOpenPDF(document.getDownloadUrl());
             });
         }
 
         private void downloadAndOpenPDF(String downloadUrl) {
-            // Create an Intent to view the PDF
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(Uri.parse(downloadUrl), "application/pdf");
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-            // Check if there's any app available to handle the Intent
             if (intent.resolveActivity(context.getPackageManager()) != null) {
                 context.startActivity(intent);
             } else {
-                // If no app is available to handle the Intent, show a toast
                 Toast.makeText(context, "No application found to open this file.", Toast.LENGTH_SHORT).show();
             }
         }
@@ -468,7 +276,7 @@ public class Form1PDF extends AppCompatActivity {
 
         public void setPDFDocuments(List<PDFDocument> pdfDocuments) {
             this.pdfDocuments = pdfDocuments;
-            notifyDataSetChanged(); // Notify the adapter that the data set has changed
+            notifyDataSetChanged();
         }
 
         public static class PDFViewHolder extends RecyclerView.ViewHolder {

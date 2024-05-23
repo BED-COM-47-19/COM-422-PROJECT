@@ -1,4 +1,6 @@
 
+
+
 package com.example.teachandlearn.Student.LogIn_And_SignUp;
 import android.view.ViewGroup;
 import android.content.Intent;
@@ -7,7 +9,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,14 +26,15 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import java.util.Map;
-import java.util.HashMap;
 import com.google.firebase.database.ServerValue;
 import android.util.Log;
 import com.google.android.gms.tasks.Task;
-
-
-
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.content.SharedPreferences;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class StudentLogIn extends AppCompatActivity {
@@ -42,15 +44,19 @@ public class StudentLogIn extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private DatabaseReference mDatabase;
     private static final int RC_SIGN_IN = 9001;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_login);
 
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-
+        sharedPreferences = getSharedPreferences("user_credentials", MODE_PRIVATE);
+        mDatabase.keepSynced(true);
 
         EditText editTextEmail = findViewById(R.id.editTextEmail);
         EditText editTextPassword = findViewById(R.id.editTextPassword);
@@ -59,9 +65,8 @@ public class StudentLogIn extends AppCompatActivity {
         TextView forgotPasswordTextView = findViewById(R.id.textViewForgotPassword);
         TextView googleSignInTextView = findViewById(R.id.textViewContinueWithGoogle);
 
-        buttonBack = findViewById(R.id.back_button); // Initialize buttonBack
+        buttonBack = findViewById(R.id.back_button);
 
-// Set listeners
         buttonBack.setOnClickListener(view -> onBackPressed());
         loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
         signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogIn.this, StudentSignUp.class)));
@@ -71,19 +76,6 @@ public class StudentLogIn extends AppCompatActivity {
             startActivityForResult(signInIntent, RC_SIGN_IN);
         });
 
-        // Initialize Firebase Auth
-        buttonBack = findViewById(R.id.back_button);
-
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Your login button click logic here
-            }
-        });
-
-        // In
-
-        // Configure Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -91,25 +83,15 @@ public class StudentLogIn extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Logic for when the back button is pressed
-                onBackPressed();
-            }
-        });
-
+        buttonBack.setOnClickListener(view -> onBackPressed());
 
         loginButton.setOnClickListener(v -> {
             String email = editTextEmail.getText().toString();
             String password = editTextPassword.getText().toString();
             loginUser(email, password);
-            logAttemptToDatabase(email);  // Log the attempt to Firebase Database
+            logAttemptToDatabase(email);
         });
-
     }
-
 
     private TextView createTextView(String text, int topMargin) {
         TextView textView = new TextView(this);
@@ -184,25 +166,48 @@ public class StudentLogIn extends AppCompatActivity {
     }
 
     private void loginUser(String email, String password) {
-        // Check if email or password is empty
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(StudentLogIn.this, "Email and password cannot be empty.", Toast.LENGTH_SHORT).show();
-            return; // Stop the login process if fields are empty
+            return;
         }
 
-        // Proceed with Firebase authentication
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-                        // If login is successful, navigate to the next screen
-                        startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
-                    } else {
-                        // If login fails, display a failure message
-                        Toast.makeText(StudentLogIn.this, "Email or Password Incorrect.", Toast.LENGTH_SHORT).show();
-                    }
-                });
+        if (isNetworkAvailable()) {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, task -> {
+                        if (task.isSuccessful()) {
+                            saveCredentials(email, password);
+                            startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
+                        } else {
+                            Toast.makeText(StudentLogIn.this, "Email or Password Incorrect.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } else {
+            if (checkCredentials(email, password)) {
+                startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
+            } else {
+                Toast.makeText(StudentLogIn.this, "Invalid credentials or no network available.", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
+    }
+
+    private void saveCredentials(String email, String password) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("email", email);
+        editor.putString("password", password);
+        editor.apply();
+    }
+
+    private boolean checkCredentials(String email, String password) {
+        String savedEmail = sharedPreferences.getString("email", null);
+        String savedPassword = sharedPreferences.getString("password", null);
+        return email.equals(savedEmail) && password.equals(savedPassword);
+    }
 
     private void signInWithGoogle() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -216,11 +221,9 @@ public class StudentLogIn extends AppCompatActivity {
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
-                // Google Sign-In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
-                // Google Sign-In failed
                 Log.w("GoogleSignIn", "Google sign in failed", e);
                 Toast.makeText(StudentLogIn.this, "Google sign-in failed.", Toast.LENGTH_SHORT).show();
             }
@@ -279,5 +282,3 @@ public class StudentLogIn extends AppCompatActivity {
 
 
 
-
-//9F:57:A9:9C:24:5E:33:7C:97:C8:4A:71:A0:E1:FE:51:81:99:8E:16

@@ -11,4 +11,84 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/chatbotButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ask AI"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|end"/>
+
+    <include layout="@layout/chat_ui_layout"/>
+
+    <!-- Chatbot layout -->
+    <LinearLayout
+        android:id="@+id/chatbotLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <!-- EditText for typing messages -->
+        <EditText
+            android:id="@+id/messageEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type your message here"/>
+
+        <!-- Button to send messages -->
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"/>
+
+        <!-- TextView to display chatbot response -->
+        <TextView
+            android:id="@+id/chatbotResponseTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/moduleContentTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="18sp"
+        android:text="Module Content" />
+
+    <Button
+        android:id="@+id/markCompleteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mark as Complete" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/moduleTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/moduleProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/resetProgressButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset Progress" />
+
 </LinearLayout>

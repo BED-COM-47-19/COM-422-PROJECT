@@ -42,10 +42,20 @@
 
 
 
+
+
         <activity
             android:name=".MainClass.UserTypeSelection"
             android:theme="@style/Theme.AppCompat">
         </activity>
+
+
+
+        <activity
+            android:name=".CHATGPT.ChatBot"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
 
 
         <activity android:name=".Student.LogIn_And_SignUp.StudentLogIn"
