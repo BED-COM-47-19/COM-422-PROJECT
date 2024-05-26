@@ -6,7 +6,6 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.content.Intent;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.databinding.ActivityMainBinding;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.FirebaseApp;
 
