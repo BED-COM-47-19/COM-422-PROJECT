@@ -1,11 +1,13 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:columnCount="1"
     android:rowCount="5"
     android:background="@color/white"
     android:alignmentMode="alignMargins"
     android:padding="16dp">
+
 
     <TextView
         android:text="CLASSES"
@@ -101,6 +103,9 @@
         android:text="BACK"
         android:textColor="@color/white"
         android:textSize="20sp" />
+
+
+
 
 
 

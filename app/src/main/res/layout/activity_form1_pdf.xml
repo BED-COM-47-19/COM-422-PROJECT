@@ -1,94 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Student.Form1.Documents.Form1PDF">
+    android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewPDFs"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/chatbotButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ask AI"
-        android:layout_margin="16dp"
-        android:layout_gravity="bottom|end"/>
-
-    <include layout="@layout/chat_ui_layout"/>
-
-    <!-- Chatbot layout -->
-    <LinearLayout
-        android:id="@+id/chatbotLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-
-        <!-- EditText for typing messages -->
-        <EditText
-            android:id="@+id/messageEditText"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPDFs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Type your message here"/>
-
-        <!-- Button to send messages -->
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send"/>
-
-        <!-- TextView to display chatbot response -->
-        <TextView
-            android:id="@+id/chatbotResponseTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="vertical" />
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/moduleContentTextView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="18sp"
-        android:text="Module Content" />
-
-    <Button
-        android:id="@+id/markCompleteButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mark as Complete" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <TextView
-        android:id="@+id/moduleTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/moduleProgress"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_chatbot"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp" />
+        android:layout_height="67dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/chat_gpt"
+        app:backgroundTint="@color/colorAccent" />
 
-    <Button
-        android:id="@+id/resetProgressButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reset Progress" />
-
-</LinearLayout>
+</FrameLayout>

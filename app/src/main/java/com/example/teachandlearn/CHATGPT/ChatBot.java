@@ -1,16 +1,16 @@
 
 
 
+
 package com.example.teachandlearn.CHATGPT;
 import android.os.AsyncTask;
+import androidx.appcompat.app.AppCompatActivity;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-
-
-public class ChatBot {
+public class ChatBot extends AppCompatActivity {
 
     private static final String CHATBOT_API_URL = "https://tsogolo.com"; // Replace this with your chatbot API endpoint
 

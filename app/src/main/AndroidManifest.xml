@@ -40,7 +40,14 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".CHATGPT.Chat"
+            android:label="Chat Activity">
+        </activity>
 
+        <activity
+            android:name=".CHATGPT.ChatBot"
+            android:theme="@style/Theme.AppCompat" />
 
 
 
@@ -50,11 +57,6 @@
         </activity>
 
 
-
-        <activity
-            android:name=".CHATGPT.ChatBot"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
 
 
 
