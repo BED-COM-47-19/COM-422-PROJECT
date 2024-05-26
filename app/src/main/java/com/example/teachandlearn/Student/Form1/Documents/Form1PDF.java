@@ -40,14 +40,7 @@ public class Form1PDF extends AppCompatActivity {
 
         fetchPDFsFromFirebase();
 
-        // Setup chat button
-        FloatingActionButton fabChatbot = findViewById(R.id.fab_chatbot);
-        fabChatbot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openChatActivity();
-            }
-        });
+
     }
 
     private void openChatActivity() {
