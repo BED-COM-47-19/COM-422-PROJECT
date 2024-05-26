@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.teachandlearn.CHATGPT.ChatBot;
 import com.example.teachandlearn.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
