@@ -120,7 +120,7 @@ public class TeacherForm1 extends AppCompatActivity {
             }
         });
 
-        
+
 
         buttonListEmail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,16 +197,20 @@ public class TeacherForm1 extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+
         super.onStart();
+
         // Get the current user's email or any other way to obtain the teacher's email
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             teacherEmail = currentUser.getEmail();
+
             // Store teacher email to Firebase when user logs in
             saveTeacherEmailToFirebase(teacherEmail);
         } else {
-            // Handle the case where the user is not logged in
+
         }
     }
+    
 }
