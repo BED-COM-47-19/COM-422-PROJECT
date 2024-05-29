@@ -45,7 +45,7 @@ public class Form1PDF extends AppCompatActivity {
 
         fetchPDFsFromFirebase();
 
-        studentEmail = getIntent().getStringExtra("student_emails");
+        studentEmail = getIntent().getStringExtra("student_form1_emails");
         if (studentEmail != null) {
             // Store student email to Firebase when the intent has student email
             saveStudentEmailToFirebase(studentEmail);
@@ -141,7 +141,7 @@ public class Form1PDF extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             String userId = currentUser.getUid(); // Get the unique user ID
-            DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_emails").child(userId);
+            DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form1_emails").child(userId);
             studentEmailsRef.push().setValue(studentEmail);
         } else {
             // Handle the case where the user is not authenticated

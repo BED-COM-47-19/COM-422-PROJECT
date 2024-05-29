@@ -96,6 +96,8 @@ public class TeacherForm1 extends AppCompatActivity {
                     userRef.orderByChild("email").equalTo(userEmail).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
+
+
                             if (dataSnapshot.exists()) {
                                 // Assuming user details are stored under a node named "userDetails"
                                 String userDetails = dataSnapshot.child("Users").getValue(String.class);
