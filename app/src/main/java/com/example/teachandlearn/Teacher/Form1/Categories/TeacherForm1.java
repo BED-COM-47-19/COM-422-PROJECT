@@ -1,5 +1,6 @@
-package com.example.teachandlearn.Teacher.Form1.Categories;
 
+
+package com.example.teachandlearn.Teacher.Form1.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class TeacherForm1 extends AppCompatActivity {
 
     private Button buttonBack;
@@ -29,7 +32,6 @@ public class TeacherForm1 extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference userRef;
     private DatabaseReference teacherRef;
-
     private String teacherEmail;
 
     @Override

@@ -134,7 +134,7 @@ public class Form1PDF extends AppCompatActivity {
             });
         }
     }
-    
+
 
     private void saveStudentEmailToFirebase(String studentEmail) {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
