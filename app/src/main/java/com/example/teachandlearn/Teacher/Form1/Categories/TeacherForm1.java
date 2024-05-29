@@ -44,7 +44,7 @@ public class TeacherForm1 extends AppCompatActivity {
         userRef = database.getReference("Users");
         teacherRef = database.getReference("teachers");
 
-        teacherEmail = getIntent().getStringExtra("teacher_emails");
+        teacherEmail = getIntent().getStringExtra("teacher_form1_emails");
 
         // Find the buttons
         Button buttonScience = findViewById(R.id.activity_teacher_form1_science);
@@ -135,7 +135,7 @@ public class TeacherForm1 extends AppCompatActivity {
                 final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser(); // Access currentUser here
                 if (currentUser != null) {
 
-                    DatabaseReference form1StudentsRef = database.getReference("student_emails");
+                    DatabaseReference form1StudentsRef = database.getReference("student_form1_emails");
                     form1StudentsRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -152,7 +152,7 @@ public class TeacherForm1 extends AppCompatActivity {
                                 // Create an Intent to start the Form1PDF activity
                                 Intent intent = new Intent(TeacherForm1.this, Form1PDF.class);
                                 // Pass the student emails as an extra with the Intent
-                                intent.putStringArrayListExtra("student_emails", (ArrayList<String>) studentEmails);
+                                intent.putStringArrayListExtra("student_form1_emails", (ArrayList<String>) studentEmails);
                                 // Start the Form1PDF activity
                                 startActivity(intent);
                             }
@@ -202,7 +202,7 @@ public class TeacherForm1 extends AppCompatActivity {
 
     // New method to save a single teacher's email to Firebase Realtime Database
     private void saveTeacherEmailToFirebase(String teacherEmail) {
-        DatabaseReference teacherEmailsRef = FirebaseDatabase.getInstance().getReference().child("teacher_emails");
+        DatabaseReference teacherEmailsRef = FirebaseDatabase.getInstance().getReference().child("teacher_form1_emails");
         teacherEmailsRef.push().setValue(teacherEmail);
     }
 
