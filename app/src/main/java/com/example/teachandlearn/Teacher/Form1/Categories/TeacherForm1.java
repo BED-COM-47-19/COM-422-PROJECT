@@ -129,11 +129,15 @@ public class TeacherForm1 extends AppCompatActivity {
                 // Retrieve and display emails of students who are in Form1
                 final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser(); // Access currentUser here
                 if (currentUser != null) {
+                    
                     DatabaseReference form1StudentsRef = database.getReference("student_emails");
                     form1StudentsRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
+
                             List<String> studentEmails = new ArrayList<>();
+
+
                             for (DataSnapshot studentSnapshot : dataSnapshot.getChildren()) {
                                 // Assuming student emails are stored under a node named "email" for each user
                                 String email = studentSnapshot.child("email").getValue(String.class);
@@ -146,7 +150,8 @@ public class TeacherForm1 extends AppCompatActivity {
                                 intent.putStringArrayListExtra("student_emails", (ArrayList<String>) studentEmails);
                                 // Start the Form1PDF activity
                                 startActivity(intent);
-                            } else {
+                            }
+                            else {
                                 showToast("No students found in Form1.");
                             }
                         }
@@ -156,7 +161,8 @@ public class TeacherForm1 extends AppCompatActivity {
                             showToast("Failed to retrieve student emails: " + databaseError.getMessage());
                         }
                     });
-                } else {
+                }
+                else {
                     showToast("User not authenticated.");
                 }
             }
@@ -212,5 +218,5 @@ public class TeacherForm1 extends AppCompatActivity {
 
         }
     }
-    
+
 }
