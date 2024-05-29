@@ -101,10 +101,12 @@ public class TeacherForm1 extends AppCompatActivity {
                                 String userDetails = dataSnapshot.child("Users").getValue(String.class);
                                 if (userDetails != null && !userDetails.isEmpty()) {
                                     showToast(userDetails);
-                                } else {
+                                }
+                                else {
                                     showToast("User details not found.");
                                 }
-                            } else {
+                            }
+                            else {
                                 showToast("User not found.");
                             }
                         }
@@ -114,7 +116,8 @@ public class TeacherForm1 extends AppCompatActivity {
                             showToast("Failed to retrieve user details.");
                         }
                     });
-                } else {
+                }
+                else {
                     showToast("User not authenticated.");
                 }
             }
@@ -129,7 +132,7 @@ public class TeacherForm1 extends AppCompatActivity {
                 // Retrieve and display emails of students who are in Form1
                 final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser(); // Access currentUser here
                 if (currentUser != null) {
-                    
+
                     DatabaseReference form1StudentsRef = database.getReference("student_emails");
                     form1StudentsRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
