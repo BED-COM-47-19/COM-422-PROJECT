@@ -44,7 +44,7 @@ public class TeacherForm1 extends AppCompatActivity {
         userRef = database.getReference("Users");
         teacherRef = database.getReference("teachers");
 
-        teacherEmail = getIntent().getStringExtra("teacher_email");
+        teacherEmail = getIntent().getStringExtra("teacher_emails");
 
         // Find the buttons
         Button buttonScience = findViewById(R.id.activity_teacher_form1_science);
