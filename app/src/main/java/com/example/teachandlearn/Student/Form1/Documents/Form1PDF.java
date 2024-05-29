@@ -17,16 +17,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.teachandlearn.CHATGPT.ChatBot;
 import com.example.teachandlearn.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class Form1PDF extends AppCompatActivity {
     private RecyclerView recyclerViewPDFs;
     private PDFAdapter adapter;
+
+    private String studentEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +45,13 @@ public class Form1PDF extends AppCompatActivity {
 
         fetchPDFsFromFirebase();
 
-
+        studentEmail = getIntent().getStringExtra("student_emails");
+        if (studentEmail != null) {
+            // Store student email to Firebase when the intent has student email
+            saveStudentEmailToFirebase(studentEmail);
+        }
     }
+
 
     private void openChatActivity() {
         Intent intent = new Intent(this, ChatBot.class);
@@ -86,6 +96,60 @@ public class Form1PDF extends AppCompatActivity {
             });
         }
     }
+
+    private void fetchPDFsFromFirebase(String studentEmail) {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+
+        StorageReference[] storageRefs = {
+                storage.getReference().child("/form1/sciences/mathematics/pdfs/")
+                // Add more storage references for other subjects as needed
+        };
+
+        List<String> studentEmails = new ArrayList<>(); // List to store student emails
+
+        for (StorageReference storageRef : storageRefs) {
+            storageRef.listAll().addOnSuccessListener(listResult -> {
+                List<PDFDocument> pdfs = new ArrayList<>();
+                for (StorageReference item : listResult.getItems()) {
+                    item.getDownloadUrl().addOnSuccessListener(uri -> {
+                        pdfs.add(new PDFDocument(item.getName(), uri.toString()));
+                        adapter.setPDFDocuments(pdfs);
+
+                        // Save student email to list
+                        studentEmails.add(studentEmail);
+                    }).addOnFailureListener(exception -> {
+                        Log.e("PDF", "Failed to get download URL for PDF", exception);
+                    });
+                }
+                if (pdfs.isEmpty()) {
+                    showNoFilesUploaded();
+                }
+
+                // Now you can save the list of student emails to Firebase
+                saveStudentEmailToFirebase(studentEmail);
+            }).addOnFailureListener(exception -> {
+                Log.e("PDF", "Failed to list PDF files", exception);
+                showNoFilesUploaded();
+            });
+        }
+    }
+
+    private void saveStudentEmailToFirebase(String studentEmail) {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid(); // Get the unique user ID
+            DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_emails").child(userId);
+            studentEmailsRef.push().setValue(studentEmail);
+        } else {
+            // Handle the case where the user is not authenticated
+            Log.e("Authentication Error", "User not authenticated");
+        }
+    }
+
+
+
+
 
     private void showNoFilesUploaded() {
         adapter.setPDFDocuments(new ArrayList<>());

@@ -95,7 +95,7 @@
         android:layout_marginTop="-40dp"
         android:background="@drawable/back_button_rounderd"
         android:text="BACK"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp" />
 
 </LinearLayout>
