@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class TeacherForm1Progress extends AppCompatActivity {
 
     private static final String TAG = "TeacherForm1Progress";
@@ -67,6 +68,7 @@ public class TeacherForm1Progress extends AppCompatActivity {
                 Log.w(TAG, "Error fetching logs: " + databaseError.getMessage());
             }
         });
+
     }
 
 
@@ -84,5 +86,6 @@ public class TeacherForm1Progress extends AppCompatActivity {
         // Write the log entry to the Realtime Database
         accessLogsRef.child(logId).setValue(logEntry);
     }
+    
 
 }
