@@ -85,8 +85,10 @@ public class Form1PDF extends AppCompatActivity {
         };
 
         for (StorageReference storageRef : storageRefs) {
+            
             storageRef.listAll().addOnSuccessListener(listResult -> {
                 List<PDFDocument> pdfs = new ArrayList<>();
+
                 for (StorageReference item : listResult.getItems()) {
                     item.getDownloadUrl().addOnSuccessListener(uri -> {
                         pdfs.add(new PDFDocument(item.getName(), uri.toString()));
@@ -95,17 +97,22 @@ public class Form1PDF extends AppCompatActivity {
                         Log.e("PDF", "Failed to get download URL for PDF", exception);
                     });
                 }
+
                 if (pdfs.isEmpty()) {
                     showNoFilesUploaded();
                 }
             }).addOnFailureListener(exception -> {
                 Log.e("PDF", "Failed to list PDF files", exception);
                 showNoFilesUploaded();
+
             });
+
         }
+
     }
 
     private void logStudentAccess(String studentName, String accessedFile) {
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> accessData = new HashMap<>();
         accessData.put("studentName", studentName);
@@ -114,6 +121,7 @@ public class Form1PDF extends AppCompatActivity {
                 .add(accessData)
                 .addOnSuccessListener(documentReference -> Log.d(TAG, "Access log added with ID: " + documentReference.getId()))
                 .addOnFailureListener(e -> Log.w(TAG, "Error adding access log", e));
+
     }
 
 
@@ -130,6 +138,7 @@ public class Form1PDF extends AppCompatActivity {
         for (StorageReference storageRef : storageRefs) {
             storageRef.listAll().addOnSuccessListener(listResult -> {
                 List<PDFDocument> pdfs = new ArrayList<>();
+
                 for (StorageReference item : listResult.getItems()) {
                     item.getDownloadUrl().addOnSuccessListener(uri -> {
                         pdfs.add(new PDFDocument(item.getName(), uri.toString()));
@@ -141,7 +150,7 @@ public class Form1PDF extends AppCompatActivity {
                         Log.e("PDF", "Failed to get download URL for PDF", exception);
                     });
                 }
-                
+
                 if (pdfs.isEmpty()) {
                     showNoFilesUploaded();
                 }
