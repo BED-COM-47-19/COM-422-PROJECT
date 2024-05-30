@@ -147,7 +147,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
-        
+
     }
 
     private void saveFileUrlToFirestore(String fileUrl, String firestoreCollection) {
@@ -158,14 +158,18 @@ public class TeacherForm1Uploads extends AppCompatActivity {
                 .add(fileData)
                 .addOnSuccessListener(documentReference -> Log.d(TAG, "File URL added with ID: " + documentReference.getId()))
                 .addOnFailureListener(e -> Log.w(TAG, "Error adding file URL", e));
+
     }
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
     }
 
     private void logStudentAccess(String accessedFile) {
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         if (user != null) {
 
             String firstName = user.getDisplayName();
@@ -183,11 +187,15 @@ public class TeacherForm1Uploads extends AppCompatActivity {
                     .add(accessData)
                     .addOnSuccessListener(documentReference -> Log.d(TAG, "Access log added with ID: " + documentReference.getId()))
                     .addOnFailureListener(e -> Log.w(TAG, "Error adding access log", e));
+
         }
+
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
     }
+
+    
 }
