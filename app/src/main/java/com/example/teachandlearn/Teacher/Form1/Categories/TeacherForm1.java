@@ -104,10 +104,12 @@ public class TeacherForm1 extends AppCompatActivity {
                                 if (userDetails != null && !userDetails.isEmpty()) {
                                     showToast(userDetails);
                                 }
+                                
                                 else {
                                     showToast("User details not found.");
                                 }
                             }
+
                             else {
                                 showToast("User not found.");
                             }
@@ -116,9 +118,12 @@ public class TeacherForm1 extends AppCompatActivity {
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
                             showToast("Failed to retrieve user details.");
+
                         }
                     });
+
                 }
+
                 else {
                     showToast("User not authenticated.");
                 }
@@ -238,6 +243,7 @@ public class TeacherForm1 extends AppCompatActivity {
             // Store teacher email to Firebase when user logs in
             saveTeacherEmailToFirebase(teacherEmail);
         }
+
         else {
 
         }
