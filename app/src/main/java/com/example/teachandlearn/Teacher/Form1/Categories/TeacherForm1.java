@@ -205,7 +205,7 @@ public class TeacherForm1 extends AppCompatActivity {
             // Handle the case where the message is empty or null
             Log.e("Toast Error", "Message is empty or null");
         }
-        
+
     }
 
     @Override
@@ -217,8 +217,10 @@ public class TeacherForm1 extends AppCompatActivity {
 
     // New method to save a single teacher's email to Firebase Realtime Database
     private void saveTeacherEmailToFirebase(String teacherEmail) {
+
         DatabaseReference teacherEmailsRef = FirebaseDatabase.getInstance().getReference().child("teacher_form1_emails");
         teacherEmailsRef.push().setValue(teacherEmail);
+
     }
 
     @Override
@@ -229,12 +231,14 @@ public class TeacherForm1 extends AppCompatActivity {
         // Get the current user's email or any other way to obtain the teacher's email
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
         if (currentUser != null) {
             teacherEmail = currentUser.getEmail();
 
             // Store teacher email to Firebase when user logs in
             saveTeacherEmailToFirebase(teacherEmail);
-        } else {
+        }
+        else {
 
         }
     }
