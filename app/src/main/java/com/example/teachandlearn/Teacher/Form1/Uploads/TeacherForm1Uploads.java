@@ -77,6 +77,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
 
         if (resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri selectedFileUri = data.getData();
+
             switch (requestCode) {
                 case REQUEST_PICK_PDF:
                     uploadFile(selectedFileUri, "/form1/sciences/mathematics/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
