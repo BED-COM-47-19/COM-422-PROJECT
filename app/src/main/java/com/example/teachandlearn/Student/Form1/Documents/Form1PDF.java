@@ -216,25 +216,29 @@ public class Form1PDF extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull PDFViewHolder holder, int position) {
+            
             PDFDocument document = pdfDocuments.get(position);
             holder.textViewTitle.setText(document.getTitle());
             holder.itemView.setOnClickListener(v -> downloadAndOpenPDF(document.getDownloadUrl()));
         }
 
         private void downloadAndOpenPDF(String downloadUrl) {
+
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(Uri.parse(downloadUrl), "application/pdf");
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
             if (intent.resolveActivity(context.getPackageManager()) != null) {
                 context.startActivity(intent);
-            } else {
+            }
+            else {
                 Toast.makeText(context, "No application found to open this file.", Toast.LENGTH_SHORT).show();
             }
         }
 
         @Override
         public int getItemCount() {
+
             return pdfDocuments.size();
         }
 
@@ -249,6 +253,7 @@ public class Form1PDF extends AppCompatActivity {
             public PDFViewHolder(View itemView) {
                 super(itemView);
                 textViewTitle = itemView.findViewById(R.id.textViewTitle);
+
             }
         }
     }
