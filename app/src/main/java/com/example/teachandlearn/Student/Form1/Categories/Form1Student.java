@@ -73,12 +73,14 @@ public class Form1Student extends AppCompatActivity {
         // Get the current user's email or any other way to obtain the student's email
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
         if (currentUser != null) {
             String studentEmail = currentUser.getEmail();
 
             // Store student email to Firebase when user logs in
             saveStudentEmailToFirebase(studentEmail);
         }
+        
     }
 
     // Method to save a single student's email to Firebase Realtime Database
