@@ -113,8 +113,9 @@ public class TeacherForm1Uploads extends AppCompatActivity {
 
                 }
 
-                
+
             }
+
 
             if (!isExtensionAllowed) {
                 progressDialog.dismiss();
@@ -135,13 +136,18 @@ public class TeacherForm1Uploads extends AppCompatActivity {
                         showToast("Failed to upload file: " + e.getMessage());
                     })
                     .addOnProgressListener(taskSnapshot -> progressDialog.setMessage("Uploaded " + (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount()) + "%"));
+
         }
+
+
     }
 
     private String getFileExtension(Uri uri) {
+
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+        
     }
 
     private void saveFileUrlToFirestore(String fileUrl, String firestoreCollection) {
