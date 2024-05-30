@@ -95,7 +95,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
 
     private void uploadFile(Uri fileUri, String storagePath, String firestoreCollection, String[] allowedExtensions, String errorMessage) {
         if (fileUri != null) {
-            
+
             progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
@@ -104,11 +104,16 @@ public class TeacherForm1Uploads extends AppCompatActivity {
             String fileExtension = getFileExtension(fileUri);
 
             boolean isExtensionAllowed = false;
+
             for (String extension : allowedExtensions) {
+
                 if (fileExtension != null && fileExtension.equalsIgnoreCase(extension)) {
                     isExtensionAllowed = true;
                     break;
+
                 }
+
+                
             }
 
             if (!isExtensionAllowed) {
