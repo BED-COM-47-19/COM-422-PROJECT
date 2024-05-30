@@ -60,7 +60,7 @@ public class Form1PDF extends AppCompatActivity {
             saveStudentEmailToFirebase(studentEmail);
 
         }
-        
+
     }
 
 
@@ -72,6 +72,7 @@ public class Form1PDF extends AppCompatActivity {
     }
 
     private void fetchPDFsFromFirebase() {
+
         FirebaseStorage storage = FirebaseStorage.getInstance();
 
         StorageReference[] storageRefs = {
@@ -91,6 +92,7 @@ public class Form1PDF extends AppCompatActivity {
 
         };
 
+        
         for (StorageReference storageRef : storageRefs) {
 
             storageRef.listAll().addOnSuccessListener(listResult -> {
