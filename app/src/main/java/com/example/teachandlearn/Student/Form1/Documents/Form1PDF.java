@@ -92,7 +92,7 @@ public class Form1PDF extends AppCompatActivity {
 
         };
 
-        
+
         for (StorageReference storageRef : storageRefs) {
 
             storageRef.listAll().addOnSuccessListener(listResult -> {
