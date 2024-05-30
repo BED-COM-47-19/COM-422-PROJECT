@@ -158,18 +158,19 @@ public class Form1PDF extends AppCompatActivity {
     private void saveStudentEmailToFirebase(String studentEmail) {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
         if (currentUser != null) {
             String userId = currentUser.getUid(); // Get the unique user ID
             DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form1_emails").child(userId);
             studentEmailsRef.push().setValue(studentEmail);
-        } else {
+
+        }
+        else {
             // Handle the case where the user is not authenticated
             Log.e("Authentication Error", "User not authenticated");
         }
+
     }
-
-
-
 
 
     private void showNoFilesUploaded() {
@@ -216,7 +217,7 @@ public class Form1PDF extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull PDFViewHolder holder, int position) {
-            
+
             PDFDocument document = pdfDocuments.get(position);
             holder.textViewTitle.setText(document.getTitle());
             holder.itemView.setOnClickListener(v -> downloadAndOpenPDF(document.getDownloadUrl()));
