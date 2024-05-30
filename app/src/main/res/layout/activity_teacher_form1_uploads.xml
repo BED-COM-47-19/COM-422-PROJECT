@@ -157,7 +157,21 @@
             android:textColor="@color/white"
             android:textSize="20dp" />
 
+        <Button
+            android:id="@+id/button_view_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_marginLeft="215dp"
+            android:layout_marginTop="-65dp"
+            android:layout_weight="0.0"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:background="@drawable/back_button_rounderd"
+            android:text="PROGRESS" />
+
     </FrameLayout>
+
 
 
 

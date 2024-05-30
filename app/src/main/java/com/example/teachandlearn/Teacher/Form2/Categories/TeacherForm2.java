@@ -1,13 +1,14 @@
 
+
 package com.example.teachandlearn.Teacher.Form2.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-
 
 public class TeacherForm2 extends AppCompatActivity {
 
@@ -21,7 +22,7 @@ public class TeacherForm2 extends AppCompatActivity {
         Button buttonScience = findViewById(R.id.activity_teacher_form2_science);
         Button buttonHumanities = findViewById(R.id.activity_teacher_form2_humanities);
         Button buttonLanguages = findViewById(R.id.activity_teacher_form2_languages);
-//        buttonBack = findViewById(R.id.back_button);
+        buttonBack = findViewById(R.id.back_button);
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +51,7 @@ public class TeacherForm2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override

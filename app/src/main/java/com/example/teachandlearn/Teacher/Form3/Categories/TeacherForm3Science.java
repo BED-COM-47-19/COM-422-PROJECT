@@ -15,9 +15,10 @@ import com.example.teachandlearn.R;
 import com.example.teachandlearn.Teacher.Form3.Uploads.TeacherForm3Uploads;
 
 
+
 public class TeacherForm3Science extends AppCompatActivity {
 
-   private Button buttonBack;
+    private Button buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,7 @@ public class TeacherForm3Science extends AppCompatActivity {
         Button buttonPhysics = findViewById(R.id.buttonPhysics);
         Button buttonChemistry = findViewById(R.id.buttonChemistry);
         Button buttonAgriculture = findViewById(R.id.buttonAgriculture);
+
 
         // Find small info buttons
         Button buttonSmallMathematics = findViewById(R.id.buttonSmallMathematics);
@@ -46,8 +48,6 @@ public class TeacherForm3Science extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-        // Set click listeners for each button
 
         // Set click listeners for each button
         buttonMathematics.setOnClickListener(new View.OnClickListener() {
@@ -100,7 +100,6 @@ public class TeacherForm3Science extends AppCompatActivity {
             }
         });
 
-
         // Set click listeners for small info buttons to show popups instead of toasts
         buttonSmallMathematics.setOnClickListener(v -> showPopup(v, getString(R.string.info_mathematics)));
         buttonSmallBiology.setOnClickListener(v -> showPopup(v, getString(R.string.info_biology)));
@@ -140,11 +139,11 @@ public class TeacherForm3Science extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     @Override
     public void onBackPressed() {
         // Handle the back button action
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
+
 }

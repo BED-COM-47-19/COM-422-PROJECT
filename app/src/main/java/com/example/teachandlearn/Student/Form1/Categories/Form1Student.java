@@ -1,3 +1,5 @@
+
+
 package com.example.teachandlearn.Student.Form1.Categories;
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +8,11 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 public class Form1Student extends AppCompatActivity {
 
@@ -57,6 +64,27 @@ public class Form1Student extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // Get the current user's email or any other way to obtain the student's email
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String studentEmail = currentUser.getEmail();
+
+            // Store student email to Firebase when user logs in
+            saveStudentEmailToFirebase(studentEmail);
+        }
+    }
+
+    // Method to save a single student's email to Firebase Realtime Database
+    private void saveStudentEmailToFirebase(String studentEmail) {
+        DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form1_emails");
+        studentEmailsRef.push().setValue(studentEmail);
     }
 
     // Helper method to show toast message

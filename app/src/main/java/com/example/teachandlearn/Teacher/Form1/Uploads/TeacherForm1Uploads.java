@@ -1,5 +1,4 @@
 
-
 package com.example.teachandlearn.Teacher.Form1.Uploads;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
@@ -10,24 +9,21 @@ import android.util.Log;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.example.teachandlearn.R;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-
-
 public class TeacherForm1Uploads extends AppCompatActivity {
 
-    private Button buttonBack;
+    private Button buttonBack, buttonViewProgress;
     private static final int REQUEST_PICK_PDF = 1;
     private static final int REQUEST_PICK_AUDIO = 2;
     private static final int REQUEST_PICK_VIDEO = 3;
@@ -57,6 +53,9 @@ public class TeacherForm1Uploads extends AppCompatActivity {
 
         buttonBack = findViewById(R.id.back_button);
         buttonBack.setOnClickListener(view -> onBackPressed());
+
+        buttonViewProgress = findViewById(R.id.button_view_progress);
+        buttonViewProgress.setOnClickListener(view -> startActivity(new Intent(TeacherForm1Uploads.this, TeacherForm1Progress.class)));
     }
 
     private void openFilePicker(String mimeType, int requestCode) {
@@ -148,6 +147,28 @@ public class TeacherForm1Uploads extends AppCompatActivity {
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void logStudentAccess(String accessedFile) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+
+            String firstName = user.getDisplayName();
+            String lastName = user.getDisplayName();
+            String studentEmail = user.getEmail();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            Map<String, Object> accessData = new HashMap<>();
+
+            accessData.put("firstName", firstName);
+            accessData.put("lastName", lastName);
+            accessData.put("studentEmail", studentEmail);
+            accessData.put("accessedFile", accessedFile);
+            accessData.put("timestamp", System.currentTimeMillis()); // Adding timestamp
+            db.collection("student_email")
+                    .add(accessData)
+                    .addOnSuccessListener(documentReference -> Log.d(TAG, "Access log added with ID: " + documentReference.getId()))
+                    .addOnFailureListener(e -> Log.w(TAG, "Error adding access log", e));
+        }
     }
 
     @Override

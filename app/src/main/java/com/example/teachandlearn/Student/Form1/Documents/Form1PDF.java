@@ -21,10 +21,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class Form1PDF extends AppCompatActivity {
@@ -32,6 +35,11 @@ public class Form1PDF extends AppCompatActivity {
     private PDFAdapter adapter;
 
     private String studentEmail;
+
+
+    private static final String TAG = "Form1PDF";
+    private static final int REQUEST_OPEN_DOCUMENT = 1;
+    private String studentName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +103,17 @@ public class Form1PDF extends AppCompatActivity {
                 showNoFilesUploaded();
             });
         }
+    }
+
+    private void logStudentAccess(String studentName, String accessedFile) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Map<String, Object> accessData = new HashMap<>();
+        accessData.put("studentName", studentName);
+        accessData.put("accessedFile", accessedFile);
+        db.collection("student_access")
+                .add(accessData)
+                .addOnSuccessListener(documentReference -> Log.d(TAG, "Access log added with ID: " + documentReference.getId()))
+                .addOnFailureListener(e -> Log.w(TAG, "Error adding access log", e));
     }
 
 
