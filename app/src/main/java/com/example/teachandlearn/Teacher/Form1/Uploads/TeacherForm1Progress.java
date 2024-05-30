@@ -79,7 +79,7 @@ public class TeacherForm1Progress extends AppCompatActivity {
 
 
     private void logAccess(String studentId, String filePath) {
-        
+
         // Generate a unique ID for the access log entry
         String logId = accessLogsRef.push().getKey();
 

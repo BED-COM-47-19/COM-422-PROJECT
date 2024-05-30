@@ -79,6 +79,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
             Uri selectedFileUri = data.getData();
 
             switch (requestCode) {
+
                 case REQUEST_PICK_PDF:
                     uploadFile(selectedFileUri, "/form1/sciences/mathematics/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
                     break;
@@ -173,6 +174,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
     }
 
     private void showToast(String message) {
+
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 
     }
