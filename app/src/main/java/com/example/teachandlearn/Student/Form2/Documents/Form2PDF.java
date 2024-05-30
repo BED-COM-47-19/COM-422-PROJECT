@@ -77,18 +77,18 @@ public class Form2PDF extends AppCompatActivity {
 
         StorageReference[] storageRefs = {
 
-                storage.getReference().child("/form1/sciences/mathematics/pdfs/"),
-                storage.getReference().child("/form1/sciences/biology/pdfs/"),
-                storage.getReference().child("/form1/sciences/agriculture/pdfs/"),
-                storage.getReference().child("/form1/sciences/chemistry/pdfs/"),
-                storage.getReference().child("/form1/sciences/physics/pdfs/"),
-                storage.getReference().child("/form1/languages/english/pdfs/"),
-                storage.getReference().child("/form1/languages/chichewa/pdfs/"),
-                storage.getReference().child("/form1/humanities/social_studies/pdfs/"),
-                storage.getReference().child("/form1/humanities/history/pdfs/"),
-                storage.getReference().child("/form1/humanities/life_skills/pdfs/"),
-                storage.getReference().child("/form1/humanities/bible_knowledge/pdfs/"),
-                storage.getReference().child("/form1/humanities/geography/pdfs/")
+                storage.getReference().child("/form2/sciences/mathematics/pdfs/"),
+                storage.getReference().child("/form2/sciences/biology/pdfs/"),
+                storage.getReference().child("/form2/sciences/agriculture/pdfs/"),
+                storage.getReference().child("/form2/sciences/chemistry/pdfs/"),
+                storage.getReference().child("/form2/sciences/physics/pdfs/"),
+                storage.getReference().child("/form2/languages/english/pdfs/"),
+                storage.getReference().child("/form2/languages/chichewa/pdfs/"),
+                storage.getReference().child("/form2/humanities/social_studies/pdfs/"),
+                storage.getReference().child("/form2/humanities/history/pdfs/"),
+                storage.getReference().child("/form2/humanities/life_skills/pdfs/"),
+                storage.getReference().child("/form2/humanities/bible_knowledge/pdfs/"),
+                storage.getReference().child("/form2/humanities/geography/pdfs/")
 
         };
 
