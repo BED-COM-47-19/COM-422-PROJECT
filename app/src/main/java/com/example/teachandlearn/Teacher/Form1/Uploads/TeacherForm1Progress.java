@@ -46,6 +46,7 @@ public class TeacherForm1Progress extends AppCompatActivity {
         accessLogsRef = FirebaseDatabase.getInstance().getReference("access_logs");
 
         fetchStudentAccessLogs();
+
     }
 
     private void fetchStudentAccessLogs() {
@@ -57,6 +58,7 @@ public class TeacherForm1Progress extends AppCompatActivity {
                 studentAccessList.clear(); // Clear the list before adding new logs
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
                     String logEntry = snapshot.getValue(String.class);
                     studentAccessList.add(logEntry); // Add log entry to the list
                 }
@@ -67,7 +69,9 @@ public class TeacherForm1Progress extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.w(TAG, "Error fetching logs: " + databaseError.getMessage());
+
             }
+
         });
 
     }
@@ -75,6 +79,7 @@ public class TeacherForm1Progress extends AppCompatActivity {
 
 
     private void logAccess(String studentId, String filePath) {
+        
         // Generate a unique ID for the access log entry
         String logId = accessLogsRef.push().getKey();
 
