@@ -190,16 +190,22 @@ public class TeacherForm1 extends AppCompatActivity {
             }
 
         });
-        
+
     }
 
     private void showToast(String message) {
+
         if (message != null && !message.isEmpty()) {
+
             Toast.makeText(TeacherForm1.this, message, Toast.LENGTH_SHORT).show();
-        } else {
+
+        }
+
+        else {
             // Handle the case where the message is empty or null
             Log.e("Toast Error", "Message is empty or null");
         }
+        
     }
 
     @Override
