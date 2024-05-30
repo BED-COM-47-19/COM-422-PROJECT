@@ -95,13 +95,14 @@
         android:weightSum="1">
 
         <FrameLayout
-            
+
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="15dp"
             android:layout_weight="0.5">
 
             <Button
+
                 android:id="@+id/button_videos"
                 android:layout_width="match_parent"
                 android:layout_height="134dp"
@@ -119,12 +120,14 @@
 
 
         <FrameLayout
+
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="15dp"
             android:layout_weight="0.5">
 
             <Button
+                
                 android:id="@+id/button_tests_quizzes"
                 android:layout_width="match_parent"
                 android:layout_height="134dp"
