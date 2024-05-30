@@ -89,7 +89,7 @@ public class Form4Student extends AppCompatActivity {
     // Method to save a single student's email to Firebase Realtime Database
     private void saveStudentEmailToFirebase(String studentEmail) {
 
-        DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form1_emails");
+        DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form4_emails");
         studentEmailsRef.push().setValue(studentEmail);
 
     }
@@ -97,7 +97,7 @@ public class Form4Student extends AppCompatActivity {
     // Helper method to show toast message
     private void showToast(String message) {
 
-        Toast.makeText(Form1Student.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(Form4Student.this, message, Toast.LENGTH_SHORT).show();
 
     }
 
