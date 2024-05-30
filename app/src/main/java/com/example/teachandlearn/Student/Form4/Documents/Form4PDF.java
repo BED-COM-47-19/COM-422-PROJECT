@@ -37,14 +37,14 @@ public class Form1PDF extends AppCompatActivity {
     private String studentEmail;
 
 
-    private static final String TAG = "Form1PDF";
+    private static final String TAG = "Form4PDF";
     private static final int REQUEST_OPEN_DOCUMENT = 1;
     private String studentName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_pdf);
+        setContentView(R.layout.activity_form4_pdf);
 
         recyclerViewPDFs = findViewById(R.id.recyclerViewPDFs);
         recyclerViewPDFs.setLayoutManager(new LinearLayoutManager(this));
@@ -53,7 +53,7 @@ public class Form1PDF extends AppCompatActivity {
 
         fetchPDFsFromFirebase();
 
-        studentEmail = getIntent().getStringExtra("student_form1_emails");
+        studentEmail = getIntent().getStringExtra("student_form4_emails");
 
         if (studentEmail != null) {
             // Store student email to Firebase when the intent has student email
