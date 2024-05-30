@@ -141,6 +141,7 @@ public class Form1PDF extends AppCompatActivity {
                         Log.e("PDF", "Failed to get download URL for PDF", exception);
                     });
                 }
+                
                 if (pdfs.isEmpty()) {
                     showNoFilesUploaded();
                 }
@@ -150,8 +151,11 @@ public class Form1PDF extends AppCompatActivity {
             }).addOnFailureListener(exception -> {
                 Log.e("PDF", "Failed to list PDF files", exception);
                 showNoFilesUploaded();
+
             });
+
         }
+
     }
 
 
