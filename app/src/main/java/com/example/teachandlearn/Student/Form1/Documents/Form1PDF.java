@@ -58,13 +58,17 @@ public class Form1PDF extends AppCompatActivity {
         if (studentEmail != null) {
             // Store student email to Firebase when the intent has student email
             saveStudentEmailToFirebase(studentEmail);
+
         }
+        
     }
 
 
     private void openChatActivity() {
+
         Intent intent = new Intent(this, ChatBot.class);
         startActivity(intent);
+
     }
 
     private void fetchPDFsFromFirebase() {
