@@ -135,9 +135,6 @@
         </FrameLayout>
 
 
-
-
-
     </LinearLayout>
 
     <FrameLayout
@@ -171,9 +168,8 @@
             android:background="@drawable/back_button_rounderd"
             android:text="PROGRESS" />
 
+
     </FrameLayout>
-
-
-
+    
 
 </LinearLayout>
