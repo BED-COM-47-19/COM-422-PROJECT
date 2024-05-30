@@ -56,6 +56,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
 
         buttonViewProgress = findViewById(R.id.button_view_progress);
         buttonViewProgress.setOnClickListener(view -> startActivity(new Intent(TeacherForm1Uploads.this, TeacherForm1Progress.class)));
+
     }
 
     private void openFilePicker(String mimeType, int requestCode) {
@@ -88,10 +89,13 @@ public class TeacherForm1Uploads extends AppCompatActivity {
                     break;
             }
         }
+
+
     }
 
     private void uploadFile(Uri fileUri, String storagePath, String firestoreCollection, String[] allowedExtensions, String errorMessage) {
         if (fileUri != null) {
+            
             progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();

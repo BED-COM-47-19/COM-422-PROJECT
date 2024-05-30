@@ -86,6 +86,6 @@ public class TeacherForm1Progress extends AppCompatActivity {
         // Write the log entry to the Realtime Database
         accessLogsRef.child(logId).setValue(logEntry);
     }
-    
+
 
 }
