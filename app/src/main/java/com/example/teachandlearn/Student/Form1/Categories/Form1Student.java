@@ -62,8 +62,11 @@ public class Form1Student extends AppCompatActivity {
             public void onClick(View view) {
                 // Logic for when the back button is pressed
                 onBackPressed();
+
             }
+
         });
+        
     }
 
     @Override
