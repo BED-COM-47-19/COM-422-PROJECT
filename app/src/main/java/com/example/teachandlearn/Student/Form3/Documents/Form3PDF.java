@@ -138,7 +138,7 @@ public class Form3PDF extends AppCompatActivity {
         FirebaseStorage storage = FirebaseStorage.getInstance();
 
         StorageReference[] storageRefs = {
-                storage.getReference().child("/form1/sciences/mathematics/pdfs/")
+                storage.getReference().child("/form3/sciences/mathematics/pdfs/")
                 // Add more storage references for other subjects as needed
         };
 
@@ -183,7 +183,7 @@ public class Form3PDF extends AppCompatActivity {
 
         if (currentUser != null) {
             String userId = currentUser.getUid(); // Get the unique user ID
-            DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form1_emails").child(userId);
+            DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form3_emails").child(userId);
             studentEmailsRef.push().setValue(studentEmail);
 
         }
@@ -233,7 +233,7 @@ public class Form3PDF extends AppCompatActivity {
         @NonNull
         @Override
         public PDFViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form1_pdf_item, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form3_pdf_item, parent, false);
             return new PDFViewHolder(view);
         }
 
