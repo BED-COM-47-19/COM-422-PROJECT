@@ -80,18 +80,22 @@ public class Form1Student extends AppCompatActivity {
             // Store student email to Firebase when user logs in
             saveStudentEmailToFirebase(studentEmail);
         }
-        
+
     }
 
     // Method to save a single student's email to Firebase Realtime Database
     private void saveStudentEmailToFirebase(String studentEmail) {
+
         DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form1_emails");
         studentEmailsRef.push().setValue(studentEmail);
+
     }
 
     // Helper method to show toast message
     private void showToast(String message) {
+
         Toast.makeText(Form1Student.this, message, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -100,4 +104,5 @@ public class Form1Student extends AppCompatActivity {
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
+    
 }
