@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+
 public class TeacherForm1Uploads extends AppCompatActivity {
 
     private Button buttonBack, buttonViewProgress;
@@ -35,6 +36,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_form1_uploads);
 
@@ -60,15 +62,17 @@ public class TeacherForm1Uploads extends AppCompatActivity {
     }
 
     private void openFilePicker(String mimeType, int requestCode) {
+
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType(mimeType);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         startActivityForResult(Intent.createChooser(intent, "Select File"), requestCode);
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        
+
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK && data != null && data.getData() != null) {
