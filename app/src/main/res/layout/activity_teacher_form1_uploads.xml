@@ -155,7 +155,7 @@
         android:layout_weight="0.2">
 
         <Button
-            
+
             android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -168,6 +168,7 @@
 
 
         <Button
+            
             android:id="@+id/button_view_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
