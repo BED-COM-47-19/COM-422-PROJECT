@@ -133,6 +133,7 @@ public class TeacherForm1 extends AppCompatActivity {
                 // Handle Email button click
                 // Retrieve and display emails of students who are in Form1
                 final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser(); // Access currentUser here
+
                 if (currentUser != null) {
 
                     DatabaseReference form1StudentsRef = database.getReference("student_form1_emails");
@@ -148,6 +149,7 @@ public class TeacherForm1 extends AppCompatActivity {
                                 String email = studentSnapshot.child("email").getValue(String.class);
                                 studentEmails.add(email);
                             }
+
                             if (!studentEmails.isEmpty()) {
                                 // Create an Intent to start the Form1PDF activity
                                 Intent intent = new Intent(TeacherForm1.this, Form1PDF.class);
@@ -156,9 +158,11 @@ public class TeacherForm1 extends AppCompatActivity {
                                 // Start the Form1PDF activity
                                 startActivity(intent);
                             }
+
                             else {
                                 showToast("No students found in Form1.");
                             }
+
                         }
 
                         @Override
@@ -166,11 +170,14 @@ public class TeacherForm1 extends AppCompatActivity {
                             showToast("Failed to retrieve student emails: " + databaseError.getMessage());
                         }
                     });
+
                 }
+
                 else {
                     showToast("User not authenticated.");
                 }
             }
+
         });
 
 
@@ -181,7 +188,9 @@ public class TeacherForm1 extends AppCompatActivity {
                 // Logic for when the back button is pressed
                 onBackPressed();
             }
+
         });
+        
     }
 
     private void showToast(String message) {
