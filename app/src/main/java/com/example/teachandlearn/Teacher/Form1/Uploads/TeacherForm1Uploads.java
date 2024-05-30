@@ -118,9 +118,11 @@ public class TeacherForm1Uploads extends AppCompatActivity {
 
 
             if (!isExtensionAllowed) {
+
                 progressDialog.dismiss();
                 showToast(errorMessage);
                 return;
+
             }
 
             StorageReference fileRef = storageReference.child(storagePath + fileName);
@@ -151,6 +153,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
     }
 
     private void saveFileUrlToFirestore(String fileUrl, String firestoreCollection) {
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> fileData = new HashMap<>();
         fileData.put("fileUrl", fileUrl);
