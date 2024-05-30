@@ -1,5 +1,6 @@
-package com.example.teachandlearn.Student.Form2.Categories;
 
+
+package com.example.teachandlearn.Student.Form2.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -86,7 +87,7 @@ public class Form2Student extends AppCompatActivity {
     // Method to save a single student's email to Firebase Realtime Database
     private void saveStudentEmailToFirebase(String studentEmail) {
 
-        DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form1_emails");
+        DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form2_emails");
         studentEmailsRef.push().setValue(studentEmail);
 
     }
@@ -94,7 +95,7 @@ public class Form2Student extends AppCompatActivity {
     // Helper method to show toast message
     private void showToast(String message) {
 
-        Toast.makeText(Form1Student.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(Form2Student.this, message, Toast.LENGTH_SHORT).show();
 
     }
 
