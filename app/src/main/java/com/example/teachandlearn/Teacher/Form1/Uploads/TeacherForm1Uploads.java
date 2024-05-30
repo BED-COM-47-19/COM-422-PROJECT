@@ -95,6 +95,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
                 default:
                     // Handle other cases if needed
                     break;
+
             }
         }
 
