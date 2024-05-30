@@ -138,7 +138,7 @@ public class Form1PDF extends AppCompatActivity {
         FirebaseStorage storage = FirebaseStorage.getInstance();
 
         StorageReference[] storageRefs = {
-                storage.getReference().child("/form1/sciences/mathematics/pdfs/")
+                storage.getReference().child("/form4/sciences/mathematics/pdfs/")
                 // Add more storage references for other subjects as needed
         };
 
@@ -183,7 +183,7 @@ public class Form1PDF extends AppCompatActivity {
 
         if (currentUser != null) {
             String userId = currentUser.getUid(); // Get the unique user ID
-            DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form1_emails").child(userId);
+            DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form4_emails").child(userId);
             studentEmailsRef.push().setValue(studentEmail);
 
         }
