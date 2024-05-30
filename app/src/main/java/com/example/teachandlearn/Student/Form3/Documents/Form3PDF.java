@@ -44,7 +44,7 @@ public class Form3PDF extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_pdf);
+        setContentView(R.layout.activity_form3_pdf);
 
         recyclerViewPDFs = findViewById(R.id.recyclerViewPDFs);
         recyclerViewPDFs.setLayoutManager(new LinearLayoutManager(this));
@@ -53,7 +53,7 @@ public class Form3PDF extends AppCompatActivity {
 
         fetchPDFsFromFirebase();
 
-        studentEmail = getIntent().getStringExtra("student_form1_emails");
+        studentEmail = getIntent().getStringExtra("student_form3_emails");
 
         if (studentEmail != null) {
             // Store student email to Firebase when the intent has student email
@@ -77,18 +77,18 @@ public class Form3PDF extends AppCompatActivity {
 
         StorageReference[] storageRefs = {
 
-                storage.getReference().child("/form1/sciences/mathematics/pdfs/"),
-                storage.getReference().child("/form1/sciences/biology/pdfs/"),
-                storage.getReference().child("/form1/sciences/agriculture/pdfs/"),
-                storage.getReference().child("/form1/sciences/chemistry/pdfs/"),
-                storage.getReference().child("/form1/sciences/physics/pdfs/"),
-                storage.getReference().child("/form1/languages/english/pdfs/"),
-                storage.getReference().child("/form1/languages/chichewa/pdfs/"),
-                storage.getReference().child("/form1/humanities/social_studies/pdfs/"),
-                storage.getReference().child("/form1/humanities/history/pdfs/"),
-                storage.getReference().child("/form1/humanities/life_skills/pdfs/"),
-                storage.getReference().child("/form1/humanities/bible_knowledge/pdfs/"),
-                storage.getReference().child("/form1/humanities/geography/pdfs/")
+                storage.getReference().child("/form3/sciences/mathematics/pdfs/"),
+                storage.getReference().child("/form3/sciences/biology/pdfs/"),
+                storage.getReference().child("/form3/sciences/agriculture/pdfs/"),
+                storage.getReference().child("/form3/sciences/chemistry/pdfs/"),
+                storage.getReference().child("/form3/sciences/physics/pdfs/"),
+                storage.getReference().child("/form3/languages/english/pdfs/"),
+                storage.getReference().child("/form3/languages/chichewa/pdfs/"),
+                storage.getReference().child("/form3/humanities/social_studies/pdfs/"),
+                storage.getReference().child("/form3/humanities/history/pdfs/"),
+                storage.getReference().child("/form3/humanities/life_skills/pdfs/"),
+                storage.getReference().child("/form3/humanities/bible_knowledge/pdfs/"),
+                storage.getReference().child("/form3/humanities/geography/pdfs/")
 
         };
 
