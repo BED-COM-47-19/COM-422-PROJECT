@@ -104,7 +104,7 @@ public class TeacherForm1 extends AppCompatActivity {
                                 if (userDetails != null && !userDetails.isEmpty()) {
                                     showToast(userDetails);
                                 }
-                                
+
                                 else {
                                     showToast("User details not found.");
                                 }
