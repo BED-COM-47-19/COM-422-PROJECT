@@ -68,7 +68,9 @@ public class TeacherForm1Uploads extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        
         super.onActivityResult(requestCode, resultCode, data);
+
         if (resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri selectedFileUri = data.getData();
             switch (requestCode) {
@@ -94,6 +96,7 @@ public class TeacherForm1Uploads extends AppCompatActivity {
     }
 
     private void uploadFile(Uri fileUri, String storagePath, String firestoreCollection, String[] allowedExtensions, String errorMessage) {
+
         if (fileUri != null) {
 
             progressDialog = new ProgressDialog(this);
