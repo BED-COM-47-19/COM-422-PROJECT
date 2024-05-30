@@ -33,6 +33,7 @@ public class TeacherForm1Progress extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_student_progress);
 
@@ -48,7 +49,7 @@ public class TeacherForm1Progress extends AppCompatActivity {
     }
 
     private void fetchStudentAccessLogs() {
-        // Listen for changes in the access logs node
+
         accessLogsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -60,7 +61,7 @@ public class TeacherForm1Progress extends AppCompatActivity {
                     studentAccessList.add(logEntry); // Add log entry to the list
                 }
 
-                adapter.notifyDataSetChanged(); // Update the ListView
+                adapter.notifyDataSetChanged();
             }
 
             @Override
