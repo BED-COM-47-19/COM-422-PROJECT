@@ -25,7 +25,7 @@
         android:layout_marginBottom="50dp">
 
         <Button
-            android:id="@+id/activity_teacher_form2_science"
+            android:id="@+id/activity_teacher_form1_science"
             android:layout_width="260dp"
             android:layout_height="80dp"
             android:layout_marginStart="55dp"
@@ -45,7 +45,7 @@
         android:layout_marginBottom="50dp">
 
         <Button
-            android:id="@+id/activity_teacher_form2_humanities"
+            android:id="@+id/activity_teacher_form1_humanities"
             android:layout_width="264dp"
             android:layout_height="80dp"
             android:layout_marginStart="55dp"
@@ -65,7 +65,7 @@
         android:layout_marginBottom="50dp">
 
         <Button
-            android:id="@+id/activity_teacher_form2_languages"
+            android:id="@+id/activity_teacher_form1_languages"
             android:layout_width="260dp"
             android:layout_height="80dp"
             android:layout_marginStart="55dp"
