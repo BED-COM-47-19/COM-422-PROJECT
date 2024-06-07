@@ -13,6 +13,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
+
+
 public class ChatGPTService extends Service {
 
     private OkHttpClient client;
@@ -68,4 +70,5 @@ public class ChatGPTService extends Service {
         void onSuccess(String response);
         void onFailure(Throwable t);
     }
+    
 }
