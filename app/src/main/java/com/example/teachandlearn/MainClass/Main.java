@@ -7,7 +7,8 @@ import android.widget.Toast;
 import android.content.Intent;
 import com.example.teachandlearn.R;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Logger;
 
 
 
@@ -20,6 +21,7 @@ public class Main extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button getStartedButton = (Button) findViewById(R.id.getStartedButton);
 
+        FirebaseDatabase.getInstance().setLogLevel(Logger.Level.DEBUG);
         getStartedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,3 +39,7 @@ public class Main extends AppCompatActivity {
     }
 
 }
+
+
+
+//sk-proj-3vQstH301YqSAjfmfrMkT3BlbkFJHyityVAfLQuKgyTuax4d

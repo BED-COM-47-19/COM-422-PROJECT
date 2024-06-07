@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="70dp"
         android:layout_marginBottom="40dp"
         android:text="SUBJECT CATEGORIES"
         android:textAlignment="center"
@@ -78,15 +78,42 @@
 
     </FrameLayout>
 
+
+    <Button
+        android:id="@+id/user_profile_button"
+        android:layout_width="60dp"
+        android:layout_height="34dp"
+        android:text=" Profile"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        android:layout_marginRight="-140dp"
+        android:layout_marginTop="-530dp"
+        android:background="@drawable/button_background"/>
+
+    <!-- Email Button -->
+    <Button
+        android:id="@+id/email_list_button"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:text="Email"
+        android:layout_marginRight="-140dp"
+        android:layout_marginTop="500dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:background="@drawable/button_background"/>
+
+
     <!-- Back Button -->
     <Button
         android:id="@+id/back_button"
         android:layout_width="80dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_gravity="bottom|start"
         android:layout_marginBottom="1dp"
         android:text="BACK"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="-40dp"
         android:textColor="@color/white"
         android:background="@drawable/back_button_rounderd"
         android:textSize="20dp" />

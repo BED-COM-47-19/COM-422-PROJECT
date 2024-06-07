@@ -1,5 +1,3 @@
-
-
 package com.example.teachandlearn.Student.LogIn_And_SignUp;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,13 +7,22 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import androidx.annotation.NonNull;
 import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
+import com.example.teachandlearn.Teacher.LogIn_And_SignUp.TeacherSignUp;
+import com.example.teachandlearn.Teacher.SelectClass.TeacherSelectClass;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class StudentSignUp extends AppCompatActivity {
 
     private DatabaseReference databaseReference; // Firebase database reference
+    private FirebaseAuth mAuth;
     private Button buttonBack;
     private EditText editTextFirstName, editTextLastName, editTextEmail, editTextPassword, editTextConfirmPassword;
     private Button buttonContinue;
@@ -26,7 +33,8 @@ public class StudentSignUp extends AppCompatActivity {
         setContentView(R.layout.activity_student_signup);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
-        // Initialize views
+        mAuth = FirebaseAuth.getInstance();
+
         editTextFirstName = findViewById(R.id.editTextFirstName);
         editTextLastName = findViewById(R.id.editTextLastName);
         editTextEmail = findViewById(R.id.editTextEmail);
@@ -104,18 +112,42 @@ public class StudentSignUp extends AppCompatActivity {
             return;
         }
 
-        String userId = databaseReference.push().getKey();
-        User user = new User(firstName, lastName, email, password, confirmPassword);
+        class User {
+            public String firstName, lastName, email, password;
 
-        // Attempt to save user and navigate
-        databaseReference.child(userId).setValue(user).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                Toast.makeText(getApplicationContext(), "User registration successful", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(StudentSignUp.this, StudentSelectClass.class));
-            } else {
-                Toast.makeText(getApplicationContext(), "Registration failed", Toast.LENGTH_SHORT).show();
+            public User() {
+                // Default constructor required for calls to DataSnapshot.getValue(User.class)
             }
-        });
+
+            public User(String firstName, String lastName, String email, String password) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.email = email;
+                this.password = password;
+            }
+
+        }
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Registration successful, save user data in the Realtime Database
+                        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                        String userId = firebaseUser.getUid();
+                        User user = new User(firstName, lastName, email, password);
+
+                        databaseReference.child(userId).setValue(user).addOnCompleteListener(task1 -> {
+                            if (task1.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "User registration successful", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(StudentSignUp.this, StudentSelectClass.class));
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Registration failed", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    } else {
+                        Toast.makeText(getApplicationContext(),  task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     @Override

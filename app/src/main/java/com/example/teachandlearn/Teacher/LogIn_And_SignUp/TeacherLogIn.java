@@ -12,6 +12,12 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.example.teachandlearn.Student.LogIn_And_SignUp.StudentLogIn;
+import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Teacher.SelectClass.TeacherSelectClass;
@@ -160,10 +166,12 @@ public class TeacherLogIn extends AppCompatActivity {
                             Toast.makeText(TeacherLogIn.this, "Failed to send reset email", Toast.LENGTH_LONG).show();
                         }
                     });
-        } else {
+        }
+        else {
             Toast.makeText(TeacherLogIn.this, "Please enter your email", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     private void loginUser(String email, String password) {
         if (email.isEmpty() || password.isEmpty()) {
@@ -176,19 +184,20 @@ public class TeacherLogIn extends AppCompatActivity {
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
                             saveCredentials(email, password);
-                            startActivity(new Intent(TeacherLogIn.this, TeacherSelectClass.class));
+                            startActivity(new Intent(TeacherLogIn.this, StudentSelectClass.class));
                         } else {
                             Toast.makeText(TeacherLogIn.this, "Email or Password Incorrect.", Toast.LENGTH_SHORT).show();
                         }
                     });
         } else {
             if (checkCredentials(email, password)) {
-                startActivity(new Intent(TeacherLogIn.this, TeacherSelectClass.class));
+                startActivity(new Intent(TeacherLogIn.this, StudentSelectClass.class));
             } else {
                 Toast.makeText(TeacherLogIn.this, "Invalid credentials or no network available.", Toast.LENGTH_SHORT).show();
             }
         }
     }
+
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -196,12 +205,24 @@ public class TeacherLogIn extends AppCompatActivity {
         return networkInfo != null && networkInfo.isConnected();
     }
 
+
     private void saveCredentials(String email, String password) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("email", email);
         editor.putString("password", password);
         editor.apply();
     }
+
+    private void saveUserCredentialsToDatabase(String userId, String email) {
+        DatabaseReference usersRef = mDatabase.child("Users").child(userId);
+        Map<String, Object> userDetails = new HashMap<>();
+        userDetails.put("email", email);
+        // Add other user details if needed
+        usersRef.setValue(userDetails)
+                .addOnSuccessListener(aVoid -> Log.d("Database", "User credentials saved successfully"))
+                .addOnFailureListener(e -> Log.d("Database", "Error saving user credentials", e));
+    }
+
 
     private boolean checkCredentials(String email, String password) {
         String savedEmail = sharedPreferences.getString("email", null);

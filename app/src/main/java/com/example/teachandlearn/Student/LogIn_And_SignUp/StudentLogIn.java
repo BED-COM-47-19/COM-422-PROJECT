@@ -12,6 +12,10 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
@@ -24,6 +28,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
@@ -55,6 +60,7 @@ public class StudentLogIn extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         sharedPreferences = getSharedPreferences("user_credentials", MODE_PRIVATE);
+        mAuth = FirebaseAuth.getInstance();
         mDatabase.keepSynced(true);
 
         EditText editTextEmail = findViewById(R.id.editTextEmail);
@@ -149,6 +155,11 @@ public class StudentLogIn extends AppCompatActivity {
         });
     }
 
+
+
+
+
+
     private void sendPasswordResetEmail(String email) {
         if (!email.isEmpty()) {
             mAuth.sendPasswordResetEmail(email)
@@ -159,7 +170,10 @@ public class StudentLogIn extends AppCompatActivity {
                             Toast.makeText(StudentLogIn.this, "Failed to send reset email", Toast.LENGTH_LONG).show();
                         }
                     });
-        } else {
+
+        }
+
+        else {
             Toast.makeText(StudentLogIn.this, "Please enter your email", Toast.LENGTH_SHORT).show();
         }
     }
@@ -189,6 +203,8 @@ public class StudentLogIn extends AppCompatActivity {
         }
     }
 
+
+
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
@@ -201,6 +217,17 @@ public class StudentLogIn extends AppCompatActivity {
         editor.putString("password", password);
         editor.apply();
     }
+
+    private void saveUserCredentialsToDatabase(String userId, String email) {
+        DatabaseReference usersRef = mDatabase.child("Users").child(userId);
+        Map<String, Object> userDetails = new HashMap<>();
+        userDetails.put("email", email);
+        // Add other user details if needed
+        usersRef.setValue(userDetails)
+                .addOnSuccessListener(aVoid -> Log.d("Database", "User credentials saved successfully"))
+                .addOnFailureListener(e -> Log.d("Database", "Error saving user credentials", e));
+    }
+
 
     private boolean checkCredentials(String email, String password) {
         String savedEmail = sharedPreferences.getString("email", null);

@@ -51,7 +51,8 @@ public class TeacherForm1 extends AppCompatActivity {
         Button buttonHumanities = findViewById(R.id.activity_teacher_form1_humanities);
         Button buttonLanguages = findViewById(R.id.activity_teacher_form1_languages);
         buttonBack = findViewById(R.id.back_button);
-
+        buttonListEmail = findViewById(R.id.email_list_button);
+        buttonProfile = findViewById(R.id.user_profile_button);
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {

@@ -1,53 +1,65 @@
+
+
 package com.example.teachandlearn.CHATGPT;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import java.io.IOException;
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.POST;
-import retrofit2.converter.gson.GsonConverterFactory;
-import java.util.List;
+public class ChatGPTService extends Service {
 
-public class ChatGPTService {
+    private OkHttpClient client;
 
-    private ChatGPTServiceInterface service;
+    public IBinder onBind(Intent intent) {
+        // Return null because your service doesn't support binding
+        return null;
+    }
 
     public ChatGPTService() {
-        // Create a Retrofit instance
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.openai.com/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        // Create an instance of the ChatGPT service interface
-        service = retrofit.create(ChatGPTServiceInterface.class);
+        // Create an instance of OkHttpClient
+        client = new OkHttpClient();
     }
 
     public void sendCommentToAI(String comment, ChatGPTCallback callback) {
-        // Make an API request to get a response from ChatGPT
-        Call<ChatGPTResponse> call = service.getChatResponse(comment, 50); // Adjust max_tokens as needed
+        // Build the request body
+        RequestBody requestBody = new FormBody.Builder()
+                .add("prompt", comment)
+                .add("max_tokens", "50")
+                .build();
 
-        call.enqueue(new Callback<ChatGPTResponse>() {
+        // Build the request
+        Request request = new Request.Builder()
+                .url("https://api.openai.com/v1/completion/generic-chat")
+                .addHeader("Authorization", "Bearer sk-proj-3vQstH301YqSAjfmfrMkT3BlbkFJHyityVAfLQuKgyTuax4d") // Replace YOUR_API_KEY_HERE with your actual API key
+                .post(requestBody)
+                .build();
+
+        // Asynchronously execute the request
+        client.newCall(request).enqueue(new Callback() {
             @Override
-            public void onResponse(Call<ChatGPTResponse> call, Response<ChatGPTResponse> response) {
-                if (response.isSuccessful()) {
-                    ChatGPTResponse responseBody = response.body();
-                    if (responseBody != null && !responseBody.getChoices().isEmpty()) {
-                        String generatedResponse = responseBody.getChoices().get(0).getText();
-                        callback.onSuccess(generatedResponse);
-                    } else {
-                        callback.onFailure(new Exception("Empty response from AI"));
-                    }
-                } else {
-                    callback.onFailure(new Exception("Failed to process comment"));
-                }
+            public void onFailure(Call call, IOException e) {
+                callback.onFailure(e);
             }
 
             @Override
-            public void onFailure(Call<ChatGPTResponse> call, Throwable t) {
-                callback.onFailure(t);
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    if (!response.isSuccessful()) {
+                        throw new IOException("Unexpected response code: " + response);
+                    }
+
+                    String responseBody = response.body().string();
+                    callback.onSuccess(responseBody);
+                } catch (IOException e) {
+                    callback.onFailure(e);
+                }
             }
         });
     }
@@ -55,38 +67,5 @@ public class ChatGPTService {
     public interface ChatGPTCallback {
         void onSuccess(String response);
         void onFailure(Throwable t);
-    }
-
-    interface ChatGPTServiceInterface {
-        @POST("completion/generic-chat")
-        @FormUrlEncoded
-        Call<ChatGPTResponse> getChatResponse(
-                @Field("prompt") String prompt,
-                @Field("max_tokens") int maxTokens
-        );
-    }
-
-    public static class ChatGPTResponse {
-        private List<ChatGPTChoice> choices;
-
-        public List<ChatGPTChoice> getChoices() {
-            return choices;
-        }
-
-        public void setChoices(List<ChatGPTChoice> choices) {
-            this.choices = choices;
-        }
-    }
-
-    public static class ChatGPTChoice {
-        private String text;
-
-        public String getText() {
-            return text;
-        }
-
-        public void setText(String text) {
-            this.text = text;
-        }
     }
 }

@@ -8,7 +8,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <!-- AndroidManifest.xml -->
+    <!-- AndroidManifest.xml  -->
     <uses-permission android:name="android.permission.INTERNET"/>
 
 
@@ -44,9 +44,10 @@
 
 
 
-        <activity
-            android:name=".CHATGPT.ChatBot"
-            android:theme="@style/Theme.AppCompat" />
+        <service android:name=".CHATGPT.ChatBot" />
+
+        <service android:name=".CHATGPT.ChatGPTService"/>
+
 
 
 
