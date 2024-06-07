@@ -92,6 +92,7 @@ public class Form1StudentViewContent extends AppCompatActivity {
         // For example, start the ChatGPTService
         Intent intent = new Intent(this, ChatGPTService.class);
         startService(intent);
+        
     }
     @Override
     public void onBackPressed() {
