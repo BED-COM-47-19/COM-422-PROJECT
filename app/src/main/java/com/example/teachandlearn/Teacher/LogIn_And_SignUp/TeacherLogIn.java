@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.teachandlearn.Student.LogIn_And_SignUp.StudentLogIn;
 import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
