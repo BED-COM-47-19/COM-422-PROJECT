@@ -9,8 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import androidx.annotation.NonNull;
 import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
-import com.example.teachandlearn.Teacher.LogIn_And_SignUp.TeacherSignUp;
-import com.example.teachandlearn.Teacher.SelectClass.TeacherSelectClass;
+import com.example.teachandlearn.Student.LogIn_And_SignUp.StudentSignUp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DataSnapshot;
@@ -71,7 +70,8 @@ public class StudentSignUp extends AppCompatActivity {
         if (firstName.isEmpty()) {
             editTextFirstName.setError("First name is required");
             isValid = false;
-        } else if (!firstName.matches("[a-zA-Z]+")) {
+        }
+        else if (!firstName.matches("[a-zA-Z]+")) {
             editTextFirstName.setError("First name must contain only letters");
             isValid = false;
         }
@@ -79,7 +79,8 @@ public class StudentSignUp extends AppCompatActivity {
         if (lastName.isEmpty()) {
             editTextLastName.setError("Last name is required");
             isValid = false;
-        } else if (!lastName.matches("[a-zA-Z]+")) {
+        }
+        else if (!lastName.matches("[a-zA-Z]+")) {
             editTextLastName.setError("Last name must contain only letters");
             isValid = false;
         }
@@ -87,7 +88,8 @@ public class StudentSignUp extends AppCompatActivity {
         if (email.isEmpty()) {
             editTextEmail.setError("Email is required");
             isValid = false;
-        } else if (!email.contains("@")) {
+        }
+        else if (!email.contains("@")) {
             editTextEmail.setError("Email must contain an '@' symbol");
             isValid = false;
         }
@@ -95,7 +97,8 @@ public class StudentSignUp extends AppCompatActivity {
         if (password.isEmpty()) {
             editTextPassword.setError("Password is required");
             isValid = false;
-        } else if (password.length() < 7) {
+        }
+        else if (password.length() < 7) {
             editTextPassword.setError("Password must be at least 6 characters long");
             isValid = false;
         }
