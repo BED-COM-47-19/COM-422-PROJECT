@@ -194,13 +194,18 @@ public class StudentLogIn extends AppCompatActivity {
                             Toast.makeText(StudentLogIn.this, "Email or Password Incorrect.", Toast.LENGTH_SHORT).show();
                         }
                     });
-        } else {
+
+        }
+
+        else {
             if (checkCredentials(email, password)) {
                 startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
             } else {
                 Toast.makeText(StudentLogIn.this, "Invalid credentials or no network available.", Toast.LENGTH_SHORT).show();
             }
         }
+
+        
     }
 
 
