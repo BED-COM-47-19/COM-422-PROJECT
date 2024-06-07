@@ -49,8 +49,7 @@
         <service android:name=".CHATGPT.ChatGPTService"/>
 
 
-
-
+        
         <activity
             android:name=".MainClass.UserTypeSelection"
             android:theme="@style/Theme.AppCompat">
