@@ -1,8 +1,7 @@
 
-
-
 package com.example.teachandlearn.CHATGPT;
 import androidx.appcompat.app.AppCompatActivity;
+
 
 public class ChatBot {
 
@@ -28,5 +27,9 @@ public class ChatBot {
                 }
             }
         });
+
+
     }
+
+    
 }
