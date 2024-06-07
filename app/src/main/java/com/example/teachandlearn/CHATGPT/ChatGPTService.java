@@ -70,5 +70,5 @@ public class ChatGPTService extends Service {
         void onSuccess(String response);
         void onFailure(Throwable t);
     }
-    
+
 }

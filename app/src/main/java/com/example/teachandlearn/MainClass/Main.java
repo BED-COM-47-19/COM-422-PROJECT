@@ -40,6 +40,3 @@ public class Main extends AppCompatActivity {
 
 }
 
-
-
-//sk-proj-3vQstH301YqSAjfmfrMkT3BlbkFJHyityVAfLQuKgyTuax4d
