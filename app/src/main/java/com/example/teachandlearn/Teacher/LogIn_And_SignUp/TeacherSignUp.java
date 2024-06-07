@@ -73,7 +73,8 @@ public class TeacherSignUp extends AppCompatActivity {
         if (firstName.isEmpty()) {
             editTextFirstName.setError("First name is required");
             isValid = false;
-        } else if (!firstName.matches("[a-zA-Z]+")) {
+        }
+        else if (!firstName.matches("[a-zA-Z]+")) {
             editTextFirstName.setError("First name must contain only letters");
             isValid = false;
         }
@@ -81,7 +82,8 @@ public class TeacherSignUp extends AppCompatActivity {
         if (lastName.isEmpty()) {
             editTextLastName.setError("Last name is required");
             isValid = false;
-        } else if (!lastName.matches("[a-zA-Z]+")) {
+        }
+        else if (!lastName.matches("[a-zA-Z]+")) {
             editTextLastName.setError("Last name must contain only letters");
             isValid = false;
         }
@@ -89,7 +91,8 @@ public class TeacherSignUp extends AppCompatActivity {
         if (email.isEmpty()) {
             editTextEmail.setError("Email is required");
             isValid = false;
-        } else if (!email.contains("@")) {
+        }
+        else if (!email.contains("@")) {
             editTextEmail.setError("Email must contain an '@' symbol");
             isValid = false;
         }
@@ -97,7 +100,8 @@ public class TeacherSignUp extends AppCompatActivity {
         if (password.isEmpty()) {
             editTextPassword.setError("Password is required");
             isValid = false;
-        } else if (password.length() < 7) {
+        }
+        else if (password.length() < 7) {
             editTextPassword.setError("Password must be at least 6 characters long");
             isValid = false;
         }
@@ -105,7 +109,8 @@ public class TeacherSignUp extends AppCompatActivity {
         if (confirmPassword.isEmpty()) {
             editTextConfirmPassword.setError("Confirm Password is required");
             isValid = false;
-        } else if (!password.equals(confirmPassword)) {
+        }
+        else if (!password.equals(confirmPassword)) {
             editTextConfirmPassword.setError("Passwords do not match");
             isValid = false;
         }
@@ -139,6 +144,7 @@ public class TeacherSignUp extends AppCompatActivity {
                         User user = new User(firstName, lastName, email, password);
 
                         databaseReference.child(userId).setValue(user).addOnCompleteListener(task1 -> {
+
                             if (task1.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "User registration successful", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(TeacherSignUp.this, TeacherSelectClass.class));
@@ -146,7 +152,8 @@ public class TeacherSignUp extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Registration failed", Toast.LENGTH_SHORT).show();
                             }
                         });
-                    } else {
+                    }
+                    else {
                         Toast.makeText(getApplicationContext(),   task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
