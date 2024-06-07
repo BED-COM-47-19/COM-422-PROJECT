@@ -1,9 +1,10 @@
 
 package com.example.teachandlearn.CHATGPT;
+import android.app.Service;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-public class ChatBot {
+public class ChatBot extends Service {
 
     public interface ChatbotResponseListener {
         void onChatbotResponse(String response);
