@@ -4,7 +4,7 @@ import android.app.Service;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-public class ChatBot extends Service {
+public class ChatBot {
 
     public interface ChatbotResponseListener {
         void onChatbotResponse(String response);
