@@ -61,12 +61,14 @@ public class Form1Quiz extends AppCompatActivity {
     }
 
     private List<Question> loadQuestions() {
-        // Replace with actual logic to load questions, e.g., from a database or an API
+      
+
         List<Question> questions = new ArrayList<>();
         questions.add(new Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
         questions.add(new Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
         questions.add(new Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
         questions.add(new Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+
         return questions;
     }
 
