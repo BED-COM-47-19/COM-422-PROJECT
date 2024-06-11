@@ -384,13 +384,193 @@
         </activity>
 
 
+        <activity android:name=".Teacher.Form1.Uploads.Agriculture.TeacherForm1Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
 
-        <activity android:name=".Teacher.Form1.Uploads.TeacherForm1Progress"
+        <activity android:name=".Teacher.Form2.Uploads.Agriculture.TeacherForm2Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Agriculture.TeacherForm3Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Agriculture.TeacherForm4Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Bible_Knowledge.TeacherForm1Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Bible_Knowledge.TeacherForm2Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Bible_Knowledge.TeacherForm3Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Bible_Knowledge.TeacherForm4Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Biology.TeacherForm1Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Biology.TeacherForm2Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Biology.TeacherForm3Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Biology.TeacherForm4Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form1.Uploads.Chemistry.TeacherForm1Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Chemistry.TeacherForm2Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Chemistry.TeacherForm3Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Chemistry.TeacherForm4Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Chichewa.TeacherForm1Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Chichewa.TeacherForm2Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Chichewa.TeacherForm3Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Chichewa.TeacherForm4Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form1.Uploads.English.TeacherForm1Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.English.TeacherForm2Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.English.TeacherForm3Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.English.TeacherForm4Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form1.Uploads.History.TeacherForm1Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.History.TeacherForm2Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.History.TeacherForm3Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.History.TeacherForm4Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Life_Skills.TeacherForm1Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Life_Skills.TeacherForm2Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Life_Skills.TeacherForm3Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Life_Skills.TeacherForm4Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Mathematics.TeacherForm1Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Mathematics.TeacherForm2Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Mathematics.TeacherForm3Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Mathematics.TeacherForm4Uploads"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
 
 
-</application>
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Physics.TeacherForm1Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Physics.TeacherForm2Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Physics.TeacherForm3Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Physics.TeacherForm4Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form1.Uploads.Social_Studies.TeacherForm1Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Social_Studies.TeacherForm2Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Teacher.Form3.Uploads.Social_Studies.TeacherForm3Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Social_Studies.TeacherForm4Uploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+    </application>
 
 </manifest>

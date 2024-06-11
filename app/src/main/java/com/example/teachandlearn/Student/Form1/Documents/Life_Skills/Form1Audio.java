@@ -1,7 +1,8 @@
 
 
 
-package com.example.teachandlearn.Student.Form1.Documents.Agriculture;
+package com.example.teachandlearn.Student.Form1.Documents.Life_Skills;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,14 +13,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 import java.util.List;
 

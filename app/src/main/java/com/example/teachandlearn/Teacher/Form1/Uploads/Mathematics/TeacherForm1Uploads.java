@@ -1,5 +1,6 @@
 
-package com.example.teachandlearn.Teacher.Form1.Uploads;
+package com.example.teachandlearn.Teacher.Form1.Uploads.Mathematics;
+
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -9,14 +10,17 @@ import android.util.Log;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.Toast;
+
 import androidx.annotation.Nullable;
-import com.example.teachandlearn.R;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.teachandlearn.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;

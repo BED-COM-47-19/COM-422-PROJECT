@@ -1,5 +1,6 @@
 
-package com.example.teachandlearn.Teacher.Form1.Uploads;
+package com.example.teachandlearn.Teacher.Form1.Uploads.Chichewa;
+
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -9,14 +10,17 @@ import android.util.Log;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.Toast;
+
 import androidx.annotation.Nullable;
-import com.example.teachandlearn.R;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.teachandlearn.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -80,16 +84,16 @@ public class TeacherForm1Uploads extends AppCompatActivity {
             switch (requestCode) {
 
                 case REQUEST_PICK_PDF:
-                    uploadFile(selectedFileUri, "/form1/sciences/mathematics/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
+                    uploadFile(selectedFileUri, "/form1/languages/chichewa/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
                     break;
                 case REQUEST_PICK_AUDIO:
-                    uploadFile(selectedFileUri, "/form1/sciences/mathematics/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    uploadFile(selectedFileUri, "/form1/languages/chichewa/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
                     break;
                 case REQUEST_PICK_VIDEO:
-                    uploadFile(selectedFileUri, "/form1/sciences/mathematics/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV", "MOV"}, "Please Select Video format.");
+                    uploadFile(selectedFileUri, "/form1/languages/chichewa/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV", "MOV"}, "Please Select Video format.");
                     break;
                 case REQUEST_PICK_QUESTION:
-                    uploadFile(selectedFileUri, "/form1/sciences/mathematics/quizzes_and_questions/", "questions", new String[]{"pdf", "docx", "pptx"}, "No restriction on question formats.");
+                    uploadFile(selectedFileUri, "/form1/languages/chichewa/quizzes_and_questions/", "questions", new String[]{"pdf", "docx", "pptx"}, "No restriction on question formats.");
                     break;
                 default:
                     // Handle other cases if needed
