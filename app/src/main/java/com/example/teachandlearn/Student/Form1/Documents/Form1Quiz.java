@@ -61,7 +61,7 @@ public class Form1Quiz extends AppCompatActivity {
     }
 
     private List<Question> loadQuestions() {
-      
+
 
         List<Question> questions = new ArrayList<>();
         questions.add(new Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
@@ -73,7 +73,9 @@ public class Form1Quiz extends AppCompatActivity {
     }
 
     private void displayQuestion() {
+
         if (currentQuestionIndex < questions.size()) {
+
             Question currentQuestion = questions.get(currentQuestionIndex);
             questionTextView.setText(currentQuestion.getQuestionText());
             optionARadioButton.setText(currentQuestion.getOptionA());
@@ -81,7 +83,8 @@ public class Form1Quiz extends AppCompatActivity {
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
             questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
-        } else {
+        }
+        else {
             finishQuiz();
         }
     }
