@@ -1,27 +1,30 @@
 
 
 
-package com.example.teachandlearn.Student.Form1.Documents;
+package com.example.teachandlearn.Student.Form1.Documents.Chemistry;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.ListResult;
+
 import java.util.ArrayList;
 import java.util.List;
-import android.widget.Button;
-import android.widget.EditText;
-import com.example.teachandlearn.CHATGPT.ChatGPTService;
 
 public class Form1Videos extends AppCompatActivity {
 

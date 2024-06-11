@@ -1,6 +1,7 @@
 
 
-package com.example.teachandlearn.Student.Form1.Documents;
+package com.example.teachandlearn.Student.Form1.Documents.Biology;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,10 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.teachandlearn.CHATGPT.ChatBot;
 import com.example.teachandlearn.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

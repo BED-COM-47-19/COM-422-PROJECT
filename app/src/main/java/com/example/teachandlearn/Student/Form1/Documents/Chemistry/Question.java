@@ -1,4 +1,4 @@
-package com.example.teachandlearn.Student.Form1.Documents;
+package com.example.teachandlearn.Student.Form1.Documents.Chemistry;
 
 public class Question {
     private String questionText;
