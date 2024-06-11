@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">teachandlearn</string>
+
+    <string name="default_web_client_id">AIzaSyD6HgUhhnPmP0NVS6IJZWPxU1f6yVQ802U</string>
+
+
+
+        <string name="back_button_description">Go back</string>
+        <string name="upload_pdf">Upload PDF</string>
+        <string name="upload_audio">Upload Audio</string>
+        <string name="upload_video">Upload Video</string>
+        <string name="upload_questions">Upload Questions</string>
+        <string name="back">Back</string>
+
+
+
+        <!-- Strings for popup information -->
+        <string name="info_mathematics">Info: Learn more about Mathematics. Mathematics is the study of numbers, shapes, and patterns.</string>
+        <string name="info_biology">Info: Learn more about Biology. Biology is the natural science that studies life and living organisms.</string>
+        <string name="info_physics">Info: Learn more about Physics. Physics is the science of matter, motion, and energy.</string>
+        <string name="info_chemistry">Info: Learn more about Chemistry. Chemistry involves the study of chemicals and the reactions they undergo.</string>
+        <string name="info_agriculture">Info: Learn more about Agriculture. Agriculture is the science or practice of farming, including cultivation of the soil and the rearing of animals.</string>
+
+
+
+
+        <!-- Strings for popup information -->
+        <string name="info_social_studies">Info: Social Studies involves the study of people in relation to each other and to the world in which they live.</string>
+        <string name="info_life_skills">Info: Life Skills includes all the skills needed for everyday living.</string>
+        <string name="info_history">Info: History involves the study of past events, particularly in human affairs.</string>
+        <string name="info_bible_knowledge">Info: Bible Knowledge covers the study of scriptures and theological history.</string>
+        <string name="info_geography">Info: Geography involves the study of places and the relationships between people and their environments.</string>
+
+
+
+
+
+        <!-- Strings for popup information -->
+        <string name="info_english">Info: Learn more about English. English is a West Germanic language first spoken in early medieval England and is now a global lingua franca.</string>
+        <string name="info_chichewa">Info: Learn more about Chichewa. Chichewa, also known as Chewa, is a language of the Bantu language family widely spoken in south-central Africa.</string>
+
+
+        <string name="navigation_drawer_open">Open navigation drawer</string>
+        <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+
+    </resources>
