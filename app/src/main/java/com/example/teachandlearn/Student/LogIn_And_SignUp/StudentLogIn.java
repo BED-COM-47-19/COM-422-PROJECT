@@ -162,6 +162,7 @@ public class StudentLogIn extends AppCompatActivity {
 
     private void sendPasswordResetEmail(String email) {
         if (!email.isEmpty()) {
+            
             mAuth.sendPasswordResetEmail(email)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
