@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 
@@ -5,6 +6,11 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("com.google.gms.google-services")
+=======
+plugins {
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.jetbrainsKotlinAndroid)
+>>>>>>> ae12b35ef7a767ae11abf9fd078b923561a7fece
 }
 
 android {
@@ -42,7 +48,10 @@ android {
     }
     buildFeatures {
         compose = true
+<<<<<<< HEAD
         viewBinding = true
+=======
+>>>>>>> ae12b35ef7a767ae11abf9fd078b923561a7fece
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -63,6 +72,7 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
+<<<<<<< HEAD
     implementation(libs.androidx.appcompat)
     implementation(libs.firebase.storage)
     implementation(libs.firebase.auth)
@@ -76,6 +86,10 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.gson)
     implementation(libs.logging.interceptor)
+=======
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.appcompat)
+>>>>>>> ae12b35ef7a767ae11abf9fd078b923561a7fece
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -83,7 +97,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> ae12b35ef7a767ae11abf9fd078b923561a7fece
 }
