@@ -1,6 +1,5 @@
 
 package com.example.teachandlearn.CHATGPT;
-import android.app.Service;
 import androidx.appcompat.app.AppCompatActivity;
 
 

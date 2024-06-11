@@ -44,9 +44,14 @@
 
 
 
-        <service android:name=".CHATGPT.ChatBot"/>
+        <service android:name=".CHATGPT.ChatBot" />
 
         <service android:name=".CHATGPT.ChatGPTService"/>
+
+        <activity android:name=".Student.Form1.Documents.Form1Quiz"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <!-- Other activity attributes -->
+        </activity>
 
 
 

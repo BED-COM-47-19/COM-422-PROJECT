@@ -1,5 +1,5 @@
-package com.example.teachandlearn.Student.Form1.Documents;
 
+package com.example.teachandlearn.Student.Form1.Documents;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +16,7 @@ import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Form1QuizzesAndQuestions extends AppCompatActivity {
 
@@ -33,8 +34,6 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form1_quizzes_and_questions);
 
-        editTextComment = findViewById(R.id.editTextComment);
-        buttonSubmitComment = findViewById(R.id.buttonSubmitComment);
         listView = findViewById(R.id.list_view);
         pdfNames = new ArrayList<>();
         pdfUrls = new ArrayList<>();
@@ -43,40 +42,100 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
 
         chatGPTService = new ChatGPTService();
 
-        comments = new ArrayList<>();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String comment = comments.get(position);
                 String url = pdfUrls.get(position);
                 Intent intent = new Intent(Form1QuizzesAndQuestions.this, Form1PDFViewer.class);
                 intent.putExtra("PDF_URL", url);
-                intent.putExtra("COMMENT", comment);
                 startActivity(intent);
             }
         });
 
-        buttonSubmitComment.setOnClickListener(v -> {
-            String comment = editTextComment.getText().toString().trim();
-            if (!comment.isEmpty()) {
-                comments.add(comment);
-                editTextComment.setText(""); // Clear the comment field after submission
-                adapter.notifyDataSetChanged(); // Notify adapter of data change
-                chatGPTService.sendCommentToAI(comment, new ChatGPTService.ChatGPTCallback() {
-                    @Override
-                    public void onSuccess(String response) {
-                        // Handle the successful AI response
-                        Toast.makeText(Form1QuizzesAndQuestions.this, "AI Response: " + response, Toast.LENGTH_LONG).show();
-                    }
 
-                    @Override
-                    public void onFailure(Throwable t) {
-                        // Handle the failure of the AI response
-                        Toast.makeText(Form1QuizzesAndQuestions.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
+
+        // Quiz button setup
+        Button buttonStartQuiz = findViewById(R.id.buttonStartQuiz);
+        buttonStartQuiz.setOnClickListener(v -> {
+            ArrayList<HashMap<String, String>> questions = new ArrayList<>();
+            HashMap<String, String> question1 = new HashMap<>();
+            question1.put("question", "Question 1?");
+            question1.put("optionA", "Option A1");
+            question1.put("optionB", "Option B1");
+            question1.put("optionC", "Option C1");
+            question1.put("optionD", "Option D1");
+            question1.put("correctAnswer", "Option A1");
+            questions.add(question1);
+
+            HashMap<String, String> question2 = new HashMap<>();
+            question2.put("question", "Question 2?");
+            question2.put("optionA", "Option A2");
+            question2.put("optionB", "Option B2");
+            question2.put("optionC", "Option C2");
+            question2.put("optionD", "Option D2");
+            question2.put("correctAnswer", "Option B2");
+            questions.add(question2);
+
+
+
+            HashMap<String, String> question3 = new HashMap<>();
+            question2.put("question", "Question 3?");
+            question2.put("optionA", "hello, hey");
+            question2.put("optionB", "hello, who are you");
+            question2.put("optionC", "hello hie");
+            question2.put("optionD", "hello..");
+            question2.put("correctAnswer", "hello hie");
+            questions.add(question3);
+
+            HashMap<String, String> question4 = new HashMap<>();
+            question2.put("question", "Question 2?");
+            question2.put("optionA", "Option A2");
+            question2.put("optionB", "Option B2");
+            question2.put("optionC", "Option C2");
+            question2.put("optionD", "Option D2");
+            question2.put("correctAnswer", "Option B2");
+            questions.add(question4);
+
+            HashMap<String, String> question5 = new HashMap<>();
+            question2.put("question", "Question 2?");
+            question2.put("optionA", "Option A2");
+            question2.put("optionB", "Option B2");
+            question2.put("optionC", "Option C2");
+            question2.put("optionD", "Option D2");
+            question2.put("correctAnswer", "Option B2");
+            questions.add(question5);
+
+            HashMap<String, String> question6 = new HashMap<>();
+            question2.put("question", "Question 2?");
+            question2.put("optionA", "Option A2");
+            question2.put("optionB", "Option B2");
+            question2.put("optionC", "Option C2");
+            question2.put("optionD", "Option D2");
+            question2.put("correctAnswer", "Option B2");
+            questions.add(question6);
+
+            HashMap<String, String> question7 = new HashMap<>();
+            question2.put("question", "Question 2?");
+            question2.put("optionA", "Option A2");
+            question2.put("optionB", "Option B2");
+            question2.put("optionC", "Option C2");
+            question2.put("optionD", "Option D2");
+            question2.put("correctAnswer", "Option B2");
+            questions.add(question7);
+
+            HashMap<String, String> question8 = new HashMap<>();
+            question2.put("question", "Question 2?");
+            question2.put("optionA", "Option A2");
+            question2.put("optionB", "Option B2");
+            question2.put("optionC", "Option C2");
+            question2.put("optionD", "Option D2");
+            question2.put("correctAnswer", "Option B2");
+            questions.add(question8);
+
+            Intent intent = new Intent(Form1QuizzesAndQuestions.this, Form1Quiz.class);
+            intent.putExtra("QUESTIONS", questions);
+            startActivity(intent);
         });
 
         loadPDFsFromStorage();
@@ -118,6 +177,9 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
             // Handle the error
             Toast.makeText(Form1QuizzesAndQuestions.this, "Failed to load past papers", Toast.LENGTH_SHORT).show();
         });
+
+
+
     }
 
     private void showNoFilesUploaded() {
@@ -125,7 +187,6 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
         pdfNames.clear();
         pdfUrls.clear();
         adapter.notifyDataSetChanged();
-        comments.clear();
         // Display "No file Uploaded" message
         Toast.makeText(this, "No file Uploaded", Toast.LENGTH_SHORT).show();
     }
