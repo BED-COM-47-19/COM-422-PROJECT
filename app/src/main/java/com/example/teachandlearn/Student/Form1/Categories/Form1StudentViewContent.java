@@ -8,11 +8,10 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Documents.Form1Audio;
-import com.example.teachandlearn.Student.Form1.Documents.Form1PDF;
-import com.example.teachandlearn.Student.Form1.Documents.Form1QuizzesAndQuestions;
-import com.example.teachandlearn.Student.Form1.Documents.Form1Videos;
-
+import com.example.teachandlearn.Student.Form1.Documents.Biology.Form1Audio;
+import com.example.teachandlearn.Student.Form1.Documents.Biology.Form1PDF;
+import com.example.teachandlearn.Student.Form1.Documents.Biology.Form1Videos;
+import com.example.teachandlearn.Student.Form1.Documents.Biology.Form1QuizzesAndQuestions;
 
 
 public class Form1StudentViewContent extends AppCompatActivity {

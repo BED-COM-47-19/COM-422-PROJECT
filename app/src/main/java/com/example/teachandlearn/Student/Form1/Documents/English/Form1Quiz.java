@@ -22,7 +22,7 @@ public class Form1Quiz extends AppCompatActivity {
     private TextView questionTextView;
     private RadioButton optionARadioButton, optionBRadioButton, optionCRadioButton, optionDRadioButton;
     private ProgressBar questionProgressBar;
-    private List<Question> questions;
+    private List<Form1Question> form1Questions;
     private int currentQuestionIndex = 0;
     private int correctAnswers = 0;
     private Button nextButton, backButton;
@@ -44,9 +44,9 @@ public class Form1Quiz extends AppCompatActivity {
         optionsGroup = findViewById(R.id.optionsGroup);
 
         // Initialize questions
-        questions = loadQuestions();
+        form1Questions = loadQuestions();
 
-        if (questions == null || questions.isEmpty()) {
+        if (form1Questions == null || form1Questions.isEmpty()) {
             Toast.makeText(this, "No questions available", Toast.LENGTH_LONG).show();
             finish();
             return;
@@ -63,29 +63,29 @@ public class Form1Quiz extends AppCompatActivity {
         });
     }
 
-    private List<Question> loadQuestions() {
+    private List<Form1Question> loadQuestions() {
 
 
-        List<Question> questions = new ArrayList<>();
-        questions.add(new Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+        List<Form1Question> form1Questions = new ArrayList<>();
+        form1Questions.add(new Form1Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
+        form1Questions.add(new Form1Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
+        form1Questions.add(new Form1Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
+        form1Questions.add(new Form1Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
 
-        return questions;
+        return form1Questions;
     }
 
     private void displayQuestion() {
 
-        if (currentQuestionIndex < questions.size()) {
+        if (currentQuestionIndex < form1Questions.size()) {
 
-            Question currentQuestion = questions.get(currentQuestionIndex);
-            questionTextView.setText(currentQuestion.getQuestionText());
-            optionARadioButton.setText(currentQuestion.getOptionA());
-            optionBRadioButton.setText(currentQuestion.getOptionB());
-            optionCRadioButton.setText(currentQuestion.getOptionC());
-            optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+            Form1Question currentForm1Question = form1Questions.get(currentQuestionIndex);
+            questionTextView.setText(currentForm1Question.getQuestionText());
+            optionARadioButton.setText(currentForm1Question.getOptionA());
+            optionBRadioButton.setText(currentForm1Question.getOptionB());
+            optionCRadioButton.setText(currentForm1Question.getOptionC());
+            optionDRadioButton.setText(currentForm1Question.getOptionD());
+            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / form1Questions.size()) * 100));
         }
         else {
             finishQuiz();
@@ -123,7 +123,7 @@ public class Form1Quiz extends AppCompatActivity {
     }
 
     private String getCorrectAnswerForCurrentQuestion() {
-        return questions.get(currentQuestionIndex).getCorrectAnswer();
+        return form1Questions.get(currentQuestionIndex).getCorrectAnswer();
     }
 
     private void finishQuiz() {

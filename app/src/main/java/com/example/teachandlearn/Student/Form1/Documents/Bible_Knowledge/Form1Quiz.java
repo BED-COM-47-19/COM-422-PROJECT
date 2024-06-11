@@ -22,7 +22,7 @@ public class Form1Quiz extends AppCompatActivity {
     private TextView questionTextView;
     private RadioButton optionARadioButton, optionBRadioButton, optionCRadioButton, optionDRadioButton;
     private ProgressBar questionProgressBar;
-    private List<Question> questions;
+    private List<Form1Question> questions;
     private int currentQuestionIndex = 0;
     private int correctAnswers = 0;
     private Button nextButton, backButton;
@@ -63,14 +63,14 @@ public class Form1Quiz extends AppCompatActivity {
         });
     }
 
-    private List<Question> loadQuestions() {
+    private List<Form1Question> loadQuestions() {
 
 
-        List<Question> questions = new ArrayList<>();
-        questions.add(new Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+        List<Form1Question> questions = new ArrayList<>();
+        questions.add(new Form1Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
+        questions.add(new Form1Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
+        questions.add(new Form1Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
+        questions.add(new Form1Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
 
         return questions;
     }
@@ -79,7 +79,7 @@ public class Form1Quiz extends AppCompatActivity {
 
         if (currentQuestionIndex < questions.size()) {
 
-            Question currentQuestion = questions.get(currentQuestionIndex);
+            Form1Question currentQuestion = questions.get(currentQuestionIndex);
             questionTextView.setText(currentQuestion.getQuestionText());
             optionARadioButton.setText(currentQuestion.getOptionA());
             optionBRadioButton.setText(currentQuestion.getOptionB());
