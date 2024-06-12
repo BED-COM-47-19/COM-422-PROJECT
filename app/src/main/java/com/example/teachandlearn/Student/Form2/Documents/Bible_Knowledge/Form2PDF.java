@@ -41,7 +41,7 @@ public class Form2PDF extends AppCompatActivity {
     private String studentEmail;
 
 
-    private static final String TAG = "Form1PDF";
+    private static final String TAG = "Form2PDF";
     private static final int REQUEST_OPEN_DOCUMENT = 1;
     private String studentName = "";
 

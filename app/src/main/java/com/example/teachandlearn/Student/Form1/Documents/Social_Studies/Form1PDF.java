@@ -57,7 +57,7 @@ public class Form1PDF extends AppCompatActivity {
 
         fetchPDFsFromFirebase();
 
-        studentEmail = getIntent().getStringExtra("student_form1_emails");
+        studentEmail = getIntent().getStringExtra("student_form1_social_studies_emails");
 
         if (studentEmail != null) {
             // Store student email to Firebase when the intent has student email
