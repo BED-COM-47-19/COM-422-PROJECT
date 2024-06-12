@@ -13,12 +13,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1StudentViewContentAgriculture;
-import com.example.teachandlearn.Student.Form2.Categories.Form2HumanitiesStudent;
-import com.example.teachandlearn.Student.Form2.Documents.Bible_Knowledge.Form2StudentViewContentBible_Knowledge;
-import com.example.teachandlearn.Student.Form2.Documents.Geography.Form2StudentViewContentGeography;
-import com.example.teachandlearn.Student.Form2.Documents.History.Form2StudentViewContentHistory;
-import com.example.teachandlearn.Student.Form2.Documents.Life_Skills.Form2StudentViewContentLife_Skills;
-import com.example.teachandlearn.Student.Form2.Documents.Social_Studies.Form2StudentViewContentSocial_Studies;
+import com.example.teachandlearn.Student.Form4.Categories.Form4HumanitiesStudent;
+import com.example.teachandlearn.Student.Form4.Documents.Bible_Knowledge.Form4StudentViewContentBible_Knowledge;
+import com.example.teachandlearn.Student.Form4.Documents.Geography.Form4StudentViewContentGeography;
+import com.example.teachandlearn.Student.Form4.Documents.History.Form4StudentViewContentHistory;
+import com.example.teachandlearn.Student.Form4.Documents.Life_Skills.Form4StudentViewContentLife_Skills;
+import com.example.teachandlearn.Student.Form4.Documents.Social_Studies.Form4StudentViewContentSocial_Studies;
 
 public class Form4HumanitiesStudent extends AppCompatActivity {
     private Button buttonBack;
@@ -127,11 +127,11 @@ public class Form4HumanitiesStudent extends AppCompatActivity {
     private void startActivityForContent() {
 
 
-        Intent intent1 = new Intent(Form2HumanitiesStudent.this, Form2StudentViewContentSocial_Studies.class);
-        Intent intent2 = new Intent(Form2HumanitiesStudent.this, Form2StudentViewContentBible_Knowledge.class);
-        Intent intent3 = new Intent(Form2HumanitiesStudent.this, Form2StudentViewContentLife_Skills.class);
-        Intent intent4 = new Intent(Form2HumanitiesStudent.this, Form2StudentViewContentGeography.class);
-        Intent intent5 = new Intent(Form2HumanitiesStudent.this, Form2StudentViewContentHistory.class);
+        Intent intent1 = new Intent(Form4HumanitiesStudent.this, Form4StudentViewContentSocial_Studies.class);
+        Intent intent2 = new Intent(Form4HumanitiesStudent.this, Form4StudentViewContentBible_Knowledge.class);
+        Intent intent3 = new Intent(Form4HumanitiesStudent.this, Form4StudentViewContentLife_Skills.class);
+        Intent intent4 = new Intent(Form4HumanitiesStudent.this, Form4StudentViewContentGeography.class);
+        Intent intent5 = new Intent(Form4HumanitiesStudent.this, Form4StudentViewContentHistory.class);
 
 
         startActivity(intent1);

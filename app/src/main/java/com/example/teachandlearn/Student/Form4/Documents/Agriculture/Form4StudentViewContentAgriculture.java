@@ -42,7 +42,7 @@ public class Form4StudentViewContentAgriculture extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentAgriculture.this, Form2PDF.class);
+                Intent intent = new Intent(Form4StudentViewContentAgriculture.this, Form4PDF.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +50,7 @@ public class Form4StudentViewContentAgriculture extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentAgriculture.this, Form2Audio.class);
+                Intent intent = new Intent(Form4StudentViewContentAgriculture.this, Form4Audio.class);
                 startActivity(intent);
             }
         });
@@ -58,7 +58,7 @@ public class Form4StudentViewContentAgriculture extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentAgriculture.this, Form2Videos.class);
+                Intent intent = new Intent(Form4StudentViewContentAgriculture.this, Form4Videos.class);
                 startActivity(intent);
             }
         });
@@ -66,7 +66,7 @@ public class Form4StudentViewContentAgriculture extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentAgriculture.this, Form2QuizzesAndQuestions.class);
+                Intent intent = new Intent(Form4StudentViewContentAgriculture.this, Form4QuizzesAndQuestions.class);
                 startActivity(intent);
             }
         });

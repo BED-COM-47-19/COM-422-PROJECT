@@ -52,7 +52,7 @@ public class Form1AudioGeography extends AppCompatActivity {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         String[] paths = {
 
-                "/form1/sciences/agriculture/audios/"
+                "/form1/humanities/geography/audios/"
 
         };
 

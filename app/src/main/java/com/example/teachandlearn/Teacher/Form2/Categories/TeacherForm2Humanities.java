@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Teacher.Form2.Uploads.TeacherForm2Uploads;
 
 
 public class TeacherForm2Humanities extends AppCompatActivity {

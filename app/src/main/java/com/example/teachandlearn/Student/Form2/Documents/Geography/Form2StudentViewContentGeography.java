@@ -36,7 +36,7 @@ public class Form2StudentViewContentGeography extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form2StudentViewContentGeography.this, Form1PDFGeography.class);
+                Intent intent = new Intent(Form2StudentViewContentGeography.this, Form2PDFGeography.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class Form2StudentViewContentGeography extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form2StudentViewContentGeography.this, Form1AudioGeography.class);
+                Intent intent = new Intent(Form2StudentViewContentGeography.this, Form2AudioGeography.class);
                 startActivity(intent);
             }
         });
@@ -60,7 +60,7 @@ public class Form2StudentViewContentGeography extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form2StudentViewContentGeography.this, Form1QuizzesAndQuestionsGeography.class);
+                Intent intent = new Intent(Form2StudentViewContentGeography.this, Form2QuizzesAndQuestionsGeography.class);
                 startActivity(intent);
             }
         });

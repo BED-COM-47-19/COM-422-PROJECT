@@ -57,7 +57,7 @@ public class Form1PDFGeography extends AppCompatActivity {
 
         fetchPDFsFromFirebase();
 
-        studentEmail = getIntent().getStringExtra("student_form1_agriculture_emails");
+        studentEmail = getIntent().getStringExtra("student_form1_geography_emails");
 
         if (studentEmail != null) {
             // Store student email to Firebase when the intent has student email
@@ -82,7 +82,7 @@ public class Form1PDFGeography extends AppCompatActivity {
         StorageReference[] storageRefs = {
 
 
-                storage.getReference().child("/form1/sciences/agriculture/pdfs/")
+                storage.getReference().child("/form1/humanities/geography/pdfs/")
 
 
         };
@@ -133,7 +133,7 @@ public class Form1PDFGeography extends AppCompatActivity {
         FirebaseStorage storage = FirebaseStorage.getInstance();
 
         StorageReference[] storageRefs = {
-                storage.getReference().child("/form1/sciences/agriculture/pdfs/")
+                storage.getReference().child("/form1/humanities/geography/pdfs/")
                 // Add more storage references for other subjects as needed
         };
 

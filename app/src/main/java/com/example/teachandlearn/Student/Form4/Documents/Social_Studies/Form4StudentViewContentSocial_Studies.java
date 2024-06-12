@@ -10,10 +10,10 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2Audio;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2PDF;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2QuizzesAndQuestions;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2Videos;
+import com.example.teachandlearn.Student.Form4.Documents.Social_Studies.Form4Audio;
+import com.example.teachandlearn.Student.Form4.Documents.Social_Studies.Form4PDF;
+import com.example.teachandlearn.Student.Form4.Documents.Social_Studies.Form4QuizzesAndQuestions;
+import com.example.teachandlearn.Student.Form4.Documents.Social_Studies.Form4Videos;
 
 
 public class Form4StudentViewContentSocial_Studies extends AppCompatActivity {
@@ -42,7 +42,7 @@ public class Form4StudentViewContentSocial_Studies extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentSocial_Studies.this, Form2PDF.class);
+                Intent intent = new Intent(Form4StudentViewContentSocial_Studies.this, Form4PDF.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +50,7 @@ public class Form4StudentViewContentSocial_Studies extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentSocial_Studies.this, Form2Audio.class);
+                Intent intent = new Intent(Form4StudentViewContentSocial_Studies.this, Form4Audio.class);
                 startActivity(intent);
             }
         });
@@ -58,7 +58,7 @@ public class Form4StudentViewContentSocial_Studies extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentSocial_Studies.this, Form2Videos.class);
+                Intent intent = new Intent(Form4StudentViewContentSocial_Studies.this, Form4Videos.class);
                 startActivity(intent);
             }
         });
@@ -66,7 +66,7 @@ public class Form4StudentViewContentSocial_Studies extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentSocial_Studies.this, Form2QuizzesAndQuestions.class);
+                Intent intent = new Intent(Form4StudentViewContentSocial_Studies.this, Form4QuizzesAndQuestions.class);
                 startActivity(intent);
             }
         });
