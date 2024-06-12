@@ -1,6 +1,6 @@
 
 
-package com.example.teachandlearn.Student.Form4.Documents.English;
+package com.example.teachandlearn.Student.Form3.Documents.English;
 
 import android.content.Context;
 import android.content.Intent;
@@ -34,14 +34,14 @@ import java.util.List;
 import java.util.Map;
 
 
-public class Form4PDF extends AppCompatActivity {
+public class Form3PDFEnglish extends AppCompatActivity {
     private RecyclerView recyclerViewPDFs;
     private PDFAdapter adapter;
 
     private String studentEmail;
 
 
-    private static final String TAG = "Form4PDF";
+    private static final String TAG = "Form3PDF";
     private static final int REQUEST_OPEN_DOCUMENT = 1;
     private String studentName = "";
 
@@ -57,7 +57,7 @@ public class Form4PDF extends AppCompatActivity {
 
         fetchPDFsFromFirebase();
 
-        studentEmail = getIntent().getStringExtra("student_form4_english_emails");
+        studentEmail = getIntent().getStringExtra("student_form1_english_emails");
 
         if (studentEmail != null) {
             // Store student email to Firebase when the intent has student email
@@ -82,7 +82,8 @@ public class Form4PDF extends AppCompatActivity {
         StorageReference[] storageRefs = {
 
 
-                storage.getReference().child("/form4/languages/english/pdfs/")
+                storage.getReference().child("/form3/languages/english/pdfs/")
+
 
         };
 
@@ -132,7 +133,7 @@ public class Form4PDF extends AppCompatActivity {
         FirebaseStorage storage = FirebaseStorage.getInstance();
 
         StorageReference[] storageRefs = {
-                storage.getReference().child("/form4/languages/english/pdfs/")
+                storage.getReference().child("/form3/languages/english/pdfs/")
                 // Add more storage references for other subjects as needed
         };
 

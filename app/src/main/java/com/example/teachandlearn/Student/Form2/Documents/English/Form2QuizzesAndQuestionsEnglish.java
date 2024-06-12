@@ -1,5 +1,5 @@
 
-package com.example.teachandlearn.Student.Form3.Documents.English;
+package com.example.teachandlearn.Student.Form2.Documents.English;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Form3QuizzesAndQuestions extends AppCompatActivity {
+public class Form2QuizzesAndQuestionsEnglish extends AppCompatActivity {
 
     private ListView listView;
     private ArrayAdapter<String> adapter;
@@ -52,7 +52,7 @@ public class Form3QuizzesAndQuestions extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String url = pdfUrls.get(position);
-                Intent intent = new Intent(Form3QuizzesAndQuestions.this, Form3PDFViewer.class);
+                Intent intent = new Intent(Form2QuizzesAndQuestionsEnglish.this, Form2PDFViewerEnglish.class);
                 intent.putExtra("PDF_URL", url);
                 startActivity(intent);
             }
@@ -138,7 +138,7 @@ public class Form3QuizzesAndQuestions extends AppCompatActivity {
             question2.put("correctAnswer", "Option B2");
             questions.add(question8);
 
-            Intent intent = new Intent(Form3QuizzesAndQuestions.this, Form3Quiz.class);
+            Intent intent = new Intent(Form2QuizzesAndQuestionsEnglish.this, Form2QuizEnglish.class);
             intent.putExtra("QUESTIONS", questions);
             startActivity(intent);
         });
@@ -151,7 +151,7 @@ public class Form3QuizzesAndQuestions extends AppCompatActivity {
         StorageReference storageRef;
 
         // Initialize the storage reference for the desired path
-        storageRef = storage.getReference().child("/form3/languages/english/quizzes_and_questions/");
+        storageRef = storage.getReference().child("/form2/languages/english/quizzes_and_questions/");
 
         // Now you can use this reference to list the items in the directory
         storageRef.listAll().addOnSuccessListener(listResult -> {
@@ -180,7 +180,7 @@ public class Form3QuizzesAndQuestions extends AppCompatActivity {
             }
         }).addOnFailureListener(exception -> {
             // Handle the error
-            Toast.makeText(Form3QuizzesAndQuestions.this, "Failed to load past papers", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Form2QuizzesAndQuestionsEnglish.this, "Failed to load past papers", Toast.LENGTH_SHORT).show();
         });
 
 

@@ -892,15 +892,15 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.English.Form2Audio"
+        <activity android:name=".Student.Form2.Documents.English.Form2AudioEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.English.Form3Audio"
+        <activity android:name=".Student.Form3.Documents.English.Form3AudioEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.English.Form4Audio"
+        <activity android:name=".Student.Form4.Documents.English.Form4AudioEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -908,15 +908,15 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.English.Form2PDF"
+        <activity android:name=".Student.Form2.Documents.English.Form2PDFEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.English.Form3PDF"
+        <activity android:name=".Student.Form3.Documents.English.Form3PDFEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.English.Form4PDF"
+        <activity android:name=".Student.Form4.Documents.English.Form4PDFEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -924,15 +924,15 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.English.Form2PDFViewer"
+        <activity android:name=".Student.Form2.Documents.English.Form2PDFViewerEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.English.Form3PDFViewer"
+        <activity android:name=".Student.Form3.Documents.English.Form3PDFViewerEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.English.Form4PDFViewer"
+        <activity android:name=".Student.Form4.Documents.English.Form4PDFViewerEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -940,15 +940,15 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.English.Form2Quiz"
+        <activity android:name=".Student.Form2.Documents.English.Form2QuizEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.English.Form3Quiz"
+        <activity android:name=".Student.Form3.Documents.English.Form3QuizEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.English.Form4Quiz"
+        <activity android:name=".Student.Form4.Documents.English.Form4QuizEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -956,15 +956,15 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.English.Form2QuizzesAndQuestions"
+        <activity android:name=".Student.Form2.Documents.English.Form2QuizzesAndQuestionsEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.English.Form3QuizzesAndQuestions"
+        <activity android:name=".Student.Form3.Documents.English.Form3QuizzesAndQuestionsEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.English.Form4QuizzesAndQuestions"
+        <activity android:name=".Student.Form4.Documents.English.Form4QuizzesAndQuestionsEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -972,15 +972,15 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.English.Form2Videos"
+        <activity android:name=".Student.Form2.Documents.English.Form2VideosEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.English.Form3Videos"
+        <activity android:name=".Student.Form3.Documents.English.Form3VideosEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.English.Form4Videos"
+        <activity android:name=".Student.Form4.Documents.English.Form4VideosEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -988,17 +988,133 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.English.Form2Question"
+        <activity android:name=".Student.Form2.Documents.English.Form2QuestionEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.English.Form3Question"
+        <activity android:name=".Student.Form3.Documents.English.Form3QuestionEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.English.Form4Question"
+        <activity android:name=".Student.Form4.Documents.English.Form4QuestionEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
+
+
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1AudioGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2AudioGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3AudioGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4AudioGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1PDFGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2PDFGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3PDFGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4PDFGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1PDFViewerGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2PDFViewerGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3PDFViewerGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4PDFViewerGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1QuizGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2QuizGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3QuizGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4QuizGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1QuizzesAndQuestionsGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2QuizzesAndQuestionsGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3QuizzesAndQuestionsGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4QuizzesAndQuestionsGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1VideosGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2VideosGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3VideosGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4VideosGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1QuestionGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2QuestionGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3QuestionGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4QuestionGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
 
 
         <!-- For History-->

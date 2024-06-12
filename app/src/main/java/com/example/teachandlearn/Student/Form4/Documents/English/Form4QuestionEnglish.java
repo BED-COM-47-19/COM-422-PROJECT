@@ -2,7 +2,7 @@ package com.example.teachandlearn.Student.Form4.Documents.English;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Form4Question extends AppCompatActivity {
+public class Form4QuestionEnglish extends AppCompatActivity {
     private String questionText;
     private String optionA;
     private String optionB;
@@ -10,7 +10,7 @@ public class Form4Question extends AppCompatActivity {
     private String optionD;
     private String correctAnswer;
 
-    public Form4Question(String questionText, String optionA, String optionB, String optionC, String optionD, String correctAnswer) {
+    public Form4QuestionEnglish(String questionText, String optionA, String optionB, String optionC, String optionD, String correctAnswer) {
         this.questionText = questionText;
         this.optionA = optionA;
         this.optionB = optionB;

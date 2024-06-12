@@ -1,5 +1,5 @@
 
-package com.example.teachandlearn.Student.Form3.Documents.English;
+package com.example.teachandlearn.Student.Form4.Documents.English;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.R;
 
-public class Form3PDFViewer extends AppCompatActivity {
+public class Form4PDFViewerEnglish extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,7 +1,7 @@
 
 
 
-package com.example.teachandlearn.Student.Form3.Documents.English;
+package com.example.teachandlearn.Student.Form2.Documents.English;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -26,7 +26,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Form3Videos extends AppCompatActivity {
+public class Form2VideosEnglish extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private Form1VideoAdapter form1VideoAdapter;
@@ -63,17 +63,17 @@ public class Form3Videos extends AppCompatActivity {
                     @Override
                     public void onSuccess(String response) {
                         // Handle the successful AI response
-                        Toast.makeText(Form3Videos.this, "AI Response: " + response, Toast.LENGTH_LONG).show();
+                        Toast.makeText(Form2VideosEnglish.this, "AI Response: " + response, Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onFailure(Throwable t) {
                         // Handle the failure of the AI response
-                        Toast.makeText(Form3Videos.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Form2VideosEnglish.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             } else {
-                Toast.makeText(Form3Videos.this, "Please enter a comment", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Form2VideosEnglish.this, "Please enter a comment", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -82,7 +82,7 @@ public class Form3Videos extends AppCompatActivity {
 
     private void fetchVideos() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("/form3/languages/english/videos/");
+        StorageReference storageRef = storage.getReference().child("/form2/languages/english/videos/");
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
             List<VideoItem> videos = new ArrayList<>();
@@ -93,7 +93,7 @@ public class Form3Videos extends AppCompatActivity {
                     videos.add(new VideoItem(name, url));
                     comments.add(""); // Add an empty comment for each item
                     if (videos.size() == listResult.getItems().size()) {
-                        form1VideoAdapter = new Form1VideoAdapter(videos, Form3Videos.this, comments);
+                        form1VideoAdapter = new Form1VideoAdapter(videos, Form2VideosEnglish.this, comments);
                         recyclerView.setAdapter(form1VideoAdapter);
                     }
                 }).addOnFailureListener(e -> {

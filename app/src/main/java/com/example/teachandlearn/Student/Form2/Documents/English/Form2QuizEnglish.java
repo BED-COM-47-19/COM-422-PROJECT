@@ -1,6 +1,6 @@
 
 
-package com.example.teachandlearn.Student.Form4.Documents.English;
+package com.example.teachandlearn.Student.Form2.Documents.English;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -17,12 +17,12 @@ import com.example.teachandlearn.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Form4Quiz extends AppCompatActivity {
+public class Form2QuizEnglish extends AppCompatActivity {
 
     private TextView questionTextView;
     private RadioButton optionARadioButton, optionBRadioButton, optionCRadioButton, optionDRadioButton;
     private ProgressBar questionProgressBar;
-    private List<Form4Question> questions;
+    private List<Form2QuestionEnglish> questions;
     private int currentQuestionIndex = 0;
     private int correctAnswers = 0;
     private Button nextButton, backButton;
@@ -63,14 +63,14 @@ public class Form4Quiz extends AppCompatActivity {
         });
     }
 
-    private List<Form4Question> loadQuestions() {
+    private List<Form2QuestionEnglish> loadQuestions() {
 
 
-        List<Form4Question> questions = new ArrayList<>();
-        questions.add(new Form4Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form4Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form4Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form4Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+        List<Form2QuestionEnglish> questions = new ArrayList<>();
+        questions.add(new Form2QuestionEnglish("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
+        questions.add(new Form2QuestionEnglish("What is 2 + 2?", "1", "5", "3", "4", "4"));
+        questions.add(new Form2QuestionEnglish("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
+        questions.add(new Form2QuestionEnglish("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
 
         return questions;
     }
@@ -79,7 +79,7 @@ public class Form4Quiz extends AppCompatActivity {
 
         if (currentQuestionIndex < questions.size()) {
 
-            Form4Question currentQuestion = questions.get(currentQuestionIndex);
+            Form2QuestionEnglish currentQuestion = questions.get(currentQuestionIndex);
             questionTextView.setText(currentQuestion.getQuestionText());
             optionARadioButton.setText(currentQuestion.getOptionA());
             optionBRadioButton.setText(currentQuestion.getOptionB());

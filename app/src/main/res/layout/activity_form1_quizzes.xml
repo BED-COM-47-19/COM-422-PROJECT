@@ -9,6 +9,7 @@
         android:id="@+id/questionTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="Question"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -53,7 +54,11 @@
         android:id="@+id/nextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="270dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/back_button_rounderd"
         android:textStyle="bold"
         android:text="Next" />
 
@@ -65,7 +70,7 @@
         android:layout_gravity="bottom|start"
         android:layout_marginBottom="1dp"
         android:text="BACK"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="-45dp"
         android:textColor="@color/white"
         android:background="@drawable/back_button_rounderd"
         android:textSize="20dp" />
