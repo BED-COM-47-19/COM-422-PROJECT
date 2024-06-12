@@ -12,8 +12,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Categories.Form1SciencesStudent;
-import com.example.teachandlearn.Student.Form1.Categories.Form1StudentViewContent;
+import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1StudentViewContentAgriculture;
+import com.example.teachandlearn.Student.Form2.Categories.Form2HumanitiesStudent;
+import com.example.teachandlearn.Student.Form2.Documents.Bible_Knowledge.Form2StudentViewContentBible_Knowledge;
+import com.example.teachandlearn.Student.Form2.Documents.Geography.Form2StudentViewContentGeography;
+import com.example.teachandlearn.Student.Form2.Documents.History.Form2StudentViewContentHistory;
+import com.example.teachandlearn.Student.Form2.Documents.Life_Skills.Form2StudentViewContentLife_Skills;
+import com.example.teachandlearn.Student.Form2.Documents.Social_Studies.Form2StudentViewContentSocial_Studies;
 
 public class Form4HumanitiesStudent extends AppCompatActivity {
     private Button buttonBack;
@@ -120,8 +125,20 @@ public class Form4HumanitiesStudent extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(Form4HumanitiesStudent.this, Form1StudentViewContent.class);
-        startActivity(intent);
+
+
+        Intent intent1 = new Intent(Form2HumanitiesStudent.this, Form2StudentViewContentSocial_Studies.class);
+        Intent intent2 = new Intent(Form2HumanitiesStudent.this, Form2StudentViewContentBible_Knowledge.class);
+        Intent intent3 = new Intent(Form2HumanitiesStudent.this, Form2StudentViewContentLife_Skills.class);
+        Intent intent4 = new Intent(Form2HumanitiesStudent.this, Form2StudentViewContentGeography.class);
+        Intent intent5 = new Intent(Form2HumanitiesStudent.this, Form2StudentViewContentHistory.class);
+
+
+        startActivity(intent1);
+        startActivity(intent2);
+        startActivity(intent3);
+        startActivity(intent4);
+        startActivity(intent5);
     }
 
     @Override

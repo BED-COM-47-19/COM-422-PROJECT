@@ -6,13 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form1.Documents.Bible_Knowledge.Form1StudentViewContentBible_Knowledge;
+import com.example.teachandlearn.Student.Form1.Documents.Geography.Form1StudentViewContentGeography;
+import com.example.teachandlearn.Student.Form1.Documents.Life_Skills.Form1StudentViewContentLife_Skills;
+import com.example.teachandlearn.Student.Form1.Documents.Social_Studies.Form1StudentViewContentSocial_Studies;
+import com.example.teachandlearn.Student.Form1.Documents.History.Form1StudentViewContentHistory;
 
 public class Form1HumanitiesStudent extends AppCompatActivity {
     private Button buttonBack;
@@ -144,9 +147,21 @@ public class Form1HumanitiesStudent extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(Form1HumanitiesStudent.this, Form1StudentViewContent.class);
-        startActivity(intent);
+        Intent intent1 = new Intent(Form1HumanitiesStudent.this, Form1StudentViewContentSocial_Studies.class);
+        Intent intent2 = new Intent(Form1HumanitiesStudent.this, Form1StudentViewContentBible_Knowledge.class);
+        Intent intent3 = new Intent(Form1HumanitiesStudent.this, Form1StudentViewContentLife_Skills.class);
+        Intent intent4 = new Intent(Form1HumanitiesStudent.this, Form1StudentViewContentGeography.class);
+        Intent intent5 = new Intent(Form1HumanitiesStudent.this, Form1StudentViewContentHistory.class);
+
+
+        startActivity(intent1);
+        startActivity(intent2);
+        startActivity(intent3);
+        startActivity(intent4);
+        startActivity(intent5);
     }
+
+
 
     @Override
     public void onBackPressed() {

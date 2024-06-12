@@ -1,6 +1,6 @@
 
 
-package com.example.teachandlearn.Student.Form2.Categories;
+package com.example.teachandlearn.Student.Form2.Documents.Agriculture;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +13,7 @@ import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2Videos;
 import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2QuizzesAndQuestions;
 
 
-public class Form2StudentViewContent extends AppCompatActivity {
+public class Form2StudentViewContentAgriculture extends AppCompatActivity {
     private Button buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class Form2StudentViewContent extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form2StudentViewContent.this, Form2PDF.class);
+                Intent intent = new Intent(Form2StudentViewContentAgriculture.this, Form2PDF.class);
                 startActivity(intent);
             }
         });
@@ -47,7 +47,7 @@ public class Form2StudentViewContent extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form2StudentViewContent.this, Form2Audio.class);
+                Intent intent = new Intent(Form2StudentViewContentAgriculture.this, Form2Audio.class);
                 startActivity(intent);
             }
         });
@@ -55,7 +55,7 @@ public class Form2StudentViewContent extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form2StudentViewContent.this, Form2Videos.class);
+                Intent intent = new Intent(Form2StudentViewContentAgriculture.this, Form2Videos.class);
                 startActivity(intent);
             }
         });
@@ -63,7 +63,7 @@ public class Form2StudentViewContent extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form2StudentViewContent.this, Form2QuizzesAndQuestions.class);
+                Intent intent = new Intent(Form2StudentViewContentAgriculture.this, Form2QuizzesAndQuestions.class);
                 startActivity(intent);
             }
         });

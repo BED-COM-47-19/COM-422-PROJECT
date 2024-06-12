@@ -1,5 +1,5 @@
 
-package com.example.teachandlearn.Student.Form1.Documents.Agriculture;
+package com.example.teachandlearn.Student.Form1.Documents.Geography;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.R;
 
-public class Form1PDFViewerAgriculture extends AppCompatActivity {
+public class Form1PDFViewerGeography extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

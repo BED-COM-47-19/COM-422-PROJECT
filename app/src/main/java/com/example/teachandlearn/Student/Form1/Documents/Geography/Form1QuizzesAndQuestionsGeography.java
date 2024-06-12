@@ -1,5 +1,6 @@
 
-package com.example.teachandlearn.Student.Form1.Documents.Agriculture;
+package com.example.teachandlearn.Student.Form1.Documents.Geography;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,16 +11,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Form1QuizzesAndQuestions extends AppCompatActivity {
+public class Form1QuizzesAndQuestionsGeography extends AppCompatActivity {
 
     private ListView listView;
     private ArrayAdapter<String> adapter;
@@ -48,7 +52,7 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String url = pdfUrls.get(position);
-                Intent intent = new Intent(Form1QuizzesAndQuestions.this, Form1PDFViewerAgriculture.class);
+                Intent intent = new Intent(Form1QuizzesAndQuestionsGeography.this, Form1PDFViewerGeography.class);
                 intent.putExtra("PDF_URL", url);
                 startActivity(intent);
             }
@@ -134,7 +138,7 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
             question2.put("correctAnswer", "Option B2");
             questions.add(question8);
 
-            Intent intent = new Intent(Form1QuizzesAndQuestions.this, Form1QuizAgriculture.class);
+            Intent intent = new Intent(Form1QuizzesAndQuestionsGeography.this, Form1QuizGeography.class);
             intent.putExtra("QUESTIONS", questions);
             startActivity(intent);
         });
@@ -176,7 +180,7 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
             }
         }).addOnFailureListener(exception -> {
             // Handle the error
-            Toast.makeText(Form1QuizzesAndQuestions.this, "Failed to load past papers", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Form1QuizzesAndQuestionsGeography.this, "Failed to load past papers", Toast.LENGTH_SHORT).show();
         });
 
 

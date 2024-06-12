@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Categories.Form1Student;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +33,7 @@ public class Form4Student extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start SelectScienceActivity when SCIENCE button is clicked
-                Intent intent = new Intent(Form4Student.this, Form4ScienceStudent.class);
+                Intent intent = new Intent(Form4Student.this, Form4SciencesStudent.class);
                 startActivity(intent);
             }
         });

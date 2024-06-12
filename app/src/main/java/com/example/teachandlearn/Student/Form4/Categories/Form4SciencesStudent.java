@@ -12,8 +12,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form4.Documents.Agriculture.Form4StudentViewContentAgriculture;
+import com.example.teachandlearn.Student.Form4.Documents.Biology.Form4StudentViewContentBiology;
+import com.example.teachandlearn.Student.Form4.Documents.Chemistry.Form4StudentViewContentChemistry;
+import com.example.teachandlearn.Student.Form4.Documents.Mathematics.Form4StudentViewContentMathematics;
+import com.example.teachandlearn.Student.Form4.Documents.Physics.Form4StudentViewContentPhysics;
 
-public class Form4ScienceStudent extends AppCompatActivity {
+public class Form4SciencesStudent extends AppCompatActivity {
 
     private Button buttonBack;
     @Override
@@ -127,13 +132,24 @@ public class Form4ScienceStudent extends AppCompatActivity {
 
     // Helper method to show toast message
     private void showToast(String message) {
-        Toast.makeText(Form4ScienceStudent.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(Form4SciencesStudent.this, message, Toast.LENGTH_SHORT).show();
     }
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(Form4ScienceStudent.this, Form4StudentViewContent.class);
-        startActivity(intent);
+
+
+        Intent intent1 = new Intent(Form4SciencesStudent.this, Form4StudentViewContentAgriculture.class);
+        Intent intent2 = new Intent(Form4SciencesStudent.this, Form4StudentViewContentBiology.class);
+        Intent intent3 = new Intent(Form4SciencesStudent.this, Form4StudentViewContentChemistry.class);
+        Intent intent4 = new Intent(Form4SciencesStudent.this, Form4StudentViewContentMathematics.class);
+        Intent intent5 = new Intent(Form4SciencesStudent.this, Form4StudentViewContentPhysics.class);
+
+        startActivity(intent1);
+        startActivity(intent2);
+        startActivity(intent3);
+        startActivity(intent4);
+        startActivity(intent5);
     }
     @Override
     public void onBackPressed() {

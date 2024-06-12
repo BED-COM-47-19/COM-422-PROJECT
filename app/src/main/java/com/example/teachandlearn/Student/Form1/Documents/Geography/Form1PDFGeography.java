@@ -1,6 +1,6 @@
 
 
-package com.example.teachandlearn.Student.Form1.Documents.Agriculture;
+package com.example.teachandlearn.Student.Form1.Documents.Geography;
 
 import android.content.Context;
 import android.content.Intent;
@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class Form1PDFAgriculture extends AppCompatActivity {
+public class Form1PDFGeography extends AppCompatActivity {
     private RecyclerView recyclerViewPDFs;
     private PDFAdapter adapter;
 

@@ -12,8 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Categories.Form1SciencesStudent;
-import com.example.teachandlearn.Student.Form1.Categories.Form1StudentViewContent;
+import com.example.teachandlearn.Student.Form3.Documents.Bible_Knowledge.Form3StudentViewContentBible_Knowledge;
+import com.example.teachandlearn.Student.Form3.Documents.Geography.Form3StudentViewContentGeography;
+import com.example.teachandlearn.Student.Form3.Documents.History.Form3StudentViewContentHistory;
+import com.example.teachandlearn.Student.Form3.Documents.Life_Skills.Form3StudentViewContentLife_Skills;
+import com.example.teachandlearn.Student.Form3.Documents.Social_Studies.Form3StudentViewContentSocial_Studies;
 
 public class Form3HumanitiesStudent extends AppCompatActivity {
 
@@ -121,8 +124,20 @@ public class Form3HumanitiesStudent extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(Form3HumanitiesStudent.this, Form1StudentViewContent.class);
-        startActivity(intent);
+
+        Intent intent1 = new Intent(Form3HumanitiesStudent.this, Form3StudentViewContentSocial_Studies.class);
+        Intent intent2 = new Intent(Form3HumanitiesStudent.this, Form3StudentViewContentBible_Knowledge.class);
+        Intent intent3 = new Intent(Form3HumanitiesStudent.this, Form3StudentViewContentLife_Skills.class);
+        Intent intent4 = new Intent(Form3HumanitiesStudent.this, Form3StudentViewContentGeography.class);
+        Intent intent5 = new Intent(Form3HumanitiesStudent.this, Form3StudentViewContentHistory.class);
+
+
+        startActivity(intent1);
+        startActivity(intent2);
+        startActivity(intent3);
+        startActivity(intent4);
+        startActivity(intent5);
+
     }
 
     @Override

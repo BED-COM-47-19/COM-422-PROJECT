@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1PDF;
+import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1PDFAgriculture;
 import com.example.teachandlearn.Teacher.SelectClass.TeacherSelectClass;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -157,7 +157,7 @@ public class TeacherForm1 extends AppCompatActivity {
 
                             if (!studentEmails.isEmpty()) {
                                 // Create an Intent to start the Form1PDF activity
-                                Intent intent = new Intent(TeacherForm1.this, Form1PDF.class);
+                                Intent intent = new Intent(TeacherForm1.this, Form1PDFAgriculture.class);
                                 // Pass the student emails as an extra with the Intent
                                 intent.putStringArrayListExtra("student_form1_emails", (ArrayList<String>) studentEmails);
                                 // Start the Form1PDF activity

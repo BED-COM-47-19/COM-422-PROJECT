@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class Form1PDF extends AppCompatActivity {
+public class Form1PDFAgriculture extends AppCompatActivity {
     private RecyclerView recyclerViewPDFs;
     private PDFAdapter adapter;
 

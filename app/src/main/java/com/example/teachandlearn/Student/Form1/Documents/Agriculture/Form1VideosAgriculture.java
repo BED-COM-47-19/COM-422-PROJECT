@@ -26,7 +26,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Form1Videos extends AppCompatActivity {
+public class Form1VideosAgriculture extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private Form1VideoAdapter form1VideoAdapter;
@@ -63,17 +63,17 @@ public class Form1Videos extends AppCompatActivity {
                     @Override
                     public void onSuccess(String response) {
                         // Handle the successful AI response
-                        Toast.makeText(Form1Videos.this, "AI Response: " + response, Toast.LENGTH_LONG).show();
+                        Toast.makeText(Form1VideosAgriculture.this, "AI Response: " + response, Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onFailure(Throwable t) {
                         // Handle the failure of the AI response
-                        Toast.makeText(Form1Videos.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Form1VideosAgriculture.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             } else {
-                Toast.makeText(Form1Videos.this, "Please enter a comment", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Form1VideosAgriculture.this, "Please enter a comment", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -93,7 +93,7 @@ public class Form1Videos extends AppCompatActivity {
                     videos.add(new VideoItem(name, url));
                     comments.add(""); // Add an empty comment for each item
                     if (videos.size() == listResult.getItems().size()) {
-                        form1VideoAdapter = new Form1VideoAdapter(videos, Form1Videos.this, comments);
+                        form1VideoAdapter = new Form1VideoAdapter(videos, Form1VideosAgriculture.this, comments);
                         recyclerView.setAdapter(form1VideoAdapter);
                     }
                 }).addOnFailureListener(e -> {

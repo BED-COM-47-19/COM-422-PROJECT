@@ -11,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1StudentViewContentAgriculture;
+import com.example.teachandlearn.Student.Form1.Documents.Chichewa.Form1StudentViewContentChichewa;
+import com.example.teachandlearn.Student.Form1.Documents.English.Form1StudentViewContentEnglish;
 
 public class Form1LanguagesStudent extends AppCompatActivity {
 
@@ -77,8 +80,13 @@ public class Form1LanguagesStudent extends AppCompatActivity {
 
     // Starts an activity to view content for the selected language subject
     private void startActivityForContent() {
-        Intent intent = new Intent(Form1LanguagesStudent.this, Form1StudentViewContent.class);
-        startActivity(intent);
+
+        Intent intent1 = new Intent(Form1LanguagesStudent.this, Form1StudentViewContentEnglish.class);
+        Intent intent2 = new Intent(Form1LanguagesStudent.this, Form1StudentViewContentChichewa.class);
+
+        startActivity(intent1);
+        startActivity(intent2);
+
     }
 
 

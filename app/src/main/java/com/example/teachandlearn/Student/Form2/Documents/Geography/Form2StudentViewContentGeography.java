@@ -1,6 +1,6 @@
 
 
-package com.example.teachandlearn.Student.Form1.Documents.Geography;
+package com.example.teachandlearn.Student.Form2.Documents.Geography;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
 
 
-public class Form1StudentViewContentGeography extends AppCompatActivity {
+public class Form2StudentViewContentGeography extends AppCompatActivity {
 
     private Button buttonBack;
 
@@ -36,7 +36,7 @@ public class Form1StudentViewContentGeography extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentGeography.this, Form1PDFGeography.class);
+                Intent intent = new Intent(Form2StudentViewContentGeography.this, Form1PDFGeography.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class Form1StudentViewContentGeography extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentGeography.this, Form1AudioGeography.class);
+                Intent intent = new Intent(Form2StudentViewContentGeography.this, Form1AudioGeography.class);
                 startActivity(intent);
             }
         });
@@ -52,7 +52,7 @@ public class Form1StudentViewContentGeography extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentGeography.this, Form1VideosGeography.class);
+                Intent intent = new Intent(Form2StudentViewContentGeography.this, Form2VideosGeography.class);
                 startActivity(intent);
             }
         });
@@ -60,7 +60,7 @@ public class Form1StudentViewContentGeography extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentGeography.this, Form1QuizzesAndQuestionsGeography.class);
+                Intent intent = new Intent(Form2StudentViewContentGeography.this, Form1QuizzesAndQuestionsGeography.class);
                 startActivity(intent);
             }
         });

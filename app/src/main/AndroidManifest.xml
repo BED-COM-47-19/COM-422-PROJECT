@@ -123,11 +123,11 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Categories.Form3ScienceScience"
+        <activity android:name=".Student.Form3.Categories.Form3SciencesStudent"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Categories.Form4ScienceStudent"
+        <activity android:name=".Student.Form4.Categories.Form4SciencesStudent"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -172,11 +172,11 @@
 
         <!-- View Content Classes -->
 
-        <activity android:name=".Student.Form1.Categories.Form1StudentViewContent"
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1StudentViewContentAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Categories.Form2StudentViewContent"
+        <activity android:name=".Student.Form2.Documents.Agriculture.Form2StudentViewContentAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -294,7 +294,7 @@
 
         <!-- For Agriculture-->
 
-        <activity android:name=".Student.Form1.Documents.Agriculture.Form1Audio"
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1AudioAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -312,7 +312,7 @@
 
 
 
-        <activity android:name=".Student.Form1.Documents.Agriculture.Form1PDF"
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1PDFAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -329,7 +329,7 @@
         </activity>
 
 
-        <activity android:name=".Student.Form1.Documents.Agriculture.Form1PDFViewer"
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1PDFViewerAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -347,7 +347,7 @@
 
 
 
-        <activity android:name=".Student.Form1.Documents.Agriculture.Form1Quiz"
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1QuizAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -365,7 +365,7 @@
 
 
 
-        <activity android:name=".Student.Form1.Documents.Agriculture.Form1QuizzesAndQuestions"
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1QuizzesAndQuestionsGeography"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -381,7 +381,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Agriculture.Form1Videos"
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1VideosAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -399,7 +399,7 @@
 
 
 
-        <activity android:name=".Student.Form1.Documents.Agriculture.Form1Question"
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1QuestionAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 

@@ -1,6 +1,6 @@
 
 
-package com.example.teachandlearn.Student.Form1.Documents.Agriculture;
+package com.example.teachandlearn.Student.Form1.Documents.Geography;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -17,12 +17,12 @@ import com.example.teachandlearn.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Form1QuizAgriculture extends AppCompatActivity {
+public class Form1QuizGeography extends AppCompatActivity {
 
     private TextView questionTextView;
     private RadioButton optionARadioButton, optionBRadioButton, optionCRadioButton, optionDRadioButton;
     private ProgressBar questionProgressBar;
-    private List<Form1QuestionAgriculture> questions;
+    private List<Form1QuestionGeography> questions;
     private int currentQuestionIndex = 0;
     private int correctAnswers = 0;
     private Button nextButton, backButton;
@@ -63,14 +63,14 @@ public class Form1QuizAgriculture extends AppCompatActivity {
         });
     }
 
-    private List<Form1QuestionAgriculture> loadQuestions() {
+    private List<Form1QuestionGeography> loadQuestions() {
 
 
-        List<Form1QuestionAgriculture> questions = new ArrayList<>();
-        questions.add(new Form1QuestionAgriculture("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form1QuestionAgriculture("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form1QuestionAgriculture("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form1QuestionAgriculture("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+        List<Form1QuestionGeography> questions = new ArrayList<>();
+        questions.add(new Form1QuestionGeography("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
+        questions.add(new Form1QuestionGeography("What is 2 + 2?", "1", "5", "3", "4", "4"));
+        questions.add(new Form1QuestionGeography("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
+        questions.add(new Form1QuestionGeography("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
 
         return questions;
     }
@@ -79,7 +79,7 @@ public class Form1QuizAgriculture extends AppCompatActivity {
 
         if (currentQuestionIndex < questions.size()) {
 
-            Form1QuestionAgriculture currentQuestion = questions.get(currentQuestionIndex);
+            Form1QuestionGeography currentQuestion = questions.get(currentQuestionIndex);
             questionTextView.setText(currentQuestion.getQuestionText());
             optionARadioButton.setText(currentQuestion.getOptionA());
             optionBRadioButton.setText(currentQuestion.getOptionB());

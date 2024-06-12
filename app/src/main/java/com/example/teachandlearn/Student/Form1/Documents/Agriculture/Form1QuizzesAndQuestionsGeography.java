@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Form1QuizzesAndQuestions extends AppCompatActivity {
+public class Form1QuizzesAndQuestionsGeography extends AppCompatActivity {
 
     private ListView listView;
     private ArrayAdapter<String> adapter;
@@ -48,7 +48,7 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String url = pdfUrls.get(position);
-                Intent intent = new Intent(Form1QuizzesAndQuestions.this, Form1PDFViewerAgriculture.class);
+                Intent intent = new Intent(Form1QuizzesAndQuestionsGeography.this, Form1PDFViewerAgriculture.class);
                 intent.putExtra("PDF_URL", url);
                 startActivity(intent);
             }
@@ -134,7 +134,7 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
             question2.put("correctAnswer", "Option B2");
             questions.add(question8);
 
-            Intent intent = new Intent(Form1QuizzesAndQuestions.this, Form1QuizAgriculture.class);
+            Intent intent = new Intent(Form1QuizzesAndQuestionsGeography.this, Form1QuizAgriculture.class);
             intent.putExtra("QUESTIONS", questions);
             startActivity(intent);
         });
@@ -176,7 +176,7 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
             }
         }).addOnFailureListener(exception -> {
             // Handle the error
-            Toast.makeText(Form1QuizzesAndQuestions.this, "Failed to load past papers", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Form1QuizzesAndQuestionsGeography.this, "Failed to load past papers", Toast.LENGTH_SHORT).show();
         });
 
 

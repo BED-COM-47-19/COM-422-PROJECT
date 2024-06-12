@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.R;
 
-public class Form1PDFViewer extends AppCompatActivity {
+public class Form1PDFViewerAgriculture extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
