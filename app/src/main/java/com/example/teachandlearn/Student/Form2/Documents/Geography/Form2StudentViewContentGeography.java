@@ -1,47 +1,42 @@
 
 
-package com.example.teachandlearn.Student.Form3.Categories;
+package com.example.teachandlearn.Student.Form1.Documents.Geography;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form3.Documents.Biology.Form3Audio;
-import com.example.teachandlearn.Student.Form3.Documents.Biology.Form3PDF;
-import com.example.teachandlearn.Student.Form3.Documents.Biology.Form3Videos;
-import com.example.teachandlearn.Student.Form3.Documents.Biology.Form3QuizzesAndQuestions;
 
 
-public class Form3StudentViewContent extends AppCompatActivity {
+public class Form1StudentViewContentGeography extends AppCompatActivity {
+
     private Button buttonBack;
+
+    private Button buttonChat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form3_view_content);
+        setContentView(R.layout.activity_form1_view_content);
 
         // Find buttons for PDF, Audio, Videos, and Questions
         Button buttonPDF = findViewById(R.id.button_pdf);
         Button buttonAudio = findViewById(R.id.button_audio);
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
-
         buttonBack = findViewById(R.id.back_button);
-
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Logic for when the back button is pressed
-                onBackPressed();
-            }
-        });
-
+        buttonChat = findViewById(R.id.button_chat);
 
         // Set click listeners for each button
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form3StudentViewContent.this, Form3PDF.class);
+                Intent intent = new Intent(Form1StudentViewContentGeography.this, Form1PDFGeography.class);
                 startActivity(intent);
             }
         });
@@ -49,7 +44,7 @@ public class Form3StudentViewContent extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form3StudentViewContent.this, Form3Audio.class);
+                Intent intent = new Intent(Form1StudentViewContentGeography.this, Form1AudioGeography.class);
                 startActivity(intent);
             }
         });
@@ -57,7 +52,7 @@ public class Form3StudentViewContent extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form3StudentViewContent.this, Form3Videos.class);
+                Intent intent = new Intent(Form1StudentViewContentGeography.this, Form1VideosGeography.class);
                 startActivity(intent);
             }
         });
@@ -65,7 +60,7 @@ public class Form3StudentViewContent extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form3StudentViewContent.this, Form3QuizzesAndQuestions.class);
+                Intent intent = new Intent(Form1StudentViewContentGeography.this, Form1QuizzesAndQuestionsGeography.class);
                 startActivity(intent);
             }
         });
@@ -79,8 +74,24 @@ public class Form3StudentViewContent extends AppCompatActivity {
             }
         });
 
+        buttonChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open chat interface
+                openChatInterface();
+            }
+        });
+
     }
 
+
+    private void openChatInterface() {
+        // Handle logic for opening the chat interface
+        // For example, start the ChatGPTService
+        Intent intent = new Intent(this, ChatGPTService.class);
+        startService(intent);
+
+    }
     @Override
     public void onBackPressed() {
         // Handle the back button action
