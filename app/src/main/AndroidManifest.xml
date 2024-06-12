@@ -1674,7 +1674,8 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1Question"
+        <activity
+            android:name=".Student.Form1.Documents.Social_Studies.Form1Question"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -1682,7 +1683,8 @@
             android:name=".Student.Form2.Documents.Social_Studies.Form2Question"
             android:theme="@style/Theme.AppCompat" />
 
-        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3Question"
+        <activity
+            android:name=".Student.Form3.Documents.Social_Studies.Form3Question"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
