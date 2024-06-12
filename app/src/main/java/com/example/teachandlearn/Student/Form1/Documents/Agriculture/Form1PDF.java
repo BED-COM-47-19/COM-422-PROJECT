@@ -57,7 +57,7 @@ public class Form1PDF extends AppCompatActivity {
 
         fetchPDFsFromFirebase();
 
-        studentEmail = getIntent().getStringExtra("student_form1_emails");
+        studentEmail = getIntent().getStringExtra("student_form1_agriculture_emails");
 
         if (studentEmail != null) {
             // Store student email to Firebase when the intent has student email
@@ -133,7 +133,7 @@ public class Form1PDF extends AppCompatActivity {
         FirebaseStorage storage = FirebaseStorage.getInstance();
 
         StorageReference[] storageRefs = {
-                storage.getReference().child("/form1/sciences/mathematics/pdfs/")
+                storage.getReference().child("/form1/sciences/agriculture/pdfs/")
                 // Add more storage references for other subjects as needed
         };
 

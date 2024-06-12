@@ -1,6 +1,8 @@
 package com.example.teachandlearn.Student.Form3.Documents.Chichewa;
 
-public class Form3Question {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Form3Question extends AppCompatActivity {
     private String questionText;
     private String optionA;
     private String optionB;

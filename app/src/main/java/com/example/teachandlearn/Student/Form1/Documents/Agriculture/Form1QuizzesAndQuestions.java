@@ -10,14 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -150,7 +147,7 @@ public class Form1QuizzesAndQuestions extends AppCompatActivity {
         StorageReference storageRef;
 
         // Initialize the storage reference for the desired path
-        storageRef = storage.getReference().child("/form1/humanities/bible_knowledge/quizzes_and_questions/");
+        storageRef = storage.getReference().child("/form1/sciences/agriculture/quizzes_and_questions/");
 
         // Now you can use this reference to list the items in the directory
         storageRef.listAll().addOnSuccessListener(listResult -> {

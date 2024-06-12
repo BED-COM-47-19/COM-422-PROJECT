@@ -82,7 +82,7 @@ public class Form1Videos extends AppCompatActivity {
 
     private void fetchVideos() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("/form1/humanities/bible_knowledge/videos/");
+        StorageReference storageRef = storage.getReference().child("/form1/humanities/history/videos/");
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
             List<VideoItem> videos = new ArrayList<>();

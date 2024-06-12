@@ -1,6 +1,10 @@
 package com.example.teachandlearn.Student.Form3.Documents.Physics;
 
-public class Form3Question {
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.appcheck.AppCheckToken;
+
+public class Form3Question extends AppCompatActivity {
     private String questionText;
     private String optionA;
     private String optionB;

@@ -1,6 +1,8 @@
 package com.example.teachandlearn.Student.Form4.Documents.English;
 
-public class Form4Question {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Form4Question extends AppCompatActivity {
     private String questionText;
     private String optionA;
     private String optionB;

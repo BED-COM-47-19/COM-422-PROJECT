@@ -51,18 +51,9 @@ public class Form1Audio extends AppCompatActivity {
     private void fetchAudios() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         String[] paths = {
-                "/form1/humanities/bible_knowledge/audios/",
-                "/form1/humanities/geography/audios/",
-                "/form1/humanities/history/audios/",
-                "/form1/humanities/life_skills/audios/",
-                "/form1/humanities/social_studies/audios/",
-                "/form1/languages/english/audios/",
-                "/form1/languages/chichewa/audios/",
-                "/form1/sciences/agriculture/audios/",
-                "/form1/sciences/biology/audios/",
-                "/form1/sciences/chemistry/audios/",
-                "/form1/sciences/mathematics/audios/",
-                "/form1/sciences/physics/audios/"
+
+                "/form1/sciences/mathematics/audios/"
+
         };
 
         for (String path : paths) {
