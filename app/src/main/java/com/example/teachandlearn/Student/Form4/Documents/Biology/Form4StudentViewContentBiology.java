@@ -10,10 +10,10 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2Audio;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2PDF;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2QuizzesAndQuestions;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2Videos;
+import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2AudioBIO;
+import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2PDFBIO;
+import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2QuizzesAndQuestionsBIO;
+import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2VideosBIO;
 
 
 public class Form4StudentViewContentBiology extends AppCompatActivity {
@@ -21,7 +21,7 @@ public class Form4StudentViewContentBiology extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form2_view_content);
+        setContentView(R.layout.activity_form4_biology_view_content);
 
         // Find buttons for PDF, Audio, Videos, and Questions
         Button buttonPDF = findViewById(R.id.button_pdf);
@@ -42,7 +42,7 @@ public class Form4StudentViewContentBiology extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentBiology.this, Form2PDF.class);
+                Intent intent = new Intent(Form4StudentViewContentBiology.this, Form2PDFBIO.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +50,7 @@ public class Form4StudentViewContentBiology extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentBiology.this, Form2Audio.class);
+                Intent intent = new Intent(Form4StudentViewContentBiology.this, Form2AudioBIO.class);
                 startActivity(intent);
             }
         });
@@ -58,7 +58,7 @@ public class Form4StudentViewContentBiology extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentBiology.this, Form2Videos.class);
+                Intent intent = new Intent(Form4StudentViewContentBiology.this, Form2VideosBIO.class);
                 startActivity(intent);
             }
         });
@@ -66,7 +66,7 @@ public class Form4StudentViewContentBiology extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentBiology.this, Form2QuizzesAndQuestions.class);
+                Intent intent = new Intent(Form4StudentViewContentBiology.this, Form2QuizzesAndQuestionsBIO.class);
                 startActivity(intent);
             }
         });

@@ -17,7 +17,7 @@ public class Form4StudentViewContentLife_Skills extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form2_view_content);
+        setContentView(R.layout.activity_form4_lifeskills_view_content);
 
         // Find buttons for PDF, Audio, Videos, and Questions
         Button buttonPDF = findViewById(R.id.button_pdf);

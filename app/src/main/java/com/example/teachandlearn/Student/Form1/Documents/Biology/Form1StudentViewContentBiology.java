@@ -26,7 +26,7 @@ public class Form1StudentViewContentBiology extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_view_content);
+        setContentView(R.layout.activity_form1_biology_view_content);
 
         // Find buttons for PDF, Audio, Videos, and Questions
         Button buttonPDF = findViewById(R.id.button_pdf);
@@ -40,7 +40,7 @@ public class Form1StudentViewContentBiology extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentBiology.this, Form1PDFAgriculture.class);
+                Intent intent = new Intent(Form1StudentViewContentBiology.this, Form1PDFBiology.class);
                 startActivity(intent);
             }
         });
@@ -48,7 +48,7 @@ public class Form1StudentViewContentBiology extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentBiology.this, Form1AudioAgriculture.class);
+                Intent intent = new Intent(Form1StudentViewContentBiology.this, Form1AudioBiology.class);
                 startActivity(intent);
             }
         });

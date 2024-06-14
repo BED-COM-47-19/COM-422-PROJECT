@@ -13,7 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.Form2.Documents.English.Form2StudentViewContentEnglish;
-import com.example.teachandlearn.Student.Form2.Documents.Chichewa.Form2StudentViewContentChichewa;
+import com.example.teachandlearn.Student.Form2.Documents.Chichewa.Form2StudentViewContentChichewaCH;
 
 
 public class Form2LanguagesStudent extends AppCompatActivity {
@@ -90,7 +90,7 @@ public class Form2LanguagesStudent extends AppCompatActivity {
     private void startActivityForContent() {
 
         Intent intent1 = new Intent(Form2LanguagesStudent.this, Form2StudentViewContentEnglish.class);
-        Intent intent2 = new Intent(Form2LanguagesStudent.this, Form2StudentViewContentChichewa.class);
+        Intent intent2 = new Intent(Form2LanguagesStudent.this, Form2StudentViewContentChichewaCH.class);
 
         startActivity(intent1);
         startActivity(intent2);

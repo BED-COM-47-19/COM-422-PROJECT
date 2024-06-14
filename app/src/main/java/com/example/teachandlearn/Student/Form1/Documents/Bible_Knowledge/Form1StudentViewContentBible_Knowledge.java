@@ -24,7 +24,7 @@ public class Form1StudentViewContentBible_Knowledge extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_view_content);
+        setContentView(R.layout.activity_form1_bibleknowledge_view_content);
 
         // Find buttons for PDF, Audio, Videos, and Questions
         Button buttonPDF = findViewById(R.id.button_pdf);
