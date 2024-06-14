@@ -12,10 +12,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form2.Documents.English.Form2StudentViewContentEnglish;
+import com.example.teachandlearn.Student.Form2.Documents.Chichewa.Form2StudentViewContentChichewa;
+
 
 public class Form2LanguagesStudent extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
+    private Button buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +32,15 @@ public class Form2LanguagesStudent extends AppCompatActivity {
         Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
+        buttonBack = findViewById(R.id.back_button);
 
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
         // Set click listeners for each button
         buttonEnglish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,15 +88,19 @@ public class Form2LanguagesStudent extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(Form2LanguagesStudent.this, Form2StudentViewContent.class);
-        startActivity(intent);
+
+        Intent intent1 = new Intent(Form2LanguagesStudent.this, Form2StudentViewContentEnglish.class);
+        Intent intent2 = new Intent(Form2LanguagesStudent.this, Form2StudentViewContentChichewa.class);
+
+        startActivity(intent1);
+        startActivity(intent2);
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        // Handle the back button action
-//        super.onBackPressed();
-//        // You can also add custom logic here if needed
-//    }
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
 
 }

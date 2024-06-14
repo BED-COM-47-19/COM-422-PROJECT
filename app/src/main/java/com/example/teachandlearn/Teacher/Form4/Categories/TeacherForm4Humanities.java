@@ -17,7 +17,7 @@ import com.example.teachandlearn.Teacher.Form4.Uploads.TeacherForm4Uploads;
 
 public class TeacherForm4Humanities extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
+   private Button buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +36,17 @@ public class TeacherForm4Humanities extends AppCompatActivity {
         Button buttonSmallHistory = findViewById(R.id.buttonSmallHistory);
         Button buttonSmallBibleKnowledge = findViewById(R.id.buttonSmallBibleKnowledge);
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
+
+        buttonBack = findViewById(R.id.back_button);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
+
 
         // Set click listeners for each button
         buttonSocialStudies.setOnClickListener(new View.OnClickListener() {

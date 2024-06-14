@@ -12,10 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form4.Documents.Chichewa.Form4StudentViewContentChichewa;
+import com.example.teachandlearn.Student.Form4.Documents.English.Form4StudentViewContentEnglish;
 
 public class Form4LanguagesStudent extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
+    private Button buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,14 @@ public class Form4LanguagesStudent extends AppCompatActivity {
         Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
+        buttonBack = findViewById(R.id.back_button);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
 
         // Set click listeners for each button
         buttonEnglish.setOnClickListener(new View.OnClickListener() {
@@ -78,10 +88,18 @@ public class Form4LanguagesStudent extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(Form4LanguagesStudent.this, Form4StudentViewContent.class);
-        startActivity(intent);
-    }
 
+        Intent intent1 = new Intent(Form4LanguagesStudent.this, Form4StudentViewContentEnglish.class);
+        Intent intent2 = new Intent(Form4LanguagesStudent.this, Form4StudentViewContentChichewa.class);
+        startActivity(intent1);
+        startActivity(intent2);
+    }
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
 
 
 }

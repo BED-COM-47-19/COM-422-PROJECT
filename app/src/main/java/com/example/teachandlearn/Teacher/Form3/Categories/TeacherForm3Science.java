@@ -15,9 +15,10 @@ import com.example.teachandlearn.R;
 import com.example.teachandlearn.Teacher.Form3.Uploads.TeacherForm3Uploads;
 
 
+
 public class TeacherForm3Science extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
+    private Button buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,13 +31,23 @@ public class TeacherForm3Science extends AppCompatActivity {
         Button buttonChemistry = findViewById(R.id.buttonChemistry);
         Button buttonAgriculture = findViewById(R.id.buttonAgriculture);
 
+
         // Find small info buttons
         Button buttonSmallMathematics = findViewById(R.id.buttonSmallMathematics);
         Button buttonSmallBiology = findViewById(R.id.buttonSmallBiology);
         Button buttonSmallPhysics = findViewById(R.id.buttonSmallPhysics);
         Button buttonSmallChemistry = findViewById(R.id.buttonSmallChemistry);
         Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
-        // Set click listeners for each button
+
+        buttonBack = findViewById(R.id.back_button);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
 
         // Set click listeners for each button
         buttonMathematics.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +100,6 @@ public class TeacherForm3Science extends AppCompatActivity {
             }
         });
 
-
         // Set click listeners for small info buttons to show popups instead of toasts
         buttonSmallMathematics.setOnClickListener(v -> showPopup(v, getString(R.string.info_mathematics)));
         buttonSmallBiology.setOnClickListener(v -> showPopup(v, getString(R.string.info_biology)));
@@ -127,6 +137,13 @@ public class TeacherForm3Science extends AppCompatActivity {
     private void startActivityForContent() {
         Intent intent = new Intent(TeacherForm3Science.this, TeacherForm3Uploads.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
     }
 
 }

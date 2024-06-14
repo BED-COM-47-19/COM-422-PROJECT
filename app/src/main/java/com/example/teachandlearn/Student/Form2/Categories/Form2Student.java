@@ -1,17 +1,23 @@
 
+
 package com.example.teachandlearn.Student.Form2.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form1.Categories.Form1Student;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Form2Student extends AppCompatActivity {
 
-    private ImageButton buttonBack;
+    private Button buttonBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +27,7 @@ public class Form2Student extends AppCompatActivity {
         Button buttonScience = findViewById(R.id.activity_form2_science);
         Button buttonHumanities = findViewById(R.id.activity_form2_humanities);
         Button buttonLanguages = findViewById(R.id.activity_form2_languages);
-        ImageButton buttonBack = findViewById(R.id.back_button);
+        buttonBack = findViewById(R.id.back_button);
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {
@@ -61,9 +67,36 @@ public class Form2Student extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // Get the current user's email or any other way to obtain the student's email
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser != null) {
+            String studentEmail = currentUser.getEmail();
+
+            // Store student email to Firebase when user logs in
+            saveStudentEmailToFirebase(studentEmail);
+        }
+
+    }
+
+    // Method to save a single student's email to Firebase Realtime Database
+    private void saveStudentEmailToFirebase(String studentEmail) {
+
+        DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form2_emails");
+        studentEmailsRef.push().setValue(studentEmail);
+
+    }
+
     // Helper method to show toast message
     private void showToast(String message) {
+
         Toast.makeText(Form2Student.this, message, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

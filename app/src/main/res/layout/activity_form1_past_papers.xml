@@ -16,4 +16,18 @@
         android:padding="16dp"
         android:listSelector="@android:color/holo_blue_light" />
 
+    <EditText
+        android:id="@+id/editTextComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Write a comment..."
+        android:inputType="textMultiLine"
+        android:lines="3"/>
+
+    <Button
+        android:id="@+id/buttonSubmitComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"/>
+
 </RelativeLayout>

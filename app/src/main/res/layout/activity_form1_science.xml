@@ -1,214 +1,250 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="2"
-    android:rowCount="3"
-    android:padding="16dp"
     android:background="@color/white"
-    android:alignmentMode="alignMargins"
-    android:columnOrderPreserved="false">
+    android:columnOrderPreserved="false"
+    android:orientation="vertical"
+    android:screenOrientation="portrait"
+    android:padding="20dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnSpan="2"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="0.0"
         android:text="SCIENCE SUBJECTS"
         android:textAlignment="center"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:textSize="30sp"
         android:textColor="@color/black"
-        android:layout_marginBottom="16dp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
-    <!-- Mathematics Button with small corner button -->
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_margin="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="40dp">
-        <Button
-            android:id="@+id/buttonMathematics"
-            android:layout_width="match_parent"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="-25dp"
+        android:layout_weight="0.05"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <!-- Social Studies Button with small corner button adjusted -->
+        <FrameLayout
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="MATHEMATICS"
-            android:textSize="15dp"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:background="@drawable/rounded_button_background"
-            android:backgroundTint="@color/purple_200"
-            android:textColor="@android:color/white"
-            android:drawableEnd="@drawable/ic_mathematics" />
-        <Button
-            android:id="@+id/buttonSmallMathematics"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
-            android:text="¡"
-            android:textColor="@android:color/white"
-            android:background="@drawable/oval_cirlce" />
-    </FrameLayout>
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="15dp"
+            android:layout_weight="0.5">
 
-    <!-- Biology Button with small corner button -->
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_margin="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-        <Button
-            android:id="@+id/buttonBiology"
-            android:layout_width="match_parent"
+            <Button
+                android:id="@+id/buttonMathematics"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="@color/mathematics_button_color"
+                android:drawableEnd="@drawable/ic_mathematics"
+                android:text="MATHEMATICS"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buttonSmallMathematics"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/oval_cirlce"
+                android:text="¡"
+                android:textColor="@android:color/white" />
+        </FrameLayout>
+
+        <!-- Life Skills Button with small co rner button adjusted -->
+        <FrameLayout
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="BIOLOGY"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:background="@drawable/rounded_button_background"
-            android:backgroundTint="@color/biology_button_color"
-            android:textColor="@android:color/white"
-            android:drawableEnd="@drawable/ic_biology" />
-        <Button
-            android:id="@+id/buttonSmallBiology"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
-            android:text="¡"
-            android:textColor="@android:color/white"
-            android:background="@drawable/oval_cirlce" />
-    </FrameLayout>
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="0.5">
 
-    <!-- Physics Button with small corner button -->
-    <FrameLayout
-        android:layout_width="0dp"
+            <Button
+                android:id="@+id/buttonBiology"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="@color/biology_button_color"
+                android:drawableEnd="@drawable/ic_biology"
+                android:text="BIOLOGY"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buttonSmallBiology"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/oval_cirlce"
+                android:text="¡"
+                android:textColor="@android:color/white" />
+        </FrameLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:layout_marginTop="-35dp"
+        android:layout_weight="0.05"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <!-- History Button with small corner button adjusted -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="15dp"
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/buttonPhysics"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="@color/physics_button_color"
+                android:drawableEnd="@drawable/ic_physics"
+                android:text="HISTORY"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buttonSmallPhysics"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/oval_cirlce"
+                android:text="¡"
+                android:textColor="@android:color/white" />
+        </FrameLayout>
+
+        <!-- Bible Knowledge Button with small corner button adjusted -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/buttonChemistry"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="@color/chemistry_button_color"
+                android:drawableEnd="@drawable/ic_chemistry"
+                android:text="CHEMISTRY"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buttonSmallChemistry"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/oval_cirlce"
+                android:text="¡"
+                android:textColor="@android:color/white" />
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_margin="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="40dp">
-        <Button
-            android:id="@+id/buttonPhysics"
-            android:layout_width="match_parent"
+        android:layout_marginTop="-35dp"
+        android:layout_weight="0.05"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <!-- Geography Button with small corner button adjusted -->
+        <FrameLayout
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="20dp"
-            android:text="PHYSICS"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:background="@drawable/rounded_button_background"
-            android:backgroundTint="@color/physics_button_color"
-            android:textColor="@android:color/white"
-            android:drawableEnd="@drawable/ic_physics" />
-        <Button
-            android:id="@+id/buttonSmallPhysics"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="30dp"
-            android:text="¡"
-            android:textColor="@android:color/white"
-            android:background="@drawable/oval_cirlce" />
-    </FrameLayout>
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="100dp"
+            android:layout_weight="0.45">
 
-    <!-- Chemistry Button with small corner button -->
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_margin="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-        <Button
-            android:id="@+id/buttonChemistry"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="20dp"
-            android:text="CHEMISTRY"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:background="@drawable/rounded_button_background"
-            android:backgroundTint="@color/chemistry_button_color"
-            android:textColor="@android:color/white"
-            android:drawableEnd="@drawable/ic_chemistry" />
-        <Button
-            android:id="@+id/buttonSmallChemistry"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="30dp"
-            android:text="¡"
-            android:textColor="@android:color/white"
-            android:background="@drawable/oval_cirlce" />
-    </FrameLayout>
+            <Button
+                android:id="@+id/buttonAgriculture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_button_background"
+                android:backgroundTint="@color/agriculture_button_color"
+                android:drawableEnd="@drawable/ic_agriculture"
+                android:text="AGRICULTURE"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
-    <!-- Agriculture Button with small corner button -->
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_marginTop="-15dp"
-        android:layout_marginBottom="60dp"
-        android:layout_margin="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="40dp">
+            <Button
+                android:id="@+id/buttonSmallAgriculture"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/oval_cirlce"
+                android:text="¡"
+                android:textColor="@android:color/white" />
 
-        <Button
-            android:id="@+id/buttonAgriculture"
-            android:layout_width="match_parent"
-            android:layout_height="127dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/rounded_button_background"
-            android:backgroundTint="@color/agriculture_button_color"
-            android:drawableEnd="@drawable/ic_agriculture"
-            android:text="AGRICULTURE"
-            android:textColor="@android:color/white"
-            android:textSize="15dp"
-            android:textStyle="bold" />
+        </FrameLayout>
 
-        <Button
-            android:id="@+id/buttonSmallAgriculture"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_gravity="bottom|end"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/oval_cirlce"
-            android:text="¡"
-            android:textColor="@android:color/white" />
-    </FrameLayout>
 
+    </LinearLayout>
 
     <Button
-        android:id="@+id/button_back"
-        android:layout_width="48dp"
-        android:layout_height="44dp"
-        android:layout_gravity="start|bottom"
-        android:layout_marginStart="-170dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/back_arrow"
-        android:textColor="@android:color/black" />
+        android:id="@+id/back_button"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginBottom="-60dp"
+        android:text="BACK"
+        android:layout_marginTop="-0dp"
+        android:textColor="@color/white"
+        android:background="@drawable/back_button_rounderd"
+        android:textSize="20dp" />
 
 
-</GridLayout>
+</LinearLayout>

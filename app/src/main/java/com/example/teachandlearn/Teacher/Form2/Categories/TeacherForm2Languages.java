@@ -12,12 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Teacher.Form2.Uploads.TeacherForm2Uploads;
 
 
 public class TeacherForm2Languages extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
+    private Button buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +30,15 @@ public class TeacherForm2Languages extends AppCompatActivity {
         Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
+        buttonBack = findViewById(R.id.back_button);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
 
         // Set click listeners for each button
         buttonEnglish.setOnClickListener(new View.OnClickListener() {

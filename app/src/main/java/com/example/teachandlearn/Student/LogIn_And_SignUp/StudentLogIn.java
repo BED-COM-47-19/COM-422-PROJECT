@@ -1,4 +1,6 @@
 
+
+
 package com.example.teachandlearn.Student.LogIn_And_SignUp;
 import android.view.ViewGroup;
 import android.content.Intent;
@@ -7,45 +9,60 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.SelectClass.StudentSelectClass;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import java.util.Map;
-import java.util.HashMap;
 import com.google.firebase.database.ServerValue;
 import android.util.Log;
-
-
+import com.google.android.gms.tasks.Task;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.content.SharedPreferences;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class StudentLogIn extends AppCompatActivity {
 
-    private ImageButton buttonBack;
+    private Button buttonBack;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private DatabaseReference mDatabase;
     private static final int RC_SIGN_IN = 9001;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_login);
 
+
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        sharedPreferences = getSharedPreferences("user_credentials", MODE_PRIVATE);
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase.keepSynced(true);
 
-
-        ImageButton buttonBack = findViewById(R.id.back_button);
         EditText editTextEmail = findViewById(R.id.editTextEmail);
         EditText editTextPassword = findViewById(R.id.editTextPassword);
         Button loginButton = findViewById(R.id.buttonLogIn);
@@ -53,7 +70,8 @@ public class StudentLogIn extends AppCompatActivity {
         TextView forgotPasswordTextView = findViewById(R.id.textViewForgotPassword);
         TextView googleSignInTextView = findViewById(R.id.textViewContinueWithGoogle);
 
-        // Set listeners
+        buttonBack = findViewById(R.id.back_button);
+
         buttonBack.setOnClickListener(view -> onBackPressed());
         loginButton.setOnClickListener(v -> loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString()));
         signUpButton.setOnClickListener(v -> startActivity(new Intent(StudentLogIn.this, StudentSignUp.class)));
@@ -62,11 +80,7 @@ public class StudentLogIn extends AppCompatActivity {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
             startActivityForResult(signInIntent, RC_SIGN_IN);
         });
-        // Initialize Firebase Auth
 
-        buttonBack = findViewById(R.id.back_button);
-
-        // Configure Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -74,26 +88,15 @@ public class StudentLogIn extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Logic for when the back button is pressed
-                onBackPressed();
-            }
-        });
-
+        buttonBack.setOnClickListener(view -> onBackPressed());
 
         loginButton.setOnClickListener(v -> {
             String email = editTextEmail.getText().toString();
             String password = editTextPassword.getText().toString();
             loginUser(email, password);
-            logAttemptToDatabase(email);  // Log the attempt to Firebase Database
+            logAttemptToDatabase(email);
         });
-
     }
-
-
 
     private TextView createTextView(String text, int topMargin) {
         TextView textView = new TextView(this);
@@ -152,6 +155,11 @@ public class StudentLogIn extends AppCompatActivity {
         });
     }
 
+
+
+
+
+
     private void sendPasswordResetEmail(String email) {
         if (!email.isEmpty()) {
             mAuth.sendPasswordResetEmail(email)
@@ -162,50 +170,114 @@ public class StudentLogIn extends AppCompatActivity {
                             Toast.makeText(StudentLogIn.this, "Failed to send reset email", Toast.LENGTH_LONG).show();
                         }
                     });
-        } else {
+
+        }
+
+        else {
             Toast.makeText(StudentLogIn.this, "Please enter your email", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void loginUser(String email, String password) {
-        // Check if email or password is empty
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(StudentLogIn.this, "Email and password cannot be empty.", Toast.LENGTH_SHORT).show();
-            return; // Stop the login process if fields are empty
+            return;
         }
 
-        // Proceed with Firebase authentication
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-                        // If login is successful, navigate to the next screen
-                        startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
-                    } else {
-                        // If login fails, display a failure message
-                        Toast.makeText(StudentLogIn.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                    }
-                });
+        if (isNetworkAvailable()) {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, task -> {
+                        if (task.isSuccessful()) {
+                            saveCredentials(email, password);
+                            startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
+                        } else {
+                            Toast.makeText(StudentLogIn.this, "Email or Password Incorrect.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+        }
+
+        else {
+            if (checkCredentials(email, password)) {
+                startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
+            } else {
+                Toast.makeText(StudentLogIn.this, "Invalid credentials or no network available.", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
     }
 
 
 
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
+    }
 
+    private void saveCredentials(String email, String password) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("email", email);
+        editor.putString("password", password);
+        editor.apply();
+    }
+
+    private void saveUserCredentialsToDatabase(String userId, String email) {
+        DatabaseReference usersRef = mDatabase.child("Users").child(userId);
+        Map<String, Object> userDetails = new HashMap<>();
+        userDetails.put("email", email);
+        // Add other user details if needed
+        usersRef.setValue(userDetails)
+                .addOnSuccessListener(aVoid -> Log.d("Database", "User credentials saved successfully"))
+                .addOnFailureListener(e -> Log.d("Database", "Error saving user credentials", e));
+    }
+
+
+    private boolean checkCredentials(String email, String password) {
+        String savedEmail = sharedPreferences.getString("email", null);
+        String savedPassword = sharedPreferences.getString("password", null);
+        return email.equals(savedEmail) && password.equals(savedPassword);
+    }
+
+    private void signInWithGoogle() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RC_SIGN_IN) {
-            GoogleSignIn.getSignedInAccountFromIntent(data)
-                    .addOnSuccessListener(googleSignInAccount -> {
-                        // Firebase Google Auth
-                        // Use googleSignInAccount to authenticate with Firebase
-                    })
-                    .addOnFailureListener(e -> Toast.makeText(this, "Google sign-in failed.", Toast.LENGTH_SHORT).show());
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account.getIdToken());
+            } catch (ApiException e) {
+                Log.w("GoogleSignIn", "Google sign in failed", e);
+                Toast.makeText(StudentLogIn.this, "Google sign-in failed.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-
+    private void firebaseAuthWithGoogle(String idToken) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        // Proceed with your app logic, for example, navigate to a new activity
+                        startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("FirebaseAuth", "signInWithCredential:failure", task.getException());
+                        Toast.makeText(StudentLogIn.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 
     private void logAttemptToDatabase(String email) {
         // Create a unique ID for each log entry
@@ -221,7 +293,6 @@ public class StudentLogIn extends AppCompatActivity {
     }
 
 
-
     @Override
     public void onBackPressed() {
         // Handle the back button action
@@ -231,3 +302,14 @@ public class StudentLogIn extends AppCompatActivity {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+

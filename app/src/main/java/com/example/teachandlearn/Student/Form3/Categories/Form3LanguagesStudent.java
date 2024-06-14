@@ -12,10 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form3.Documents.Chichewa.Form3StudentViewContentChichewa;
+import com.example.teachandlearn.Student.Form3.Documents.English.Form3StudentViewContentEnglish;
 
 public class Form3LanguagesStudent extends AppCompatActivity {
 
-//    private ImageButton buttonBack;
+    private Button buttonBack;
 
       @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,15 @@ public class Form3LanguagesStudent extends AppCompatActivity {
         Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
+          buttonBack = findViewById(R.id.back_button);
 
+          buttonBack.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+                  // Logic for when the back button is pressed
+                  onBackPressed();
+              }
+          });
         // Set click listeners for each button
         buttonEnglish.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,15 +89,19 @@ public class Form3LanguagesStudent extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(Form3LanguagesStudent.this, Form3StudentViewContent.class);
-        startActivity(intent);
-    }
 
-//    @Override
-//    public void onBackPressed() {
-//        // Handle the back button action
-//        super.onBackPressed();
-//        // You can also add custom logic here if needed
-//    }
+
+        Intent intent1 = new Intent(Form3LanguagesStudent.this, Form3StudentViewContentEnglish.class);
+        Intent intent2 = new Intent(Form3LanguagesStudent.this, Form3StudentViewContentChichewa.class);
+
+        startActivity(intent1);
+        startActivity(intent2);
+    }
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
 
 }

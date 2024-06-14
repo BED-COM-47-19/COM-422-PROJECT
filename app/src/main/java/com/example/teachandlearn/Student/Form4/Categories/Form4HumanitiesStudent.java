@@ -12,9 +12,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1StudentViewContentAgriculture;
+import com.example.teachandlearn.Student.Form4.Categories.Form4HumanitiesStudent;
+import com.example.teachandlearn.Student.Form4.Documents.Bible_Knowledge.Form4StudentViewContentBible_Knowledge;
+import com.example.teachandlearn.Student.Form4.Documents.Geography.Form4StudentViewContentGeography;
+import com.example.teachandlearn.Student.Form4.Documents.History.Form4StudentViewContentHistory;
+import com.example.teachandlearn.Student.Form4.Documents.Life_Skills.Form4StudentViewContentLife_Skills;
+import com.example.teachandlearn.Student.Form4.Documents.Social_Studies.Form4StudentViewContentSocial_Studies;
 
 public class Form4HumanitiesStudent extends AppCompatActivity {
-
+    private Button buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,16 @@ public class Form4HumanitiesStudent extends AppCompatActivity {
         Button buttonSmallHistory = findViewById(R.id.buttonSmallHistory);
         Button buttonSmallBibleKnowledge = findViewById(R.id.buttonSmallBibleKnowledge);
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
+
+        buttonBack = findViewById(R.id.back_button);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
 
 
         // Set click listeners for each button
@@ -108,10 +125,27 @@ public class Form4HumanitiesStudent extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(Form4HumanitiesStudent.this, Form4StudentViewContent.class);
-        startActivity(intent);
+
+
+        Intent intent1 = new Intent(Form4HumanitiesStudent.this, Form4StudentViewContentSocial_Studies.class);
+        Intent intent2 = new Intent(Form4HumanitiesStudent.this, Form4StudentViewContentBible_Knowledge.class);
+        Intent intent3 = new Intent(Form4HumanitiesStudent.this, Form4StudentViewContentLife_Skills.class);
+        Intent intent4 = new Intent(Form4HumanitiesStudent.this, Form4StudentViewContentGeography.class);
+        Intent intent5 = new Intent(Form4HumanitiesStudent.this, Form4StudentViewContentHistory.class);
+
+
+        startActivity(intent1);
+        startActivity(intent2);
+        startActivity(intent3);
+        startActivity(intent4);
+        startActivity(intent5);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        // Handle the back button action
+        super.onBackPressed();
+        // You can also add custom logic here if needed
+    }
 
 }
