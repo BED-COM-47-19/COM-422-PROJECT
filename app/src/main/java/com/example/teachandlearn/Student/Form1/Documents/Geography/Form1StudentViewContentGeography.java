@@ -52,7 +52,7 @@ public class Form1StudentViewContentGeography extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentGeography.this, Form1VideosGeography.class);
+                Intent intent = new Intent(Form1StudentViewContentGeography.this, Form1VideoGeography.class);
                 startActivity(intent);
             }
         });

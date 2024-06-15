@@ -67,12 +67,6 @@ public class Form2PDF extends AppCompatActivity {
     }
 
 
-    private void openChatActivity() {
-
-        Intent intent = new Intent(this, ChatBot.class);
-        startActivity(intent);
-
-    }
 
     private void fetchPDFsFromFirebase() {
 

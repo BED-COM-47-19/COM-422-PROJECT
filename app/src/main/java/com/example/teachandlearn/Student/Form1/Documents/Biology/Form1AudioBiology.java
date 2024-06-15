@@ -1,6 +1,3 @@
-
-
-
 package com.example.teachandlearn.Student.Form1.Documents.Biology;
 
 import android.media.MediaPlayer;
@@ -50,46 +47,42 @@ public class Form1AudioBiology extends AppCompatActivity {
 
     private void fetchAudios() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        String[] paths = {
+        String path = "/form1/sciences/biology/audios/";
+        StorageReference storageRef = storage.getReference().child(path);
 
-                "/form1/sciences/biology/audios/"
-        };
-
-        for (String path : paths) {
-            StorageReference storageRef = storage.getReference().child(path);
-            fetchFromStorage(storageRef);
-        }
-    }
-
-    private void fetchFromStorage(StorageReference storageRef) {
         storageRef.listAll().addOnSuccessListener(listResult -> {
-            List<AudioItem> list = new ArrayList<>();
+            List<AudioItem> audioList = new ArrayList<>();
             for (StorageReference item : listResult.getItems()) {
                 String fileName = item.getName();
                 String filePath = item.getPath();
-                String title;
-                int lastIndex = fileName.lastIndexOf('.');
-                if (lastIndex != -1) {
-                    title = fileName.substring(0, lastIndex);
-                } else {
-                    title = fileName;
-                }
-                list.add(new AudioItem(title, filePath, "", "", "")); // Include an empty string for the comment
+                String title = getTitleFromFileName(fileName);
+                String description = ""; // Set description as needed
+                String length = ""; // Set audio length as needed
+                audioList.add(new AudioItem(title, filePath, description, length));
             }
-            if (list.isEmpty()) {
+            if (audioList.isEmpty()) {
                 showNoFilesUploaded();
             } else {
-                adapter.setAudioList(list);
+                adapter.setAudioList(audioList);
             }
         }).addOnFailureListener(exception -> {
-            Log.e("Form1Audio", "Failed to fetch audio files", exception);
+            Log.e("Form1AudioBiology", "Failed to fetch audio files", exception);
             Toast.makeText(this, "Failed to fetch audio files", Toast.LENGTH_SHORT).show();
         });
     }
 
+    private String getTitleFromFileName(String fileName) {
+        int lastIndex = fileName.lastIndexOf('.');
+        if (lastIndex != -1) {
+            return fileName.substring(0, lastIndex);
+        } else {
+            return fileName;
+        }
+    }
+
     private void showNoFilesUploaded() {
         adapter.setAudioList(new ArrayList<>());
-        Toast.makeText(this, "No file Uploaded", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "No files Uploaded", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -109,14 +102,12 @@ public class Form1AudioBiology extends AppCompatActivity {
         private final String filePath;
         private final String description;
         private final String length;
-        private String comment;
 
-        public AudioItem(String title, String filePath, String description, String length, String comment) {
+        public AudioItem(String title, String filePath, String description, String length) {
             this.title = title;
             this.filePath = filePath;
             this.description = description;
             this.length = length;
-            this.comment = comment;
         }
 
         public String getTitle() {
@@ -133,14 +124,6 @@ public class Form1AudioBiology extends AppCompatActivity {
 
         public String getLength() {
             return length;
-        }
-
-        public String getComment() {
-            return comment;
-        }
-
-        public void setComment(String comment) {
-            this.comment = comment;
         }
     }
 
@@ -169,7 +152,6 @@ public class Form1AudioBiology extends AppCompatActivity {
             holder.textViewTitle.setText(audio.getTitle());
             holder.textViewDescription.setText(audio.getDescription());
             holder.textViewLength.setText(audio.getLength());
-            holder.editTextComment.setText(audio.getComment());
 
             holder.itemView.setOnClickListener(v -> {
                 if (mediaPlayer.isPlaying()) {
@@ -196,8 +178,6 @@ public class Form1AudioBiology extends AppCompatActivity {
                     Toast.makeText(holder.itemView.getContext(), "Error playing audio", Toast.LENGTH_SHORT).show();
                 }
             });
-
-
         }
 
         @Override
@@ -205,8 +185,8 @@ public class Form1AudioBiology extends AppCompatActivity {
             return audioList.size();
         }
 
-        public void setAudioList(List<AudioItem> list) {
-            this.audioList = list;
+        public void setAudioList(List<AudioItem> audioList) {
+            this.audioList = audioList;
             notifyDataSetChanged();
         }
 
@@ -214,20 +194,13 @@ public class Form1AudioBiology extends AppCompatActivity {
             TextView textViewTitle;
             TextView textViewDescription;
             TextView textViewLength;
-            EditText editTextComment;
-            Button buttonSubmitComment;
 
             public AudioViewHolder(@NonNull View itemView) {
                 super(itemView);
                 textViewTitle = itemView.findViewById(R.id.textViewAudioTitle);
                 textViewDescription = itemView.findViewById(R.id.textViewAudioDescription);
                 textViewLength = itemView.findViewById(R.id.textViewAudioLength);
-                editTextComment = itemView.findViewById(R.id.editTextComment);
-                buttonSubmitComment = itemView.findViewById(R.id.buttonSubmitComment);
             }
-
         }
-
     }
-
 }

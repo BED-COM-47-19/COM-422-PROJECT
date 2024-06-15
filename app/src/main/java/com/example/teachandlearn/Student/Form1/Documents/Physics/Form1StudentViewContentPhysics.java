@@ -11,10 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1AudioAgriculture;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1PDFAgriculture;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1QuizzesAndQuestionsAgriculture;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1VideosAgriculture;
+
 
 
 public class Form1StudentViewContentPhysics extends AppCompatActivity {
@@ -40,7 +37,7 @@ public class Form1StudentViewContentPhysics extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentPhysics.this, Form1PDFAgriculture.class);
+                Intent intent = new Intent(Form1StudentViewContentPhysics.this, Form1PDFPhysics.class);
                 startActivity(intent);
             }
         });
@@ -48,7 +45,7 @@ public class Form1StudentViewContentPhysics extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentPhysics.this, Form1AudioAgriculture.class);
+                Intent intent = new Intent(Form1StudentViewContentPhysics.this, Form1AudioPhysics.class);
                 startActivity(intent);
             }
         });
@@ -56,7 +53,7 @@ public class Form1StudentViewContentPhysics extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentPhysics.this, Form1VideosAgriculture.class);
+                Intent intent = new Intent(Form1StudentViewContentPhysics.this, Form1VideoPhysics.class);
                 startActivity(intent);
             }
         });
@@ -64,7 +61,7 @@ public class Form1StudentViewContentPhysics extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentPhysics.this, Form1QuizzesAndQuestionsAgriculture.class);
+                Intent intent = new Intent(Form1StudentViewContentPhysics.this, Form1QuizzesAndQuestionsPhysics.class);
                 startActivity(intent);
             }
         });

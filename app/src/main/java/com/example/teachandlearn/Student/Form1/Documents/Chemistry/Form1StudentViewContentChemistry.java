@@ -1,20 +1,15 @@
 
 
 package com.example.teachandlearn.Student.Form1.Documents.Chemistry;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1AudioAgriculture;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1PDFAgriculture;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1QuizzesAndQuestionsAgriculture;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1VideosAgriculture;
+import com.example.teachandlearn.Student.Form1.Documents.Chemistry.Form1AudioChemistry;
+import com.example.teachandlearn.Student.Form1.Documents.Chemistry.Form1QuizzesAndQuestionsChemistry;
 
 
 public class Form1StudentViewContentChemistry extends AppCompatActivity {
@@ -56,7 +51,7 @@ public class Form1StudentViewContentChemistry extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentChemistry.this, Form1VideosChemistry.class);
+                Intent intent = new Intent(Form1StudentViewContentChemistry.this, Form1VideoChemistry.class);
                 startActivity(intent);
             }
         });
@@ -64,7 +59,7 @@ public class Form1StudentViewContentChemistry extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentChemistry.this, Form1QuizzesAndQuestionsAgriculture.class);
+                Intent intent = new Intent(Form1StudentViewContentChemistry.this, Form1QuizzesAndQuestionsChemistry.class);
                 startActivity(intent);
             }
         });

@@ -51,7 +51,7 @@ public class Form1StudentViewContentBible_Knowledge extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentBible_Knowledge.this, Form1VideosBible_Knowledge.class);
+                Intent intent = new Intent(Form1StudentViewContentBible_Knowledge.this, Form1VideoBible_Knowledge.class);
                 startActivity(intent);
             }
         });

@@ -1,7 +1,8 @@
 
 
-package com.example.teachandlearn.Student.Form1.Documents.Biology;
 
+
+package com.example.teachandlearn.Student.Form1.Documents.Biology;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,10 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1AudioAgriculture;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1PDFAgriculture;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1QuizzesAndQuestionsAgriculture;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1VideosAgriculture;
+
 
 
 public class Form1StudentViewContentBiology extends AppCompatActivity {
@@ -56,7 +54,7 @@ public class Form1StudentViewContentBiology extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentBiology.this, Form1VideosBiology.class);
+                Intent intent = new Intent(Form1StudentViewContentBiology.this, Form1VideoBiology.class);
                 startActivity(intent);
             }
         });
@@ -64,7 +62,7 @@ public class Form1StudentViewContentBiology extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentBiology.this, Form1QuizzesAndQuestionsAgriculture.class);
+                Intent intent = new Intent(Form1StudentViewContentBiology.this, Form1QuizzesAndQuestionsBiology.class);
                 startActivity(intent);
             }
         });

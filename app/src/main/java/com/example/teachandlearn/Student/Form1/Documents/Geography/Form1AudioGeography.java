@@ -1,38 +1,29 @@
 
-
-
 package com.example.teachandlearn.Student.Form1.Documents.Geography;
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Form1AudioGeography extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private AudioAdapter adapter;
     private MediaPlayer mediaPlayer;
-    private ChatGPTService chatGPTService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +33,7 @@ public class Form1AudioGeography extends AppCompatActivity {
         mediaPlayer = new MediaPlayer();
         recyclerView = findViewById(R.id.recyclerViewAudio);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new AudioAdapter(new ArrayList<>(), mediaPlayer, new ChatGPTService());
+        adapter = new AudioAdapter(new ArrayList<>(), mediaPlayer);
         recyclerView.setAdapter(adapter);
 
         fetchAudios();
@@ -50,16 +41,9 @@ public class Form1AudioGeography extends AppCompatActivity {
 
     private void fetchAudios() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        String[] paths = {
-
-                "/form1/humanities/geography/audios/"
-
-        };
-
-        for (String path : paths) {
-            StorageReference storageRef = storage.getReference().child(path);
-            fetchFromStorage(storageRef);
-        }
+        String path = "/form1/humanities/geography/audios/";
+        StorageReference storageRef = storage.getReference().child(path);
+        fetchFromStorage(storageRef);
     }
 
     private void fetchFromStorage(StorageReference storageRef) {
@@ -75,22 +59,13 @@ public class Form1AudioGeography extends AppCompatActivity {
                 } else {
                     title = fileName;
                 }
-                list.add(new AudioItem(title, filePath, "", "", "")); // Include an empty string for the comment
+                list.add(new AudioItem(title, filePath, "", "")); // Exclude the comment
             }
-            if (list.isEmpty()) {
-                showNoFilesUploaded();
-            } else {
-                adapter.setAudioList(list);
-            }
+            adapter.setAudioList(list); // Set the fetched list to the adapter
         }).addOnFailureListener(exception -> {
             Log.e("Form1Audio", "Failed to fetch audio files", exception);
             Toast.makeText(this, "Failed to fetch audio files", Toast.LENGTH_SHORT).show();
         });
-    }
-
-    private void showNoFilesUploaded() {
-        adapter.setAudioList(new ArrayList<>());
-        Toast.makeText(this, "No file Uploaded", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -110,14 +85,12 @@ public class Form1AudioGeography extends AppCompatActivity {
         private final String filePath;
         private final String description;
         private final String length;
-        private String comment;
 
-        public AudioItem(String title, String filePath, String description, String length, String comment) {
+        public AudioItem(String title, String filePath, String description, String length) {
             this.title = title;
             this.filePath = filePath;
             this.description = description;
             this.length = length;
-            this.comment = comment;
         }
 
         public String getTitle() {
@@ -135,25 +108,15 @@ public class Form1AudioGeography extends AppCompatActivity {
         public String getLength() {
             return length;
         }
-
-        public String getComment() {
-            return comment;
-        }
-
-        public void setComment(String comment) {
-            this.comment = comment;
-        }
     }
 
     public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHolder> {
         private List<AudioItem> audioList;
         private final MediaPlayer mediaPlayer;
-        private final ChatGPTService chatGPTService;
 
-        public AudioAdapter(List<AudioItem> audioList, MediaPlayer mediaPlayer, ChatGPTService chatGPTService) {
+        public AudioAdapter(List<AudioItem> audioList, MediaPlayer mediaPlayer) {
             this.audioList = audioList;
             this.mediaPlayer = mediaPlayer;
-            this.chatGPTService = chatGPTService;
         }
 
         @NonNull
@@ -170,7 +133,6 @@ public class Form1AudioGeography extends AppCompatActivity {
             holder.textViewTitle.setText(audio.getTitle());
             holder.textViewDescription.setText(audio.getDescription());
             holder.textViewLength.setText(audio.getLength());
-          
 
             holder.itemView.setOnClickListener(v -> {
                 if (mediaPlayer.isPlaying()) {
@@ -197,8 +159,6 @@ public class Form1AudioGeography extends AppCompatActivity {
                     Toast.makeText(holder.itemView.getContext(), "Error playing audio", Toast.LENGTH_SHORT).show();
                 }
             });
-
-
         }
 
         @Override
@@ -209,6 +169,11 @@ public class Form1AudioGeography extends AppCompatActivity {
         public void setAudioList(List<AudioItem> list) {
             this.audioList = list;
             notifyDataSetChanged();
+
+            // Optionally, show toast message only if list is empty
+            if (list.isEmpty()) {
+                Toast.makeText(Form1AudioGeography.this, "No file Uploaded", Toast.LENGTH_SHORT).show();
+            }
         }
 
         public class AudioViewHolder extends RecyclerView.ViewHolder {
@@ -216,17 +181,12 @@ public class Form1AudioGeography extends AppCompatActivity {
             TextView textViewDescription;
             TextView textViewLength;
 
-
             public AudioViewHolder(@NonNull View itemView) {
                 super(itemView);
                 textViewTitle = itemView.findViewById(R.id.textViewAudioTitle);
                 textViewDescription = itemView.findViewById(R.id.textViewAudioDescription);
                 textViewLength = itemView.findViewById(R.id.textViewAudioLength);
-
             }
-
         }
-
     }
-
 }
