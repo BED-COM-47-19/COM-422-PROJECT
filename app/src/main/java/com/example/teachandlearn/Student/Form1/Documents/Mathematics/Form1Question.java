@@ -1,14 +1,11 @@
 package com.example.teachandlearn.Student.Form1.Documents.Mathematics;
+import java.io.Serializable;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class Form1Question extends AppCompatActivity {
+public class Form1Question implements Serializable {
     private String questionText;
-    private String optionA;
-    private String optionB;
-    private String optionC;
-    private String optionD;
+    private String optionA, optionB, optionC, optionD;
     private String correctAnswer;
+    private String userAnswer;  // New field to store the user's answer
 
     public Form1Question(String questionText, String optionA, String optionB, String optionC, String optionD, String correctAnswer) {
         this.questionText = questionText;
@@ -41,5 +38,13 @@ public class Form1Question extends AppCompatActivity {
 
     public String getCorrectAnswer() {
         return correctAnswer;
+    }
+
+    public String getUserAnswer() {
+        return userAnswer;
+    }
+
+    public void setUserAnswer(String userAnswer) {
+        this.userAnswer = userAnswer;
     }
 }

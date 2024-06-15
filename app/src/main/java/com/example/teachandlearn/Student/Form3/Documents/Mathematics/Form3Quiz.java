@@ -38,7 +38,7 @@ public class Form3Quiz extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
+
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,10 +67,76 @@ public class Form3Quiz extends AppCompatActivity {
 
 
         List<Form3Question> questions = new ArrayList<>();
-        questions.add(new Form3Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form3Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form3Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form3Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+
+        questions.add(new Form3Question("Solve the equation: log3(x-1) = 2",
+                "x = 10",
+                "x = 8",
+                "x = 6",
+                "x = 4",
+                "x = 10"));
+
+        questions.add(new Form3Question("Simplify the expression: log2(16)",
+                "4",
+                "2",
+                "8",
+                "6",
+                "4"));
+
+        questions.add(new Form3Question("Find the determinant of the matrix:\n[ [ 3, 2 ], [ 5, 4 ] ]",
+                "2",
+                "4",
+                "-2",
+                "-4",
+                "2"));
+
+        questions.add(new Form3Question("Solve the system of equations:\n2x + y = 7\nx - y = 1",
+                "x = 2, y = 3",
+                "x = 3, y = 2",
+                "x = 4, y = 1",
+                "x = 1, y = 4",
+                "x = 2, y = 3"));
+
+        questions.add(new Form3Question("Calculate the value of 2^{3} \times 2^{-2}",
+                "4",
+                "2",
+                "8",
+                "16",
+                "4"));
+
+        questions.add(new Form3Question("Find the inverse of the matrix:\n[ [ 3, 1 ], [ 2, 4 ] ]",
+                "[ [ 0.4, -0.1 ], [ -0.2, 0.3 ] ]",
+                "[ [ 0.3, -0.2 ], [ -0.1, 0.4 ] ]",
+                "[ [ 0.2, -0.3 ], [ -0.4, 0.1 ] ]",
+                "[ [ -0.3, 0.2 ], [ 0.1, -0.4 ] ]",
+                "[ [ 0.4, -0.1 ], [ -0.2, 0.3 ] ]"));
+
+        questions.add(new Form3Question("Solve for x in the equation: 2^{x} = 16",
+                "x = 4",
+                "x = 3",
+                "x = 2",
+                "x = 1",
+                "x = 4"));
+
+        questions.add(new Form3Question("Find the value of \\sqrt{625}",
+                "25",
+                "20",
+                "30",
+                "35",
+                "25"));
+
+        questions.add(new Form3Question("Calculate the value of \\log_{3}(27)",
+                "3",
+                "2",
+                "4",
+                "5",
+                "3"));
+
+        questions.add(new Form3Question("Solve the equation: 3^{2x-1} = 27",
+                "x = 2",
+                "x = 1",
+                "x = 3",
+                "x = 4",
+                "x = 2"));
 
         return questions;
     }
@@ -85,7 +151,7 @@ public class Form3Quiz extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();

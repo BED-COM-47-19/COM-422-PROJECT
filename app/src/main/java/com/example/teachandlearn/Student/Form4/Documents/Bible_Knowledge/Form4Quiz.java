@@ -38,7 +38,7 @@ public class Form4Quiz extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
+
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,11 +67,75 @@ public class Form4Quiz extends AppCompatActivity {
 
 
         List<Form4Question> questions = new ArrayList<>();
-        questions.add(new Form4Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form4Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form4Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form4Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+        questions.add(new Form4Question("Who was the first king of Israel?",
+                "David",
+                "Solomon",
+                "Saul",
+                "Samuel",
+                "Saul"));
 
+        questions.add(new Form4Question("What is the significance of the Sermon on the Mount?",
+                "It marks the birth of Jesus.",
+                "It contains the core teachings of Jesus about the Kingdom of God.",
+                "It describes the resurrection of Jesus.",
+                "It details the miracles performed by Jesus.",
+                "It contains the core teachings of Jesus about the Kingdom of God."));
+
+        questions.add(new Form4Question("In which book of the Bible is the story of the Exodus found?",
+                "Genesis",
+                "Leviticus",
+                "Numbers",
+                "Exodus",
+                "Exodus"));
+
+        questions.add(new Form4Question("What is the main theme of the book of Proverbs?",
+                "Prophecies about the Messiah",
+                "Wisdom and how to live a righteous life",
+                "The history of Israel",
+                "The life of Jesus",
+                "Wisdom and how to live a righteous life"));
+
+        questions.add(new Form4Question("Who led the Israelites into the Promised Land after Moses' death?",
+                "Aaron",
+                "Joshua",
+                "Caleb",
+                "Gideon",
+                "Joshua"));
+
+        questions.add(new Form4Question("What is the significance of the New Covenant in Christianity?",
+                "It promises land and prosperity to Israel.",
+                "It establishes a new relationship between God and humanity through Jesus Christ.",
+                "It describes the laws given to Moses.",
+                "It details the genealogies of the tribes of Israel.",
+                "It establishes a new relationship between God and humanity through Jesus Christ."));
+
+        questions.add(new Form4Question("Which apostle is known for his missionary journeys in the book of Acts?",
+                "Peter",
+                "James",
+                "John",
+                "Paul",
+                "Paul"));
+
+        questions.add(new Form4Question("In the Bible, what does the term 'Gospel' mean?",
+                "Good News",
+                "Covenant",
+                "Prophecy",
+                "Law",
+                "Good News"));
+
+        questions.add(new Form4Question("What was the main message of John the Baptist?",
+                "Prepare the way for the Lord and repent for the Kingdom of Heaven is near.",
+                "Love your neighbor as yourself.",
+                "Judge not, lest you be judged.",
+                "Render unto Caesar what is Caesar's.",
+                "Prepare the way for the Lord and repent for the Kingdom of Heaven is near."));
+
+        questions.add(new Form4Question("Who wrote the majority of the New Testament letters?",
+                "Peter",
+                "Paul",
+                "James",
+                "John",
+                "Paul"));
         return questions;
     }
 
@@ -85,7 +149,8 @@ public class Form4Quiz extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
+
         }
         else {
             finishQuiz();

@@ -26,9 +26,6 @@ import java.util.List;
 public class TeacherForm1 extends AppCompatActivity {
 
     private Button buttonBack;
-    private Button buttonListEmail;
-    private Button buttonProfile;
-
     private FirebaseDatabase database;
     private DatabaseReference userRef;
     private DatabaseReference teacherRef;
@@ -51,8 +48,7 @@ public class TeacherForm1 extends AppCompatActivity {
         Button buttonHumanities = findViewById(R.id.activity_teacher_form1_humanities);
         Button buttonLanguages = findViewById(R.id.activity_teacher_form1_languages);
         buttonBack = findViewById(R.id.back_button);
-        buttonListEmail = findViewById(R.id.email_list_button);
-        buttonProfile = findViewById(R.id.user_profile_button);
+
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +64,7 @@ public class TeacherForm1 extends AppCompatActivity {
         buttonHumanities.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TeacherForm1.this, TeacherSelectClass.class);
+                Intent intent = new Intent(TeacherForm1.this, TeacherForm1Humanities.class);
                 startActivity(intent);
             }
         });
@@ -82,108 +78,6 @@ public class TeacherForm1 extends AppCompatActivity {
             }
         });
 
-        buttonProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle Profile button click
-                // Retrieve and display user details based on the logged-in user's email
-                FirebaseAuth mAuth = FirebaseAuth.getInstance();
-                FirebaseUser currentUser = mAuth.getCurrentUser();
-
-                if (currentUser != null) {
-                    String userEmail = currentUser.getEmail();
-
-                    userRef.orderByChild("email").equalTo(userEmail).addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-
-
-                            if (dataSnapshot.exists()) {
-                                // Assuming user details are stored under a node named "userDetails"
-                                String userDetails = dataSnapshot.child("Users").getValue(String.class);
-                                if (userDetails != null && !userDetails.isEmpty()) {
-                                    showToast(userDetails);
-                                }
-
-                                else {
-                                    showToast("User details not found.");
-                                }
-                            }
-
-                            else {
-                                showToast("User not found.");
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                            showToast("Failed to retrieve user details.");
-
-                        }
-                    });
-
-                }
-
-                else {
-                    showToast("User not authenticated.");
-                }
-            }
-        });
-
-
-
-        buttonListEmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle Email button click
-                // Retrieve and display emails of students who are in Form1
-                final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser(); // Access currentUser here
-
-                if (currentUser != null) {
-
-                    DatabaseReference form1StudentsRef = database.getReference("student_form1_emails");
-                    form1StudentsRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-
-                            List<String> studentEmails = new ArrayList<>();
-
-
-                            for (DataSnapshot studentSnapshot : dataSnapshot.getChildren()) {
-                                // Assuming student emails are stored under a node named "email" for each user
-                                String email = studentSnapshot.child("email").getValue(String.class);
-                                studentEmails.add(email);
-                            }
-
-                            if (!studentEmails.isEmpty()) {
-                                // Create an Intent to start the Form1PDF activity
-                                Intent intent = new Intent(TeacherForm1.this, Form1PDFAgriculture.class);
-                                // Pass the student emails as an extra with the Intent
-                                intent.putStringArrayListExtra("student_form1_emails", (ArrayList<String>) studentEmails);
-                                // Start the Form1PDF activity
-                                startActivity(intent);
-                            }
-
-                            else {
-                                showToast("No students found in Form1.");
-                            }
-
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                            showToast("Failed to retrieve student emails: " + databaseError.getMessage());
-                        }
-                    });
-
-                }
-
-                else {
-                    showToast("User not authenticated.");
-                }
-            }
-
-        });
 
 
         // Set onClickListener for Back button

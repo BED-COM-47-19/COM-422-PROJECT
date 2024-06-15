@@ -38,7 +38,7 @@ public class Form3Quiz extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
+
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,11 +67,75 @@ public class Form3Quiz extends AppCompatActivity {
 
 
         List<Form3Question> questions = new ArrayList<>();
-        questions.add(new Form3Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form3Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form3Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form3Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+        questions.add(new Form3Question("Who was the leader of the Angolan independence movement against Portuguese colonial rule?",
+                "Agostinho Neto",
+                "Samora Machel",
+                "Patrice Lumumba",
+                "Jonas Savimbi",
+                "Agostinho Neto"));
 
+        questions.add(new Form3Question("What was the name of the liberation movement in Mozambique that fought against Portuguese rule?",
+                "FRELIMO (Mozambique Liberation Front)",
+                "ANC (African National Congress)",
+                "SWAPO (South West Africa People's Organization)",
+                "ZANU (Zimbabwe African National Union)",
+                "FRELIMO (Mozambique Liberation Front)"));
+
+        questions.add(new Form3Question("Which country did Zimbabwe gain independence from in 1980?",
+                "United Kingdom",
+                "Portugal",
+                "Belgium",
+                "South Africa",
+                "United Kingdom"));
+
+        questions.add(new Form3Question("Who was the first President of Zimbabwe after independence?",
+                "Robert Mugabe",
+                "Nelson Mandela",
+                "Ian Smith",
+                "Joshua Nkomo",
+                "Robert Mugabe"));
+
+        questions.add(new Form3Question("What was the name of the pro-independence movement in Namibia?",
+                "SWAPO (South West Africa People's Organization)",
+                "ANC (African National Congress)",
+                "ZANU (Zimbabwe African National Union)",
+                "FRELIMO (Mozambique Liberation Front)",
+                "SWAPO (South West Africa People's Organization)"));
+
+        questions.add(new Form3Question("Which country did Namibia gain independence from in 1990?",
+                "South Africa",
+                "Portugal",
+                "Belgium",
+                "United Kingdom",
+                "South Africa"));
+
+        questions.add(new Form3Question("Who was the first President of Namibia after independence?",
+                "Sam Nujoma",
+                "Hifikepunye Pohamba",
+                "Andimba Toivo ya Toivo",
+                "Hage Geingob",
+                "Sam Nujoma"));
+
+        questions.add(new Form3Question("Who was the first President of Zambia after independence?",
+                "Kenneth Kaunda",
+                "Julius Nyerere",
+                "Jomo Kenyatta",
+                "Hastings Banda",
+                "Kenneth Kaunda"));
+
+        questions.add(new Form3Question("Which country did Malawi gain independence from in 1964?",
+                "United Kingdom",
+                "Portugal",
+                "Belgium",
+                "South Africa",
+                "United Kingdom"));
+
+        questions.add(new Form3Question("Who was the first President of Malawi after independence?",
+                "Hastings Banda",
+                "Kamuzu Chibambo",
+                "Joyce Banda",
+                "Bakili Muluzi",
+                "Hastings Banda"));
         return questions;
     }
 
@@ -85,7 +149,7 @@ public class Form3Quiz extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();

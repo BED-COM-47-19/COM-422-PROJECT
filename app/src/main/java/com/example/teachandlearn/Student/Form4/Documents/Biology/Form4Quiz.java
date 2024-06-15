@@ -38,7 +38,7 @@ public class Form4Quiz extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
+
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,10 +67,75 @@ public class Form4Quiz extends AppCompatActivity {
 
 
         List<Form4Question> questions = new ArrayList<>();
-        questions.add(new Form4Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form4Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form4Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form4Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+        questions.add(new Form4Question("What is the role of ribosomes in a cell?",
+                "Synthesize proteins from amino acids.",
+                "Store genetic information.",
+                "Produce energy in the form of ATP.",
+                "Control the cell's activities.",
+                "Synthesize proteins from amino acids."));
+
+        questions.add(new Form4Question("Explain the process of photosynthesis.",
+                "The conversion of light energy into chemical energy, producing glucose and oxygen from carbon dioxide and water.",
+                "The breakdown of glucose to release energy in the form of ATP.",
+                "The transfer of genetic information from DNA to RNA.",
+                "The movement of water and nutrients from roots to leaves.",
+                "The conversion of light energy into chemical energy, producing glucose and oxygen from carbon dioxide and water."));
+
+        questions.add(new Form4Question("What is the function of the mitochondria in a cell?",
+                "Generate ATP through cellular respiration.",
+                "Store and transmit genetic information.",
+                "Produce ribosomes for protein synthesis.",
+                "Regulate the cell's osmotic balance.",
+                "Generate ATP through cellular respiration."));
+
+        questions.add(new Form4Question("Describe the structure and function of the human heart.",
+                "A muscular organ with four chambers that pumps blood throughout the body, supplying oxygen and nutrients while removing waste products.",
+                "An organ that filters blood, removing toxins and waste products.",
+                "A gland that secretes hormones regulating metabolism.",
+                "A vessel that carries oxygenated blood from the lungs to the heart.",
+                "A muscular organ with four chambers that pumps blood throughout the body, supplying oxygen and nutrients while removing waste products."));
+
+        questions.add(new Form4Question("What is the role of enzymes in biological reactions?",
+                "Act as catalysts, speeding up the rate of biochemical reactions without being consumed.",
+                "Provide structural support to cells.",
+                "Store genetic information in the form of DNA.",
+                "Transport oxygen in the blood.",
+                "Act as catalysts, speeding up the rate of biochemical reactions without being consumed."));
+
+        questions.add(new Form4Question("Explain the process of mitosis.",
+                "A type of cell division resulting in two identical daughter cells with the same number of chromosomes as the parent cell.",
+                "The process by which cells produce gametes with half the number of chromosomes.",
+                "The division of the cytoplasm in a cell.",
+                "The replication of DNA in preparation for cell division.",
+                "A type of cell division resulting in two identical daughter cells with the same number of chromosomes as the parent cell."));
+
+        questions.add(new Form4Question("What are the main stages of the cell cycle?",
+                "Interphase, mitosis, and cytokinesis.",
+                "Glycolysis, Krebs cycle, and electron transport chain.",
+                "Prophase, metaphase, anaphase, and telophase.",
+                "Transcription, translation, and replication.",
+                "Interphase, mitosis, and cytokinesis."));
+
+        questions.add(new Form4Question("Describe the structure and function of DNA.",
+                "A double-helix molecule composed of nucleotides that carries genetic information necessary for the growth, development, and reproduction of organisms.",
+                "A single-stranded molecule that carries the instructions for protein synthesis.",
+                "A protein structure that forms the framework of the cell.",
+                "A lipid molecule that stores energy in the form of fat.",
+                "A double-helix molecule composed of nucleotides that carries genetic information necessary for the growth, development, and reproduction of organisms."));
+
+        questions.add(new Form4Question("What is the role of the circulatory system?",
+                "Transport blood, nutrients, gases, and waste products throughout the body.",
+                "Provide structural support to the body.",
+                "Regulate the body's temperature and hormone levels.",
+                "Facilitate the exchange of gases in the lungs.",
+                "Transport blood, nutrients, gases, and waste products throughout the body."));
+
+        questions.add(new Form4Question("Explain the concept of natural selection.",
+                "The process by which organisms better adapted to their environment tend to survive and produce more offspring, leading to evolution.",
+                "The artificial breeding of plants and animals for desired traits.",
+                "The random changes in the genetic makeup of a population over time.",
+                "The movement of organisms from one environment to another.",
+                "The process by which organisms better adapted to their environment tend to survive and produce more offspring, leading to evolution."));
 
         return questions;
     }
@@ -85,7 +150,7 @@ public class Form4Quiz extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();

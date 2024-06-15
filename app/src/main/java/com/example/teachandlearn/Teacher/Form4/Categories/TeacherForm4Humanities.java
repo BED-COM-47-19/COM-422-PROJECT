@@ -12,7 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Teacher.Form4.Uploads.TeacherForm4Uploads;
+import com.example.teachandlearn.Teacher.Form4.Uploads.Bible_Knowledge.TeacherForm4Bible_KnowledgeUploads;
+import com.example.teachandlearn.Teacher.Form4.Uploads.Geography.TeacherForm4GeographyUploads;
+import com.example.teachandlearn.Teacher.Form4.Uploads.History.TeacherForm4HistoryUploads;
+import com.example.teachandlearn.Teacher.Form4.Uploads.Life_Skills.TeacherForm4Life_SkillsUploads;
+import com.example.teachandlearn.Teacher.Form4.Uploads.Social_Studies.TeacherForm4Social_StudiesUploads;
 
 
 public class TeacherForm4Humanities extends AppCompatActivity {
@@ -122,8 +126,22 @@ public class TeacherForm4Humanities extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(TeacherForm4Humanities.this, TeacherForm4Uploads.class);
-        startActivity(intent);
+
+
+        Intent intent1 = new Intent(TeacherForm4Humanities.this, TeacherForm4HistoryUploads.class);
+        startActivity(intent1);
+
+        Intent intent2 = new Intent(TeacherForm4Humanities.this, TeacherForm4Bible_KnowledgeUploads.class);
+        startActivity(intent2);
+
+        Intent intent3 = new Intent(TeacherForm4Humanities.this, TeacherForm4Life_SkillsUploads.class);
+        startActivity(intent3);
+
+        Intent intent4 = new Intent(TeacherForm4Humanities.this, TeacherForm4Social_StudiesUploads.class);
+        startActivity(intent4);
+
+        Intent intent5 = new Intent(TeacherForm4Humanities.this, TeacherForm4GeographyUploads.class);
+        startActivity(intent5);
     }
 
     @Override

@@ -38,7 +38,6 @@ public class Form1Quiz extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,10 +66,77 @@ public class Form1Quiz extends AppCompatActivity {
 
 
         List<Form1Question> questions = new ArrayList<>();
-        questions.add(new Form1Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form1Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form1Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form1Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+
+
+        questions.add(new Form1Question("What is the SI unit of force?",
+                "Newton (N)",
+                "Meter (m)",
+                "Gram (g)",
+                "Second (s)",
+                "Newton (N)"));
+
+        questions.add(new Form1Question("What is the formula for calculating speed?",
+                "Speed = Distance × Time",
+                "Speed = Time / Distance",
+                "Speed = Distance / Time",
+                "Speed = Time - Distance",
+                "Speed = Distance / Time"));
+
+        questions.add(new Form1Question("What is the acceleration of an object if it moves with a constant speed?",
+                "Zero",
+                "Depends on the direction",
+                "Positive",
+                "Negative",
+                "Zero"));
+
+        questions.add(new Form1Question("State the law of conservation of energy.",
+                "Energy cannot be created or destroyed, only transformed from one form to another",
+                "Energy can be created but not destroyed",
+                "Energy can be destroyed but not created",
+                "Energy can disappear",
+                "Energy cannot be created or destroyed, only transformed from one form to another"));
+
+        questions.add(new Form1Question("What is the unit of electric current?",
+                "Volt (V)",
+                "Ohm (Ω)",
+                "Watt (W)",
+                "Ampere (A)",
+                "Ampere (A)"));
+
+        questions.add(new Form1Question("Define 'pressure' in physics.",
+                "Force per unit area",
+                "Mass per unit volume",
+                "Distance traveled per unit time",
+                "Energy per unit charge",
+                "Force per unit area"));
+
+        questions.add(new Form1Question("What is the principle of moments?",
+                "The sum of clockwise moments is equal to the sum of anticlockwise moments about a pivot",
+                "The sum of clockwise moments is greater than the sum of anticlockwise moments",
+                "The sum of clockwise moments is less than the sum of anticlockwise moments",
+                "The sum of moments is always zero",
+                "The sum of clockwise moments is equal to the sum of anticlockwise moments about a pivot"));
+
+        questions.add(new Form1Question("What is the unit of power?",
+                "Joule (J)",
+                "Newton (N)",
+                "Watt (W)",
+                "Meter per second (m/s)",
+                "Watt (W)"));
+
+        questions.add(new Form1Question("State Newton's first law of motion.",
+                "An object at rest will remain at rest, and an object in motion will continue to move at a constant velocity unless acted upon by a net external force",
+                "Force is equal to mass times acceleration (F = ma)",
+                "For every action, there is an equal and opposite reaction",
+                "The force exerted by an object is equal to the object's mass times acceleration",
+                "An object at rest will remain at rest, and an object in motion will continue to move at a constant velocity unless acted upon by a net external force"));
+
+        questions.add(new Form1Question("What is the relationship between wavelength and frequency of a wave?",
+                "Wavelength × Frequency = Speed of the wave",
+                "Wavelength / Frequency = Speed of the wave",
+                "Wavelength + Frequency = Speed of the wave",
+                "Wavelength - Frequency = Speed of the wave",
+                "Wavelength × Frequency = Speed of the wave"));
 
         return questions;
     }
@@ -85,7 +151,7 @@ public class Form1Quiz extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();

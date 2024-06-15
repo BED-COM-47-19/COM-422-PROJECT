@@ -38,7 +38,7 @@ public class Form4Quiz extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
+
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,12 +67,9 @@ public class Form4Quiz extends AppCompatActivity {
 
 
         List<Form4Question> questions = new ArrayList<>();
-        questions.add(new Form4Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form4Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form4Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form4Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
 
         return questions;
+
     }
 
     private void displayQuestion() {
@@ -85,7 +82,7 @@ public class Form4Quiz extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();

@@ -127,7 +127,7 @@
                 android:background="@drawable/rounded_button_background"
                 android:backgroundTint="@color/physics_button_color"
                 android:drawableEnd="@drawable/ic_physics"
-                android:text="HISTORY"
+                android:text="PHYSICS"
                 android:textColor="@android:color/white"
                 android:textSize="15dp"
                 android:textStyle="bold" />

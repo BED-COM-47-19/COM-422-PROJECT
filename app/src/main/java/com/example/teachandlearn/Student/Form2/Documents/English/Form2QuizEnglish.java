@@ -38,7 +38,6 @@ public class Form2QuizEnglish extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,10 +66,81 @@ public class Form2QuizEnglish extends AppCompatActivity {
 
 
         List<Form2QuestionEnglish> questions = new ArrayList<>();
-        questions.add(new Form2QuestionEnglish("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form2QuestionEnglish("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form2QuestionEnglish("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form2QuestionEnglish("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+
+        questions.add(new Form2QuestionEnglish("Read the following passage:\n\n"
+                + "The sun was setting behind the hills, casting a warm orange glow over the valley. "
+                + "Birds were returning to their nests, chirping happily as they settled for the night. "
+                + "What is the mood of this passage?",
+                "Excitement",
+                "Sadness",
+                "Calmness",
+                "Anger",
+                "Calmness"));
+
+        questions.add(new Form2QuestionEnglish("What is the meaning of the word 'perplexed'?",
+                "Confused",
+                "Happy",
+                "Angry",
+                "Excited",
+                "Confused"));
+
+        questions.add(new Form2QuestionEnglish("Choose the correct sentence:\n\n"
+                + "a) She don't like cheese.\n"
+                + "b) He doesn't like cheese.",
+                "a",
+                "b",
+                "Both are correct",
+                "Neither is correct",
+                "b"));
+
+        questions.add(new Form2QuestionEnglish("Who is the protagonist in the novel 'To Kill a Mockingbird'?",
+                "Atticus Finch",
+                "Scout Finch",
+                "Boo Radley",
+                "Mayella Ewell",
+                "Scout Finch"));
+
+        questions.add(new Form2QuestionEnglish("Write a synonym for 'happy'.",
+                "Sad",
+                "Joyful",
+                "Angry",
+                "Tired",
+                "Joyful"));
+
+        questions.add(new Form2QuestionEnglish("What is the central theme of the poem 'The Road Not Taken' by Robert Frost?",
+                "Regret",
+                "Celebration",
+                "Adventure",
+                "Hope",
+                "Regret"));
+
+        questions.add(new Form2QuestionEnglish("Which literary device is used in the phrase 'time flies'?",
+                "Simile",
+                "Metaphor",
+                "Personification",
+                "Hyperbole",
+                "Metaphor"));
+
+        questions.add(new Form2QuestionEnglish("What are the traits of Sherlock Holmes?",
+                "Kind and shy",
+                "Brave and honest",
+                "Intelligent and observant",
+                "Cruel and mean",
+                "Intelligent and observant"));
+
+        questions.add(new Form2QuestionEnglish("Do you agree or disagree with the statement: 'Reading fiction books is more beneficial than reading non-fiction books'?",
+                "Agree",
+                "Disagree",
+                "Partially agree",
+                "Not sure",
+                "Depends on personal preference"));
+
+        questions.add(new Form2QuestionEnglish("Which sentence uses correct punctuation?",
+                "I went to the store and bought milk apples and bread",
+                "I went to the store, and bought milk, apples, and bread",
+                "I went to the store and bought milk, apples, and bread.",
+                "I went to the store and bought milk, apples and bread",
+                "I went to the store, and bought milk, apples, and bread"));
 
         return questions;
     }
@@ -85,7 +155,7 @@ public class Form2QuizEnglish extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();

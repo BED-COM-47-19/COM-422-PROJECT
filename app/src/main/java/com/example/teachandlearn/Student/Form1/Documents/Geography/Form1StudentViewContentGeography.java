@@ -30,7 +30,7 @@ public class Form1StudentViewContentGeography extends AppCompatActivity {
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
         buttonBack = findViewById(R.id.back_button);
-        buttonChat = findViewById(R.id.button_chat);
+
 
         // Set click listeners for each button
         buttonPDF.setOnClickListener(new View.OnClickListener() {
@@ -74,13 +74,7 @@ public class Form1StudentViewContentGeography extends AppCompatActivity {
             }
         });
 
-        buttonChat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open chat interface
-                openChatInterface();
-            }
-        });
+
 
     }
 

@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Teacher.Form1.Uploads.Chichewa.TeacherForm1ChichewaUploads;
+import com.example.teachandlearn.Teacher.Form1.Uploads.English.TeacherForm1EnglishUploads;
 
 
 public class TeacherForm1Languages extends AppCompatActivity {
@@ -87,8 +89,12 @@ public class TeacherForm1Languages extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(TeacherForm1Languages.this, TeacherForm1Uploads.class);
-        startActivity(intent);
+
+        Intent intent1 = new Intent(TeacherForm1Languages.this, TeacherForm1EnglishUploads.class);
+        Intent intent2 = new Intent(TeacherForm1Languages.this, TeacherForm1ChichewaUploads.class);
+
+        startActivity(intent1);
+        startActivity(intent2);
     }
     @Override
     public void onBackPressed() {

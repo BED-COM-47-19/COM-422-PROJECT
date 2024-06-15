@@ -38,7 +38,7 @@ public class Form4Quiz extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
+
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,11 +67,75 @@ public class Form4Quiz extends AppCompatActivity {
 
 
         List<Form4Question> questions = new ArrayList<>();
-        questions.add(new Form4Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form4Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form4Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form4Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+        questions.add(new Form4Question("What is the molecular formula of glucose?",
+                "C6H12O6",
+                "C2H6O2",
+                "CH3COOH",
+                "C6H6",
+                "C6H12O6"));
 
+        questions.add(new Form4Question("What is the process of electrolysis?",
+                "The chemical decomposition produced by passing an electric current through a liquid or solution containing ions.",
+                "The combination of elements to form a compound.",
+                "The process of filtering a solid from a liquid.",
+                "The physical change from a solid to a liquid.",
+                "The chemical decomposition produced by passing an electric current through a liquid or solution containing ions."));
+
+        questions.add(new Form4Question("Which gas is produced when hydrochloric acid reacts with zinc?",
+                "Oxygen",
+                "Nitrogen",
+                "Hydrogen",
+                "Carbon dioxide",
+                "Hydrogen"));
+
+        questions.add(new Form4Question("What is the main component of natural gas?",
+                "Ethane",
+                "Propane",
+                "Butane",
+                "Methane",
+                "Methane"));
+
+        questions.add(new Form4Question("What is Avogadro's number?",
+                "6.022 × 10^23",
+                "3.14 × 10^23",
+                "1.602 × 10^-19",
+                "9.81 × 10^2",
+                "6.022 × 10^23"));
+
+        questions.add(new Form4Question("What is the pH value of a neutral solution at 25°C?",
+                "7",
+                "0",
+                "14",
+                "4",
+                "7"));
+
+        questions.add(new Form4Question("Which of the following is an example of a strong acid?",
+                "Hydrochloric acid",
+                "Acetic acid",
+                "Formic acid",
+                "Carbonic acid",
+                "Hydrochloric acid"));
+
+        questions.add(new Form4Question("What is the electron configuration of a sodium atom?",
+                "1s^2 2s^2 2p^6 3s^1",
+                "1s^2 2s^2 2p^5 3s^1",
+                "1s^2 2s^2 2p^4 3s^2",
+                "1s^2 2s^2 2p^3 3s^3",
+                "1s^2 2s^2 2p^6 3s^1"));
+
+        questions.add(new Form4Question("What type of bond is formed when two atoms share electrons?",
+                "Ionic bond",
+                "Hydrogen bond",
+                "Metallic bond",
+                "Covalent bond",
+                "Covalent bond"));
+
+        questions.add(new Form4Question("What is the empirical formula of a compound that contains 40% carbon, 6.7% hydrogen, and 53.3% oxygen by mass?",
+                "CH2O",
+                "C2H2O2",
+                "C3H6O3",
+                "CH4O",
+                "CH2O"));
         return questions;
     }
 
@@ -85,7 +149,7 @@ public class Form4Quiz extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();

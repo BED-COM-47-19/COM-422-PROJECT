@@ -183,14 +183,14 @@ public class TeacherLogIn extends AppCompatActivity {
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
                             saveCredentials(email, password);
-                            startActivity(new Intent(TeacherLogIn.this, StudentSelectClass.class));
+                            startActivity(new Intent(TeacherLogIn.this, TeacherSelectClass.class));
                         } else {
                             Toast.makeText(TeacherLogIn.this, "Email or Password Incorrect.", Toast.LENGTH_SHORT).show();
                         }
                     });
         } else {
             if (checkCredentials(email, password)) {
-                startActivity(new Intent(TeacherLogIn.this, StudentSelectClass.class));
+                startActivity(new Intent(TeacherLogIn.this, TeacherSelectClass.class));
             } else {
                 Toast.makeText(TeacherLogIn.this, "Invalid credentials or no network available.", Toast.LENGTH_SHORT).show();
             }

@@ -38,7 +38,6 @@ public class Form3QuizEnglish extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,10 +66,76 @@ public class Form3QuizEnglish extends AppCompatActivity {
 
 
         List<Form3QuestionEnglish> questions = new ArrayList<>();
-        questions.add(new Form3QuestionEnglish("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form3QuestionEnglish("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form3QuestionEnglish("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form3QuestionEnglish("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+
+        questions.add(new Form3QuestionEnglish("Identify the part of speech of the word 'quickly' in the sentence: She ran quickly to catch the bus.",
+                "Adverb",
+                "Verb",
+                "Adjective",
+                "Noun",
+                "Adverb"));
+
+        questions.add(new Form3QuestionEnglish("In the sentence 'The cat sat on the mat.', what is the prepositional phrase?",
+                "On the mat",
+                "The cat sat",
+                "The cat",
+                "The mat",
+                "On the mat"));
+
+        questions.add(new Form3QuestionEnglish("Identify the type of clause in the sentence: 'Although she studied hard, she failed the exam.'",
+                "Adverbial clause",
+                "Noun clause",
+                "Relative clause",
+                "Independent clause",
+                "Adverbial clause"));
+
+        questions.add(new Form3QuestionEnglish("What is the function of the gerund phrase in the sentence: 'Swimming in the lake is his favorite hobby.'",
+                "Subject",
+                "Object",
+                "Predicate",
+                "Adverb",
+                "Subject"));
+
+        questions.add(new Form3QuestionEnglish("Which word is a conjunction in the sentence: 'He wanted to go, but he had to stay.'",
+                "But",
+                "He",
+                "Go",
+                "Wanted",
+                "But"));
+
+        questions.add(new Form3QuestionEnglish("Identify the type of sentence: 'Will you go to the party?'",
+                "Interrogative",
+                "Declarative",
+                "Imperative",
+                "Exclamatory",
+                "Interrogative"));
+
+        questions.add(new Form3QuestionEnglish("What is the correct question tag for the sentence: 'She is coming, _____?'",
+                "Isn't she?",
+                "Is she?",
+                "Doesn't she?",
+                "Does she?",
+                "Isn't she?"));
+
+        questions.add(new Form3QuestionEnglish("In the sentence 'The book that I borrowed is on the table.', what type of clause is 'that I borrowed'?",
+                "Relative clause",
+                "Adverbial clause",
+                "Noun clause",
+                "Independent clause",
+                "Relative clause"));
+
+        questions.add(new Form3QuestionEnglish("Identify the part of speech of the word 'beautiful' in the sentence: 'She has a beautiful voice.'",
+                "Adjective",
+                "Noun",
+                "Verb",
+                "Adverb",
+                "Adjective"));
+
+        questions.add(new Form3QuestionEnglish("What is the function of the infinitive phrase in the sentence: 'To swim in the ocean is his dream.'",
+                "Subject",
+                "Object",
+                "Predicate",
+                "Adverb",
+                "Subject"));
 
         return questions;
     }
@@ -85,7 +150,7 @@ public class Form3QuizEnglish extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();

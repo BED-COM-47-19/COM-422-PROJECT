@@ -38,7 +38,7 @@ public class Form4Quiz extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
+
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,10 +67,76 @@ public class Form4Quiz extends AppCompatActivity {
 
 
         List<Form4Question> questions = new ArrayList<>();
-        questions.add(new Form4Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form4Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form4Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form4Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+
+        questions.add(new Form4Question("Who was the Malawian nationalist leader who led the country to independence?",
+                "Hastings Banda",
+                "John Chilembwe",
+                "Orton Chirwa",
+                "Kamuzu Chibambo",
+                "Hastings Banda"));
+
+        questions.add(new Form4Question("What event triggered the beginning of World War I in 1914?",
+                "Assassination of Archduke Franz Ferdinand",
+                "Battle of the Somme",
+                "Treaty of Versailles",
+                "Russian Revolution",
+                "Assassination of Archduke Franz Ferdinand"));
+
+        questions.add(new Form4Question("Which treaty formally ended World War I in 1919?",
+                "Treaty of Versailles",
+                "Treaty of Trianon",
+                "Treaty of Saint-Germain",
+                "Treaty of Neuilly",
+                "Treaty of Versailles"));
+
+        questions.add(new Form4Question("Who was the leader of Nazi Germany during World War II?",
+                "Adolf Hitler",
+                "Benito Mussolini",
+                "Joseph Stalin",
+                "Winston Churchill",
+                "Adolf Hitler"));
+
+        questions.add(new Form4Question("Which battle is often considered the turning point for the Allies in World War II?",
+                "Battle of Stalingrad",
+                "Battle of Midway",
+                "D-Day Invasion",
+                "Battle of El Alamein",
+                "Battle of Stalingrad"));
+
+        questions.add(new Form4Question("What was the name of the ship that carried the pilgrims to America in 1620?",
+                "Mayflower",
+                "Santa Maria",
+                "Nina",
+                "Endeavour",
+                "Mayflower"));
+
+        questions.add(new Form4Question("Who wrote the Communist Manifesto in 1848?",
+                "Karl Marx and Friedrich Engels",
+                "Vladimir Lenin",
+                "Joseph Stalin",
+                "Mao Zedong",
+                "Karl Marx and Friedrich Engels"));
+
+        questions.add(new Form4Question("What was the name of the last Russian Tsar who abdicated in 1917?",
+                "Nicholas II",
+                "Alexander III",
+                "Peter the Great",
+                "Ivan the Terrible",
+                "Nicholas II"));
+
+        questions.add(new Form4Question("Which country was ruled by the dictator Francisco Franco from 1939 to 1975?",
+                "Spain",
+                "Italy",
+                "Germany",
+                "Portugal",
+                "Spain"));
+
+        questions.add(new Form4Question("What was the name of the peace treaty that ended the Korean War in 1953?",
+                "Armistice Agreement",
+                "Geneva Accords",
+                "Potsdam Agreement",
+                "Yalta Conference",
+                "Armistice Agreement"));
 
         return questions;
     }
@@ -85,7 +151,7 @@ public class Form4Quiz extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();

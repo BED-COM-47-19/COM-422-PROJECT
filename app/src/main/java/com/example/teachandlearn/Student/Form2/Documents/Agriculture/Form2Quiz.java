@@ -31,14 +31,13 @@ public class Form2Quiz extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_quizzes);
+        setContentView(R.layout.activity_form2_agri_quiz);
 
         questionTextView = findViewById(R.id.questionTextView);
         optionARadioButton = findViewById(R.id.optionARadioButton);
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,10 +66,76 @@ public class Form2Quiz extends AppCompatActivity {
 
 
         List<Form2Question> questions = new ArrayList<>();
-        questions.add(new Form2Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form2Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form2Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form2Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+
+        questions.add(new Form2Question("What is the primary economic activity in rural Malawi?",
+                "Fishing",
+                "Mining",
+                "Agriculture",
+                "Manufacturing",
+                "Agriculture"));
+
+        questions.add(new Form2Question("Name two types of soil commonly found in Malawi.",
+                "Red soil and sandy soil",
+                "Loamy soil and clay soil",
+                "Black soil and volcanic soil",
+                "Alluvial soil and peaty soil",
+                "Red soil and sandy soil"));
+
+        questions.add(new Form2Question("What is crop rotation?",
+                "Growing the same crop year after year",
+                "Growing different crops in the same field in a planned sequence",
+                "Using chemical fertilizers for crop growth",
+                "Harvesting crops at different times of the year",
+                "Growing different crops in the same field in a planned sequence"));
+
+        questions.add(new Form2Question("What are the benefits of using organic fertilizers?",
+                "They are cheaper than chemical fertilizers",
+                "They improve soil fertility and structure",
+                "They have a longer shelf life",
+                "They require less application",
+                "They improve soil fertility and structure"));
+
+        questions.add(new Form2Question("Name two examples of leguminous crops.",
+                "Maize and rice",
+                "Beans and groundnuts",
+                "Wheat and barley",
+                "Cotton and tobacco",
+                "Beans and groundnuts"));
+
+        questions.add(new Form2Question("What is irrigation in agriculture?",
+                "Draining excess water from fields",
+                "Supplying water to crops by artificial means",
+                "Fertilizing crops using chemical substances",
+                "Harvesting crops mechanically",
+                "Supplying water to crops by artificial means"));
+
+        questions.add(new Form2Question("What is pest control in agriculture?",
+                "Using pests to control crop growth",
+                "Using chemicals to kill pests",
+                "Using biological methods to manage pests",
+                "Removing crops affected by pests",
+                "Using biological methods to manage pests"));
+
+        questions.add(new Form2Question("Name a common disease that affects maize plants in Malawi.",
+                "Foot and mouth disease",
+                "Maize streak virus",
+                "Malaria",
+                "Dengue fever",
+                "Maize streak virus"));
+
+        questions.add(new Form2Question("Define agroforestry.",
+                "Growing crops without using any fertilizers",
+                "Growing trees together with crops or animals",
+                "Fishing in agricultural fields",
+                "Mining in agricultural areas",
+                "Growing trees together with crops or animals"));
+
+        questions.add(new Form2Question("What is livestock farming?",
+                "Growing crops for domestic consumption",
+                "Rearing animals for commercial purposes",
+                "Selling animal products in the market",
+                "Keeping animals as pets",
+                "Rearing animals for commercial purposes"));
 
         return questions;
     }
@@ -85,7 +150,7 @@ public class Form2Quiz extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();

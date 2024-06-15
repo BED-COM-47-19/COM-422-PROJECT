@@ -1,68 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
+        android:id="@+id/questionNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
         android:id="@+id/questionTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Question"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:padding="16dp" />
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="16dp"/>
 
     <RadioGroup
         android:id="@+id/optionsGroup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
 
         <RadioButton
             android:id="@+id/optionARadioButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="Option A" />
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
 
         <RadioButton
             android:id="@+id/optionBRadioButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="Option B" />
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
 
         <RadioButton
             android:id="@+id/optionCRadioButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="Option C" />
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
 
         <RadioButton
             android:id="@+id/optionDRadioButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="Option D" />
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
     </RadioGroup>
 
     <Button
         android:id="@+id/nextButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_gravity="end"
         android:textColor="@color/white"
-        android:layout_marginTop="300dp"
-        android:layout_marginLeft="270dp"
-        android:layout_marginRight="20dp"
         android:background="@drawable/back_button_rounderd"
-        android:textStyle="bold"
-        android:text="Next" />
+        android:layout_marginTop="16dp"/>
 
-    <!-- Back Button -->
     <Button
         android:id="@+id/back_button"
         android:layout_width="80dp"
@@ -70,18 +75,8 @@
         android:layout_gravity="bottom|start"
         android:layout_marginBottom="1dp"
         android:text="BACK"
-        android:layout_marginTop="-50dp"
+        android:layout_marginTop="-40dp"
         android:textColor="@color/white"
         android:background="@drawable/back_button_rounderd"
         android:textSize="20dp" />
-
-    <ProgressBar
-        android:id="@+id/questionProgressBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:progress="0"
-        android:textColor="@color/black"
-        android:max="100"
-        android:paddingTop="16dp" />
-
 </LinearLayout>

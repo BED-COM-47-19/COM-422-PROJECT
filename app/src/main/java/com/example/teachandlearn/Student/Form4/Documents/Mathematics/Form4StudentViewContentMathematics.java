@@ -10,6 +10,10 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2Audio;
+import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2PDF;
+import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2QuizzesAndQuestions;
+import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2Videos;
 
 
 public class Form4StudentViewContentMathematics extends AppCompatActivity {

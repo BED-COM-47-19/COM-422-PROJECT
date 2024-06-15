@@ -1,10 +1,7 @@
-
-
 package com.example.teachandlearn.Student.Form1.Documents.Life_Skills;
 
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -21,7 +18,6 @@ public class Form1Quiz extends AppCompatActivity {
 
     private TextView questionTextView;
     private RadioButton optionARadioButton, optionBRadioButton, optionCRadioButton, optionDRadioButton;
-    private ProgressBar questionProgressBar;
     private List<Form1Question> questions;
     private int currentQuestionIndex = 0;
     private int correctAnswers = 0;
@@ -38,7 +34,6 @@ public class Form1Quiz extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -64,30 +59,90 @@ public class Form1Quiz extends AppCompatActivity {
     }
 
     private List<Form1Question> loadQuestions() {
-
-
         List<Form1Question> questions = new ArrayList<>();
-        questions.add(new Form1Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form1Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form1Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form1Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+
+        questions.add(new Form1Question("What is the importance of good hygiene?",
+                "It keeps you healthy and prevents diseases",
+                "It saves money",
+                "It helps you make more friends",
+                "It is not important",
+                "It keeps you healthy and prevents diseases"));
+
+        questions.add(new Form1Question("How can you manage your time effectively?",
+                "Procrastinate and do tasks at the last minute",
+                "Create a schedule and prioritize tasks",
+                "Do only one task at a time",
+                "Avoid setting deadlines",
+                "Create a schedule and prioritize tasks"));
+
+        questions.add(new Form1Question("Why is it important to respect others?",
+                "It is not important",
+                "Respect helps build positive relationships",
+                "It makes you appear weak",
+                "Respect makes you look superior",
+                "Respect helps build positive relationships"));
+
+        questions.add(new Form1Question("What are the benefits of regular exercise?",
+                "It wastes time",
+                "It increases the risk of diseases",
+                "It improves physical and mental health",
+                "It is boring",
+                "It improves physical and mental health"));
+
+        questions.add(new Form1Question("How can you handle peer pressure effectively?",
+                "Give in to peer pressure to fit in",
+                "Stay true to your values and beliefs",
+                "Ignore your friends' opinions",
+                "Never interact with peers",
+                "Stay true to your values and beliefs"));
+
+        questions.add(new Form1Question("Why is it important to have a positive attitude?",
+                "It doesn't matter",
+                "It attracts negative people",
+                "It improves your mood and outlook on life",
+                "It makes you unpopular",
+                "It improves your mood and outlook on life"));
+
+        questions.add(new Form1Question("How can you handle conflicts peacefully?",
+                "Use physical force",
+                "Yell and shout",
+                "Listen actively and discuss calmly",
+                "Avoid the person forever",
+                "Listen actively and discuss calmly"));
+
+        questions.add(new Form1Question("What are the advantages of setting goals?",
+                "Goals limit your potential",
+                "Goals help you focus and achieve success",
+                "Goals are unnecessary",
+                "Goals make you lazy",
+                "Goals help you focus and achieve success"));
+
+        questions.add(new Form1Question("How can you improve your communication skills?",
+                "Avoid talking to others",
+                "Listen actively and speak clearly",
+                "Interrupt others while they are speaking",
+                "Use complicated words",
+                "Listen actively and speak clearly"));
+
+        questions.add(new Form1Question("Why is it important to develop problem-solving skills?",
+                "To avoid challenges",
+                "To become more resilient and adaptable",
+                "To ignore problems",
+                "To blame others",
+                "To become more resilient and adaptable"));
 
         return questions;
     }
 
     private void displayQuestion() {
-
         if (currentQuestionIndex < questions.size()) {
-
             Form1Question currentQuestion = questions.get(currentQuestionIndex);
             questionTextView.setText(currentQuestion.getQuestionText());
             optionARadioButton.setText(currentQuestion.getOptionA());
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
-        }
-        else {
+        } else {
             finishQuiz();
         }
     }

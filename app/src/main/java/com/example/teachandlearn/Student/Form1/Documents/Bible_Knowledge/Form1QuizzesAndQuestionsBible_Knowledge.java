@@ -30,14 +30,12 @@ public class Form1QuizzesAndQuestionsBible_Knowledge extends AppCompatActivity {
     private ArrayList<String> pdfNames;
     private ArrayList<String> pdfUrls; // To store URLs of the PDFs
     private ChatGPTService chatGPTService;
-    private EditText editTextComment;
-    private Button buttonSubmitComment;
-    private ArrayList<String> comments;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_quizzes_and_questions);
+        setContentView(R.layout.activity_form1_quizzes);
 
         listView = findViewById(R.id.list_view);
         pdfNames = new ArrayList<>();
@@ -64,79 +62,8 @@ public class Form1QuizzesAndQuestionsBible_Knowledge extends AppCompatActivity {
         Button buttonStartQuiz = findViewById(R.id.buttonStartQuiz);
         buttonStartQuiz.setOnClickListener(v -> {
             ArrayList<HashMap<String, String>> questions = new ArrayList<>();
-            HashMap<String, String> question1 = new HashMap<>();
-            question1.put("question", "Question 1?");
-            question1.put("optionA", "Option A1");
-            question1.put("optionB", "Option B1");
-            question1.put("optionC", "Option C1");
-            question1.put("optionD", "Option D1");
-            question1.put("correctAnswer", "Option A1");
-            questions.add(question1);
-
-            HashMap<String, String> question2 = new HashMap<>();
-            question2.put("question", "Question 2?");
-            question2.put("optionA", "Option A2");
-            question2.put("optionB", "Option B2");
-            question2.put("optionC", "Option C2");
-            question2.put("optionD", "Option D2");
-            question2.put("correctAnswer", "Option B2");
-            questions.add(question2);
 
 
-
-            HashMap<String, String> question3 = new HashMap<>();
-            question2.put("question", "Question 3?");
-            question2.put("optionA", "hello, hey");
-            question2.put("optionB", "hello, who are you");
-            question2.put("optionC", "hello hie");
-            question2.put("optionD", "hello..");
-            question2.put("correctAnswer", "hello hie");
-            questions.add(question3);
-
-            HashMap<String, String> question4 = new HashMap<>();
-            question2.put("question", "Question 2?");
-            question2.put("optionA", "Option A2");
-            question2.put("optionB", "Option B2");
-            question2.put("optionC", "Option C2");
-            question2.put("optionD", "Option D2");
-            question2.put("correctAnswer", "Option B2");
-            questions.add(question4);
-
-            HashMap<String, String> question5 = new HashMap<>();
-            question2.put("question", "Question 2?");
-            question2.put("optionA", "Option A2");
-            question2.put("optionB", "Option B2");
-            question2.put("optionC", "Option C2");
-            question2.put("optionD", "Option D2");
-            question2.put("correctAnswer", "Option B2");
-            questions.add(question5);
-
-            HashMap<String, String> question6 = new HashMap<>();
-            question2.put("question", "Question 2?");
-            question2.put("optionA", "Option A2");
-            question2.put("optionB", "Option B2");
-            question2.put("optionC", "Option C2");
-            question2.put("optionD", "Option D2");
-            question2.put("correctAnswer", "Option B2");
-            questions.add(question6);
-
-            HashMap<String, String> question7 = new HashMap<>();
-            question2.put("question", "Question 2?");
-            question2.put("optionA", "Option A2");
-            question2.put("optionB", "Option B2");
-            question2.put("optionC", "Option C2");
-            question2.put("optionD", "Option D2");
-            question2.put("correctAnswer", "Option B2");
-            questions.add(question7);
-
-            HashMap<String, String> question8 = new HashMap<>();
-            question2.put("question", "Question 2?");
-            question2.put("optionA", "Option A2");
-            question2.put("optionB", "Option B2");
-            question2.put("optionC", "Option C2");
-            question2.put("optionD", "Option D2");
-            question2.put("correctAnswer", "Option B2");
-            questions.add(question8);
 
             Intent intent = new Intent(Form1QuizzesAndQuestionsBible_Knowledge.this, Form1QuizBible_Knowledge.class);
             intent.putExtra("QUESTIONS", questions);
@@ -169,7 +96,7 @@ public class Form1QuizzesAndQuestionsBible_Knowledge extends AppCompatActivity {
                         pdfNames.add(name);
                         pdfUrls.add(url);
                         // Add an empty comment for each item
-                        comments.add("");
+
                         // Notify the adapter of the data change
                         adapter.notifyDataSetChanged();
                     }).addOnFailureListener(e -> {

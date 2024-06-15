@@ -13,7 +13,7 @@ import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1AudioAgriculture;
 import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1PDFAgriculture;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1QuizzesAndQuestionsGeography;
+import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1QuizzesAndQuestionsAgriculture;
 import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1VideosAgriculture;
 
 
@@ -26,7 +26,7 @@ public class Form1StudentViewContentChichewa extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_chichewa_view_content);
+        setContentView(R.layout.activity_form1_chemistry_view_content);
 
         // Find buttons for PDF, Audio, Videos, and Questions
         Button buttonPDF = findViewById(R.id.button_pdf);
@@ -34,7 +34,7 @@ public class Form1StudentViewContentChichewa extends AppCompatActivity {
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
         buttonBack = findViewById(R.id.back_button);
-        buttonChat = findViewById(R.id.button_chat);
+
 
         // Set click listeners for each button
         buttonPDF.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +64,7 @@ public class Form1StudentViewContentChichewa extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentChichewa.this, Form1QuizzesAndQuestionsGeography.class);
+                Intent intent = new Intent(Form1StudentViewContentChichewa.this, Form1QuizzesAndQuestionsAgriculture.class);
                 startActivity(intent);
             }
         });
@@ -78,13 +78,6 @@ public class Form1StudentViewContentChichewa extends AppCompatActivity {
             }
         });
 
-        buttonChat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open chat interface
-                openChatInterface();
-            }
-        });
 
     }
 

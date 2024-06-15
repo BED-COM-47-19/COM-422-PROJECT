@@ -12,7 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Teacher.Form4.Uploads.TeacherForm4Uploads;
+import com.example.teachandlearn.Teacher.Form4.Uploads.Agriculture.TeacherForm4AgricultureUploads;
+import com.example.teachandlearn.Teacher.Form4.Uploads.Biology.TeacherForm4BiologyUploads;
+import com.example.teachandlearn.Teacher.Form4.Uploads.Chemistry.TeacherForm4ChemistryUploads;
+import com.example.teachandlearn.Teacher.Form4.Uploads.Mathematics.TeacherForm4MathematicsUploads;
+import com.example.teachandlearn.Teacher.Form4.Uploads.Physics.TeacherForm4PhysicsUploads;
 
 
 public class TeacherForm4Science extends AppCompatActivity {
@@ -134,8 +138,18 @@ public class TeacherForm4Science extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(TeacherForm4Science.this, TeacherForm4Uploads.class);
-        startActivity(intent);
+
+        Intent intent1 = new Intent(TeacherForm4Science.this, TeacherForm4AgricultureUploads.class);
+        Intent intent2 = new Intent(TeacherForm4Science.this, TeacherForm4BiologyUploads.class);
+        Intent intent3 = new Intent(TeacherForm4Science.this, TeacherForm4ChemistryUploads.class);
+        Intent intent4 = new Intent(TeacherForm4Science.this, TeacherForm4MathematicsUploads.class);
+        Intent intent5 = new Intent(TeacherForm4Science.this, TeacherForm4PhysicsUploads.class);
+
+        startActivity(intent1);
+        startActivity(intent2);
+        startActivity(intent3);
+        startActivity(intent4);
+        startActivity(intent5);
     }
 
     @Override

@@ -38,7 +38,6 @@ public class Form1Quiz extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,10 +66,77 @@ public class Form1Quiz extends AppCompatActivity {
 
 
         List<Form1Question> questions = new ArrayList<>();
-        questions.add(new Form1Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form1Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form1Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form1Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+
+
+        questions.add(new Form1Question("What is the capital city of Malawi?",
+                "Lilongwe",
+                "Blantyre",
+                "Mzuzu",
+                "Zomba",
+                "Lilongwe"));
+
+        questions.add(new Form1Question("When did Malawi gain independence from British rule?",
+                "1960",
+                "1961",
+                "1962",
+                "1963",
+                "1964"));
+
+        questions.add(new Form1Question("Who was the first President of Malawi?",
+                "Kamuzu Chibambo",
+                "Joyce Banda",
+                "Bakili Muluzi",
+                "Hastings Banda",
+                "Hastings Banda"));
+
+        questions.add(new Form1Question("What is the main economic activity in rural Malawi?",
+                "Fishing",
+                "Mining",
+                "Agriculture",
+                "Manufacturing",
+                "Agriculture"));
+
+        questions.add(new Form1Question("Which lake forms part of Malawi's eastern border?",
+                "Lake Victoria",
+                "Lake Tanganyika",
+                "Lake Malawi",
+                "Lake Kariba",
+                "Lake Malawi"));
+
+        questions.add(new Form1Question("Who are the Yao people in Malawi?",
+                "Nomadic pastoralists",
+                "Fishermen",
+                "Farmers",
+                "Traders",
+                "Traders"));
+
+        questions.add(new Form1Question("Which countries border Malawi?",
+                "Zambia, Tanzania, Mozambique",
+                "Zimbabwe, Botswana, South Africa",
+                "Kenya, Uganda, Rwanda",
+                "Angola, Namibia, Congo",
+                "Zambia, Tanzania, Mozambique"));
+
+        questions.add(new Form1Question("What is the official language of Malawi?",
+                "English",
+                "Chichewa",
+                "French",
+                "Portuguese",
+                "English"));
+
+        questions.add(new Form1Question("Who was David Livingstone and what was his role in Malawi's history?",
+                "A missionary and explorer who contributed to the exploration of Africa, including Lake Malawi",
+                "A military leader who fought for Malawi's independence",
+                "A colonial governor who ruled Malawi",
+                "A businessman who developed trade routes in Malawi",
+                "A missionary and explorer who contributed to the exploration of Africa, including Lake Malawi"));
+
+        questions.add(new Form1Question("What is the significance of Lake Malawi to Malawi's economy and culture?",
+                "It is a major source of oil production",
+                "It is a source of freshwater and supports fishing industry",
+                "It is a major tourist attraction for mountain climbing",
+                "It is used for commercial shipping and transportation",
+                "It is a source of freshwater and supports fishing industry"));
 
         return questions;
     }
@@ -85,7 +151,7 @@ public class Form1Quiz extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();

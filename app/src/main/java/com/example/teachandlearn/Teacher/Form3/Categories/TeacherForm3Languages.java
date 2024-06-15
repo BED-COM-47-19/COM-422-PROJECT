@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Teacher.Form3.Uploads.TeacherForm3Uploads;
+import com.example.teachandlearn.Teacher.Form3.Uploads.Chichewa.TeacherForm3ChichewaUploads;
 
 
 public class TeacherForm3Languages extends AppCompatActivity {
@@ -87,8 +87,14 @@ public class TeacherForm3Languages extends AppCompatActivity {
 
     // Method to start Form1ViewContentActivity
     private void startActivityForContent() {
-        Intent intent = new Intent(TeacherForm3Languages.this, TeacherForm3Uploads.class);
-        startActivity(intent);
+
+
+        Intent intent1 = new Intent(TeacherForm3Languages.this, TeacherForm3ChichewaUploads.class);
+        startActivity(intent1);
+
+        Intent intent2 = new Intent(TeacherForm3Languages.this, TeacherForm3ChichewaUploads.class);
+        startActivity(intent2);
+
     }
 
     @Override

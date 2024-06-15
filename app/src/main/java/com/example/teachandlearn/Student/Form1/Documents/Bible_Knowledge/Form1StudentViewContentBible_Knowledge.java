@@ -9,10 +9,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1AudioAgriculture;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1PDFAgriculture;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1QuizzesAndQuestionsGeography;
-import com.example.teachandlearn.Student.Form1.Documents.Agriculture.Form1VideosAgriculture;
+
 
 
 public class Form1StudentViewContentBible_Knowledge extends AppCompatActivity {
@@ -32,13 +29,13 @@ public class Form1StudentViewContentBible_Knowledge extends AppCompatActivity {
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
         buttonBack = findViewById(R.id.back_button);
-        buttonChat = findViewById(R.id.button_chat);
+
 
         // Set click listeners for each button
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentBible_Knowledge.this, Form1PDFAgriculture.class);
+                Intent intent = new Intent(Form1StudentViewContentBible_Knowledge.this, Form1PDFBible_Knowledge.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +43,7 @@ public class Form1StudentViewContentBible_Knowledge extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentBible_Knowledge.this, Form1AudioAgriculture.class);
+                Intent intent = new Intent(Form1StudentViewContentBible_Knowledge.this, Form1AudioBible_Knowledge.class);
                 startActivity(intent);
             }
         });
@@ -54,7 +51,7 @@ public class Form1StudentViewContentBible_Knowledge extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentBible_Knowledge.this, Form1VideosAgriculture.class);
+                Intent intent = new Intent(Form1StudentViewContentBible_Knowledge.this, Form1VideosBible_Knowledge.class);
                 startActivity(intent);
             }
         });
@@ -62,7 +59,7 @@ public class Form1StudentViewContentBible_Knowledge extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentBible_Knowledge.this, Form1QuizzesAndQuestionsGeography.class);
+                Intent intent = new Intent(Form1StudentViewContentBible_Knowledge.this, Form1QuizzesAndQuestionsBible_Knowledge.class);
                 startActivity(intent);
             }
         });

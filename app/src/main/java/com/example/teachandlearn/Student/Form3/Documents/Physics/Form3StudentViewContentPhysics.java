@@ -10,10 +10,10 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2AudioBIO;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2PDFBIO;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2QuizzesAndQuestionsBIO;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2VideosBIO;
+import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2Audio;
+import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2PDF;
+import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2QuizzesAndQuestions;
+import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2Videos;
 
 
 public class Form3StudentViewContentPhysics extends AppCompatActivity {
@@ -42,7 +42,7 @@ public class Form3StudentViewContentPhysics extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form3StudentViewContentPhysics.this, Form2PDFBIO.class);
+                Intent intent = new Intent(Form3StudentViewContentPhysics.this, Form2PDF.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +50,7 @@ public class Form3StudentViewContentPhysics extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form3StudentViewContentPhysics.this, Form2AudioBIO.class);
+                Intent intent = new Intent(Form3StudentViewContentPhysics.this, Form2Audio.class);
                 startActivity(intent);
             }
         });
@@ -58,7 +58,7 @@ public class Form3StudentViewContentPhysics extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form3StudentViewContentPhysics.this, Form2VideosBIO.class);
+                Intent intent = new Intent(Form3StudentViewContentPhysics.this, Form2Videos.class);
                 startActivity(intent);
             }
         });
@@ -66,7 +66,7 @@ public class Form3StudentViewContentPhysics extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form3StudentViewContentPhysics.this, Form2QuizzesAndQuestionsBIO.class);
+                Intent intent = new Intent(Form3StudentViewContentPhysics.this, Form2QuizzesAndQuestions.class);
                 startActivity(intent);
             }
         });

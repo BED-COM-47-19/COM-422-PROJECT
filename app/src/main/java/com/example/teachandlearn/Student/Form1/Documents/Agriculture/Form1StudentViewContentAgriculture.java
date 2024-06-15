@@ -28,7 +28,7 @@ public class Form1StudentViewContentAgriculture extends AppCompatActivity {
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
         buttonBack = findViewById(R.id.back_button);
-        buttonChat = findViewById(R.id.button_chat);
+
 
         // Set click listeners for each button
         buttonPDF.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +58,7 @@ public class Form1StudentViewContentAgriculture extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentAgriculture.this, Form1QuizzesAndQuestionsGeography.class);
+                Intent intent = new Intent(Form1StudentViewContentAgriculture.this, Form1QuizzesAndQuestionsAgriculture.class);
                 startActivity(intent);
             }
         });

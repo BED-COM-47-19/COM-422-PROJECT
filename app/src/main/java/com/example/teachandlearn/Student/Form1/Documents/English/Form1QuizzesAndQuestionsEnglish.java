@@ -37,7 +37,7 @@ public class Form1QuizzesAndQuestionsEnglish extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_quizzes_and_questions);
+        setContentView(R.layout.activity_form1_eng_quizzes_and_questions);
 
         listView = findViewById(R.id.list_view);
         pdfNames = new ArrayList<>();

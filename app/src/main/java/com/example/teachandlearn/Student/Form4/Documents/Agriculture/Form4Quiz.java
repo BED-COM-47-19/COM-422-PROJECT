@@ -38,7 +38,6 @@ public class Form4Quiz extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,10 +66,75 @@ public class Form4Quiz extends AppCompatActivity {
 
 
         List<Form4Question> questions = new ArrayList<>();
-        questions.add(new Form4Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form4Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form4Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form4Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+        questions.add(new Form4Question("What is crop rotation?",
+                "The practice of growing different types of crops in the same area in sequenced seasons.",
+                "The method of planting crops in circular patterns.",
+                "The technique of growing the same crop continuously in the same field.",
+                "The process of rotating crops between different fields within a farm.",
+                "The practice of growing different types of crops in the same area in sequenced seasons."));
+
+        questions.add(new Form4Question("What are the benefits of using organic fertilizers over chemical fertilizers?",
+                "Improves soil structure and fertility without causing harm to the environment.",
+                "Increases crop yield rapidly but may harm the environment.",
+                "Is cheaper to produce and has no environmental impact.",
+                "Requires less labor and is more cost-effective.",
+                "Improves soil structure and fertility without causing harm to the environment."));
+
+        questions.add(new Form4Question("Explain integrated pest management (IPM).",
+                "A sustainable approach to managing pests by combining biological, cultural, physical, and chemical tools.",
+                "The use of only chemical pesticides to control pests.",
+                "The complete exclusion of any pest control measures.",
+                "A traditional method of pest control relying solely on natural predators.",
+                "A sustainable approach to managing pests by combining biological, cultural, physical, and chemical tools."));
+
+        questions.add(new Form4Question("What is the importance of soil pH in agriculture?",
+                "It affects the availability of nutrients to plants and the activity of soil microorganisms.",
+                "It determines the soil's temperature and moisture content.",
+                "It influences the soil's physical structure and water-holding capacity.",
+                "It impacts the amount of sunlight the soil can absorb.",
+                "It affects the availability of nutrients to plants and the activity of soil microorganisms."));
+
+        questions.add(new Form4Question("Describe the process of selective breeding in livestock.",
+                "Choosing animals with desirable traits to reproduce, enhancing those traits in future generations.",
+                "Randomly mating animals without considering their traits.",
+                "Breeding animals in controlled environments only.",
+                "Using genetic engineering to alter animal traits directly.",
+                "Choosing animals with desirable traits to reproduce, enhancing those traits in future generations."));
+
+        questions.add(new Form4Question("What are leguminous crops, and why are they important in agriculture?",
+                "Crops that can fix atmospheric nitrogen, improving soil fertility.",
+                "Crops that grow in waterlogged conditions and enhance soil drainage.",
+                "Crops that require minimal sunlight and improve crop diversity.",
+                "Crops that are resistant to pests and diseases, reducing the need for pesticides.",
+                "Crops that can fix atmospheric nitrogen, improving soil fertility."));
+
+        questions.add(new Form4Question("What is the role of irrigation in crop production?",
+                "To provide water to crops, ensuring their growth and development, especially in areas with insufficient rainfall.",
+                "To enhance the flavor and nutritional value of crops.",
+                "To prevent soil erosion by maintaining soil moisture levels.",
+                "To reduce the growth of weeds by flooding the fields.",
+                "To provide water to crops, ensuring their growth and development, especially in areas with insufficient rainfall."));
+
+        questions.add(new Form4Question("Explain the concept of sustainable agriculture.",
+                "Farming that meets current food needs without compromising the ability of future generations to meet their own needs.",
+                "Agriculture that focuses solely on increasing crop yield using any available method.",
+                "The practice of farming only high-value crops for export.",
+                "The use of technology and machinery to maximize production efficiency.",
+                "Farming that meets current food needs without compromising the ability of future generations to meet their own needs."));
+
+        questions.add(new Form4Question("What are cover crops, and how do they benefit soil health?",
+                "Crops grown to protect and enrich the soil, preventing erosion and improving soil structure.",
+                "Crops grown specifically for human consumption.",
+                "Crops that are planted to attract pollinators.",
+                "Crops that require no additional nutrients or water.",
+                "Crops grown to protect and enrich the soil, preventing erosion and improving soil structure."));
+
+        questions.add(new Form4Question("What is agroforestry, and what are its benefits?",
+                "The integration of trees and shrubs into agricultural landscapes, enhancing biodiversity and sustainability.",
+                "The exclusive cultivation of tree crops for timber production.",
+                "The practice of rotating forestry and agriculture in the same land area.",
+                "The use of forests for recreational and tourism purposes.",
+                "The integration of trees and shrubs into agricultural landscapes, enhancing biodiversity and sustainability."));
 
         return questions;
     }
@@ -85,7 +149,7 @@ public class Form4Quiz extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();

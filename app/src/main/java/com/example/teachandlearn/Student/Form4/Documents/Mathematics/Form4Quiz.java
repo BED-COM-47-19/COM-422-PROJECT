@@ -21,7 +21,7 @@ public class Form4Quiz extends AppCompatActivity {
 
     private TextView questionTextView;
     private RadioButton optionARadioButton, optionBRadioButton, optionCRadioButton, optionDRadioButton;
-    private ProgressBar questionProgressBar;
+
     private List<Form4Question> questions;
     private int currentQuestionIndex = 0;
     private int correctAnswers = 0;
@@ -38,7 +38,7 @@ public class Form4Quiz extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
+
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,11 +67,77 @@ public class Form4Quiz extends AppCompatActivity {
 
 
         List<Form4Question> questions = new ArrayList<>();
-        questions.add(new Form4Question("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form4Question("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form4Question("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form4Question("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
 
+        // Add questions to the list
+        questions.add(new Form4Question("Solve the quadratic equation: x^2 - 5x + 6 = 0",
+                "x = 2, x = 3",
+                "x = 1, x = 6",
+                "x = 2, x = 4",
+                "x = 3, x = 5",
+                "x = 2, x = 3"));
+
+        questions.add(new Form4Question("Find the value of sqrt(144)",
+                "12",
+                "10",
+                "15",
+                "14",
+                "12"));
+
+        questions.add(new Form4Question("Simplify the expression: (3x^2y^3) / (6x^-2y)",
+                "x^4y^2 / 2",
+                "x^3y^4 / 2",
+                "x^2y^5 / 3",
+                "x^5y^3 / 3",
+                "x^4y^2 / 2"));
+
+        questions.add(new Form4Question("Calculate the area of a circle with radius 5 cm (use pi = 3.14)",
+                "78.5 cm^2",
+                "75.0 cm^2",
+                "79.0 cm^2",
+                "80.0 cm^2",
+                "78.5 cm^2"));
+
+        questions.add(new Form4Question("Solve the equation: log2(x) = 3",
+                "x = 8",
+                "x = 6",
+                "x = 4",
+                "x = 2",
+                "x = 8"));
+
+        questions.add(new Form4Question("Find the value of (2/3) / (4/5)",
+                "5/6",
+                "6/5",
+                "3/2",
+                "4/3",
+                "5/6"));
+
+        questions.add(new Form4Question("Determine the solution set for the inequality: 2x - 5 > 7",
+                "x > 6",
+                "x > 4",
+                "x > 3",
+                "x > 5",
+                "x > 6"));
+
+        questions.add(new Form4Question("Factorize the expression: 2x^2 - 8x",
+                "2x(x - 4)",
+                "2x^2(x - 2)",
+                "2x(x + 4)",
+                "2x^2(x + 2)",
+                "2x(x - 4)"));
+
+        questions.add(new Form4Question("Calculate the value of sin(30 degrees)",
+                "0.5",
+                "0.707",
+                "0.866",
+                "1.0",
+                "0.5"));
+
+        questions.add(new Form4Question("Simplify the expression: (3x^2 + 2x - 1) / (x^2 - 1)",
+                "3x + 1 / x + 1",
+                "3x - 1 / x - 1",
+                "3x^2 + 1 / x^2 + 1",
+                "3x^2 - 1 / x^2 - 1",
+                "3x + 1 / x + 1"));
         return questions;
     }
 
@@ -85,7 +151,7 @@ public class Form4Quiz extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();

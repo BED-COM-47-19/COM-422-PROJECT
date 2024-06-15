@@ -31,12 +31,6 @@ public class Form4Videos extends AppCompatActivity {
     private RecyclerView recyclerView;
     private Form1VideoAdapter form1VideoAdapter;
     private ChatGPTService chatGPTService;
-    private EditText editTextComment;
-    private Button buttonSubmitComment;
-
-    private ArrayList<String> comments;
-
-    private TextView textViewComment;
 
 
     @Override
@@ -47,35 +41,9 @@ public class Form4Videos extends AppCompatActivity {
         recyclerView = findViewById(R.id.rvVideos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        editTextComment = findViewById(R.id.editTextComment);
-        buttonSubmitComment = findViewById(R.id.buttonSubmitComment);
 
         chatGPTService = new ChatGPTService();
-        comments = new ArrayList<>();
 
-        buttonSubmitComment.setOnClickListener(v -> {
-            String comment = editTextComment.getText().toString().trim();
-            if (!comment.isEmpty()) {
-                comments.add(comment);
-                editTextComment.setText(""); // Clear the comment field after submission
-                form1VideoAdapter.notifyDataSetChanged(); // Notify adapter of data change
-                chatGPTService.sendCommentToAI(comment, new ChatGPTService.ChatGPTCallback() {
-                    @Override
-                    public void onSuccess(String response) {
-                        // Handle the successful AI response
-                        Toast.makeText(Form4Videos.this, "AI Response: " + response, Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onFailure(Throwable t) {
-                        // Handle the failure of the AI response
-                        Toast.makeText(Form4Videos.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-            } else {
-                Toast.makeText(Form4Videos.this, "Please enter a comment", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         fetchVideos();
     }
@@ -91,11 +59,7 @@ public class Form4Videos extends AppCompatActivity {
                     String name = item.getName();
                     String url = uri.toString();
                     videos.add(new VideoItem(name, url));
-                    comments.add(""); // Add an empty comment for each item
-                    if (videos.size() == listResult.getItems().size()) {
-                        form1VideoAdapter = new Form1VideoAdapter(videos, Form4Videos.this, comments);
-                        recyclerView.setAdapter(form1VideoAdapter);
-                    }
+
                 }).addOnFailureListener(e -> {
                     Toast.makeText(this, "Failed to get download URL", Toast.LENGTH_SHORT).show();
                 });

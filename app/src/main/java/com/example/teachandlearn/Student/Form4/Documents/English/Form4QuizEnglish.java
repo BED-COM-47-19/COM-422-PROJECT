@@ -38,7 +38,7 @@ public class Form4QuizEnglish extends AppCompatActivity {
         optionBRadioButton = findViewById(R.id.optionBRadioButton);
         optionCRadioButton = findViewById(R.id.optionCRadioButton);
         optionDRadioButton = findViewById(R.id.optionDRadioButton);
-        questionProgressBar = findViewById(R.id.questionProgressBar);
+
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.back_button);
         optionsGroup = findViewById(R.id.optionsGroup);
@@ -67,11 +67,75 @@ public class Form4QuizEnglish extends AppCompatActivity {
 
 
         List<Form4QuestionEnglish> questions = new ArrayList<>();
-        questions.add(new Form4QuestionEnglish("What is the capital of France?", "Lilongwe", "Paris", "Mzuzu", "Dowa", "Paris"));
-        questions.add(new Form4QuestionEnglish("What is 2 + 2?", "1", "5", "3", "4", "4"));
-        questions.add(new Form4QuestionEnglish("What is the color of the sky?", "Sky Black", "Sky Green", "Sky White", "Sky Blue", "Sky Blue"));
-        questions.add(new Form4QuestionEnglish("What is the capital of Spain?", "Barcelona", "London", "Madrid", "Espana", "Madrid"));
+        questions.add(new Form4QuestionEnglish("Identify the noun clause in the sentence: 'I believe that honesty is the best policy.'",
+                "I believe",
+                "that honesty is the best policy",
+                "honesty is the best policy",
+                "the best policy",
+                "that honesty is the best policy"));
 
+        questions.add(new Form4QuestionEnglish("Determine the type and function of the clause: 'Because she was late, she missed the bus.'",
+                "Noun clause, subject of 'was'",
+                "Adjective clause, modifying 'late'",
+                "Adverb clause, showing reason",
+                "Main clause, expressing a complete thought",
+                "Adverb clause, showing reason"));
+
+        questions.add(new Form4QuestionEnglish("What is the function of a prepositional phrase in the sentence: 'She sat on the chair.'",
+                "To modify the noun 'she'",
+                "To modify the verb 'sat'",
+                "To connect the subject and the verb",
+                "To describe the subject",
+                "To modify the verb 'sat'"));
+
+        questions.add(new Form4QuestionEnglish("Identify the type of phrase: 'Running quickly, he caught the bus.'",
+                "Noun phrase",
+                "Adjective phrase",
+                "Adverb phrase",
+                "Prepositional phrase",
+                "Adverb phrase"));
+
+        questions.add(new Form4QuestionEnglish("Convert the following direct speech into indirect speech: 'He said, \"I will go to the market tomorrow.\"'",
+                "He said that he will go to the market tomorrow.",
+                "He said that he would go to the market the next day.",
+                "He says he will go to the market tomorrow.",
+                "He said he will go to the market the next day.",
+                "He said that he would go to the market the next day."));
+
+        questions.add(new Form4QuestionEnglish("Identify the phrasal verb in the sentence: 'She looked up the information online.'",
+                "looked",
+                "up",
+                "looked up",
+                "information",
+                "looked up"));
+
+        questions.add(new Form4QuestionEnglish("Choose the sentence that contains a gerund:",
+                "She is swimming in the pool.",
+                "He is reading a book.",
+                "Swimming is my favorite hobby.",
+                "They are playing football.",
+                "Swimming is my favorite hobby."));
+
+        questions.add(new Form4QuestionEnglish("Identify the main clause in the sentence: 'Although it was raining, we went for a walk.'",
+                "Although it was raining",
+                "it was raining",
+                "we went for a walk",
+                "Although",
+                "we went for a walk"));
+
+        questions.add(new Form4QuestionEnglish("Choose the correct question tag: 'You haven't finished your homework, ______?'",
+                "isn't it",
+                "have you",
+                "didn't you",
+                "won't you",
+                "have you"));
+
+        questions.add(new Form4QuestionEnglish("Identify the part of speech of the word 'quickly' in the sentence: 'She quickly ran to the store.'",
+                "Noun",
+                "Adjective",
+                "Verb",
+                "Adverb",
+                "Adverb"));
         return questions;
     }
 
@@ -85,7 +149,7 @@ public class Form4QuizEnglish extends AppCompatActivity {
             optionBRadioButton.setText(currentQuestion.getOptionB());
             optionCRadioButton.setText(currentQuestion.getOptionC());
             optionDRadioButton.setText(currentQuestion.getOptionD());
-            questionProgressBar.setProgress((int) (((float) currentQuestionIndex / questions.size()) * 100));
+
         }
         else {
             finishQuiz();
