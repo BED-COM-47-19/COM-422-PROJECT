@@ -38,4 +38,14 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
+    <!-- Custom style for TextInputLayout -->
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxStrokeColor">@color/colorPrimary</item>
+        <item name="hintTextColor">@color/colorPrimaryDark</item>
+        <item name="android:textColorHint">@color/colorAccent</item>
+    </style>
+
+
 </resources>

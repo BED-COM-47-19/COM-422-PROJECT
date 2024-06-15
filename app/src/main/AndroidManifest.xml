@@ -43,8 +43,8 @@
 
 
 
+        sk-proj-NefvkoCl16tQoYM2bex1T3BlbkFJJz5PcdElIEp6eDiOmMAh
 
-        <service android:name=".CHATGPT.ChatBot" />
 
         <service android:name=".CHATGPT.ChatGPTService"/>
 
@@ -539,17 +539,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Agriculture.Form2Quiz"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
 
-        <activity android:name=".Student.Form3.Documents.Agriculture.Form3Quiz"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
-
-        <activity android:name=".Student.Form4.Documents.Agriculture.Form4Quiz"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
 
 
 

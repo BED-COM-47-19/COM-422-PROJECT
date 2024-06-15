@@ -198,24 +198,7 @@ public class Form2Audio extends AppCompatActivity {
                 }
             });
 
-            holder.buttonSubmitComment.setOnClickListener(v -> {
-                String newComment = holder.editTextComment.getText().toString();
-                audio.setComment(newComment);
-                chatGPTService.sendCommentToAI(newComment, new ChatGPTService.ChatGPTCallback() {
-                    @Override
-                    public void onSuccess(String response) {
-                        // Handle the successful AI response
-                        Toast.makeText(holder.itemView.getContext(), "AI Response: " + response, Toast.LENGTH_LONG).show();
-                    }
 
-                    @Override
-                    public void onFailure(Throwable t) {
-                        // Handle the failure of the AI response
-                        Toast.makeText(holder.itemView.getContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-                notifyDataSetChanged();
-            });
         }
 
         @Override

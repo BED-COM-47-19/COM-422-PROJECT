@@ -170,7 +170,7 @@ public class Form1AudioGeography extends AppCompatActivity {
             holder.textViewTitle.setText(audio.getTitle());
             holder.textViewDescription.setText(audio.getDescription());
             holder.textViewLength.setText(audio.getLength());
-            holder.editTextComment.setText(audio.getComment());
+          
 
             holder.itemView.setOnClickListener(v -> {
                 if (mediaPlayer.isPlaying()) {
@@ -198,24 +198,7 @@ public class Form1AudioGeography extends AppCompatActivity {
                 }
             });
 
-            holder.buttonSubmitComment.setOnClickListener(v -> {
-                String newComment = holder.editTextComment.getText().toString();
-                audio.setComment(newComment);
-                chatGPTService.sendCommentToAI(newComment, new ChatGPTService.ChatGPTCallback() {
-                    @Override
-                    public void onSuccess(String response) {
-                        // Handle the successful AI response
-                        Toast.makeText(holder.itemView.getContext(), "AI Response: " + response, Toast.LENGTH_LONG).show();
-                    }
 
-                    @Override
-                    public void onFailure(Throwable t) {
-                        // Handle the failure of the AI response
-                        Toast.makeText(holder.itemView.getContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-                notifyDataSetChanged();
-            });
         }
 
         @Override
@@ -232,16 +215,14 @@ public class Form1AudioGeography extends AppCompatActivity {
             TextView textViewTitle;
             TextView textViewDescription;
             TextView textViewLength;
-            EditText editTextComment;
-            Button buttonSubmitComment;
+
 
             public AudioViewHolder(@NonNull View itemView) {
                 super(itemView);
                 textViewTitle = itemView.findViewById(R.id.textViewAudioTitle);
                 textViewDescription = itemView.findViewById(R.id.textViewAudioDescription);
                 textViewLength = itemView.findViewById(R.id.textViewAudioLength);
-                editTextComment = itemView.findViewById(R.id.editTextComment);
-                buttonSubmitComment = itemView.findViewById(R.id.buttonSubmitComment);
+
             }
 
         }

@@ -15,8 +15,6 @@ import com.example.teachandlearn.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.firebase.messaging.RemoteMessage;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.util.HashMap;
@@ -26,7 +24,7 @@ import java.util.UUID;
 
 public class TeacherForm1AgricultureUploads extends AppCompatActivity {
 
-    private Button buttonBack, buttonViewProgress;
+    private Button buttonBack;
     private static final int REQUEST_PICK_PDF = 1;
     private static final int REQUEST_PICK_AUDIO = 2;
     private static final int REQUEST_PICK_VIDEO = 3;
@@ -227,9 +225,7 @@ public class TeacherForm1AgricultureUploads extends AppCompatActivity {
                         String teacherDeviceToken = documentSnapshot.getString("fcmToken");
 
                         // Send notification using FCM
-                        FirebaseMessaging.getInstance().send(new RemoteMessage.Builder(teacherDeviceToken)
-                                .setData(data)
-                                .build());
+
                     }
                 });
     }

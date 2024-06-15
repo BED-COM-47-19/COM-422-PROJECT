@@ -138,7 +138,7 @@ public class Form3QuizzesAndQuestionsAgriculture extends AppCompatActivity {
             question2.put("correctAnswer", "Option B2");
             questions.add(question8);
 
-            Intent intent = new Intent(Form3QuizzesAndQuestionsAgriculture.this, Form3QuestionAgriculture.class);
+            Intent intent = new Intent(Form3QuizzesAndQuestionsAgriculture.this, Form3QuizAgriculture.class);
             intent.putExtra("QUESTIONS", questions);
             startActivity(intent);
         });

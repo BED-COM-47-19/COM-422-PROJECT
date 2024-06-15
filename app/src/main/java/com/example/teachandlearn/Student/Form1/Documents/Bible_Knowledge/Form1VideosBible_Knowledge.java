@@ -33,7 +33,6 @@ public class Form1VideosBible_Knowledge extends AppCompatActivity {
     private ChatGPTService chatGPTService;
 
 
-    private TextView textViewComment;
 
 
     @Override
@@ -102,7 +101,7 @@ public class Form1VideosBible_Knowledge extends AppCompatActivity {
         public Form1VideoAdapter(List<VideoItem> videos, Context context, List<String> comments) {
             this.videos = videos;
             this.context = context;
-            this.comments = comments;
+
         }
 
         @NonNull
@@ -115,8 +114,8 @@ public class Form1VideosBible_Knowledge extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
             VideoItem videoItem = videos.get(position);
-            String comment = comments.get(position);
-            holder.bind(videoItem, comment);
+
+
         }
 
         @Override
@@ -135,13 +134,13 @@ public class Form1VideosBible_Knowledge extends AppCompatActivity {
                 super(itemView);
                 textViewName = itemView.findViewById(R.id.textViewVideoName);
                 textViewUrl = itemView.findViewById(R.id.textViewVideoUrl);
-                textViewComment = itemView.findViewById(R.id.textViewComment);
+
             }
 
             public void bind(VideoItem videoItem, String comment) {
                 textViewName.setText(videoItem.getName());
                 textViewUrl.setText(videoItem.getUrl());
-                textViewComment.setText(comment);
+
             }
         }
     }

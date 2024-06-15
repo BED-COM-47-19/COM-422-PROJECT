@@ -2,7 +2,7 @@ package com.example.teachandlearn.Student.Form3.Documents.Agriculture;
 
 import java.io.Serializable;
 
-public class Form3QuestionAgriculture implements Serializable {
+public class Form3QuizAgriculture implements Serializable {
     private String questionText;
     private String optionA, optionB, optionC, optionD;
     private String correctAnswer;
@@ -10,7 +10,7 @@ public class Form3QuestionAgriculture implements Serializable {
 
 
 
-    public Form3QuestionAgriculture(String questionText, String optionA, String optionB, String optionC, String optionD, String correctAnswer) {
+    public Form3QuizAgriculture(String questionText, String optionA, String optionB, String optionC, String optionD, String correctAnswer) {
         this.questionText = questionText;
         this.optionA = optionA;
         this.optionB = optionB;

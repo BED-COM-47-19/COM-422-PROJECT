@@ -133,13 +133,13 @@ public class Form1Videos extends AppCompatActivity {
                 super(itemView);
                 textViewName = itemView.findViewById(R.id.textViewVideoName);
                 textViewUrl = itemView.findViewById(R.id.textViewVideoUrl);
-                textViewComment = itemView.findViewById(R.id.textViewComment);
+
             }
 
             public void bind(VideoItem videoItem, String comment) {
                 textViewName.setText(videoItem.getName());
                 textViewUrl.setText(videoItem.getUrl());
-                textViewComment.setText(comment);
+
             }
         }
     }

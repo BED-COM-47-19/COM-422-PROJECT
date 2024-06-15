@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -136,13 +135,7 @@ public class Form1AudioChichewa extends AppCompatActivity {
             return length;
         }
 
-        public String getComment() {
-            return comment;
-        }
 
-        public void setComment(String comment) {
-            this.comment = comment;
-        }
     }
 
     public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHolder> {
@@ -170,7 +163,7 @@ public class Form1AudioChichewa extends AppCompatActivity {
             holder.textViewTitle.setText(audio.getTitle());
             holder.textViewDescription.setText(audio.getDescription());
             holder.textViewLength.setText(audio.getLength());
-            holder.editTextComment.setText(audio.getComment());
+
 
             holder.itemView.setOnClickListener(v -> {
                 if (mediaPlayer.isPlaying()) {
@@ -198,24 +191,7 @@ public class Form1AudioChichewa extends AppCompatActivity {
                 }
             });
 
-            holder.buttonSubmitComment.setOnClickListener(v -> {
-                String newComment = holder.editTextComment.getText().toString();
-                audio.setComment(newComment);
-                chatGPTService.sendCommentToAI(newComment, new ChatGPTService.ChatGPTCallback() {
-                    @Override
-                    public void onSuccess(String response) {
-                        // Handle the successful AI response
-                        Toast.makeText(holder.itemView.getContext(), "AI Response: " + response, Toast.LENGTH_LONG).show();
-                    }
 
-                    @Override
-                    public void onFailure(Throwable t) {
-                        // Handle the failure of the AI response
-                        Toast.makeText(holder.itemView.getContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-                notifyDataSetChanged();
-            });
         }
 
         @Override
@@ -232,16 +208,14 @@ public class Form1AudioChichewa extends AppCompatActivity {
             TextView textViewTitle;
             TextView textViewDescription;
             TextView textViewLength;
-            EditText editTextComment;
-            Button buttonSubmitComment;
+
 
             public AudioViewHolder(@NonNull View itemView) {
                 super(itemView);
                 textViewTitle = itemView.findViewById(R.id.textViewAudioTitle);
                 textViewDescription = itemView.findViewById(R.id.textViewAudioDescription);
                 textViewLength = itemView.findViewById(R.id.textViewAudioLength);
-                editTextComment = itemView.findViewById(R.id.editTextComment);
-                buttonSubmitComment = itemView.findViewById(R.id.buttonSubmitComment);
+
             }
 
         }

@@ -18,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.teachandlearn.CHATGPT.ChatBot;
 import com.example.teachandlearn.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -68,12 +67,6 @@ public class Form1PDFChemistry extends AppCompatActivity {
     }
 
 
-    private void openChatActivity() {
-
-        Intent intent = new Intent(this, ChatBot.class);
-        startActivity(intent);
-
-    }
 
     private void fetchPDFsFromFirebase() {
 
