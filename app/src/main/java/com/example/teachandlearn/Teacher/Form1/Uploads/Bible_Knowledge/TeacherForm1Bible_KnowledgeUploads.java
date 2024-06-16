@@ -1,6 +1,5 @@
 
 package com.example.teachandlearn.Teacher.Form1.Uploads.Bible_Knowledge;
-
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -60,7 +59,7 @@ public class TeacherForm1Bible_KnowledgeUploads extends AppCompatActivity {
         buttonBack = findViewById(R.id.back_button);
         buttonBack.setOnClickListener(view -> onBackPressed());
 
-        buttonViewProgress = findViewById(R.id.button_view_progress);
+
 
     }
 
