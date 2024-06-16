@@ -56,7 +56,7 @@ public class TeacherForm1AgricultureUploads extends AppCompatActivity {
         buttonBack = findViewById(R.id.back_button);
         buttonBack.setOnClickListener(view -> onBackPressed());
 
-        buttonViewProgress = findViewById(R.id.button_view_progress);
+
 
     }
 

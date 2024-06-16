@@ -39,7 +39,7 @@ public class Form4StudentViewContentHistory extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentHistory.this, Form4PDF.class);
+                Intent intent = new Intent(Form4StudentViewContentHistory.this, Form4PDFHistory.class);
                 startActivity(intent);
             }
         });
@@ -47,7 +47,7 @@ public class Form4StudentViewContentHistory extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentHistory.this, Form4Audio.class);
+                Intent intent = new Intent(Form4StudentViewContentHistory.this, Form4AudioHistory.class);
                 startActivity(intent);
             }
         });
@@ -55,7 +55,7 @@ public class Form4StudentViewContentHistory extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentHistory.this, Form4Videos.class);
+                Intent intent = new Intent(Form4StudentViewContentHistory.this, Form4VideosHistory.class);
                 startActivity(intent);
             }
         });

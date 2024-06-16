@@ -52,7 +52,7 @@ public class Form4QuizzesAndQuestionsHistory extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String url = pdfUrls.get(position);
-                Intent intent = new Intent(Form4QuizzesAndQuestionsHistory.this, Form4PDFViewer.class);
+                Intent intent = new Intent(Form4QuizzesAndQuestionsHistory.this, Form4PDFViewerHistory.class);
                 intent.putExtra("PDF_URL", url);
                 startActivity(intent);
             }
@@ -138,7 +138,7 @@ public class Form4QuizzesAndQuestionsHistory extends AppCompatActivity {
             question2.put("correctAnswer", "Option B2");
             questions.add(question8);
 
-            Intent intent = new Intent(Form4QuizzesAndQuestionsHistory.this, Form4Quiz.class);
+            Intent intent = new Intent(Form4QuizzesAndQuestionsHistory.this, Form4QuizHistory.class);
             intent.putExtra("QUESTIONS", questions);
             startActivity(intent);
         });

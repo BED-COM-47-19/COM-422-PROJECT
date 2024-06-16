@@ -38,7 +38,7 @@ public class Form2StudentViewContentBiology extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form2StudentViewContentBiology.this, Form2PDF.class);
+                Intent intent = new Intent(Form2StudentViewContentBiology.this, Form2PDFBiology.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +46,7 @@ public class Form2StudentViewContentBiology extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form2StudentViewContentBiology.this, Form2Audio.class);
+                Intent intent = new Intent(Form2StudentViewContentBiology.this, Form2AudioBiology.class);
                 startActivity(intent);
             }
         });
@@ -54,7 +54,7 @@ public class Form2StudentViewContentBiology extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form2StudentViewContentBiology.this, Form2Videos.class);
+                Intent intent = new Intent(Form2StudentViewContentBiology.this, Form2VideosBiology.class);
                 startActivity(intent);
             }
         });
@@ -62,7 +62,7 @@ public class Form2StudentViewContentBiology extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form2StudentViewContentBiology.this, Form2QuizzesAndQuestions.class);
+                Intent intent = new Intent(Form2StudentViewContentBiology.this, Form2QuizzesAndQuestionsBiology.class);
                 startActivity(intent);
             }
         });

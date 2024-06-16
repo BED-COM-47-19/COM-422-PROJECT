@@ -1,35 +1,29 @@
-package com.example.teachandlearn.Student.Form1.Documents.Biology;
 
+package com.example.teachandlearn.Student.Form1.Documents.Biology;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Form1AudioBiology extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private AudioAdapter adapter;
     private MediaPlayer mediaPlayer;
-    private ChatGPTService chatGPTService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +33,7 @@ public class Form1AudioBiology extends AppCompatActivity {
         mediaPlayer = new MediaPlayer();
         recyclerView = findViewById(R.id.recyclerViewAudio);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new AudioAdapter(new ArrayList<>(), mediaPlayer, new ChatGPTService());
+        adapter = new AudioAdapter(new ArrayList<>(), mediaPlayer);
         recyclerView.setAdapter(adapter);
 
         fetchAudios();
@@ -49,40 +43,29 @@ public class Form1AudioBiology extends AppCompatActivity {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         String path = "/form1/sciences/biology/audios/";
         StorageReference storageRef = storage.getReference().child(path);
+        fetchFromStorage(storageRef);
+    }
 
+    private void fetchFromStorage(StorageReference storageRef) {
         storageRef.listAll().addOnSuccessListener(listResult -> {
-            List<AudioItem> audioList = new ArrayList<>();
+            List<AudioItem> list = new ArrayList<>();
             for (StorageReference item : listResult.getItems()) {
                 String fileName = item.getName();
                 String filePath = item.getPath();
-                String title = getTitleFromFileName(fileName);
-                String description = ""; // Set description as needed
-                String length = ""; // Set audio length as needed
-                audioList.add(new AudioItem(title, filePath, description, length));
+                String title;
+                int lastIndex = fileName.lastIndexOf('.');
+                if (lastIndex != -1) {
+                    title = fileName.substring(0, lastIndex);
+                } else {
+                    title = fileName;
+                }
+                list.add(new AudioItem(title, filePath, "", "")); // Exclude the comment
             }
-            if (audioList.isEmpty()) {
-                showNoFilesUploaded();
-            } else {
-                adapter.setAudioList(audioList);
-            }
+            adapter.setAudioList(list); // Set the fetched list to the adapter
         }).addOnFailureListener(exception -> {
-            Log.e("Form1AudioBiology", "Failed to fetch audio files", exception);
+            Log.e("Form1Audio", "Failed to fetch audio files", exception);
             Toast.makeText(this, "Failed to fetch audio files", Toast.LENGTH_SHORT).show();
         });
-    }
-
-    private String getTitleFromFileName(String fileName) {
-        int lastIndex = fileName.lastIndexOf('.');
-        if (lastIndex != -1) {
-            return fileName.substring(0, lastIndex);
-        } else {
-            return fileName;
-        }
-    }
-
-    private void showNoFilesUploaded() {
-        adapter.setAudioList(new ArrayList<>());
-        Toast.makeText(this, "No files Uploaded", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -130,12 +113,10 @@ public class Form1AudioBiology extends AppCompatActivity {
     public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHolder> {
         private List<AudioItem> audioList;
         private final MediaPlayer mediaPlayer;
-        private final ChatGPTService chatGPTService;
 
-        public AudioAdapter(List<AudioItem> audioList, MediaPlayer mediaPlayer, ChatGPTService chatGPTService) {
+        public AudioAdapter(List<AudioItem> audioList, MediaPlayer mediaPlayer) {
             this.audioList = audioList;
             this.mediaPlayer = mediaPlayer;
-            this.chatGPTService = chatGPTService;
         }
 
         @NonNull
@@ -185,9 +166,14 @@ public class Form1AudioBiology extends AppCompatActivity {
             return audioList.size();
         }
 
-        public void setAudioList(List<AudioItem> audioList) {
-            this.audioList = audioList;
+        public void setAudioList(List<AudioItem> list) {
+            this.audioList = list;
             notifyDataSetChanged();
+
+            // Optionally, show toast message only if list is empty
+            if (list.isEmpty()) {
+                Toast.makeText(Form1AudioBiology.this, "No file Uploaded", Toast.LENGTH_SHORT).show();
+            }
         }
 
         public class AudioViewHolder extends RecyclerView.ViewHolder {

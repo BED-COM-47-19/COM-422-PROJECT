@@ -10,10 +10,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2Audio;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2PDF;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2QuizzesAndQuestions;
-import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2Videos;
+
 
 
 public class Form4StudentViewContentChichewa extends AppCompatActivity {
@@ -42,7 +39,7 @@ public class Form4StudentViewContentChichewa extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentChichewa.this, Form2PDF.class);
+                Intent intent = new Intent(Form4StudentViewContentChichewa.this, Form4PDFChichewa.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +47,7 @@ public class Form4StudentViewContentChichewa extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentChichewa.this, Form2Audio.class);
+                Intent intent = new Intent(Form4StudentViewContentChichewa.this, Form4AudioChichewa.class);
                 startActivity(intent);
             }
         });
@@ -58,7 +55,7 @@ public class Form4StudentViewContentChichewa extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentChichewa.this, Form2Videos.class);
+                Intent intent = new Intent(Form4StudentViewContentChichewa.this, Form4VideosChichewa.class);
                 startActivity(intent);
             }
         });
@@ -66,7 +63,7 @@ public class Form4StudentViewContentChichewa extends AppCompatActivity {
         buttonQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentChichewa.this, Form2QuizzesAndQuestions.class);
+                Intent intent = new Intent(Form4StudentViewContentChichewa.this, Form4QuizzesAndQuestionsChichewa.class);
                 startActivity(intent);
             }
         });

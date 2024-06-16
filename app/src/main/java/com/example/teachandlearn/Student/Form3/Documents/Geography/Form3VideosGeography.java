@@ -1,15 +1,10 @@
 
 
-
 package com.example.teachandlearn.Student.Form3.Documents.Geography;
-
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -26,24 +20,20 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class Form3VideosGeography extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private Form1VideoAdapter form1VideoAdapter;
-    private ChatGPTService chatGPTService;
-
-
+    private Form3VideoAdapter form3VideoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form1_video);
 
-        recyclerView  = findViewById(R.id.rvVideos);
+        recyclerView = findViewById(R.id.rvVideos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-        chatGPTService = new ChatGPTService();
 
         fetchVideos();
     }
@@ -53,13 +43,14 @@ public class Form3VideosGeography extends AppCompatActivity {
         StorageReference storageRef = storage.getReference().child("/form3/humanities/geography/videos/");
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
-            List<VideoItem> videos = new ArrayList<>();
+            List<Form3VideosGeography.VideoItem> videos = new ArrayList<>();
             for (StorageReference item : listResult.getItems()) {
                 item.getDownloadUrl().addOnSuccessListener(uri -> {
                     String name = item.getName();
                     String url = uri.toString();
-                    videos.add(new VideoItem(name, url));
-
+                    videos.add(new Form3VideosGeography.VideoItem(name, url));
+                    form3VideoAdapter = new Form3VideoAdapter(videos, this);
+                    recyclerView.setAdapter(form3VideoAdapter);
                 }).addOnFailureListener(e -> {
                     Toast.makeText(this, "Failed to get download URL", Toast.LENGTH_SHORT).show();
                 });
@@ -90,16 +81,14 @@ public class Form3VideosGeography extends AppCompatActivity {
         }
     }
 
-    public static class Form1VideoAdapter extends RecyclerView.Adapter<Form1VideoAdapter.VideoViewHolder> {
+    public static class Form3VideoAdapter extends RecyclerView.Adapter<Form3VideoAdapter.VideoViewHolder> {
 
         private List<VideoItem> videos;
-        private Context context;
-        private List<String> comments;
+        private AppCompatActivity context;
 
-        public Form1VideoAdapter(List<VideoItem> videos, Context context, List<String> comments) {
+        public Form3VideoAdapter(List<VideoItem> videos, AppCompatActivity context) {
             this.videos = videos;
             this.context = context;
-            this.comments = comments;
         }
 
         @NonNull
@@ -112,8 +101,7 @@ public class Form3VideosGeography extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
             VideoItem videoItem = videos.get(position);
-            String comment = comments.get(position);
-            holder.bind(videoItem, comment);
+            holder.bind(videoItem);
         }
 
         @Override
@@ -123,22 +111,18 @@ public class Form3VideosGeography extends AppCompatActivity {
 
         public class VideoViewHolder extends RecyclerView.ViewHolder {
 
-
             TextView textViewName;
             TextView textViewUrl;
-            TextView textViewComment;
 
             public VideoViewHolder(@NonNull View itemView) {
                 super(itemView);
                 textViewName = itemView.findViewById(R.id.textViewVideoName);
                 textViewUrl = itemView.findViewById(R.id.textViewVideoUrl);
-                textViewComment = itemView.findViewById(R.id.textViewComment);
             }
 
-            public void bind(VideoItem videoItem, String comment) {
+            public void bind(VideoItem videoItem) {
                 textViewName.setText(videoItem.getName());
                 textViewUrl.setText(videoItem.getUrl());
-                textViewComment.setText(comment);
             }
         }
     }

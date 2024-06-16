@@ -1,15 +1,10 @@
 
 
-
 package com.example.teachandlearn.Student.Form2.Documents.Geography;
-
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -26,23 +20,20 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class Form2VideosGeography extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private Form1VideoAdapter form1VideoAdapter;
-    private ChatGPTService chatGPTService;
-
+    private Form2VideoAdapter form2VideoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_video);
+        setContentView(R.layout.activity_form2_video);
 
         recyclerView = findViewById(R.id.rvVideos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-        chatGPTService = new ChatGPTService();
 
         fetchVideos();
     }
@@ -52,13 +43,14 @@ public class Form2VideosGeography extends AppCompatActivity {
         StorageReference storageRef = storage.getReference().child("/form2/humanities/geography/videos/");
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
-            List<VideoItem> videos = new ArrayList<>();
+            List<Form2VideosGeography.VideoItem> videos = new ArrayList<>();
             for (StorageReference item : listResult.getItems()) {
                 item.getDownloadUrl().addOnSuccessListener(uri -> {
                     String name = item.getName();
                     String url = uri.toString();
-                    videos.add(new VideoItem(name, url));
-
+                    videos.add(new Form2VideosGeography.VideoItem(name, url));
+                    form2VideoAdapter = new Form2VideoAdapter(videos, this);
+                    recyclerView.setAdapter(form2VideoAdapter);
                 }).addOnFailureListener(e -> {
                     Toast.makeText(this, "Failed to get download URL", Toast.LENGTH_SHORT).show();
                 });
@@ -89,30 +81,27 @@ public class Form2VideosGeography extends AppCompatActivity {
         }
     }
 
-    public static class Form1VideoAdapter extends RecyclerView.Adapter<Form1VideoAdapter.VideoViewHolder> {
+    public static class Form2VideoAdapter extends RecyclerView.Adapter<Form2VideoAdapter.VideoViewHolder> {
 
         private List<VideoItem> videos;
-        private Context context;
-        private List<String> comments;
+        private AppCompatActivity context;
 
-        public Form1VideoAdapter(List<VideoItem> videos, Context context, List<String> comments) {
+        public Form2VideoAdapter(List<VideoItem> videos, AppCompatActivity context) {
             this.videos = videos;
             this.context = context;
-            this.comments = comments;
         }
 
         @NonNull
         @Override
         public VideoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form1_vedio_item, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_form2_vedio_item, parent, false);
             return new VideoViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull VideoViewHolder holder, int position) {
             VideoItem videoItem = videos.get(position);
-            String comment = comments.get(position);
-            holder.bind(videoItem, comment);
+            holder.bind(videoItem);
         }
 
         @Override
@@ -122,22 +111,18 @@ public class Form2VideosGeography extends AppCompatActivity {
 
         public class VideoViewHolder extends RecyclerView.ViewHolder {
 
-
             TextView textViewName;
             TextView textViewUrl;
-            TextView textViewComment;
 
             public VideoViewHolder(@NonNull View itemView) {
                 super(itemView);
                 textViewName = itemView.findViewById(R.id.textViewVideoName);
                 textViewUrl = itemView.findViewById(R.id.textViewVideoUrl);
-                textViewComment = itemView.findViewById(R.id.textViewComment);
             }
 
-            public void bind(VideoItem videoItem, String comment) {
+            public void bind(VideoItem videoItem) {
                 textViewName.setText(videoItem.getName());
                 textViewUrl.setText(videoItem.getUrl());
-                textViewComment.setText(comment);
             }
         }
     }

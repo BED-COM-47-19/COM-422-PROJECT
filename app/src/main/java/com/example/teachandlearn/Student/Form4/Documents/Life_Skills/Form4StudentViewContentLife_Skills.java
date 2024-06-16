@@ -38,7 +38,7 @@ public class Form4StudentViewContentLife_Skills extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentLife_Skills.this, Form4PDF.class);
+                Intent intent = new Intent(Form4StudentViewContentLife_Skills.this, Form4PDFLife_Skills.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +46,7 @@ public class Form4StudentViewContentLife_Skills extends AppCompatActivity {
         buttonAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentLife_Skills.this, Form4Audio.class);
+                Intent intent = new Intent(Form4StudentViewContentLife_Skills.this, Form4AudioLife_Skills.class);
                 startActivity(intent);
             }
         });
@@ -54,7 +54,7 @@ public class Form4StudentViewContentLife_Skills extends AppCompatActivity {
         buttonVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form4StudentViewContentLife_Skills.this, Form4Videos.class);
+                Intent intent = new Intent(Form4StudentViewContentLife_Skills.this, Form4VideosLife_Skills.class);
                 startActivity(intent);
             }
         });

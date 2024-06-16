@@ -52,7 +52,7 @@ public class Form4QuizzesAndQuestionsLife_Skills extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String url = pdfUrls.get(position);
-                Intent intent = new Intent(Form4QuizzesAndQuestionsLife_Skills.this, Form4PDFViewer.class);
+                Intent intent = new Intent(Form4QuizzesAndQuestionsLife_Skills.this, Form4PDFViewerLife_Skills.class);
                 intent.putExtra("PDF_URL", url);
                 startActivity(intent);
             }
@@ -138,7 +138,7 @@ public class Form4QuizzesAndQuestionsLife_Skills extends AppCompatActivity {
             question2.put("correctAnswer", "Option B2");
             questions.add(question8);
 
-            Intent intent = new Intent(Form4QuizzesAndQuestionsLife_Skills.this, Form4Quiz.class);
+            Intent intent = new Intent(Form4QuizzesAndQuestionsLife_Skills.this, Form4QuizLife_Skills.class);
             intent.putExtra("QUESTIONS", questions);
             startActivity(intent);
         });

@@ -41,7 +41,7 @@ public class Form1AudioChemistry extends AppCompatActivity {
 
     private void fetchAudios() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        String path = "/form1/sciences/agriculture/audios/";
+        String path = "/form1/sciences/chemistry/audios/";
         StorageReference storageRef = storage.getReference().child(path);
         fetchFromStorage(storageRef);
     }
