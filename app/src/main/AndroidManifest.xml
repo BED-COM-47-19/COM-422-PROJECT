@@ -43,10 +43,9 @@
 
 
 
-        sk-proj-NefvkoCl16tQoYM2bex1T3BlbkFJJz5PcdElIEp6eDiOmMAh
 
 
-        <service android:name=".CHATGPT.ChatGPTService"/>
+
 
 
 
@@ -57,6 +56,10 @@
         </activity>
 
 
+        <activity
+            android:name=".CHATGPT.ChatGPTService"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
 
 
 
@@ -482,11 +485,11 @@
 
         <!-- For Agriculture-->
 
-        <activity android:name=".Student.Form1.Documents.Agriculture.Form1AudioChemistry"
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1AudioAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Agriculture.Form2Audio"
+        <activity android:name=".Student.Form2.Documents.Agriculture.Form2AudioAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -494,17 +497,17 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Agriculture.Form4Audio"
+        <activity android:name=".Student.Form4.Documents.Agriculture.Form4AudioAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
 
 
-        <activity android:name=".Student.Form1.Documents.Agriculture.Form1PDFGeography"
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1PDFAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Agriculture.Form2PDF"
+        <activity android:name=".Student.Form2.Documents.Agriculture.Form2PDFAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -512,7 +515,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Agriculture.Form4PDF"
+        <activity android:name=".Student.Form4.Documents.Agriculture.Form4PDFAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -559,11 +562,11 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Agriculture.Form1VideoLife_Skills"
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1VideosAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Agriculture.Form2Videos"
+        <activity android:name=".Student.Form2.Documents.Agriculture.Form2VideosAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -571,7 +574,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Agriculture.Form4Videos"
+        <activity android:name=".Student.Form4.Documents.Agriculture.Form4VideosAgriculture"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -582,37 +585,37 @@
 
         <!-- Bible Knowledge -->
 
-        <activity android:name=".Student.Form1.Documents.Bible_Knowledge.Form4AudioBible_Knowledge"
+        <activity android:name=".Student.Form1.Documents.Bible_Knowledge.Form1AudioBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2Audio"
+        <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2AudioBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3AudioBK"
+        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3AudioBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Bible_Knowledge.Form4Audio"
+        <activity android:name=".Student.Form4.Documents.Bible_Knowledge.Form4AudioBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
 
 
-        <activity android:name=".Student.Form1.Documents.Bible_Knowledge.Form4PDFBible_Knowledge"
+        <activity android:name=".Student.Form1.Documents.Bible_Knowledge.Form1PDFBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2PDF"
+        <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2PDFBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3PDF_BK"
+        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3PDFBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Bible_Knowledge.Form4PDF"
+        <activity android:name=".Student.Form4.Documents.Bible_Knowledge.Form4PDFBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -661,7 +664,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3QuizzesAndQuestionsBK"
+        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3QuizzesAndQuestionsBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -669,19 +672,19 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Bible_Knowledge.Form1VideosBible_Knowledge"
+        <activity android:name=".Student.Form1.Documents.Bible_Knowledge.Form1VideoBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2Videos"
+        <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2VideosBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3VideosBK"
+        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3VideosBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Bible_Knowledge.Form4Videos"
+        <activity android:name=".Student.Form4.Documents.Bible_Knowledge.Form4VideosBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -697,15 +700,15 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Biology.Form2Audio"
+        <activity android:name=".Student.Form2.Documents.Biology.Form2AudioBiology"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Biology.Form3AudioCHE"
+        <activity android:name=".Student.Form3.Documents.Biology.Form3AudioBiology"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Biology.Form4Audio"
+        <activity android:name=".Student.Form4.Documents.Biology.Form4AudioBiology"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -713,15 +716,15 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Biology.Form2PDF"
+        <activity android:name=".Student.Form2.Documents.Biology.Form2PDFBiology"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Biology.Form3PDFCHE"
+        <activity android:name=".Student.Form3.Documents.Biology.Form3PDFBiology"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Biology.Form4PDF"
+        <activity android:name=".Student.Form4.Documents.Biology.Form4PDFBiology"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -773,19 +776,19 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Biology.Form1VideosBiology"
+        <activity android:name=".Student.Form1.Documents.Biology.Form1VideoBiology"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Biology.Form2Videos"
+        <activity android:name=".Student.Form2.Documents.Biology.Form2VideosBiology"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Biology.Form3VideosCHE"
+        <activity android:name=".Student.Form3.Documents.Biology.Form3VideosBiology"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Biology.Form4Videos"
+        <activity android:name=".Student.Form4.Documents.Biology.Form4VideosBiology"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -797,7 +800,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Chemistry.Form2Audio"
+        <activity android:name=".Student.Form2.Documents.Chemistry.Form2AudioChemistry"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -805,7 +808,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Chemistry.Form4Audio"
+        <activity android:name=".Student.Form4.Documents.Chemistry.Form4AudioChemistry"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -813,7 +816,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Chemistry.Form2PDF"
+        <activity android:name=".Student.Form2.Documents.Chemistry.Form2PDFChemistry"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -821,7 +824,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Chemistry.Form4PDF"
+        <activity android:name=".Student.Form4.Documents.Chemistry.Form4PDFChemistry"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -873,19 +876,19 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Chemistry.Chemistry"
+        <activity android:name=".Student.Form1.Documents.Chemistry.Form1VideoChemistry"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Chemistry.Form2Videos"
+        <activity android:name=".Student.Form2.Documents.Chemistry.Form2VideosChemistry"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Chemistry.Form3Videos"
+        <activity android:name=".Student.Form3.Documents.Chemistry.Form3VideosChemistry"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Chemistry.Form4Videos"
+        <activity android:name=".Student.Form4.Documents.Chemistry.Form4VideosChemistry"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -897,15 +900,15 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Chichewa.Form2Audio"
+        <activity android:name=".Student.Form2.Documents.Chichewa.Form2AudioChichewa"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Chichewa.Form3Audio"
+        <activity android:name=".Student.Form3.Documents.Chichewa.Form3AudioChichewa"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Chichewa.Form4Audio"
+        <activity android:name=".Student.Form4.Documents.Chichewa.Form4AudioChichewa"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -913,15 +916,15 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Chichewa.Form2PDF"
+        <activity android:name=".Student.Form2.Documents.Chichewa.Form2PDFChichewa"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Chichewa.Form3PDF"
+        <activity android:name=".Student.Form3.Documents.Chichewa.Form3PDFChichewa"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Chichewa.Form4PDF"
+        <activity android:name=".Student.Form4.Documents.Chichewa.Form4PDFChichewa"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -973,19 +976,19 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Chichewa.Form1VideosChichewa"
+        <activity android:name=".Student.Form1.Documents.Chichewa.Form1VideoChichewa"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Chichewa.Form2Videos"
+        <activity android:name=".Student.Form2.Documents.Chichewa.Form2VideosChichewa"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Chichewa.Form3Videos"
+        <activity android:name=".Student.Form3.Documents.Chichewa.Form3VideosChichewa"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Chichewa.Form4Videos"
+        <activity android:name=".Student.Form4.Documents.Chichewa.Form4VideosChichewa"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -1074,7 +1077,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.English.Form1VideosEnglish"
+        <activity android:name=".Student.Form1.Documents.English.Form1VideoEnglish"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -1174,7 +1177,7 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Geography.Form1VideosGeography"
+        <activity android:name=".Student.Form1.Documents.Geography.Form1VideoGeography"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -1197,35 +1200,35 @@
 
         <!-- For History-->
 
-        <activity android:name=".Student.Form1.Documents.History.Form1Audio"
+        <activity android:name=".Student.Form1.Documents.History.Form1AudioHistory"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.History.Form2Audio"
+        <activity android:name=".Student.Form2.Documents.History.Form2AudioHistory"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.History.Form3Audio"
+        <activity android:name=".Student.Form3.Documents.History.Form3AudioHistory"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.History.Form4Audio"
+        <activity android:name=".Student.Form4.Documents.History.Form4AudioHistory"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.History.Form1PDF"
+        <activity android:name=".Student.Form1.Documents.History.Form1PDFHistory"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.History.Form2PDF"
+        <activity android:name=".Student.Form2.Documents.History.Form2PDFHistory"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.History.Form3PDF"
+        <activity android:name=".Student.Form3.Documents.History.Form3PDFHistory"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.History.Form4PDF"
+        <activity android:name=".Student.Form4.Documents.History.Form4PDFHistory"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -1277,19 +1280,19 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.History.Form1Videos"
+        <activity android:name=".Student.Form1.Documents.History.Form1VideoHistory"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.History.Form2Videos"
+        <activity android:name=".Student.Form2.Documents.History.Form2VideosHistory"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.History.Form3Videos"
+        <activity android:name=".Student.Form3.Documents.History.Form3VideosHistory"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.History.Form4Videos"
+        <activity android:name=".Student.Form4.Documents.History.Form4VideosHistory"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -1298,35 +1301,35 @@
 
         <!-- For Life_Skills-->
 
-        <activity android:name=".Student.Form1.Documents.Life_Skills.Form1Audio"
+        <activity android:name=".Student.Form1.Documents.Life_Skills.Form1AudioLife_Skills"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Life_Skills.Form2Audio"
+        <activity android:name=".Student.Form2.Documents.Life_Skills.Form2AudioLife_Skills"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Life_Skills.Form3Audio"
+        <activity android:name=".Student.Form3.Documents.Life_Skills.Form3AudioLife_Skills"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Life_Skills.Form4Audio"
+        <activity android:name=".Student.Form4.Documents.Life_Skills.Form4AudioLife_Skills"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Life_Skills.Form1PDF"
+        <activity android:name=".Student.Form1.Documents.Life_Skills.Form1PDFLife_Skills"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Life_Skills.Form2PDF"
+        <activity android:name=".Student.Form2.Documents.Life_Skills.Form2PDFLife_Skills"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Life_Skills.Form3PDF"
+        <activity android:name=".Student.Form3.Documents.Life_Skills.Form3PDFLife_Skills"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Life_Skills.Form4PDF"
+        <activity android:name=".Student.Form4.Documents.Life_Skills.Form4PDFLife_Skills"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -1378,19 +1381,19 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Life_Skills.Form1Videos"
+        <activity android:name=".Student.Form1.Documents.Life_Skills.Form1VideoLife_Skills"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Life_Skills.Form2Videos"
+        <activity android:name=".Student.Form2.Documents.Life_Skills.Form2VideosLife_Skills"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Life_Skills.Form3Videos"
+        <activity android:name=".Student.Form3.Documents.Life_Skills.Form3VideosLife_Skills"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Life_Skills.Form4Videos"
+        <activity android:name=".Student.Form4.Documents.Life_Skills.Form4VideosLife_Skills"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -1399,35 +1402,35 @@
 
         <!-- For Mathematics-->
 
-        <activity android:name=".Student.Form1.Documents.Mathematics.Form1Audio"
+        <activity android:name=".Student.Form1.Documents.Mathematics.Form1AudioMathematics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Mathematics.Form2Audio"
+        <activity android:name=".Student.Form2.Documents.Mathematics.Form2AudioMathematics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Mathematics.Form3Audio"
+        <activity android:name=".Student.Form3.Documents.Mathematics.Form3AudioMathematics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Mathematics.Form4Audio"
+        <activity android:name=".Student.Form4.Documents.Mathematics.Form4AudioMathematics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Mathematics.Form1PDF"
+        <activity android:name=".Student.Form1.Documents.Mathematics.Form1PDFMathematics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Mathematics.Form2PDF"
+        <activity android:name=".Student.Form2.Documents.Mathematics.Form2PDFMathematics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Mathematics.Form3PDF"
+        <activity android:name=".Student.Form3.Documents.Mathematics.Form3PDFMathematics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Mathematics.Form4PDF"
+        <activity android:name=".Student.Form4.Documents.Mathematics.Form4PDFMathematics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -1479,19 +1482,19 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Mathematics.Form1Videos"
+        <activity android:name=".Student.Form1.Documents.Mathematics.Form1VideoMathematics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Mathematics.Form2Videos"
+        <activity android:name=".Student.Form2.Documents.Mathematics.Form2VideosMathematics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Mathematics.Form3Videos"
+        <activity android:name=".Student.Form3.Documents.Mathematics.Form3VideosMathematics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Mathematics.Form4Videos"
+        <activity android:name=".Student.Form4.Documents.Mathematics.Form4VideosMathematics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -1499,35 +1502,35 @@
 
         <!-- For Physics-->
 
-        <activity android:name=".Student.Form1.Documents.Physics.Form1Audio"
+        <activity android:name=".Student.Form1.Documents.Physics.Form1AudioPhysics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Physics.Form2Audio"
+        <activity android:name=".Student.Form2.Documents.Physics.Form2AudioPhysics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Physics.Form3Audio"
+        <activity android:name=".Student.Form3.Documents.Physics.Form3AudioPhysics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Physics.Form4Audio"
+        <activity android:name=".Student.Form4.Documents.Physics.Form4AudioPhysics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Physics.Form1PDF"
+        <activity android:name=".Student.Form1.Documents.Physics.Form1PDFPhysics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Physics.Form2PDF"
+        <activity android:name=".Student.Form2.Documents.Physics.Form2PDFPhysics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Physics.Form3PDF"
+        <activity android:name=".Student.Form3.Documents.Physics.Form3PDFPhysics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Physics.Form4PDF"
+        <activity android:name=".Student.Form4.Documents.Physics.Form4PDFPhysics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -1579,19 +1582,19 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Physics.Form1Videos"
+        <activity android:name=".Student.Form1.Documents.Physics.Form1VideoPhysics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Physics.Form2Videos"
+        <activity android:name=".Student.Form2.Documents.Physics.Form2VideosPhysics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Physics.Form3Videos"
+        <activity android:name=".Student.Form3.Documents.Physics.Form3VideosPhysics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Physics.Form4Videos"
+        <activity android:name=".Student.Form4.Documents.Physics.Form4VideosPhysics"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -1600,35 +1603,35 @@
 
         <!-- For Social_Studies-->
 
-        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1Audio"
+        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1AudioSocial_Studies"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Social_Studies.Form2Audio"
+        <activity android:name=".Student.Form2.Documents.Social_Studies.Form2AudioSocial_Studies"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3Audio"
+        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3AudioSocial_Studies"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Social_Studies.Form4Audio"
+        <activity android:name=".Student.Form4.Documents.Social_Studies.Form4AudioSocial_Studies"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1PDF"
+        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1PDFSocial_Studies"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Social_Studies.Form2PDF"
+        <activity android:name=".Student.Form2.Documents.Social_Studies.Form2PDFSocial_Studies"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3PDF"
+        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3PDFSocial_Studies"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Social_Studies.Form4PDF"
+        <activity android:name=".Student.Form4.Documents.Social_Studies.Form4PDFSocial_Studies"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
@@ -1680,19 +1683,19 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1Videos"
+        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1VideoSocial_Studies"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form2.Documents.Social_Studies.Form2Videos"
+        <activity android:name=".Student.Form2.Documents.Social_Studies.Form2VideosSocial_Studies"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3Videos"
+        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3VideosSocial_Studies"
             android:theme="@style/Theme.AppCompat">
         </activity>
 
-        <activity android:name=".Student.Form4.Documents.Social_Studies.Form4Videos"
+        <activity android:name=".Student.Form4.Documents.Social_Studies.Form4VideosSocial_Studies"
             android:theme="@style/Theme.AppCompat">
         </activity>
 

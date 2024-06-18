@@ -18,7 +18,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
-import java.util.List;class Form4VideosLife_Skills extends AppCompatActivity {
+import java.util.List;
+
+class Form4VideosLife_Skills extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private Form4VideoAdapter form4VideoAdapter;
