@@ -29,6 +29,7 @@ volley = "1.2.1"
 material = "1.13.0-alpha03"
 androidxJunit = "1.2.0-rc01"
 espressoCoreVersion = "3.6.0-rc01"
+firebaseAuthVersion = "23.0.0"
 
 [libraries]
 android-pdf-viewer = { group = "com.github.barteksc", name = "android-pdf-viewer", version = "2.8.2" }
@@ -67,6 +68,7 @@ volley = { group = "com.android.volley", name = "volley", version.ref = "volley"
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCoreVersion" }
+google-firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuthVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

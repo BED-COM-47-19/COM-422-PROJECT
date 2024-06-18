@@ -81,6 +81,7 @@ dependencies {
     implementation(libs.junit)
     implementation(libs.ext.junit)
     implementation(libs.espresso.core)
+    implementation(libs.google.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
