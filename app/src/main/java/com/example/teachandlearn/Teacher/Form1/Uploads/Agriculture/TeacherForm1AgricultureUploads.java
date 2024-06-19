@@ -1,5 +1,5 @@
-
 package com.example.teachandlearn.Teacher.Form1.Uploads.Agriculture;
+
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -9,18 +9,20 @@ import android.util.Log;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.teachandlearn.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-
 
 public class TeacherForm1AgricultureUploads extends AppCompatActivity {
 
@@ -36,7 +38,6 @@ public class TeacherForm1AgricultureUploads extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_form1_uploads);
 
@@ -55,56 +56,44 @@ public class TeacherForm1AgricultureUploads extends AppCompatActivity {
 
         buttonBack = findViewById(R.id.back_button);
         buttonBack.setOnClickListener(view -> onBackPressed());
-
-
-
     }
 
     private void openFilePicker(String mimeType, int requestCode) {
-
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType(mimeType);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         startActivityForResult(Intent.createChooser(intent, "Select File"), requestCode);
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri selectedFileUri = data.getData();
 
             switch (requestCode) {
-
                 case REQUEST_PICK_PDF:
                     uploadFile(selectedFileUri, "/form1/sciences/agriculture/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
                     break;
                 case REQUEST_PICK_AUDIO:
-                    uploadFile(selectedFileUri, "/form1/sciences/agriculture/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    uploadFile(selectedFileUri, "/form1/sciences/agriculture/audios/", "audio", new String[]{"mp3", "wav"}, "Please select an MP3 or WAV file.");
                     break;
                 case REQUEST_PICK_VIDEO:
-                    uploadFile(selectedFileUri, "/form1/sciences/agriculture/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV", "MOV"}, "Please Select Video format.");
+                    uploadFile(selectedFileUri, "/form1/sciences/agriculture/videos/", "videos", new String[]{"mp4", "avi", "mkv", "wmv", "mov"}, "Please select a video file.");
                     break;
                 case REQUEST_PICK_QUESTION:
-                    uploadFile(selectedFileUri, "/form1/sciences/agriculture/quizzes_and_questions/", "questions", new String[]{"pdf", "docx", "pptx"}, "No restriction on question formats.");
+                    uploadFile(selectedFileUri, "/form1/sciences/agriculture/quizzes_and_questions/", "questions", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
                     break;
                 default:
                     // Handle other cases if needed
                     break;
-
             }
         }
-
-
     }
 
     private void uploadFile(Uri fileUri, String storagePath, String firestoreCollection, String[] allowedExtensions, String errorMessage) {
-
         if (fileUri != null) {
-
             progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
@@ -113,29 +102,20 @@ public class TeacherForm1AgricultureUploads extends AppCompatActivity {
             String fileExtension = getFileExtension(fileUri);
 
             boolean isExtensionAllowed = false;
-
             for (String extension : allowedExtensions) {
-
                 if (fileExtension != null && fileExtension.equalsIgnoreCase(extension)) {
                     isExtensionAllowed = true;
                     break;
-
                 }
-
-
             }
 
-
             if (!isExtensionAllowed) {
-
                 progressDialog.dismiss();
                 showToast(errorMessage);
                 return;
-
             }
 
             StorageReference fileRef = storageReference.child(storagePath + fileName);
-
             fileRef.putFile(fileUri)
                     .addOnSuccessListener(taskSnapshot -> {
                         progressDialog.dismiss();
@@ -147,22 +127,16 @@ public class TeacherForm1AgricultureUploads extends AppCompatActivity {
                         showToast("Failed to upload file: " + e.getMessage());
                     })
                     .addOnProgressListener(taskSnapshot -> progressDialog.setMessage("Uploaded " + (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount()) + "%"));
-
         }
-
-
     }
 
     private String getFileExtension(Uri uri) {
-
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
-
     }
 
     private void saveFileUrlToFirestore(String fileUrl, String firestoreCollection) {
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> fileData = new HashMap<>();
         fileData.put("fileUrl", fileUrl);
@@ -170,66 +144,15 @@ public class TeacherForm1AgricultureUploads extends AppCompatActivity {
                 .add(fileData)
                 .addOnSuccessListener(documentReference -> Log.d(TAG, "File URL added with ID: " + documentReference.getId()))
                 .addOnFailureListener(e -> Log.w(TAG, "Error adding file URL", e));
-
     }
 
     private void showToast(String message) {
-
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-
-    }
-
-    private void logStudentAccess(String accessedFile) {
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (user != null) {
-
-            String firstName = user.getDisplayName();
-            String lastName = user.getDisplayName();
-            String studentEmail = user.getEmail();
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            Map<String, Object> accessData = new HashMap<>();
-
-            accessData.put("firstName", firstName);
-            accessData.put("lastName", lastName);
-            accessData.put("studentEmail", studentEmail);
-            accessData.put("accessedFile", accessedFile);
-            accessData.put("timestamp", System.currentTimeMillis()); // Adding timestamp
-            db.collection("student_email")
-                    .add(accessData)
-                    .addOnSuccessListener(documentReference -> Log.d(TAG, "Access log added with ID: " + documentReference.getId()))
-                    .addOnFailureListener(e -> Log.w(TAG, "Error adding access log", e));
-
-        }
-
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
     }
-
-
-
-    private void sendNotificationToTeacher(String studentEmail, float grade) {
-        // Construct the FCM message
-        Map<String, String> data = new HashMap<>();
-        data.put("title", "New Quiz Result");
-        data.put("body", "New quiz result by " + studentEmail + ". Grade: " + String.format("%.2f", grade) + "%");
-
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("teacher_devices").document("teacher_device_id").get()
-                .addOnSuccessListener(documentSnapshot -> {
-                    if (documentSnapshot.exists()) {
-                        String teacherDeviceToken = documentSnapshot.getString("fcmToken");
-
-                        // Send notification using FCM
-
-                    }
-                });
-    }
-
-
-
+    
 }

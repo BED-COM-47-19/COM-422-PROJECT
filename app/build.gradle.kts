@@ -57,6 +57,14 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
+    dependencies {
+        // Import the BoM for the Firebase platform
+        implementation(platform(libs.firebase.bom))
+
+        // Add the dependency for the Cloud Storage library
+        // When using the BoM, you don't specify versions in Firebase library dependencies
+        implementation(libs.google.firebase.storage)
+    }
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -88,6 +96,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
 
 
 

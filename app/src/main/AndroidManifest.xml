@@ -121,6 +121,19 @@
         <activity
             android:name=".Student.Form1.Documents.Bible_Knowledge.Form1BibleKnowledgeReadNotesActivity"
             android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".Student.Form1.Documents.Chemistry.Form1ChemistryReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+
+        <activity
+            android:name=".Student.Form1.Documents.English.Form1EnglishReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".Student.Form1.Documents.Geography.Form1GeographyReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+
+
+
 
 
 
