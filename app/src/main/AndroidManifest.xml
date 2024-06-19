@@ -135,6 +135,10 @@
         <activity
             android:name=".Student.Form1.Documents.History.Form1HistoryReadNotesActivity"
             android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".Student.Form1.Documents.Life_Skills.Form1Life_SkillsReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+
 
 
 
