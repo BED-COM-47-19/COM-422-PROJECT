@@ -221,9 +221,14 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
+        <activity
+            android:name=".Student.Form1.Documents.Biology.Form1BiologyReadNotesActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
         <activity android:name=".Student.Form2.Documents.Biology.Form2StudentViewContentBiology"
             android:theme="@style/Theme.AppCompat">
         </activity>
+
 
         <activity android:name=".Student.Form3.Documents.Biology.Form3StudentViewContentBiology"
             android:theme="@style/Theme.AppCompat">
