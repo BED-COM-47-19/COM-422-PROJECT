@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "135484898713",
+    "project_id": "teachandlearn-56b04",
+    "storage_bucket": "teachandlearn-56b04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135484898713:android:510967080ed0cbbf586708",
+        "android_client_info": {
+          "package_name": "com.example.teachandlearn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135484898713-dp1m6uv8fujllpcfltt2hr6doectk2t7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.teachandlearn",
+            "certificate_hash": "54d31462850e55270294756c4a44a44253d3f1cb"
+          }
+        },
+        {
+          "client_id": "135484898713-lm8q74i4avor9d3pbr33566g3n2rlgmt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.teachandlearn",
+            "certificate_hash": "49dabd075450ef1f28ee0c6e379c9816064fe889"
+          }
+        },
+        {
+          "client_id": "135484898713-ntqu1l8s5nfe81vftrh57li9t9fvkorc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.teachandlearn",
+            "certificate_hash": "56705121996bf7e15d17caa59535a0de7d348cf7"
+          }
+        },
+        {
+          "client_id": "135484898713-v6ml7tka7qa59mvvf2vieka0fr6fbf9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAiSJfx_s4cagXtbmdNBhQ7f8mFh_xkyo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135484898713-v6ml7tka7qa59mvvf2vieka0fr6fbf9v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FirebaseConfiguration">
+    <option name="connectionConfigurations">
+      <map>
+        <entry key="ee4e029d-cff7-45c2-8475-105af858c48b">
+          <value>
+            <FirebaseConfigInternal>
+              <option name="id" value="ee4e029d-cff7-45c2-8475-105af858c48b" />
+              <option name="label" value="teachandlearn" />
+              <option name="serviceAccountPath" value="$USER_HOME$/Pictures/COM-422-PROJECT-COM-422-PROJECT" />
+            </FirebaseConfigInternal>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="version" value="2" />
+  </component>
+</project>

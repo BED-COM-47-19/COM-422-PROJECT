@@ -1,0 +1,1909 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.teachandlearn">
+
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- AndroidManifest.xml  -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+
+
+    <application
+
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/logo_image2"
+
+        android:label="Tsogolo"
+        android:roundIcon="@drawable/logo_image2"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Teachandlearn"
+        tools:targetApi="31">
+
+
+
+
+        <activity android:name=".MainClass.Main"
+            android:exported="true"
+            android:label="Tsogolo"
+            android:theme="@style/Theme.AppCompat">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+
+
+
+
+
+
+
+        <activity
+            android:name=".MainClass.UserTypeSelection"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity
+            android:name=".CHATGPT.ChatGPTService"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <activity android:name=".Student.LogIn_And_SignUp.StudentLogIn"
+                  android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.LogIn_And_SignUp.StudentSignUp"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.LogIn_And_SignUp.TeacherLogIn"
+                  android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.LogIn_And_SignUp.TeacherSignUp"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.SelectClass.TeacherSelectClass"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <activity android:name=".Student.SelectClass.StudentSelectClass"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- User Account Settings -->
+
+        <activity android:name=".MainClass.UserAccountSettings"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- Student Class Selection -->
+
+        <activity android:name=".Student.Form1.Categories.Form1Student"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Categories.Form2Student"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Categories.Form3Student"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Categories.Form4Student"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity
+            android:name=".Student.Form1.Documents.Bible_Knowledge.Form1StudentViewContentBible_Knowledge"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".Student.Form1.Documents.Bible_Knowledge.Form1BibleKnowledgeReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+
+
+
+        <!-- Sciences Subjects -->
+
+        <activity android:name=".Student.Form1.Categories.Form1SciencesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Categories.Form2SciencesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Categories.Form3SciencesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Categories.Form4SciencesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- Humanities Subjects -->
+
+        <activity android:name=".Student.Form1.Categories.Form1HumanitiesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Categories.Form2HumanitiesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Categories.Form3HumanitiesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Categories.Form4HumanitiesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- Languages Subjects -->
+
+        <activity android:name=".Student.Form1.Categories.Form1LanguagesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Categories.Form2LanguagesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Categories.Form3LanguagesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Categories.Form4LanguagesStudent"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- View Content Classes -->
+
+        <activity
+            android:name=".Student.Form1.Documents.Agriculture.Form1StudentViewContentAgriculture"
+            android:theme="@style/Theme.AppCompat" />
+
+        <activity
+            android:name=".Student.Form1.Documents.Agriculture.Form1AgricultureReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+
+        <activity android:name=".Student.Form2.Documents.Agriculture.Form2StudentViewContentAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Agriculture.Form3StudentViewContentAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Agriculture.Form4StudentViewContentAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2StudentViewContentBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3StudentViewContentBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Bible_Knowledge.Form4StudentViewContentBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Biology.Form1StudentViewContentBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Biology.Form2StudentViewContentBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Biology.Form3StudentViewContentBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Biology.Form4StudentViewContentBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Chemistry.Form1StudentViewContentChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chemistry.Form2StudentViewContentChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chemistry.Form3StudentViewContentChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chemistry.Form4StudentViewContentChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Mathematics.Form1StudentViewContentMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Mathematics.Form2StudentViewContentMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Mathematics.Form3StudentViewContentMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Mathematics.Form4StudentViewContentMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Physics.Form1StudentViewContentPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Physics.Form2StudentViewContentPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Physics.Form3StudentViewContentPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Physics.Form4StudentViewContentPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Life_Skills.Form1StudentViewContentLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Life_Skills.Form2StudentViewContentLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Life_Skills.Form3StudentViewContentLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Life_Skills.Form4StudentViewContentLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.English.Form1StudentViewContentEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.English.Form2StudentViewContentEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.English.Form3StudentViewContentEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.English.Form4StudentViewContentEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Chichewa.Form1StudentViewContentChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chichewa.Form2StudentViewContentChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chichewa.Form3StudentViewContentChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chichewa.Form4StudentViewContentChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1StudentViewContentSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Social_Studies.Form2StudentViewContentSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3StudentViewContentSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Social_Studies.Form4StudentViewContentSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.History.Form1StudentViewContentHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.History.Form2StudentViewContentHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.History.Form3StudentViewContentHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.History.Form4StudentViewContentHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1StudentViewContentGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2StudentViewContentGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3StudentViewContentGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4StudentViewContentGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+
+
+
+        <!-- Teacher File Uploader -->
+
+        <activity android:name=".Teacher.Form1.Uploads.Agriculture.TeacherForm1AgricultureUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Teacher.Form2.Uploads.Agriculture.TeacherForm2AgricultureUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Agriculture.TeacherForm3AgricultureUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Teacher.Form4.Uploads.Agriculture.TeacherForm4AgricultureUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+
+
+
+
+
+        <!-- Teacher Classes Selection -->
+
+        <activity android:name=".Teacher.Form1.Categories.TeacherForm1"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Categories.TeacherForm2"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Categories.TeacherForm3"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Categories.TeacherForm4"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- Teacher Science Selection -->
+
+        <activity android:name=".Teacher.Form1.Categories.TeacherForm1Science"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Categories.TeacherForm2Science"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Categories.TeacherForm3Science"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Categories.TeacherForm4Science"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- Teacher Humanities Selection -->
+
+        <activity android:name=".Teacher.Form1.Categories.TeacherForm1Humanities"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Categories.TeacherForm2Humanities"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Categories.TeacherForm3Humanities"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Categories.TeacherForm4Humanities"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <!-- Teacher Languages Selection -->
+
+        <activity android:name=".Teacher.Form1.Categories.TeacherForm1Languages"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Categories.TeacherForm2Languages"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Categories.TeacherForm3Languages"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Categories.TeacherForm4Languages"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".MainClass.SignupOptions"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <!-- For Agriculture-->
+
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1AudioAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Agriculture.Form2AudioAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Agriculture.Form3AudioAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Agriculture.Form4AudioAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1PDFAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Agriculture.Form2PDFAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Agriculture.Form3PDFAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Agriculture.Form4PDFAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1PDFViewerAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Agriculture.Form2PDFViewerAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Agriculture.Form3PDFViewerAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Agriculture.Form4PDFViewerAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1QuizAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1QuizzesAndQuestionsAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Agriculture.Form2QuizzesAndQuestionsAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Agriculture.Form3QuizzesAndQuestionsAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Agriculture.Form4QuizzesAndQuestionsAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Agriculture.Form1VideosAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Agriculture.Form2VideosAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Agriculture.Form3VideosAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Agriculture.Form4VideosAgriculture"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+
+
+        <!-- Bible Knowledge -->
+
+        <activity android:name=".Student.Form1.Documents.Bible_Knowledge.Form1AudioBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2AudioBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3AudioBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Bible_Knowledge.Form4AudioBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <activity android:name=".Student.Form1.Documents.Bible_Knowledge.Form1PDFBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2PDFBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3PDFBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Bible_Knowledge.Form4PDFBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Student.Form1.Documents.Bible_Knowledge.Form1PDFViewerBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2PDFViewerBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3PDFViewerBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Bible_Knowledge.Form4PDFViewerBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <activity android:name=".Student.Form1.Documents.Bible_Knowledge.Form1QuizBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2QuizBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3QuizBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Bible_Knowledge.Form4QuizBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <activity android:name=".Student.Form1.Documents.Bible_Knowledge.Form1QuizzesAndQuestionsBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2QuizzesAndQuestionsBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3QuizzesAndQuestionsBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Bible_Knowledge.Form4QuizzesAndQuestionsBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Bible_Knowledge.Form1VideoBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2VideosBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Bible_Knowledge.Form3VideosBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Bible_Knowledge.Form4VideosBible_Knowledge"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+
+
+
+        <!-- For Biology-->
+
+        <activity android:name=".Student.Form1.Documents.Biology.Form1AudioBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Biology.Form2AudioBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Biology.Form3AudioBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Biology.Form4AudioBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Biology.Form1PDFBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Biology.Form2PDFBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Biology.Form3PDFBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Biology.Form4PDFBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Biology.Form1PDFViewerBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Biology.Form2PDFViewerBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Biology.Form3PDFViewerBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Biology.Form4PDFViewerBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Biology.Form1QuizBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Biology.Form2QuizBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Biology.Form3QuizBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Biology.Form4QuizBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Biology.Form1QuizzesAndQuestionsBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Biology.Form2QuizzesAndQuestionsBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Biology.Form3QuizzesAndQuestionsBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Biology.Form4QuizzesAndQuestionsBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Biology.Form1VideoBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Biology.Form2VideosBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Biology.Form3VideosBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Biology.Form4VideosBiology"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <!-- For Chemistry-->
+
+        <activity android:name=".Student.Form1.Documents.Chemistry.Form1AudioChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chemistry.Form2AudioChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chemistry.Form3AudioChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chemistry.Form4AudioChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Chemistry.Form1PDFChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chemistry.Form2PDFChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chemistry.Form3PDFChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chemistry.Form4PDFChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Chemistry.Form1PDFViewerChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chemistry.Form2PDFViewerChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chemistry.Form3PDFViewerChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chemistry.Form4PDFViewerChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Chemistry.Form1QuizChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chemistry.Form2QuizChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chemistry.Form3QuizChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chemistry.Form4QuizChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Chemistry.Form1QuizzesAndQuestionsChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chemistry.Form2QuizzesAndQuestionsChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chemistry.Form3QuizzesAndQuestionsChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chemistry.Form4QuizzesAndQuestionsChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Chemistry.Form1VideoChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chemistry.Form2VideosChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chemistry.Form3VideosChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chemistry.Form4VideosChemistry"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <!-- For Chichewa-->
+
+        <activity android:name=".Student.Form1.Documents.Chichewa.Form1AudioChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chichewa.Form2AudioChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chichewa.Form3AudioChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chichewa.Form4AudioChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Chichewa.Form1PDFChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chichewa.Form2PDFChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chichewa.Form3PDFChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chichewa.Form4PDFChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Chichewa.Form1PDFViewerChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chichewa.Form2PDFViewerChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chichewa.Form3PDFViewerChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chichewa.Form4PDFViewerChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Chichewa.Form1QuizChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chichewa.Form2QuizChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chichewa.Form3QuizChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chichewa.Form4QuizChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Chichewa.Form1QuizzesAndQuestionsChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chichewa.Form2QuizzesAndQuestionsChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chichewa.Form3QuizzesAndQuestionsChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chichewa.Form4QuizzesAndQuestionsChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Chichewa.Form1VideoChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Chichewa.Form2VideosChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Chichewa.Form3VideosChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Chichewa.Form4VideosChichewa"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+        <!-- For English-->
+
+        <activity android:name=".Student.Form1.Documents.English.Form1AudioEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.English.Form2AudioEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.English.Form3AudioEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.English.Form4AudioEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.English.Form1PDFEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.English.Form2PDFEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.English.Form3PDFEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.English.Form4PDFEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.English.Form1PDFViewerEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.English.Form2PDFViewerEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.English.Form3PDFViewerEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.English.Form4PDFViewerEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.English.Form1QuizEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.English.Form2QuizEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.English.Form3QuizEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.English.Form4QuizEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.English.Form1QuizzesAndQuestionsEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.English.Form2QuizzesAndQuestionsEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.English.Form3QuizzesAndQuestionsEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.English.Form4QuizzesAndQuestionsEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.English.Form1VideoEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.English.Form2VideosEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.English.Form3VideosEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.English.Form4VideosEnglish"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1AudioGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2AudioGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3AudioGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4AudioGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1PDFGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2PDFGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3PDFGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4PDFGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1PDFViewerGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2PDFViewerGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3PDFViewerGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4PDFViewerGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1QuizGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2QuizGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3QuizGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4QuizGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1QuizzesAndQuestionsGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2QuizzesAndQuestionsGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3QuizzesAndQuestionsGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4QuizzesAndQuestionsGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Geography.Form1VideoGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Geography.Form2VideosGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Geography.Form3VideosGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Geography.Form4VideosGeography"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+
+
+        <!-- For History-->
+
+        <activity android:name=".Student.Form1.Documents.History.Form1AudioHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.History.Form2AudioHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.History.Form3AudioHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.History.Form4AudioHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.History.Form1PDFHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.History.Form2PDFHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.History.Form3PDFHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.History.Form4PDFHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.History.Form1PDFViewerHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.History.Form2PDFViewerHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.History.Form3PDFViewerHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.History.Form4PDFViewerHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.History.Form1QuizHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.History.Form2QuizHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.History.Form3QuizHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.History.Form4QuizHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.History.Form1QuizzesAndQuestionsHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.History.Form2QuizzesAndQuestionsHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.History.Form3QuizzesAndQuestionsHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.History.Form4QuizzesAndQuestionsHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.History.Form1VideoHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.History.Form2VideosHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.History.Form3VideosHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.History.Form4VideosHistory"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+        <!-- For Life_Skills-->
+
+        <activity android:name=".Student.Form1.Documents.Life_Skills.Form1AudioLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Life_Skills.Form2AudioLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Life_Skills.Form3AudioLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Life_Skills.Form4AudioLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Life_Skills.Form1PDFLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Life_Skills.Form2PDFLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Life_Skills.Form3PDFLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Life_Skills.Form4PDFLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Life_Skills.Form1PDFViewerLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Life_Skills.Form2PDFViewerLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Life_Skills.Form3PDFViewerLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Life_Skills.Form4PDFViewerLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Life_Skills.Form1QuizLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Life_Skills.Form2QuizLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Life_Skills.Form3QuizLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Life_Skills.Form4QuizLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Life_Skills.Form1QuizzesAndQuestionsLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Life_Skills.Form2QuizzesAndQuestionsLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Life_Skills.Form3QuizzesAndQuestionsLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Life_Skills.Form4QuizzesAndQuestionsLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Life_Skills.Form1VideoLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Life_Skills.Form2VideosLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Life_Skills.Form3VideosLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Life_Skills.Form4VideosLife_Skills"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+        <!-- For Mathematics-->
+
+        <activity android:name=".Student.Form1.Documents.Mathematics.Form1AudioMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Mathematics.Form2AudioMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Mathematics.Form3AudioMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Mathematics.Form4AudioMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Mathematics.Form1PDFMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Mathematics.Form2PDFMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Mathematics.Form3PDFMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Mathematics.Form4PDFMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Mathematics.Form1PDFViewerMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Mathematics.Form2PDFViewerMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Mathematics.Form3PDFViewerMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Mathematics.Form4PDFViewerMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Mathematics.Form1QuizMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Mathematics.Form2QuizMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Mathematics.Form3QuizMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Mathematics.Form4QuizMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Mathematics.Form1QuizzesAndQuestionsMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Mathematics.Form2QuizzesAndQuestionsMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Mathematics.Form3QuizzesAndQuestionsMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Mathematics.Form4QuizzesAndQuestionsMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Mathematics.Form1VideoMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Mathematics.Form2VideosMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Mathematics.Form3VideosMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Mathematics.Form4VideosMathematics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <!-- For Physics-->
+
+        <activity android:name=".Student.Form1.Documents.Physics.Form1AudioPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Physics.Form2AudioPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Physics.Form3AudioPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Physics.Form4AudioPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Physics.Form1PDFPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Physics.Form2PDFPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Physics.Form3PDFPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Physics.Form4PDFPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Physics.Form1PDFViewerPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Physics.Form2PDFViewerPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Physics.Form3PDFViewerPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Physics.Form4PDFViewerPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Physics.Form1QuizPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Physics.Form2QuizPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Physics.Form3QuizPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Physics.Form4QuizPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Physics.Form1QuizzesAndQuestionsPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Physics.Form2QuizzesAndQuestionsPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Physics.Form3QuizzesAndQuestionsPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Physics.Form4QuizzesAndQuestionsPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Physics.Form1VideoPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Physics.Form2VideosPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Physics.Form3VideosPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Physics.Form4VideosPhysics"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+        <!-- For Social_Studies-->
+
+        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1AudioSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Social_Studies.Form2AudioSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3AudioSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Social_Studies.Form4AudioSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1PDFSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Social_Studies.Form2PDFSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3PDFSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Social_Studies.Form4PDFSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1PDFViewerSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Social_Studies.Form2PDFViewerSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3PDFViewerSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Social_Studies.Form4PDFViewerSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1QuizSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Social_Studies.Form2QuizSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3QuizSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Social_Studies.Form4QuizSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1QuizzesAndQuestionsSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Social_Studies.Form2QuizzesAndQuestionsSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3QuizzesAndQuestionsSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Social_Studies.Form4QuizzesAndQuestionsSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form1.Documents.Social_Studies.Form1VideoSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form2.Documents.Social_Studies.Form2VideosSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form3.Documents.Social_Studies.Form3VideosSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Student.Form4.Documents.Social_Studies.Form4VideosSocial_Studies"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Bible_Knowledge.TeacherForm1Bible_KnowledgeUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Bible_Knowledge.TeacherForm2Bible_KnowledgeUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Bible_Knowledge.TeacherForm3Bible_KnowledgeUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Bible_Knowledge.TeacherForm4Bible_KnowledgeUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Biology.TeacherForm1BiologyUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Biology.TeacherForm2BiologyUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Biology.TeacherForm3BiologyUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Biology.TeacherForm4BiologyUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form1.Uploads.Chemistry.TeacherForm1ChemistryUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Chemistry.TeacherForm2ChemistryUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Chemistry.TeacherForm3ChemistryUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Chemistry.TeacherForm4ChemistryUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Chichewa.TeacherForm1ChichewaUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Chichewa.TeacherForm2ChichewaUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Chichewa.TeacherForm3ChichewaUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Chichewa.TeacherForm4ChichewaUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form1.Uploads.English.TeacherForm1EnglishUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.English.TeacherForm2EnglishUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.English.TeacherForm3EnglishUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.English.TeacherForm4EnglishUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form1.Uploads.History.TeacherForm1HistoryUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.History.TeacherForm2HistoryUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.History.TeacherForm3HistoryUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.History.TeacherForm4HistoryUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Life_Skills.TeacherForm1Life_SkillsUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Life_Skills.TeacherForm2Life_SkillsUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Life_Skills.TeacherForm3Life_SkillsUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Life_Skills.TeacherForm4Life_SkillsUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Mathematics.TeacherForm1MathematicsUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Mathematics.TeacherForm2MathematicsUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Mathematics.TeacherForm3MathematicsUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Mathematics.TeacherForm4MathematicsUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Physics.TeacherForm1PhysicsUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Physics.TeacherForm2PhysicsUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Physics.TeacherForm3PhysicsUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Physics.TeacherForm4PhysicsUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Social_Studies.TeacherForm1Social_StudiesUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Social_Studies.TeacherForm2Social_StudiesUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+        <activity android:name=".Teacher.Form3.Uploads.Social_Studies.TeacherForm3Social_StudiesUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Social_Studies.TeacherForm4Social_StudiesUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+        <activity android:name=".Teacher.Form1.Uploads.Geography.TeacherForm1GeographyUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form2.Uploads.Geograpghy.TeacherForm2GeographyUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form3.Uploads.Geography.TeacherForm2GeographyUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+        <activity android:name=".Teacher.Form4.Uploads.Geography.TeacherForm4GeographyUploads"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
+
+
+
+
+
+    </application>
+
+</manifest>
