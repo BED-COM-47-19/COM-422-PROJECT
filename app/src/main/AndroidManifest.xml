@@ -132,6 +132,14 @@
             android:name=".Student.Form1.Documents.Geography.Form1GeographyReadNotesActivity"
             android:theme="@style/Theme.AppCompat" />
 
+        <activity
+            android:name=".Student.Form1.Documents.History.Form1HistoryReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+
+
+
+
+
 
 
 
