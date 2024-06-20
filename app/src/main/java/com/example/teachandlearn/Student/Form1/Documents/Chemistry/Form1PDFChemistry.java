@@ -45,7 +45,7 @@ public class Form1PDFChemistry extends AppCompatActivity {
         adapter = new PDFAdapter(new ArrayList<>(), this);
         recyclerViewPDFs.setAdapter(adapter);
 
-        progressBar = findViewById(R.id.progressBar);
+
 
         fetchPDFsFromFirebase();
 

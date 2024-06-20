@@ -28,7 +28,7 @@ import java.util.UUID;
 
 public class TeacherForm1Bible_KnowledgeUploads extends AppCompatActivity {
 
-    private Button buttonBack, buttonViewProgress;
+    private Button buttonBack;
     private static final int REQUEST_PICK_PDF = 1;
     private static final int REQUEST_PICK_AUDIO = 2;
     private static final int REQUEST_PICK_VIDEO = 3;
@@ -36,7 +36,7 @@ public class TeacherForm1Bible_KnowledgeUploads extends AppCompatActivity {
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private ProgressDialog progressDialog;
-    private static final String TAG = "TeacherForm1Uploads";
+    private static final String TAG = "TeacherForm1BibleUploads"; // Adjusted tag name
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

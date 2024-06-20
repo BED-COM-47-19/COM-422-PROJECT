@@ -3,8 +3,10 @@ package com.example.teachandlearn.Teacher.Form1.Uploads.Biology;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -100,7 +102,13 @@ public class TeacherForm1BiologyUploads extends AppCompatActivity {
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            String fileName = UUID.randomUUID().toString();
+            String fileName = getFileName(fileUri);
+            if (fileName == null) {
+                progressDialog.dismiss();
+                showToast("Failed to retrieve file name.");
+                return;
+            }
+
             String fileExtension = getFileExtension(fileUri);
 
             boolean isExtensionAllowed = false;
@@ -132,6 +140,34 @@ public class TeacherForm1BiologyUploads extends AppCompatActivity {
         }
     }
 
+    private String getFileName(Uri uri) {
+        String result = null;
+        if (uri.getScheme().equals("content")) {
+            Cursor cursor = null;
+            try {
+                cursor = getContentResolver().query(uri, null, null, null, null);
+                if (cursor != null && cursor.moveToFirst()) {
+                    int displayNameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                    if (displayNameIndex != -1) {
+                        result = cursor.getString(displayNameIndex);
+                    } else {
+                        result = uri.getLastPathSegment(); // Fallback to URI's last segment if DISPLAY_NAME column not found
+                    }
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "Error retrieving file name: " + e.getMessage());
+            } finally {
+                if (cursor != null) {
+                    cursor.close();
+                }
+            }
+        }
+        if (result == null) {
+            result = uri.getLastPathSegment();
+        }
+        return result;
+    }
+
     private String getFileExtension(Uri uri) {
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
@@ -156,7 +192,7 @@ public class TeacherForm1BiologyUploads extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String firstName = user.getDisplayName();
-            String lastName = user.getDisplayName();
+            String lastName = user.getDisplayName(); // Fix this to use user.getLastName() if available
             String studentEmail = user.getEmail();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             Map<String, Object> accessData = new HashMap<>();
