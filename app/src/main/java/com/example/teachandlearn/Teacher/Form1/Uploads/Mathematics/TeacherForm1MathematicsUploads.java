@@ -3,8 +3,10 @@ package com.example.teachandlearn.Teacher.Form1.Uploads.Mathematics;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -23,7 +25,6 @@ import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 public class TeacherForm1MathematicsUploads extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class TeacherForm1MathematicsUploads extends AppCompatActivity {
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private ProgressDialog progressDialog;
-    private static final String TAG = "TeacherForm1Mathematics"; // Changed TAG for clarity
+    private static final String TAG = "TeacherForm1Mathematics";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,10 +81,10 @@ public class TeacherForm1MathematicsUploads extends AppCompatActivity {
                     uploadFile(selectedFileUri, "/form1/sciences/mathematics/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
                     break;
                 case REQUEST_PICK_AUDIO:
-                    uploadFile(selectedFileUri, "/form1/sciences/mathematics/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
+                    uploadFile(selectedFileUri, "/form1/sciences/mathematics/audios/", "audio", new String[]{"mp3", "wav"}, "Please select an MP3 file.");
                     break;
                 case REQUEST_PICK_VIDEO:
-                    uploadFile(selectedFileUri, "/form1/sciences/mathematics/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV", "MOV"}, "Please Select Video format.");
+                    uploadFile(selectedFileUri, "/form1/sciences/mathematics/videos/", "videos", new String[]{"mp4", "avi", "mkv", "wmv", "mov"}, "Please select a Video file.");
                     break;
                 case REQUEST_PICK_QUESTION:
                     uploadFile(selectedFileUri, "/form1/sciences/mathematics/quizzes_and_questions/", "questions", new String[]{"pdf", "docx", "pptx"}, "No restriction on question formats.");
@@ -102,7 +103,7 @@ public class TeacherForm1MathematicsUploads extends AppCompatActivity {
             progressDialog.setCancelable(false); // Prevent dismissing dialog on outside touch
             progressDialog.show();
 
-            String fileName = UUID.randomUUID().toString();
+            String fileName = getFileName(fileUri);
             String fileExtension = getFileExtension(fileUri);
 
             boolean isExtensionAllowed = false;
@@ -135,6 +136,34 @@ public class TeacherForm1MathematicsUploads extends AppCompatActivity {
                 progressDialog.setMessage("Uploaded " + (int) progress + "%");
             });
         }
+    }
+
+    private String getFileName(Uri uri) {
+        String result = null;
+        if (uri.getScheme().equals("content")) {
+            Cursor cursor = null;
+            try {
+                cursor = getContentResolver().query(uri, null, null, null, null);
+                if (cursor != null && cursor.moveToFirst()) {
+                    int displayNameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                    if (displayNameIndex != -1) {
+                        result = cursor.getString(displayNameIndex);
+                    } else {
+                        result = uri.getLastPathSegment(); // Fallback to URI's last segment if DISPLAY_NAME column not found
+                    }
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "Error retrieving file name: " + e.getMessage());
+            } finally {
+                if (cursor != null) {
+                    cursor.close();
+                }
+            }
+        }
+        if (result == null) {
+            result = uri.getLastPathSegment();
+        }
+        return result;
     }
 
     private String getFileExtension(Uri uri) {
