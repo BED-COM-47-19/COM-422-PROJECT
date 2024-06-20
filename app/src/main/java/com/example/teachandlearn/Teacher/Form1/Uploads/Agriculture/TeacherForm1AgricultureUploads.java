@@ -3,8 +3,10 @@ package com.example.teachandlearn.Teacher.Form1.Uploads.Agriculture;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -14,15 +16,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 public class TeacherForm1AgricultureUploads extends AppCompatActivity {
 
@@ -98,7 +97,13 @@ public class TeacherForm1AgricultureUploads extends AppCompatActivity {
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            String fileName = UUID.randomUUID().toString();
+            String fileName = getFileName(fileUri);
+            if (fileName == null) {
+                progressDialog.dismiss();
+                showToast("Failed to retrieve file name.");
+                return;
+            }
+
             String fileExtension = getFileExtension(fileUri);
 
             boolean isExtensionAllowed = false;
@@ -130,6 +135,36 @@ public class TeacherForm1AgricultureUploads extends AppCompatActivity {
         }
     }
 
+    private String getFileName(Uri uri) {
+        String result = null;
+        if (uri.getScheme().equals("content")) {
+            Cursor cursor = null;
+            try {
+                cursor = getContentResolver().query(uri, null, null, null, null);
+                if (cursor != null && cursor.moveToFirst()) {
+                    // Check if the column exists
+                    int displayNameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                    if (displayNameIndex != -1) {
+                        result = cursor.getString(displayNameIndex);
+                    } else {
+                        // Handle the case where DISPLAY_NAME column is not found
+                        result = uri.getLastPathSegment(); // fallback to the last path segment
+                    }
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "Error retrieving file name: " + e.getMessage());
+            } finally {
+                if (cursor != null) {
+                    cursor.close();
+                }
+            }
+        }
+        if (result == null) {
+            result = uri.getLastPathSegment();
+        }
+        return result;
+    }
+
     private String getFileExtension(Uri uri) {
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
@@ -154,5 +189,4 @@ public class TeacherForm1AgricultureUploads extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
     }
-    
 }
