@@ -150,6 +150,12 @@
         <activity
             android:name="com.example.teachandlearn.Teacher.Form1.Categories.ProgressTrackingActivity"
             android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name="com.example.teachandlearn.Student.Form1.Categories.ChatAIActivity"
+            android:theme="@style/Theme.AppCompat" />
+
+
+
 
 
 

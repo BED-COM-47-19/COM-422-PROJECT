@@ -2,7 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
     <!-- RecyclerView to display PDF documents -->
     <androidx.recyclerview.widget.RecyclerView
@@ -10,8 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        android:textColor="@android:color/black" />
 
-    <!-- ProgressBar to show loading -->
+
 
 </FrameLayout>

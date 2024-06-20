@@ -51,21 +51,26 @@ public class ProgressTrackingActivity extends AppCompatActivity {
         usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                boolean userFound = false;
                 for (DataSnapshot userSnapshot : snapshot.getChildren()) {
                     String userEmail = userSnapshot.child("email").getValue(String.class);
+                    Log.d("ProgressTracking", "Checking user email: " + userEmail);
                     if (userEmail != null && userEmail.equals(currentUserEmail)) {
                         currentUserName = userSnapshot.child("name").getValue(String.class);
                         Log.d("ProgressTracking", "Current user name: " + currentUserName);
 
                         // Once we have the user's name, calculate progress
                         fetchTotalBooksInForm1();
-                        return;
+                        userFound = true;
+                        break;
                     }
                 }
 
-                // Handle case where user's name is not found
-                Log.e("ProgressTracking", "User name not found in Firebase");
-                runOnUiThread(() -> textViewProgress.setText("User name not found in Firebase"));
+                if (!userFound) {
+                    // Handle case where user's name is not found
+                    Log.e("ProgressTracking", "User name not found in Firebase");
+                    runOnUiThread(() -> textViewProgress.setText("User name not found in Firebase"));
+                }
             }
 
             @Override
