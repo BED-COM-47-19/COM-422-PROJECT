@@ -64,11 +64,24 @@ dependencies {
         // Add the dependency for the Cloud Storage library
         // When using the BoM, you don't specify versions in Firebase library dependencies
         implementation(libs.google.firebase.storage)
+        implementation (libs.gemini.sdk)
     }
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
+    implementation (libs.play.services.mlkit.text.recognition)
+    implementation(libs.generativeai)
+    implementation (libs.gemini)
+
+    // Required for one-shot operations (to use `ListenableFuture` from Guava Android)
+    implementation(libs.guava)
+
+    // Required for streaming operations (to use `Publisher` from Reactive Streams)
+    implementation(libs.reactive.streams)
+    implementation (libs.generativeai.sdk)
+
+
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.appcompat)
@@ -89,6 +102,8 @@ dependencies {
     implementation(libs.junit)
     implementation(libs.ext.junit)
     implementation(libs.espresso.core)
+    implementation(libs.vision.common)
+    implementation(libs.play.services.mlkit.text.recognition.common)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
