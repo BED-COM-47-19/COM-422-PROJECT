@@ -147,6 +147,9 @@
         <activity
             android:name=".Student.Form1.Documents.Social_Studies.Form1Social_StudiesReadNotesActivity"
             android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name="com.example.teachandlearn.Teacher.Form1.Categories.ProgressTrackingActivity"
+            android:theme="@style/Theme.AppCompat" />
 
 
 
