@@ -1,5 +1,5 @@
-
 package com.example.teachandlearn.Teacher.Form1.Categories;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -10,26 +10,27 @@ import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Teacher.Form1.Uploads.Chichewa.TeacherForm1ChichewaUploads;
 import com.example.teachandlearn.Teacher.Form1.Uploads.English.TeacherForm1EnglishUploads;
 
-
 public class TeacherForm1Languages extends AppCompatActivity {
 
-
     private Button buttonBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_form1_languages);
 
-        // Find buttons for each humanities subject
+        // Find buttons for each language subject
         Button buttonEnglish = findViewById(R.id.buttonEnglish);
         Button buttonChichewa = findViewById(R.id.buttonChichewa);
 
-
+        // Find small info buttons
         Button buttonSmallEnglish = findViewById(R.id.buttonSmallEnglish);
         Button buttonSmallChichewa = findViewById(R.id.buttonSmallChichewa);
 
@@ -47,7 +48,7 @@ public class TeacherForm1Languages extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToast("English Selected");
-                startActivityForContent();
+                startActivityForContent(TeacherForm1EnglishUploads.class);
             }
         });
 
@@ -55,13 +56,13 @@ public class TeacherForm1Languages extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToast("Chichewa Selected");
-                startActivityForContent();
+                startActivityForContent(TeacherForm1ChichewaUploads.class);
             }
         });
 
+        // Set click listeners for small info buttons to show popups instead of toasts
         buttonSmallEnglish.setOnClickListener(v -> showPopup(v, getString(R.string.info_english)));
         buttonSmallChichewa.setOnClickListener(v -> showPopup(v, getString(R.string.info_chichewa)));
-
     }
 
     private void showPopup(View anchor, String text) {
@@ -87,20 +88,16 @@ public class TeacherForm1Languages extends AppCompatActivity {
         Toast.makeText(TeacherForm1Languages.this, message, Toast.LENGTH_SHORT).show();
     }
 
-    // Method to start Form1ViewContentActivity
-    private void startActivityForContent() {
-
-        Intent intent1 = new Intent(TeacherForm1Languages.this, TeacherForm1EnglishUploads.class);
-        Intent intent2 = new Intent(TeacherForm1Languages.this, TeacherForm1ChichewaUploads.class);
-
-        startActivity(intent1);
-        startActivity(intent2);
+    // Method to start the specified uploads activity
+    private void startActivityForContent(Class<?> cls) {
+        Intent intent = new Intent(TeacherForm1Languages.this, cls);
+        startActivity(intent);
     }
+
     @Override
     public void onBackPressed() {
         // Handle the back button action
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
-
 }

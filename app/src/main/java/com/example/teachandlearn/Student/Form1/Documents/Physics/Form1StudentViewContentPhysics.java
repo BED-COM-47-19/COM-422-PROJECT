@@ -31,8 +31,8 @@ public class Form1StudentViewContentPhysics extends AppCompatActivity {
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Form1StudentViewContentPhysics.this, Form1PDFPhysics.class);
-                startActivity(intent);
+                // Replace with appropriate logic to open Form1PDFPhysics
+                openPDFViewer();
             }
         });
 
@@ -77,6 +77,12 @@ public class Form1StudentViewContentPhysics extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+
+    private void openPDFViewer() {
+        // Replace with your PDF viewing logic
+        Intent intent = new Intent(Form1StudentViewContentPhysics.this, Form1PDFPhysics.class);
+        startActivity(intent);
     }
 
     private void openChatInterface() {
