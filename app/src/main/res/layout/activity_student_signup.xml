@@ -73,7 +73,7 @@
 
     <!-- Continue Button -->
     <Button
-        android:id="@+id/buttonContinueStudent"
+        android:id="@+id/buttonContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
@@ -88,7 +88,7 @@
 
     <!-- Back Button -->
     <Button
-        android:id="@+id/back_button_student"
+        android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"

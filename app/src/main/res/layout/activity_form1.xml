@@ -5,7 +5,7 @@
     android:screenOrientation="portrait"
     android:padding="20dp"
     android:background="@color/white">
-
+    
     <!-- Title TextView -->
     <TextView
         android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="50dp">
 
         <Button
             android:id="@+id/activity_form1_science"
@@ -43,7 +43,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="50dp">
 
         <Button
             android:id="@+id/activity_form1_humanities"
@@ -63,7 +63,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="50dp">
 
         <Button
             android:id="@+id/activity_form1_languages"
@@ -79,20 +79,6 @@
 
     </FrameLayout>
 
-    <!-- Chat with Ai Button -->
-    <Button
-        android:id="@+id/chat_with_ai_button"
-        android:layout_width="263dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/chat_with_ai_background"
-        android:text="CHAT WITH AI"
-        android:textColor="@color/white"
-        android:textSize="30dp"
-        android:textStyle="bold" />
-
     <!-- Back Button -->
     <Button
         android:id="@+id/back_button"
@@ -101,7 +87,7 @@
         android:layout_gravity="bottom|start"
         android:layout_marginBottom="1dp"
         android:text="BACK"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:textColor="@color/white"
         android:background="@drawable/back_button_rounderd"
         android:textSize="20dp" />

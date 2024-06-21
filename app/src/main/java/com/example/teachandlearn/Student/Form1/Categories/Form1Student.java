@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Form1Student extends AppCompatActivity {
 
     private Button buttonBack;
-    private Button buttonChatAI; // Added for Chat with AI
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class Form1Student extends AppCompatActivity {
         Button buttonHumanities = findViewById(R.id.activity_form1_humanities);
         Button buttonLanguages = findViewById(R.id.activity_form1_languages);
         buttonBack = findViewById(R.id.back_button);
-        buttonChatAI = findViewById(R.id.chat_with_ai_button); // Initialize Chat with AI button
+
 
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {
@@ -66,20 +66,9 @@ public class Form1Student extends AppCompatActivity {
             }
         });
 
-        // Set onClickListener for Chat with AI button
-        buttonChatAI.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openChatAI();
-            }
-        });
     }
 
     // Method to start ChatAIActivity
-    private void openChatAI() {
-        Intent intent = new Intent(Form1Student.this, ChatAIActivity.class);
-        startActivity(intent);
-    }
 
     @Override
     protected void onStart() {

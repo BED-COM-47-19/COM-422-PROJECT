@@ -1,66 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/rootLayout"
+    android:background="@color/white"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/questionNumberTextViewBK"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="8dp"/>
 
     <TextView
         android:id="@+id/questionTextViewBK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp" />
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="16dp"/>
 
     <RadioGroup
         android:id="@+id/optionsGroupBK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
 
         <RadioButton
             android:id="@+id/optionARadioButtonBK"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:buttonTint="@color/black"/>
 
         <RadioButton
             android:id="@+id/optionBRadioButtonBK"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:buttonTint="@color/black"/>
 
         <RadioButton
             android:id="@+id/optionCRadioButtonBK"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:buttonTint="@color/black"/>
 
         <RadioButton
             android:id="@+id/optionDRadioButtonBK"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:buttonTint="@color/black"/>
     </RadioGroup>
-
 
     <Button
         android:id="@+id/nextButtonBK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="300dp"
-
-        android:text="Next" />
+        android:text="Next"
+        android:textColor="@color/white"
+        android:background="@drawable/button_background"
+        android:layout_gravity="end"
+        android:layout_marginTop="16dp"/>
 
     <Button
         android:id="@+id/back_buttonBK"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-45dp"
-        android:text="Back" />
-
+        android:text="BACK"
+        android:textColor="@color/white"
+        android:background="@drawable/button_background"
+        android:textSize="20dp"
+        android:layout_marginTop="-46dp"
+        android:layout_gravity="start"/>
 </LinearLayout>

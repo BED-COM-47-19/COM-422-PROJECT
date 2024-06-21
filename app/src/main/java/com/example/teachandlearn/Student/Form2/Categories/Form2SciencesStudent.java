@@ -1,18 +1,16 @@
-package com.example.teachandlearn.Student.Form2.Categories;
 
+package com.example.teachandlearn.Student.Form2.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
+import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.Form2.Documents.Agriculture.Form2StudentViewContentAgriculture;
 import com.example.teachandlearn.Student.Form2.Documents.Biology.Form2StudentViewContentBiology;
@@ -23,55 +21,85 @@ import com.example.teachandlearn.Student.Form2.Documents.Physics.Form2StudentVie
 public class Form2SciencesStudent extends AppCompatActivity {
 
     private Button buttonBack;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form2_science);
 
-        // Initialize buttons for each science field
+        // Find buttons for each science field
         Button buttonMathematics = findViewById(R.id.buttonMathematics);
         Button buttonBiology = findViewById(R.id.buttonBiology);
         Button buttonPhysics = findViewById(R.id.buttonPhysics);
         Button buttonChemistry = findViewById(R.id.buttonChemistry);
         Button buttonAgriculture = findViewById(R.id.buttonAgriculture);
 
-        // Initialize small info buttons
+        // Find small info buttons
         Button buttonSmallMathematics = findViewById(R.id.buttonSmallMathematics);
         Button buttonSmallBiology = findViewById(R.id.buttonSmallBiology);
         Button buttonSmallPhysics = findViewById(R.id.buttonSmallPhysics);
         Button buttonSmallChemistry = findViewById(R.id.buttonSmallChemistry);
         Button buttonSmallAgriculture = findViewById(R.id.buttonSmallAgriculture);
 
-        // Back button setup
         buttonBack = findViewById(R.id.back_button);
-        buttonBack.setOnClickListener(view -> onBackPressed());
 
-        // Set click listeners for each science field button
-        buttonMathematics.setOnClickListener(v -> {
-            showToast("Mathematics Selected");
-            startActivityForContent(Form2StudentViewContentMathematics.class);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
+        // Set click listeners for each button
+        buttonMathematics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show toast message
+                showToast("Mathematics Selected");
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
+            }
         });
 
-        buttonBiology.setOnClickListener(v -> {
-            showToast("Biology Selected");
-            startActivityForContent(Form2StudentViewContentBiology.class);
+        buttonBiology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show toast message
+                showToast("Biology Selected");
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
+            }
         });
 
-        buttonPhysics.setOnClickListener(v -> {
-            showToast("Physics Selected");
-            startActivityForContent(Form2StudentViewContentPhysics.class);
+        buttonChemistry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show toast message
+                showToast("Chemistry Selected");
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
+            }
         });
 
-        buttonChemistry.setOnClickListener(v -> {
-            showToast("Chemistry Selected");
-            startActivityForContent(Form2StudentViewContentChemistry.class);
+        buttonPhysics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show toast message
+                showToast("Physics Selected");
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
+            }
         });
 
-        buttonAgriculture.setOnClickListener(v -> {
-            showToast("Agriculture Selected");
-            startActivityForContent(Form2StudentViewContentAgriculture.class);
+        buttonAgriculture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show toast message
+                showToast("Agriculture Selected");
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
+            }
         });
+
 
         // Set click listeners for small info buttons to show popups instead of toasts
         buttonSmallMathematics.setOnClickListener(v -> showPopup(v, getString(R.string.info_mathematics)));
@@ -79,6 +107,7 @@ public class Form2SciencesStudent extends AppCompatActivity {
         buttonSmallPhysics.setOnClickListener(v -> showPopup(v, getString(R.string.info_physics)));
         buttonSmallChemistry.setOnClickListener(v -> showPopup(v, getString(R.string.info_chemistry)));
         buttonSmallAgriculture.setOnClickListener(v -> showPopup(v, getString(R.string.info_agriculture)));
+
     }
 
     private void showPopup(View anchor, String text) {
@@ -99,15 +128,26 @@ public class Form2SciencesStudent extends AppCompatActivity {
         popupWindow.update(anchor, 0, 100, -1, -1);  // Shift a bit downwards
     }
 
-    // Helper method to show a toast message
+    // Helper method to show toast message
     private void showToast(String message) {
         Toast.makeText(Form2SciencesStudent.this, message, Toast.LENGTH_SHORT).show();
     }
 
-    // Method to start the respective content activity based on the selected science field
-    private void startActivityForContent(Class<?> cls) {
-        Intent intent = new Intent(Form2SciencesStudent.this, cls);
-        startActivity(intent);
+    // Method to start Form1ViewContentActivity
+    private void startActivityForContent() {
+
+
+        Intent intent1 = new Intent(Form2SciencesStudent.this, Form2StudentViewContentAgriculture.class);
+        Intent intent2 = new Intent(Form2SciencesStudent.this, Form2StudentViewContentBiology.class);
+        Intent intent3 = new Intent(Form2SciencesStudent.this, Form2StudentViewContentChemistry.class);
+        Intent intent4 = new Intent(Form2SciencesStudent.this, Form2StudentViewContentMathematics.class);
+        Intent intent5 = new Intent(Form2SciencesStudent.this, Form2StudentViewContentPhysics.class);
+
+        startActivity(intent1);
+        startActivity(intent2);
+        startActivity(intent3);
+        startActivity(intent4);
+        startActivity(intent5);
     }
 
     @Override
@@ -116,4 +156,7 @@ public class Form2SciencesStudent extends AppCompatActivity {
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
+
+
+
 }

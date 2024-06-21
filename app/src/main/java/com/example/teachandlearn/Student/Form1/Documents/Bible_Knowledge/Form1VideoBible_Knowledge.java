@@ -1,19 +1,23 @@
 
 
 package com.example.teachandlearn.Student.Form1.Documents.Bible_Knowledge;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,12 +44,12 @@ public class Form1VideoBible_Knowledge extends AppCompatActivity {
         StorageReference storageRef = storage.getReference().child("/form1/sciences/bible_knowledge/videos/");
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
-            List<Form1VideoBible_Knowledge.VideoItem> videos = new ArrayList<>();
+            List<VideoItem> videos = new ArrayList<>();
             for (StorageReference item : listResult.getItems()) {
                 item.getDownloadUrl().addOnSuccessListener(uri -> {
                     String name = item.getName();
                     String url = uri.toString();
-                    videos.add(new Form1VideoBible_Knowledge.VideoItem(name, url));
+                    videos.add(new VideoItem(name, url));
                     form1VideoAdapter = new Form1VideoAdapter(videos, this);
                     recyclerView.setAdapter(form1VideoAdapter);
                 }).addOnFailureListener(e -> {

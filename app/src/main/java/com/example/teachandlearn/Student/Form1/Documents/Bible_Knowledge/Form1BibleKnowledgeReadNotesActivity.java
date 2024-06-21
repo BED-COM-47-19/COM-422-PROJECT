@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Documents.Bible_Knowledge.Form1StudentViewContentBible_Knowledge;
 
 public class Form1BibleKnowledgeReadNotesActivity extends AppCompatActivity {
 

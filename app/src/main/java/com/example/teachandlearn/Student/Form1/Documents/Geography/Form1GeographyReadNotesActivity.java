@@ -8,8 +8,6 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.R;
-import com.example.teachandlearn.Student.Form1.Documents.Bible_Knowledge.Form1StudentViewContentBible_Knowledge;
-import com.example.teachandlearn.Student.Form1.Documents.Biology.Form1StudentViewContentBiology;
 
 public class Form1GeographyReadNotesActivity extends AppCompatActivity {
 

@@ -1,12 +1,10 @@
-package com.example.teachandlearn.Teacher.Form1.Uploads.Bible_Knowledge;
 
+package com.example.teachandlearn.Teacher.Form1.Uploads.Bible_Knowledge;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.OpenableColumns;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -26,9 +24,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+
 public class TeacherForm1Bible_KnowledgeUploads extends AppCompatActivity {
 
-    private Button buttonBack;
+    private Button buttonBack, buttonViewProgress;
     private static final int REQUEST_PICK_PDF = 1;
     private static final int REQUEST_PICK_AUDIO = 2;
     private static final int REQUEST_PICK_VIDEO = 3;
@@ -36,10 +35,11 @@ public class TeacherForm1Bible_KnowledgeUploads extends AppCompatActivity {
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private ProgressDialog progressDialog;
-    private static final String TAG = "TeacherForm1BibleUploads"; // Adjusted tag name
+    private static final String TAG = "TeacherForm1Uploads";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_form1_uploads);
 
@@ -59,33 +59,37 @@ public class TeacherForm1Bible_KnowledgeUploads extends AppCompatActivity {
         buttonBack = findViewById(R.id.back_button);
         buttonBack.setOnClickListener(view -> onBackPressed());
 
-        // Example of accessing student log function
-        logStudentAccess("Accessed Bible Knowledge Uploads");
+
+
     }
 
     private void openFilePicker(String mimeType, int requestCode) {
+
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType(mimeType);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         startActivityForResult(Intent.createChooser(intent, "Select File"), requestCode);
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri selectedFileUri = data.getData();
 
             switch (requestCode) {
+
                 case REQUEST_PICK_PDF:
                     uploadFile(selectedFileUri, "/form1/humanities/bible_knowledge/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
                     break;
                 case REQUEST_PICK_AUDIO:
-                    uploadFile(selectedFileUri, "/form1/humanities/bible_knowledge/audios/", "audio", new String[]{"mp3", "wav"}, "Please select an MP3 or WAV file.");
+                    uploadFile(selectedFileUri, "/form1/humanities/bible_knowledge/audios/", "audio", new String[]{"mp3", "WAV"}, "Please select an MP3 file.");
                     break;
                 case REQUEST_PICK_VIDEO:
-                    uploadFile(selectedFileUri, "/form1/humanities/bible_knowledge/videos/", "videos", new String[]{"mp4", "avi", "mkv", "wmv", "mov"}, "Please select a video file.");
+                    uploadFile(selectedFileUri, "/form1/humanities/bible_knowledge/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV", "MOV"}, "Please Select Video format.");
                     break;
                 case REQUEST_PICK_QUESTION:
                     uploadFile(selectedFileUri, "/form1/humanities/bible_knowledge/quizzes_and_questions/", "questions", new String[]{"pdf", "docx", "pptx"}, "No restriction on question formats.");
@@ -93,40 +97,48 @@ public class TeacherForm1Bible_KnowledgeUploads extends AppCompatActivity {
                 default:
                     // Handle other cases if needed
                     break;
+
             }
         }
+
+
     }
 
     private void uploadFile(Uri fileUri, String storagePath, String firestoreCollection, String[] allowedExtensions, String errorMessage) {
+
         if (fileUri != null) {
+
             progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            String fileName = getFileName(fileUri);
-            if (fileName == null) {
-                progressDialog.dismiss();
-                showToast("Failed to retrieve file name.");
-                return;
-            }
-
+            String fileName = UUID.randomUUID().toString();
             String fileExtension = getFileExtension(fileUri);
 
             boolean isExtensionAllowed = false;
+
             for (String extension : allowedExtensions) {
+
                 if (fileExtension != null && fileExtension.equalsIgnoreCase(extension)) {
                     isExtensionAllowed = true;
                     break;
+
                 }
+
+
             }
 
+
             if (!isExtensionAllowed) {
+
                 progressDialog.dismiss();
                 showToast(errorMessage);
                 return;
+
             }
 
             StorageReference fileRef = storageReference.child(storagePath + fileName);
+
             fileRef.putFile(fileUri)
                     .addOnSuccessListener(taskSnapshot -> {
                         progressDialog.dismiss();
@@ -138,44 +150,22 @@ public class TeacherForm1Bible_KnowledgeUploads extends AppCompatActivity {
                         showToast("Failed to upload file: " + e.getMessage());
                     })
                     .addOnProgressListener(taskSnapshot -> progressDialog.setMessage("Uploaded " + (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount()) + "%"));
-        }
-    }
 
-    private String getFileName(Uri uri) {
-        String result = null;
-        if (uri.getScheme().equals("content")) {
-            Cursor cursor = null;
-            try {
-                cursor = getContentResolver().query(uri, null, null, null, null);
-                if (cursor != null && cursor.moveToFirst()) {
-                    int displayNameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
-                    if (displayNameIndex != -1) {
-                        result = cursor.getString(displayNameIndex);
-                    } else {
-                        result = uri.getLastPathSegment(); // Fallback to URI's last segment if DISPLAY_NAME column not found
-                    }
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "Error retrieving file name: " + e.getMessage());
-            } finally {
-                if (cursor != null) {
-                    cursor.close();
-                }
-            }
         }
-        if (result == null) {
-            result = uri.getLastPathSegment();
-        }
-        return result;
+
+
     }
 
     private String getFileExtension(Uri uri) {
+
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+
     }
 
     private void saveFileUrlToFirestore(String fileUrl, String firestoreCollection) {
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> fileData = new HashMap<>();
         fileData.put("fileUrl", fileUrl);
@@ -183,20 +173,27 @@ public class TeacherForm1Bible_KnowledgeUploads extends AppCompatActivity {
                 .add(fileData)
                 .addOnSuccessListener(documentReference -> Log.d(TAG, "File URL added with ID: " + documentReference.getId()))
                 .addOnFailureListener(e -> Log.w(TAG, "Error adding file URL", e));
+
     }
 
     private void showToast(String message) {
+
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
     }
 
     private void logStudentAccess(String accessedFile) {
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         if (user != null) {
+
             String firstName = user.getDisplayName();
-            String lastName = user.getDisplayName(); // Fix this to use user.getLastName() if available
+            String lastName = user.getDisplayName();
             String studentEmail = user.getEmail();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             Map<String, Object> accessData = new HashMap<>();
+
             accessData.put("firstName", firstName);
             accessData.put("lastName", lastName);
             accessData.put("studentEmail", studentEmail);
@@ -206,11 +203,15 @@ public class TeacherForm1Bible_KnowledgeUploads extends AppCompatActivity {
                     .add(accessData)
                     .addOnSuccessListener(documentReference -> Log.d(TAG, "Access log added with ID: " + documentReference.getId()))
                     .addOnFailureListener(e -> Log.w(TAG, "Error adding access log", e));
+
         }
+
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
     }
+
+
 }

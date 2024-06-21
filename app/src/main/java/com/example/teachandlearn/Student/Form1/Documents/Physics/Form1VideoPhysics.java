@@ -43,12 +43,12 @@ public class Form1VideoPhysics extends AppCompatActivity {
         StorageReference storageRef = storage.getReference().child("/form1/sciences/physics/videos/");
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
-            List<Form1VideoPhysics.VideoItem> videos = new ArrayList<>();
+            List<VideoItem> videos = new ArrayList<>();
             for (StorageReference item : listResult.getItems()) {
                 item.getDownloadUrl().addOnSuccessListener(uri -> {
                     String name = item.getName();
                     String url = uri.toString();
-                    videos.add(new Form1VideoPhysics.VideoItem(name, url));
+                    videos.add(new VideoItem(name, url));
                     form1VideoAdapter = new Form1VideoAdapter(videos, this);
                     recyclerView.setAdapter(form1VideoAdapter);
                 }).addOnFailureListener(e -> {

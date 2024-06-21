@@ -10,13 +10,15 @@ import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.Form1.Documents.Bible_Knowledge.Form1StudentViewContentBible_Knowledge;
 import com.example.teachandlearn.Student.Form1.Documents.Geography.Form1StudentViewContentGeography;
+import com.example.teachandlearn.Student.Form1.Documents.History.Form1StudentViewContentHistory;
 import com.example.teachandlearn.Student.Form1.Documents.Life_Skills.Form1StudentViewContentLife_Skills;
 import com.example.teachandlearn.Student.Form1.Documents.Social_Studies.Form1StudentViewContentSocial_Studies;
-import com.example.teachandlearn.Student.Form1.Documents.History.Form1StudentViewContentHistory;
 
 public class Form1HumanitiesStudent extends AppCompatActivity {
     private Button buttonBack;

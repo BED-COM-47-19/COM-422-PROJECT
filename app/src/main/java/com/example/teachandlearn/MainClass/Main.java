@@ -9,14 +9,12 @@ import com.example.teachandlearn.R;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Logger;
 
 
 
 public class Main extends AppCompatActivity {
-
 
 
     @Override
@@ -28,8 +26,6 @@ public class Main extends AppCompatActivity {
         FirebaseDatabase.getInstance().setLogLevel(Logger.Level.DEBUG);
 
         FirebaseApp.initializeApp(this);
-        
-
 
         getStartedButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,8 +36,6 @@ public class Main extends AppCompatActivity {
             }
         });
     }
-
-
 
     private void getStarted() {
         // Create an Intent to start the UserTypeSelection Activity

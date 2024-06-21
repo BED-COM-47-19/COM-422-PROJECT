@@ -31,7 +31,7 @@ public class Form4QuizChichewa extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form1_quizzes);
+        setContentView(R.layout.activity_form1_agri_quizzes);
 
         questionTextView = findViewById(R.id.questionTextView);
         optionARadioButton = findViewById(R.id.optionARadioButton);

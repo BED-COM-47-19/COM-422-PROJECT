@@ -1,5 +1,5 @@
-package com.example.teachandlearn.Teacher.Form1.Categories;
 
+package com.example.teachandlearn.Teacher.Form1.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -10,9 +10,7 @@ import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Teacher.Form1.Uploads.Agriculture.TeacherForm1AgricultureUploads;
 import com.example.teachandlearn.Teacher.Form1.Uploads.Biology.TeacherForm1BiologyUploads;
@@ -20,10 +18,10 @@ import com.example.teachandlearn.Teacher.Form1.Uploads.Chemistry.TeacherForm1Che
 import com.example.teachandlearn.Teacher.Form1.Uploads.Mathematics.TeacherForm1MathematicsUploads;
 import com.example.teachandlearn.Teacher.Form1.Uploads.Physics.TeacherForm1PhysicsUploads;
 
+
 public class TeacherForm1Science extends AppCompatActivity {
 
-    private Button buttonBack;
-
+   private Button buttonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,14 +51,15 @@ public class TeacherForm1Science extends AppCompatActivity {
             }
         });
 
+
         // Set click listeners for each button
         buttonMathematics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Show toast message
                 showToast("Mathematics Selected");
-                // Start the MathematicsUploads activity
-                startActivityForContent(TeacherForm1MathematicsUploads.class);
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
             }
         });
 
@@ -69,8 +68,8 @@ public class TeacherForm1Science extends AppCompatActivity {
             public void onClick(View v) {
                 // Show toast message
                 showToast("Biology Selected");
-                // Start the BiologyUploads activity
-                startActivityForContent(TeacherForm1BiologyUploads.class);
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
             }
         });
 
@@ -79,8 +78,8 @@ public class TeacherForm1Science extends AppCompatActivity {
             public void onClick(View v) {
                 // Show toast message
                 showToast("Chemistry Selected");
-                // Start the ChemistryUploads activity
-                startActivityForContent(TeacherForm1ChemistryUploads.class);
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
             }
         });
 
@@ -89,8 +88,8 @@ public class TeacherForm1Science extends AppCompatActivity {
             public void onClick(View v) {
                 // Show toast message
                 showToast("Physics Selected");
-                // Start the PhysicsUploads activity
-                startActivityForContent(TeacherForm1PhysicsUploads.class);
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
             }
         });
 
@@ -99,8 +98,8 @@ public class TeacherForm1Science extends AppCompatActivity {
             public void onClick(View v) {
                 // Show toast message
                 showToast("Agriculture Selected");
-                // Start the AgricultureUploads activity
-                startActivityForContent(TeacherForm1AgricultureUploads.class);
+                // Start the Form1ViewContentActivity
+                startActivityForContent();
             }
         });
 
@@ -110,6 +109,7 @@ public class TeacherForm1Science extends AppCompatActivity {
         buttonSmallPhysics.setOnClickListener(v -> showPopup(v, getString(R.string.info_physics)));
         buttonSmallChemistry.setOnClickListener(v -> showPopup(v, getString(R.string.info_chemistry)));
         buttonSmallAgriculture.setOnClickListener(v -> showPopup(v, getString(R.string.info_agriculture)));
+
     }
 
     private void showPopup(View anchor, String text) {
@@ -130,21 +130,35 @@ public class TeacherForm1Science extends AppCompatActivity {
         popupWindow.update(anchor, 0, 100, -1, -1);  // Shift a bit downwards
     }
 
+
     // Helper method to show toast message
     private void showToast(String message) {
         Toast.makeText(TeacherForm1Science.this, message, Toast.LENGTH_SHORT).show();
     }
 
-    // Method to start the specified uploads activity
-    private void startActivityForContent(Class<?> cls) {
-        Intent intent = new Intent(TeacherForm1Science.this, cls);
-        startActivity(intent);
-    }
+    // Method to start Form1ViewContentActivity
+    private void startActivityForContent() {
 
+
+        Intent intent1 = new Intent(TeacherForm1Science.this, TeacherForm1AgricultureUploads.class);
+        Intent intent2 = new Intent(TeacherForm1Science.this, TeacherForm1MathematicsUploads.class);
+        Intent intent3 = new Intent(TeacherForm1Science.this, TeacherForm1PhysicsUploads.class);
+        Intent intent4 = new Intent(TeacherForm1Science.this, TeacherForm1BiologyUploads.class);
+        Intent intent5 = new Intent(TeacherForm1Science.this, TeacherForm1ChemistryUploads.class);
+
+        startActivity(intent1);
+        startActivity(intent2);
+        startActivity(intent3);
+        startActivity(intent4);
+        startActivity(intent5);
+
+    }
     @Override
     public void onBackPressed() {
         // Handle the back button action
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
+
+
 }

@@ -1,3 +1,4 @@
+
 package com.example.teachandlearn.Teacher.Form1.Uploads.Physics;
 
 import android.app.ProgressDialog;
@@ -19,11 +20,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+
 
 public class TeacherForm1PhysicsUploads extends AppCompatActivity {
 
@@ -35,10 +36,11 @@ public class TeacherForm1PhysicsUploads extends AppCompatActivity {
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private ProgressDialog progressDialog;
-    private static final String TAG = "TeacherForm1Physics"; // Changed TAG for clarity
+    private static final String TAG = "TeacherForm1Uploads";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_form1_uploads);
 
@@ -59,23 +61,28 @@ public class TeacherForm1PhysicsUploads extends AppCompatActivity {
         buttonBack.setOnClickListener(view -> onBackPressed());
 
         buttonViewProgress = findViewById(R.id.button_view_progress);
+
     }
 
     private void openFilePicker(String mimeType, int requestCode) {
+
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType(mimeType);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         startActivityForResult(Intent.createChooser(intent, "Select File"), requestCode);
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri selectedFileUri = data.getData();
 
             switch (requestCode) {
+
                 case REQUEST_PICK_PDF:
                     uploadFile(selectedFileUri, "/form1/sciences/physics/pdfs/", "pdfs", new String[]{"pdf", "docx", "pptx"}, "Please select a PDF, DOCX, or PPTX file.");
                     break;
@@ -86,20 +93,24 @@ public class TeacherForm1PhysicsUploads extends AppCompatActivity {
                     uploadFile(selectedFileUri, "/form1/sciences/physics/videos/", "videos", new String[]{"mp4", "AVI", "MKV", "WMV", "MOV"}, "Please Select Video format.");
                     break;
                 case REQUEST_PICK_QUESTION:
-                    uploadFile(selectedFileUri, "/form1/sciences/physics/quizzes_and_questions/", "questions", new String[]{"pdf", "docx", "pptx"}, "No restriction on question formats.");
+                    uploadFile(selectedFileUri, "/form1/sciences/phyiscs/quizzes_and_questions/", "questions", new String[]{"pdf", "docx", "pptx"}, "No restriction on question formats.");
                     break;
                 default:
                     // Handle other cases if needed
                     break;
+
             }
         }
+
+
     }
 
     private void uploadFile(Uri fileUri, String storagePath, String firestoreCollection, String[] allowedExtensions, String errorMessage) {
+
         if (fileUri != null) {
+
             progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
-            progressDialog.setCancelable(false); // Prevent dismissing dialog on outside touch
             progressDialog.show();
 
             String fileName = UUID.randomUUID().toString();
@@ -108,42 +119,54 @@ public class TeacherForm1PhysicsUploads extends AppCompatActivity {
             boolean isExtensionAllowed = false;
 
             for (String extension : allowedExtensions) {
+
                 if (fileExtension != null && fileExtension.equalsIgnoreCase(extension)) {
                     isExtensionAllowed = true;
                     break;
+
                 }
+
+
             }
 
+
             if (!isExtensionAllowed) {
+
                 progressDialog.dismiss();
                 showToast(errorMessage);
                 return;
+
             }
 
             StorageReference fileRef = storageReference.child(storagePath + fileName);
 
-            UploadTask uploadTask = fileRef.putFile(fileUri);
-            uploadTask.addOnSuccessListener(taskSnapshot -> {
-                progressDialog.dismiss();
-                showToast("File uploaded successfully");
-                fileRef.getDownloadUrl().addOnSuccessListener(uri -> saveFileUrlToFirestore(uri.toString(), firestoreCollection));
-            }).addOnFailureListener(e -> {
-                progressDialog.dismiss();
-                showToast("Failed to upload file: " + e.getMessage());
-            }).addOnProgressListener(taskSnapshot -> {
-                double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                progressDialog.setMessage("Uploaded " + (int) progress + "%");
-            });
+            fileRef.putFile(fileUri)
+                    .addOnSuccessListener(taskSnapshot -> {
+                        progressDialog.dismiss();
+                        showToast("File uploaded successfully");
+                        fileRef.getDownloadUrl().addOnSuccessListener(uri -> saveFileUrlToFirestore(uri.toString(), firestoreCollection));
+                    })
+                    .addOnFailureListener(e -> {
+                        progressDialog.dismiss();
+                        showToast("Failed to upload file: " + e.getMessage());
+                    })
+                    .addOnProgressListener(taskSnapshot -> progressDialog.setMessage("Uploaded " + (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount()) + "%"));
+
         }
+
+
     }
 
     private String getFileExtension(Uri uri) {
+
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+
     }
 
     private void saveFileUrlToFirestore(String fileUrl, String firestoreCollection) {
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> fileData = new HashMap<>();
         fileData.put("fileUrl", fileUrl);
@@ -151,20 +174,27 @@ public class TeacherForm1PhysicsUploads extends AppCompatActivity {
                 .add(fileData)
                 .addOnSuccessListener(documentReference -> Log.d(TAG, "File URL added with ID: " + documentReference.getId()))
                 .addOnFailureListener(e -> Log.w(TAG, "Error adding file URL", e));
+
     }
 
     private void showToast(String message) {
+
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
     }
 
     private void logStudentAccess(String accessedFile) {
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         if (user != null) {
+
             String firstName = user.getDisplayName();
-            String lastName = user.getDisplayName(); // Ensure to use correct method for getting last name
+            String lastName = user.getDisplayName();
             String studentEmail = user.getEmail();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             Map<String, Object> accessData = new HashMap<>();
+
             accessData.put("firstName", firstName);
             accessData.put("lastName", lastName);
             accessData.put("studentEmail", studentEmail);
@@ -174,11 +204,15 @@ public class TeacherForm1PhysicsUploads extends AppCompatActivity {
                     .add(accessData)
                     .addOnSuccessListener(documentReference -> Log.d(TAG, "Access log added with ID: " + documentReference.getId()))
                     .addOnFailureListener(e -> Log.w(TAG, "Error adding access log", e));
+
         }
+
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
     }
+
+
 }

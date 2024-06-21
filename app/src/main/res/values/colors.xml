@@ -31,7 +31,12 @@
     <color name="item_color">#4E4D4C</color>
     <color name="back_button_color">#8F8C89</color>
 
+        <color name="chat_background">#FFFFFF</color> <!-- Replace #FFFFFF with your desired background color -->
+        <!-- Add more color resources as needed -->
 
+
+    <color name="colorUserMessage">#64B5F6</color>
+    <color name="colorBotMessage">#81C784</color>
 
 
 </resources>

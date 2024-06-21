@@ -1,6 +1,7 @@
 
 
 package com.example.teachandlearn.Student.Form1.Documents.Bible_Knowledge;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,13 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.teachandlearn.R;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -154,7 +158,7 @@ public class Form1AudioBible_Knowledge extends AppCompatActivity {
             return audioList.size();
         }
 
-        public void setAudioList(List<Form1AudioBible_Knowledge.AudioItem> list) {
+        public void setAudioList(List<AudioItem> list) {
             this.audioList = list;
             notifyDataSetChanged();
 

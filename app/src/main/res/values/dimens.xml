@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="message_margin">16dp</dimen>
+    <!-- Define other dimensions as needed -->
+</resources>
