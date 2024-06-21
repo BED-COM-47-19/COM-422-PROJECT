@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -25,11 +26,11 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
-
 public class Form1PDFChemistry extends AppCompatActivity {
 
     private RecyclerView recyclerViewPDFs;
     private PDFAdapter adapter;
+    private ProgressBar progressBar;
     private String studentEmail;
 
     private static final String TAG = "Form1PDFChemistry";
@@ -44,6 +45,8 @@ public class Form1PDFChemistry extends AppCompatActivity {
         adapter = new PDFAdapter(new ArrayList<>(), this);
         recyclerViewPDFs.setAdapter(adapter);
 
+
+
         fetchPDFsFromFirebase();
 
         studentEmail = getIntent().getStringExtra("student_form1_chemistry_emails");
@@ -55,6 +58,8 @@ public class Form1PDFChemistry extends AppCompatActivity {
     }
 
     private void fetchPDFsFromFirebase() {
+        progressBar.setVisibility(View.VISIBLE);  // Show progress bar
+
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference().child("/form1/sciences/chemistry/pdfs/");
 
@@ -65,12 +70,15 @@ public class Form1PDFChemistry extends AppCompatActivity {
                 item.getDownloadUrl().addOnSuccessListener(uri -> {
                     pdfs.add(new PDFDocument(item.getName(), uri.toString()));
                     adapter.setPDFDocuments(pdfs);
+                    progressBar.setVisibility(View.GONE);  // Hide progress bar
                 }).addOnFailureListener(exception -> {
                     Log.e(TAG, "Failed to get download URL for PDF", exception);
+                    progressBar.setVisibility(View.GONE);  // Hide progress bar
                 });
             }
-
-
+        }).addOnFailureListener(exception -> {
+            Log.e(TAG, "Failed to list PDFs", exception);
+            progressBar.setVisibility(View.GONE);  // Hide progress bar
         });
     }
 
@@ -87,8 +95,6 @@ public class Form1PDFChemistry extends AppCompatActivity {
             Log.e(TAG, "User not authenticated");
         }
     }
-
-
 
     public static class PDFDocument {
         private String title;
@@ -168,5 +174,4 @@ public class Form1PDFChemistry extends AppCompatActivity {
             }
         }
     }
-
 }

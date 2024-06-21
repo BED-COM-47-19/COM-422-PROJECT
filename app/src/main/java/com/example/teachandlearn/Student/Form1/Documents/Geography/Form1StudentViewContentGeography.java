@@ -1,5 +1,3 @@
-
-
 package com.example.teachandlearn.Student.Form1.Documents.Geography;
 
 import android.content.Intent;
@@ -12,12 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.CHATGPT.ChatGPTService;
 import com.example.teachandlearn.R;
 
-
 public class Form1StudentViewContentGeography extends AppCompatActivity {
 
     private Button buttonBack;
-
     private Button buttonChat;
+    private Button buttonReadNotes; // Reference to the Read Notes button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +27,9 @@ public class Form1StudentViewContentGeography extends AppCompatActivity {
         Button buttonVideos = findViewById(R.id.button_videos);
         Button buttonQuestions = findViewById(R.id.button_tests_quizzes);
         buttonBack = findViewById(R.id.back_button);
+        buttonReadNotes = findViewById(R.id.button_read_notes); // Initialize Read Notes button
 
-
-        // Set click listeners for each button
+        // Set click listeners for PDF, Audio, Videos, and Questions buttons
         buttonPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,32 +62,32 @@ public class Form1StudentViewContentGeography extends AppCompatActivity {
             }
         });
 
-
-        buttonBack.setOnClickListener(new View.OnClickListener() {
+        // Set click listener for Read Notes button
+        buttonReadNotes.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                // Logic for when the back button is pressed
-                onBackPressed();
+            public void onClick(View v) {
+                startActivity(new Intent(Form1StudentViewContentGeography.this, Form1GeographyReadNotesActivity.class));
             }
         });
 
-
-
+        // Set click listener for Back button
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
-
+    // Method to handle opening the chat interface (if needed)
     private void openChatInterface() {
-        // Handle logic for opening the chat interface
-        // For example, start the ChatGPTService
         Intent intent = new Intent(this, ChatGPTService.class);
         startService(intent);
-
     }
+
     @Override
     public void onBackPressed() {
-        // Handle the back button action
         super.onBackPressed();
-        // You can also add custom logic here if needed
+        // Add custom logic here if needed
     }
-
 }

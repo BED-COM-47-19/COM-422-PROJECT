@@ -2,8 +2,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:columnOrderPreserved="false"
-    android:screenOrientation="portrait"
     android:orientation="vertical"
     android:padding="30dp"
     android:weightSum="1">
@@ -21,6 +19,20 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
+    <!-- Read Notes Button -->
+    <Button
+        android:id="@+id/button_read_notes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/oval_button_background"
+        android:text="Read Notes"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,9 +43,7 @@
 
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
+            android:layout_height="match_parent"
             android:layout_margin="15dp"
             android:layout_weight="0.5">
 
@@ -49,10 +59,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
-
-
         </FrameLayout>
-
 
         <FrameLayout
             android:layout_width="0dp"
@@ -74,11 +81,8 @@
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
-
-
         </FrameLayout>
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -106,10 +110,7 @@
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
-
-
         </FrameLayout>
-
 
         <FrameLayout
             android:layout_width="0dp"
@@ -129,13 +130,7 @@
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
-
-
-
         </FrameLayout>
-
-
-
     </LinearLayout>
 
     <FrameLayout
@@ -149,26 +144,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
-            android:layout_weight="0.2"
             android:background="@drawable/back_button_rounderd"
             android:text="BACK"
             android:textColor="@color/white"
             android:textSize="20dp" />
-
 
         <Button
             android:id="@+id/button_chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
-            android:layout_weight="0.2"
-            android:text="Chat"
             android:layout_marginLeft="200dp"
             android:background="@drawable/back_button_rounderd"
+            android:text="Chat"
             android:textColor="@color/white" />
-
-
     </FrameLayout>
-
-
 </LinearLayout>

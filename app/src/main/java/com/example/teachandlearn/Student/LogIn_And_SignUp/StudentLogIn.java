@@ -184,29 +184,28 @@ public class StudentLogIn extends AppCompatActivity {
             return;
         }
 
-        if (isNetworkAvailable()) {
-            mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, task -> {
-                        if (task.isSuccessful()) {
-                            saveCredentials(email, password);
-                            startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
-                        } else {
-                            Toast.makeText(StudentLogIn.this, "Email or Password Incorrect.", Toast.LENGTH_SHORT).show();
+        // Show a progress indicator (optional)
+        // progressBar.setVisibility(View.VISIBLE);
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    // Hide progress indicator (optional)
+                    // progressBar.setVisibility(View.GONE);
+
+                    if (task.isSuccessful()) {
+                        saveCredentials(email, password);
+                        startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
+                    } else {
+                        Exception exception = task.getException();
+                        String errorMessage = "Authentication failed.";
+                        if (exception != null) {
+                            errorMessage = exception.getMessage(); // Get more specific error message
                         }
-                    });
-
-        }
-
-        else {
-            if (checkCredentials(email, password)) {
-                startActivity(new Intent(StudentLogIn.this, StudentSelectClass.class));
-            } else {
-                Toast.makeText(StudentLogIn.this, "Invalid credentials or no network available.", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-
+                        Toast.makeText(StudentLogIn.this, errorMessage, Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
+
 
 
 

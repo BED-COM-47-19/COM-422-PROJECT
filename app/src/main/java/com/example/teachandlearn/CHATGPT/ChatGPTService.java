@@ -34,10 +34,6 @@ public class ChatGPTService extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_item_message);
         // initializing variables on below line.
-        responseTV = findViewById(R.id.idTVResponse);
-        questionTV = findViewById(R.id.idTVQuestion);
-        queryEdt = findViewById(R.id.idEdtQuery);
-
 
 
 

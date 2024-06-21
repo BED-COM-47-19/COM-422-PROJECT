@@ -1,39 +1,40 @@
-
-
 package com.example.teachandlearn.Student.Form1.Categories;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.teachandlearn.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
 public class Form1Student extends AppCompatActivity {
 
     private Button buttonBack;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form1);
 
-        // Find the buttons for SCIENCE, HUMANITIES, and LANGUAGES
+        // Find buttons and initialize
         Button buttonScience = findViewById(R.id.activity_form1_science);
         Button buttonHumanities = findViewById(R.id.activity_form1_humanities);
         Button buttonLanguages = findViewById(R.id.activity_form1_languages);
         buttonBack = findViewById(R.id.back_button);
 
+
         // Set onClickListener for SCIENCE button
         buttonScience.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start Form1SciencesStudent when SCIENCE button is clicked
                 Intent intent = new Intent(Form1Student.this, Form1SciencesStudent.class);
                 startActivity(intent);
             }
@@ -57,17 +58,17 @@ public class Form1Student extends AppCompatActivity {
             }
         });
 
+        // Set onClickListener for back button
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Logic for when the back button is pressed
                 onBackPressed();
-
             }
-
         });
 
     }
+
+    // Method to start ChatAIActivity
 
     @Override
     protected void onStart() {
@@ -83,29 +84,22 @@ public class Form1Student extends AppCompatActivity {
             // Store student email to Firebase when user logs in
             saveStudentEmailToFirebase(studentEmail);
         }
-
     }
 
     // Method to save a single student's email to Firebase Realtime Database
     private void saveStudentEmailToFirebase(String studentEmail) {
-
         DatabaseReference studentEmailsRef = FirebaseDatabase.getInstance().getReference().child("student_form1_emails");
         studentEmailsRef.push().setValue(studentEmail);
-
     }
 
     // Helper method to show toast message
     private void showToast(String message) {
-
         Toast.makeText(Form1Student.this, message, Toast.LENGTH_SHORT).show();
-
     }
 
     @Override
     public void onBackPressed() {
-        // Handle the back button action
         super.onBackPressed();
-        // You can also add custom logic here if needed
+        // Handle custom back button logic if needed
     }
-
 }

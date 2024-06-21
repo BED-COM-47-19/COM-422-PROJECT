@@ -46,6 +46,16 @@
 
 
 
+ <activity
+            android:name=".Student.SelectClass.ChatActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
 
 
 
@@ -115,6 +125,57 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
+        <activity
+            android:name=".Student.Form1.Documents.Bible_Knowledge.Form1StudentViewContentBible_Knowledge"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".Student.Form1.Documents.Bible_Knowledge.Form1BibleKnowledgeReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".Student.Form1.Documents.Chemistry.Form1ChemistryReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+
+        <activity
+            android:name=".Student.Form1.Documents.English.Form1EnglishReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".Student.Form1.Documents.Geography.Form1GeographyReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+
+        <activity
+            android:name=".Student.Form1.Documents.History.Form1HistoryReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".Student.Form1.Documents.Life_Skills.Form1Life_SkillsReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".Student.Form1.Documents.Mathematics.Form1MathematicsReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".Student.Form1.Documents.Physics.Form1PhysicsReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".Student.Form1.Documents.Social_Studies.Form1Social_StudiesReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name="com.example.teachandlearn.Teacher.Form1.Categories.ProgressTrackingActivity"
+            android:theme="@style/Theme.AppCompat" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <!-- Sciences Subjects -->
 
@@ -175,9 +236,13 @@
 
         <!-- View Content Classes -->
 
-        <activity android:name=".Student.Form1.Documents.Agriculture.Form1StudentViewContentAgriculture"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
+        <activity
+            android:name=".Student.Form1.Documents.Agriculture.Form1StudentViewContentAgriculture"
+            android:theme="@style/Theme.AppCompat" />
+
+        <activity
+            android:name=".Student.Form1.Documents.Agriculture.Form1AgricultureReadNotesActivity"
+            android:theme="@style/Theme.AppCompat" />
 
         <activity android:name=".Student.Form2.Documents.Agriculture.Form2StudentViewContentAgriculture"
             android:theme="@style/Theme.AppCompat">
@@ -192,9 +257,6 @@
         </activity>
 
 
-        <activity android:name=".Student.Form1.Documents.Bible_Knowledge.Form1StudentViewContentBible_Knowledge"
-            android:theme="@style/Theme.AppCompat">
-        </activity>
 
         <activity android:name=".Student.Form2.Documents.Bible_Knowledge.Form2StudentViewContentBible_Knowledge"
             android:theme="@style/Theme.AppCompat">
@@ -212,9 +274,14 @@
             android:theme="@style/Theme.AppCompat">
         </activity>
 
+        <activity
+            android:name=".Student.Form1.Documents.Biology.Form1BiologyReadNotesActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
         <activity android:name=".Student.Form2.Documents.Biology.Form2StudentViewContentBiology"
             android:theme="@style/Theme.AppCompat">
         </activity>
+
 
         <activity android:name=".Student.Form3.Documents.Biology.Form3StudentViewContentBiology"
             android:theme="@style/Theme.AppCompat">

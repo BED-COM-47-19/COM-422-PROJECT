@@ -1,5 +1,5 @@
-
 package com.example.teachandlearn.Teacher.Form1.Categories;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -10,7 +10,9 @@ import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Teacher.Form1.Uploads.Bible_Knowledge.TeacherForm1Bible_KnowledgeUploads;
 import com.example.teachandlearn.Teacher.Form1.Uploads.Geography.TeacherForm1GeographyUploads;
@@ -18,10 +20,8 @@ import com.example.teachandlearn.Teacher.Form1.Uploads.History.TeacherForm1Histo
 import com.example.teachandlearn.Teacher.Form1.Uploads.Life_Skills.TeacherForm1Life_SkillsUploads;
 import com.example.teachandlearn.Teacher.Form1.Uploads.Social_Studies.TeacherForm1Social_StudiesUploads;
 
-
 public class TeacherForm1Humanities extends AppCompatActivity {
     private Button buttonBack;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,6 @@ public class TeacherForm1Humanities extends AppCompatActivity {
         Button buttonHistory = findViewById(R.id.buttonHistory);
         Button buttonBibleKnowledge = findViewById(R.id.buttonBibleKnowledge);
         Button buttonGeography = findViewById(R.id.buttonGeography);
-
 
         Button buttonSmallSocialStudies = findViewById(R.id.buttonSmallSocialStudies);
         Button buttonSmallLifeSkills = findViewById(R.id.buttonSmallLifeSkills);
@@ -57,7 +56,7 @@ public class TeacherForm1Humanities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToast("Social Studies Selected");
-                startActivityForContent();
+                startActivityForContent(TeacherForm1Social_StudiesUploads.class);
             }
         });
 
@@ -65,7 +64,7 @@ public class TeacherForm1Humanities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToast("Life Skills Selected");
-                startActivityForContent();
+                startActivityForContent(TeacherForm1Life_SkillsUploads.class);
             }
         });
 
@@ -73,7 +72,7 @@ public class TeacherForm1Humanities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToast("History Selected");
-                startActivityForContent();
+                startActivityForContent(TeacherForm1HistoryUploads.class);
             }
         });
 
@@ -81,7 +80,7 @@ public class TeacherForm1Humanities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToast("Bible Knowledge Selected");
-                startActivityForContent();
+                startActivityForContent(TeacherForm1Bible_KnowledgeUploads.class);
             }
         });
 
@@ -89,7 +88,7 @@ public class TeacherForm1Humanities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showToast("Geography Selected");
-                startActivityForContent();
+                startActivityForContent(TeacherForm1GeographyUploads.class);
             }
         });
 
@@ -118,33 +117,20 @@ public class TeacherForm1Humanities extends AppCompatActivity {
         popupWindow.update(anchor, 0, 100, -1, -1);  // Shift a bit downwards
     }
 
-
     // Helper method to show toast message
     private void showToast(String message) {
         Toast.makeText(TeacherForm1Humanities.this, message, Toast.LENGTH_SHORT).show();
     }
 
-    // Method to start Form1ViewContentActivity
-    private void startActivityForContent() {
-
-        Intent intent1 = new Intent(TeacherForm1Humanities.this, TeacherForm1GeographyUploads.class);
-        Intent intent2 = new Intent(TeacherForm1Humanities.this, TeacherForm1HistoryUploads.class);
-        Intent intent3 = new Intent(TeacherForm1Humanities.this, TeacherForm1Life_SkillsUploads.class);
-        Intent intent4 = new Intent(TeacherForm1Humanities.this, TeacherForm1Bible_KnowledgeUploads.class);
-        Intent intent5 = new Intent(TeacherForm1Humanities.this, TeacherForm1Social_StudiesUploads.class);
-
-        startActivity(intent1);
-        startActivity(intent2);
-        startActivity(intent3);
-        startActivity(intent4);
-        startActivity(intent5);
-
+    // Method to start respective Uploads activity based on selection
+    private void startActivityForContent(Class<?> activityClass) {
+        Intent intent = new Intent(TeacherForm1Humanities.this, activityClass);
+        startActivity(intent);
     }
 
     @Override
     public void onBackPressed() {
         // Handle the back button action
         super.onBackPressed();
-        // You can also add custom logic here if needed
     }
 }

@@ -1,4 +1,5 @@
 package com.example.teachandlearn.Student.Form1.Categories;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -32,6 +33,7 @@ public class Form1HumanitiesStudent extends AppCompatActivity {
         Button buttonBibleKnowledge = findViewById(R.id.buttonBibleKnowledge);
         Button buttonGeography = findViewById(R.id.buttonGeography);
 
+        // Find small info buttons
         Button buttonSmallSocialStudies = findViewById(R.id.buttonSmallSocialStudies);
         Button buttonSmallLifeSkills = findViewById(R.id.buttonSmallLifeSkills);
         Button buttonSmallHistory = findViewById(R.id.buttonSmallHistory);
@@ -39,87 +41,21 @@ public class Form1HumanitiesStudent extends AppCompatActivity {
         Button buttonSmallGeography = findViewById(R.id.buttonSmallGeography);
 
         buttonBack = findViewById(R.id.back_button);
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Logic for when the back button is pressed
-                onBackPressed();
-            }
-        });
+        buttonBack.setOnClickListener(view -> onBackPressed());
 
+        // Set click listeners for each button to open respective activities
+        buttonSocialStudies.setOnClickListener(v -> startActivityForContent(Form1StudentViewContentSocial_Studies.class));
+        buttonLifeSkills.setOnClickListener(v -> startActivityForContent(Form1StudentViewContentLife_Skills.class));
+        buttonHistory.setOnClickListener(v -> startActivityForContent(Form1StudentViewContentHistory.class));
+        buttonBibleKnowledge.setOnClickListener(v -> startActivityForContent(Form1StudentViewContentBible_Knowledge.class));
+        buttonGeography.setOnClickListener(v -> startActivityForContent(Form1StudentViewContentGeography.class));
 
-        // Set click listeners for each button
-        buttonSocialStudies.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showToast("Social Studies Selected");
-                startActivityForContent();
-            }
-        });
-
-        buttonLifeSkills.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showToast("Life Skills Selected");
-                startActivityForContent();
-            }
-        });
-
-        buttonHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showToast("History Selected");
-                startActivityForContent();
-            }
-        });
-
-        buttonBibleKnowledge.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showToast("Bible Knowledge Selected");
-                startActivityForContent();
-            }
-        });
-
-        buttonGeography.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showToast("Geography Selected");
-                startActivityForContent();
-            }
-        });
-
-        // Set click listeners for small info buttons
-        buttonSmallSocialStudies.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPopup(v, getString(R.string.info_social_studies));
-            }
-        });
-        buttonSmallLifeSkills.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPopup(v, getString(R.string.info_life_skills));
-            }
-        });
-        buttonSmallHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPopup(v, getString(R.string.info_history));
-            }
-        });
-        buttonSmallBibleKnowledge.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPopup(v, getString(R.string.info_bible_knowledge));
-            }
-        });
-        buttonSmallGeography.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPopup(v, getString(R.string.info_geography));
-            }
-        });
+        // Set click listeners for small info buttons to show popups instead of toasts
+        buttonSmallSocialStudies.setOnClickListener(v -> showPopup(v, getString(R.string.info_social_studies)));
+        buttonSmallLifeSkills.setOnClickListener(v -> showPopup(v, getString(R.string.info_life_skills)));
+        buttonSmallHistory.setOnClickListener(v -> showPopup(v, getString(R.string.info_history)));
+        buttonSmallBibleKnowledge.setOnClickListener(v -> showPopup(v, getString(R.string.info_bible_knowledge)));
+        buttonSmallGeography.setOnClickListener(v -> showPopup(v, getString(R.string.info_geography)));
     }
 
     private void showPopup(View anchor, String text) {
@@ -145,23 +81,11 @@ public class Form1HumanitiesStudent extends AppCompatActivity {
         Toast.makeText(Form1HumanitiesStudent.this, message, Toast.LENGTH_SHORT).show();
     }
 
-    // Method to start Form1ViewContentActivity
-    private void startActivityForContent() {
-        Intent intent1 = new Intent(Form1HumanitiesStudent.this, Form1StudentViewContentSocial_Studies.class);
-        Intent intent2 = new Intent(Form1HumanitiesStudent.this, Form1StudentViewContentBible_Knowledge.class);
-        Intent intent3 = new Intent(Form1HumanitiesStudent.this, Form1StudentViewContentLife_Skills.class);
-        Intent intent4 = new Intent(Form1HumanitiesStudent.this, Form1StudentViewContentGeography.class);
-        Intent intent5 = new Intent(Form1HumanitiesStudent.this, Form1StudentViewContentHistory.class);
-
-
-        startActivity(intent1);
-        startActivity(intent2);
-        startActivity(intent3);
-        startActivity(intent4);
-        startActivity(intent5);
+    // Method to start Form1ViewContentActivity based on selected subject
+    private void startActivityForContent(Class<?> cls) {
+        Intent intent = new Intent(Form1HumanitiesStudent.this, cls);
+        startActivity(intent);
     }
-
-
 
     @Override
     public void onBackPressed() {
@@ -169,5 +93,4 @@ public class Form1HumanitiesStudent extends AppCompatActivity {
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
-
 }

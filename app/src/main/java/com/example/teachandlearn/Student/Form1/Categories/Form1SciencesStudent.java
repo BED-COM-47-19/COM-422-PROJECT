@@ -1,6 +1,5 @@
-
-
 package com.example.teachandlearn.Student.Form1.Categories;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -22,6 +21,7 @@ import com.example.teachandlearn.Student.Form1.Documents.Physics.Form1StudentVie
 public class Form1SciencesStudent extends AppCompatActivity {
 
     private Button buttonBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,31 +50,30 @@ public class Form1SciencesStudent extends AppCompatActivity {
             }
         });
 
-
-        // Set click listeners for each button
+        // Set click listeners for each button to open respective activities
         buttonMathematics.setOnClickListener(v -> {
             showToast("Mathematics Selected");
-            startActivityForContent();
+            startActivity(new Intent(Form1SciencesStudent.this, Form1StudentViewContentMathematics.class));
         });
 
         buttonBiology.setOnClickListener(v -> {
             showToast("Biology Selected");
-            startActivityForContent();
+            startActivity(new Intent(Form1SciencesStudent.this, Form1StudentViewContentBiology.class));
         });
 
         buttonChemistry.setOnClickListener(v -> {
             showToast("Chemistry Selected");
-            startActivityForContent();
+            startActivity(new Intent(Form1SciencesStudent.this, Form1StudentViewContentChemistry.class));
         });
 
         buttonPhysics.setOnClickListener(v -> {
             showToast("Physics Selected");
-            startActivityForContent();
+            startActivity(new Intent(Form1SciencesStudent.this, Form1StudentViewContentPhysics.class));
         });
 
         buttonAgriculture.setOnClickListener(v -> {
             showToast("Agriculture Selected");
-            startActivityForContent();
+            startActivity(new Intent(Form1SciencesStudent.this, Form1StudentViewContentAgriculture.class));
         });
 
         // Set click listeners for small info buttons to show popups instead of toasts
@@ -83,7 +82,6 @@ public class Form1SciencesStudent extends AppCompatActivity {
         buttonSmallPhysics.setOnClickListener(v -> showPopup(v, getString(R.string.info_physics)));
         buttonSmallChemistry.setOnClickListener(v -> showPopup(v, getString(R.string.info_chemistry)));
         buttonSmallAgriculture.setOnClickListener(v -> showPopup(v, getString(R.string.info_agriculture)));
-
     }
 
     private void showPopup(View anchor, String text) {
@@ -109,32 +107,10 @@ public class Form1SciencesStudent extends AppCompatActivity {
         Toast.makeText(Form1SciencesStudent.this, message, Toast.LENGTH_SHORT).show();
     }
 
-    // Method to start Form1ViewContentActivity
-    private void startActivityForContent() {
-
-        Intent intent1 = new Intent(Form1SciencesStudent.this, Form1StudentViewContentAgriculture.class);
-        Intent intent2 = new Intent(Form1SciencesStudent.this, Form1StudentViewContentBiology.class);
-        Intent intent3 = new Intent(Form1SciencesStudent.this, Form1StudentViewContentChemistry.class);
-        Intent intent4 = new Intent(Form1SciencesStudent.this, Form1StudentViewContentMathematics.class);
-        Intent intent5 = new Intent(Form1SciencesStudent.this, Form1StudentViewContentPhysics.class);
-
-        startActivity(intent1);
-        startActivity(intent2);
-        startActivity(intent3);
-        startActivity(intent4);
-        startActivity(intent5);
-    }
-
-
-
-
-
     @Override
     public void onBackPressed() {
         // Handle the back button action
         super.onBackPressed();
         // You can also add custom logic here if needed
     }
-
-
 }

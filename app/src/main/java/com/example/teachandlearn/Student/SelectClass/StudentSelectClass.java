@@ -1,23 +1,20 @@
-
 package com.example.teachandlearn.Student.SelectClass;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
 import com.example.teachandlearn.MainClass.UserTypeSelection;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.Form1.Categories.Form1Student;
 import com.example.teachandlearn.Student.Form2.Categories.Form2Student;
 import com.example.teachandlearn.Student.Form3.Categories.Form3Student;
 import com.example.teachandlearn.Student.Form4.Categories.Form4Student;
-import androidx.appcompat.app.AppCompatActivity;
-
 
 public class StudentSelectClass extends AppCompatActivity {
 
     private Button buttonBack;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +22,21 @@ public class StudentSelectClass extends AppCompatActivity {
         setContentView(R.layout.activity_student_select_class);
 
         // Initialize buttons
-
         Button buttonForm1 = findViewById(R.id.button_form1);
         Button buttonForm2 = findViewById(R.id.button_form2);
         Button buttonForm3 = findViewById(R.id.button_form3);
         Button buttonForm4 = findViewById(R.id.button_form4);
+        Button chatButton = findViewById(R.id.chat_button);
         Button logOutButton = findViewById(R.id.log_out_button);  // Initialize the log out button
         buttonBack = findViewById(R.id.back_button);
+
+        // Set click listener for chatButton
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StudentSelectClass.this, ChatActivity.class));
+            }
+        });
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +45,6 @@ public class StudentSelectClass extends AppCompatActivity {
                 onBackPressed();
             }
         });
-         // Initialize the menu button
 
         // Set click listeners for each button
         buttonForm1.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +82,6 @@ public class StudentSelectClass extends AppCompatActivity {
             }
         });
 
-
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,8 +89,6 @@ public class StudentSelectClass extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-
     }
 
     private void logoutUser() {

@@ -55,7 +55,7 @@ public class Form1PDFPhysics extends AppCompatActivity {
 
     private void fetchPDFsFromFirebase() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("/form1/sciences/phyics/pdfs/");
+        StorageReference storageRef = storage.getReference().child("/form1/sciences/physics/pdfs/");
 
         storageRef.listAll().addOnSuccessListener(listResult -> {
             List<PDFDocument> pdfs = new ArrayList<>();
