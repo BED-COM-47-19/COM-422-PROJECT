@@ -1,15 +1,14 @@
+# General
 *.iml
-.gradle
+.gradle/
 /local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+/.idea/
+/.DS_Store
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+
+# Configuration files containing secrets
+app/src/main/res/values/api_keys.xml   # Example file name for XML containing keys
+app/src/main/assets/api_keys.properties   # Example file name for properties file containing keys

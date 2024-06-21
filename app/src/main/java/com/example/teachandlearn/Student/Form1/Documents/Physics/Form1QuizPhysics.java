@@ -1,7 +1,10 @@
 
 
 package com.example.teachandlearn.Student.Form1.Documents.Physics;
-
+import android.graphics.Color;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -13,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teachandlearn.R;
+import com.example.teachandlearn.Student.Form1.Documents.Mathematics.Form1QuestionsMathematics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -193,8 +197,80 @@ public class Form1QuizPhysics extends AppCompatActivity {
     }
 
     private void finishQuiz() {
-        Toast.makeText(this, "Quiz finished! Correct answers: " + correctAnswers, Toast.LENGTH_LONG).show();
-        // Redirect to another activity or close the current one
-        finish();
+        // Hide question and options
+        questionTextView.setVisibility(View.GONE);
+        optionsGroup.setVisibility(View.GONE);
+        nextButton.setVisibility(View.GONE);
+        backButton.setVisibility(View.GONE);
+
+
+
+        // Create a ScrollView
+        ScrollView scrollView = new ScrollView(this);
+        LinearLayout.LayoutParams scrollViewParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+        scrollView.setLayoutParams(scrollViewParams);
+
+        // Create a LinearLayout to hold all content (including grade, questions, and options)
+        LinearLayout contentLayout = new LinearLayout(this);
+        contentLayout.setOrientation(LinearLayout.VERTICAL);
+        contentLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        ));
+
+        // Display grade
+        double grade = (double) correctAnswers / questions.size() * 100;
+        TextView gradeTextView = new TextView(this);
+        gradeTextView.setText("Grade: " + String.format("%.2f", grade) + "%");
+        gradeTextView.setTextColor(Color.BLACK);
+        gradeTextView.setTextSize(18);
+        contentLayout.addView(gradeTextView);
+
+        // Display solutions
+        for (int i = 0; i < questions.size(); i++) {
+            Form1QuestionsPhysics question = questions.get(i);
+
+            TextView questionTextView = new TextView(this);
+            questionTextView.setText("Question " + (i + 1) + ": " + question.getQuestionText());
+            questionTextView.setTextSize(16);
+            questionTextView.setTextColor(Color.BLACK);
+            contentLayout.addView(questionTextView);
+
+            String[] options = {question.getOptionA(), question.getOptionB(), question.getOptionC(), question.getOptionD()};
+            for (String option : options) {
+                TextView optionTextView = new TextView(this);
+                optionTextView.setText(option);
+                optionTextView.setTextSize(16);
+
+                if (option.equals(question.getCorrectAnswer())) {
+                    optionTextView.setTextColor(Color.BLUE); // Correct answer in blue
+                } else if (option.equals(question.getUserAnswer())) {
+                    optionTextView.setTextColor(Color.RED); // User's answer in red
+                } else {
+                    optionTextView.setTextColor(Color.BLACK); // Default color for other options
+                }
+
+                contentLayout.addView(optionTextView);
+            }
+
+            // Add some space between questions
+            TextView spaceTextView = new TextView(this);
+            spaceTextView.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    16 // Adjust spacing as needed
+            ));
+            contentLayout.addView(spaceTextView);
+        }
+
+        // Add the contentLayout to the scrollView
+        scrollView.addView(contentLayout);
+
+        // Add the scrollView to the rootLayout
+        LinearLayout rootLayout = findViewById(R.id.rootLayout);
+        rootLayout.addView(scrollView);
     }
+
 }

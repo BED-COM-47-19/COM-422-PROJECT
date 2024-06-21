@@ -154,7 +154,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
-            android:layout_marginLeft="250dp"
+            android:layout_marginLeft="200dp"
             android:background="@drawable/back_button_rounderd"
             android:text="Chat"
             android:textColor="@color/white" />

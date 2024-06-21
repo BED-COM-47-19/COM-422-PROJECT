@@ -4,16 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.teachandlearn.MainClass.UserTypeSelection;
 import com.example.teachandlearn.R;
 import com.example.teachandlearn.Student.Form1.Categories.Form1Student;
 import com.example.teachandlearn.Student.Form2.Categories.Form2Student;
 import com.example.teachandlearn.Student.Form3.Categories.Form3Student;
 import com.example.teachandlearn.Student.Form4.Categories.Form4Student;
-import com.example.teachandlearn.Student.Form1.Categories.ChatAIActivity;
 
 public class StudentSelectClass extends AppCompatActivity {
 
@@ -29,8 +26,25 @@ public class StudentSelectClass extends AppCompatActivity {
         Button buttonForm2 = findViewById(R.id.button_form2);
         Button buttonForm3 = findViewById(R.id.button_form3);
         Button buttonForm4 = findViewById(R.id.button_form4);
-        Button logOutButton = findViewById(R.id.log_out_button);
+        Button chatButton = findViewById(R.id.chat_button);
+        Button logOutButton = findViewById(R.id.log_out_button);  // Initialize the log out button
         buttonBack = findViewById(R.id.back_button);
+
+        // Set click listener for chatButton
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StudentSelectClass.this, ChatActivity.class));
+            }
+        });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Logic for when the back button is pressed
+                onBackPressed();
+            }
+        });
 
         // Set click listeners for each button
         buttonForm1.setOnClickListener(new View.OnClickListener() {
@@ -71,26 +85,25 @@ public class StudentSelectClass extends AppCompatActivity {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Logic for when the back button is pressed
                 onBackPressed();
             }
         });
     }
 
     private void logoutUser() {
+        // Here you might handle clearing any cached user data or logged-in session
+        // Redirect user to UserTypeSelection activity
         Intent intent = new Intent(StudentSelectClass.this, UserTypeSelection.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Clears the activity stack
         startActivity(intent);
-        finish();
-    }
-
-    // Method to handle "Chat with AI" button click
-    public void openChatAI(View view) {
-        Intent intent = new Intent(StudentSelectClass.this, ChatAIActivity.class);
-        startActivity(intent);
+        finish(); // Close the current activity
     }
 
     @Override
     public void onBackPressed() {
+        // Handle the back button action
         super.onBackPressed();
+        // You can also add custom logic here if needed
     }
 }

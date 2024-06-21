@@ -55,33 +55,21 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
-    dependencies {
-        // Import the BoM for the Firebase platform
-        implementation(platform(libs.firebase.bom))
-
-        // Add the dependency for the Cloud Storage library
-        // When using the BoM, you don't specify versions in Firebase library dependencies
-        implementation(libs.google.firebase.storage)
-        implementation (libs.gemini.sdk)
-    }
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.constraintlayout)
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
-    implementation (libs.play.services.mlkit.text.recognition)
-    implementation(libs.generativeai)
-    implementation (libs.gemini)
-
-    // Required for one-shot operations (to use `ListenableFuture` from Guava Android)
-    implementation(libs.guava)
-
-    // Required for streaming operations (to use `Publisher` from Reactive Streams)
-    implementation(libs.reactive.streams)
-    implementation (libs.generativeai.sdk)
-
-
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.appcompat)
@@ -102,8 +90,6 @@ dependencies {
     implementation(libs.junit)
     implementation(libs.ext.junit)
     implementation(libs.espresso.core)
-    implementation(libs.vision.common)
-    implementation(libs.play.services.mlkit.text.recognition.common)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -113,6 +99,47 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
 
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.google.firebase.storage)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.storage)
+    implementation(libs.play.services.auth)
+    implementation(libs.google.firebase.database)
+    implementation(libs.firebase.firestore)
+
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.activity.compose)
+
+    implementation(libs.play.services.mlkit.text.recognition)
+    implementation(libs.play.services.mlkit.text.recognition.common)
+
+    implementation(libs.generativeai)
 
 
+   
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.okhttp)
+    implementation(libs.gson)
+    implementation(libs.logging.interceptor)
+    implementation(libs.volley)
+
+    implementation(libs.material)
+
+    implementation(libs.junit)
+    implementation(libs.ext.junit)
+    implementation(libs.espresso.core)
+    implementation(libs.vision.common)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
 }
+
+
+

@@ -79,20 +79,6 @@
 
     </FrameLayout>
 
-    <!-- Chat with Ai Button -->
-    <Button
-        android:id="@+id/chat_with_ai_button"
-        android:layout_width="263dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/chat_with_ai_background"
-        android:text="CHAT WITH AI"
-        android:textColor="@color/white"
-        android:textSize="30dp"
-        android:textStyle="bold" />
-
     <!-- Back Button -->
     <Button
         android:id="@+id/back_button"

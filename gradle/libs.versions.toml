@@ -4,7 +4,6 @@ firebaseBom = "33.1.0"
 gemini = "1.0.0"
 geminiSdk = "1.0.0"
 generativeai = "0.8.0"
-generativeaiSdk = "1.0.0"
 guava = "32.0.1-android"
 kotlin = "1.9.0"
 coreKtx = "1.12.0"
@@ -47,7 +46,6 @@ firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "fir
 gemini = { module = "com.openai.gemini:gemini", version.ref = "gemini" }
 gemini-sdk = { module = "com.openai:gemini-sdk", version.ref = "geminiSdk" }
 generativeai = { module = "com.google.ai.client.generativeai:generativeai", version.ref = "generativeai" }
-generativeai-sdk = { module = "com.example:generativeai-sdk", version.ref = "generativeaiSdk" }
 google-firebase-storage = { module = "com.google.firebase:firebase-storage" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

@@ -46,6 +46,16 @@
 
 
 
+ <activity
+            android:name=".Student.SelectClass.ChatActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
 
 
 
@@ -150,13 +160,6 @@
         <activity
             android:name="com.example.teachandlearn.Teacher.Form1.Categories.ProgressTrackingActivity"
             android:theme="@style/Theme.AppCompat" />
-        <activity
-            android:name="com.example.teachandlearn.Student.Form1.Categories.ChatAIActivity"
-            android:theme="@style/Theme.AppCompat" />
-        <activity
-            android:name=".Student.Form1.Categories.GeminiGenerativeModel"
-            android:theme="@style/Theme.AppCompat" />
-
 
 
 

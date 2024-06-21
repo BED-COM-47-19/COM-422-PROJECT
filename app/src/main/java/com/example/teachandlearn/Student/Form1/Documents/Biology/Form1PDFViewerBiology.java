@@ -4,6 +4,7 @@ package com.example.teachandlearn.Student.Form1.Documents.Biology;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +18,9 @@ public class Form1PDFViewerBiology extends AppCompatActivity {
         setContentView(R.layout.activity_form1_pdf_item); // Ensure this layout has appropriate content
 
         String filePath = getIntent().getStringExtra("filePath");
+        Log.d("PDFViewer", "File path: " + filePath); // Log the file path for debugging
         Uri pdfUri = Uri.parse(filePath);
+        Log.d("PDFViewer", "PDF Uri: " + pdfUri.toString()); // Log the PDF URI for debugging
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setDataAndType(pdfUri, "application/pdf");

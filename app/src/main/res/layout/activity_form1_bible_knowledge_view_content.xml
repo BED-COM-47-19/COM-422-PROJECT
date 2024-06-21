@@ -78,7 +78,7 @@
             <Button
                 android:id="@+id/button_audio"
                 android:layout_width="match_parent"
-                android:layout_height="134dp"
+                android:layout_height="148dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="100dp"
                 android:background="@drawable/rounded_button_background"
@@ -110,7 +110,7 @@
             <Button
                 android:id="@+id/button_videos"
                 android:layout_width="match_parent"
-                android:layout_height="134dp"
+                android:layout_height="149dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="100dp"
                 android:background="@drawable/rounded_button_background"
@@ -126,7 +126,7 @@
 
         <FrameLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_weight="0.5">
 
@@ -142,7 +142,6 @@
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
-
 
 
         </FrameLayout>
